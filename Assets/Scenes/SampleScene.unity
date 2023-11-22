@@ -197,7 +197,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 26422849}
-  m_LocalRotation: {x: -0.025862077, y: -1.20984255e-17, z: 8.0999e-18, w: 0.99966556}
+  m_LocalRotation: {x: -0.02586207, y: -0.0000000071817454, z: 0.0000000019833568, w: 0.99966556}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -731,6 +731,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Katana01
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 1d407a6008b748b4f9fec2ed72ffde73, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 1d407a6008b748b4f9fec2ed72ffde73, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -904,6 +908,11 @@ MonoBehaviour:
     <Priority>k__BackingField: 0
     _keyCode: 32
     _attackEventListener: {fileID: 1976504025}
+  _inputMouseDownAndAttackEndTransition:
+    <NextState>k__BackingField: {fileID: 0}
+    <Priority>k__BackingField: 0
+    _mouseKey: 0
+    _attackEventListener: {fileID: 0}
   attackAnimationEndTransition:
     <NextState>k__BackingField: {fileID: 813084089}
     <Priority>k__BackingField: 0
@@ -928,16 +937,15 @@ MonoBehaviour:
   - {fileID: 67237665}
   checkingTransitionDelay: 0.01
   attackEventListener: {fileID: 1976504025}
-  _spawnPoint: {fileID: 1694591765}
   _moveSets:
-  - <SpawnedEffect>k__BackingField: {fileID: 4327931397764037680, guid: f0fab94266d2c624584097f14076b36b, type: 3}
-    <AnimationClip>k__BackingField: {fileID: 7400000, guid: e3e4b9f4af1dcba47ac1e41311b3a0d2, type: 3}
+  - <AnimationClip>k__BackingField: {fileID: 7400000, guid: e3e4b9f4af1dcba47ac1e41311b3a0d2, type: 3}
   _animator: {fileID: 1976504027}
   _orientation: {fileID: 963194228}
   _whoWasRotate: {fileID: 1976504024}
   _rotationSpeed: 0.2
   _xWeaponTrailDemo: {fileID: 1100128300}
   _weapon: {fileID: 1735681893}
+  _mouseButton: 0
 --- !u!1 &635623287 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 100160, guid: 5ae02fce3fd08f140888c4d8f1f2cfc3, type: 3}
@@ -1777,7 +1785,7 @@ MonoBehaviour:
   Granularity: 60
   Fps: 60
   MyColor: {r: 1, g: 1, b: 1, a: 1}
-  MyMaterial: {fileID: 2100000, guid: 70399359ad3ee584583d6a240fa3621c, type: 2}
+  MyMaterial: {fileID: 2100000, guid: 75f756109f216ad409ff1a5ea7dd7b2c, type: 2}
 --- !u!4 &1100128301
 Transform:
   m_ObjectHideFlags: 0
@@ -2368,6 +2376,11 @@ MonoBehaviour:
     <Priority>k__BackingField: 0
     _keyCode: 32
     _attackEventListener: {fileID: 1976504025}
+  _inputMouseDownAndAttackEndTransition:
+    <NextState>k__BackingField: {fileID: 0}
+    <Priority>k__BackingField: 0
+    _mouseKey: 1
+    _attackEventListener: {fileID: 1976504025}
   attackAnimationEndTransition:
     <NextState>k__BackingField: {fileID: 813084089}
     <Priority>k__BackingField: 0
@@ -2392,24 +2405,18 @@ MonoBehaviour:
   - {fileID: 67237665}
   checkingTransitionDelay: 0.01
   attackEventListener: {fileID: 1976504025}
-  _spawnPoint: {fileID: 1694591765}
   _moveSets:
-  - <SpawnedEffect>k__BackingField: {fileID: 4327931397764037680, guid: f0fab94266d2c624584097f14076b36b, type: 3}
-    <AnimationClip>k__BackingField: {fileID: 7400000, guid: e3e4b9f4af1dcba47ac1e41311b3a0d2, type: 3}
-  - <SpawnedEffect>k__BackingField: {fileID: 4327931397764037680, guid: f0fab94266d2c624584097f14076b36b, type: 3}
-    <AnimationClip>k__BackingField: {fileID: 7400000, guid: 95f9a86ead00310439aac009bf026130, type: 2}
-  - <SpawnedEffect>k__BackingField: {fileID: 4327931397764037680, guid: f0fab94266d2c624584097f14076b36b, type: 3}
-    <AnimationClip>k__BackingField: {fileID: 7400000, guid: 6f64d966f7566ca448d6a66a0c5868aa, type: 2}
-  - <SpawnedEffect>k__BackingField: {fileID: 4327931397764037680, guid: f0fab94266d2c624584097f14076b36b, type: 3}
-    <AnimationClip>k__BackingField: {fileID: 7400000, guid: c0480b651a7cb4a488f314c83deae349, type: 3}
-  - <SpawnedEffect>k__BackingField: {fileID: 4327931397764037680, guid: f0fab94266d2c624584097f14076b36b, type: 3}
-    <AnimationClip>k__BackingField: {fileID: 7400000, guid: d2a5135c3d3b5dc4ab7691b390c5b332, type: 3}
+  - <AnimationClip>k__BackingField: {fileID: 7400000, guid: 8e5e7a257c81eca4d8fc764f135d7564, type: 3}
+  - <AnimationClip>k__BackingField: {fileID: 7400000, guid: 18acd5aa23ba1ec45b97b336327cbf2d, type: 3}
+  - <AnimationClip>k__BackingField: {fileID: 7400000, guid: ae5a436adc63c58479a0136bc7369658, type: 3}
+  - <AnimationClip>k__BackingField: {fileID: 7400000, guid: 95f9a86ead00310439aac009bf026130, type: 2}
   _animator: {fileID: 1976504027}
   _orientation: {fileID: 963194228}
   _whoWasRotate: {fileID: 1976504024}
   _rotationSpeed: 0.2
   _xWeaponTrailDemo: {fileID: 1100128300}
   _weapon: {fileID: 1735681893}
+  _mouseButton: 0
 --- !u!1 &1548199430
 GameObject:
   m_ObjectHideFlags: 0

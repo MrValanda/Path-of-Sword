@@ -6,7 +6,6 @@ using UnityEngine.Serialization;
 public class SpawnEffectScript : MonoBehaviour
 {
     [FormerlySerializedAs("_startAttackEventListener")] [SerializeField] private AttackEventListener attackEventListener;
-    [SerializeField] private Transform _spawnPoint;
     [SerializeField] private List<MoveSet> _moveSets;
     [SerializeField] private Animator _animator;
     [SerializeField] private PlayerMovement _playerMovement;
@@ -55,6 +54,5 @@ public class SpawnEffectScript : MonoBehaviour
 [Serializable]
 public class MoveSet
 {
-    [field: SerializeField] public ParticleSystem SpawnedEffect { get; private set; }
     [field: SerializeField] public AnimationClip AnimationClip { get; private set; }
 }

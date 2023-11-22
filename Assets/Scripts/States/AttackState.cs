@@ -9,7 +9,6 @@ namespace States
     public class AttackState : State
     {
         [SerializeField] private AttackEventListener attackEventListener;
-        [SerializeField] private Transform _spawnPoint;
         [SerializeField] private List<MoveSet> _moveSets;
         [SerializeField] private AnimationHandler _animator;
         [SerializeField] private Transform _orientation;
@@ -17,6 +16,7 @@ namespace States
         [SerializeField] private float _rotationSpeed;
         [SerializeField] private XWeaponTrail _xWeaponTrailDemo;
         [SerializeField] private Weapon _weapon;
+        [SerializeField] private int _mouseButton;
 
         private int _currentAttackIndex;
         private int _currentAttackAnimationIndex;
@@ -46,7 +46,7 @@ namespace States
 
         protected override void OnUpdate()
         {
-            if (_isAttacking == false && Input.GetMouseButtonDown(0))
+            if (_isAttacking == false && Input.GetMouseButtonDown(_mouseButton))
             {
                 Attack();
             }
@@ -81,11 +81,7 @@ namespace States
         {
             _weapon.Enable();
             Debug.LogError("Start");
-
-            if (_moveSets[_currentAttackIndex].SpawnedEffect != null)
-            {
-                // Instantiate(_moveSets[_currentAttackIndex].SpawnedEffect, _spawnPoint).transform.parent = null;
-            }
+            
         }
 
         private void OnAttackEnded()

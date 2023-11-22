@@ -8,6 +8,7 @@ namespace TransitionsContainer
     public class PlayerAttackStateTransitionContainer : TransitionContainer
     {
         [SerializeField] private InputKeyDownAndAttackEndTransition _inputKeyDownAndAttackEndTransition;
+        [SerializeField] private InputMouseDownAndAttackEndTransition _inputMouseDownAndAttackEndTransition;
         [SerializeField] private AttackAnimationEndTransition attackAnimationEndTransition;
 
         public override List<Transition> GetTransitions()
@@ -15,7 +16,8 @@ namespace TransitionsContainer
             Transitions ??= new List<Transition>()
             {
                 _inputKeyDownAndAttackEndTransition,
-                attackAnimationEndTransition
+                attackAnimationEndTransition,
+                _inputMouseDownAndAttackEndTransition
             };
             return Transitions;
         }
