@@ -1,0 +1,42 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3654602b60534f71b2630437fb5a8e53, type: 3}
+  m_Name: EnemyTest
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes: []
+  <EnemyTaskType>k__BackingField: 1
+  <DefaultHealth>k__BackingField: 1000
+  <HealthMultiplier>k__BackingField: 1
+  <DamageMultiplier>k__BackingField: 1
+  <DefaultMoveSpeed>k__BackingField: 0
+  <DefaultAcceleration>k__BackingField: 0
+  <AttackRadius>k__BackingField: 0
+  <DetectRadius>k__BackingField: 0
+  <ViewAngle>k__BackingField: 360
+  <ForcePush>k__BackingField: 4
+  <SlowMotionTime>k__BackingField: 0
+  <MaxChaseDistance>k__BackingField: 100
+  <AttakedUnits>k__BackingField: {fileID: 11400000, guid: 99f3625ff4f57c342b1022d78f5580ff, type: 2}
+  <MoveSetSetup>k__BackingField: {fileID: 11400000, guid: a3595d4ae2e2623418d415764abce8cd, type: 2}
+  <EnemyWeaponLeftHand>k__BackingField: {fileID: 227741087545212684, guid: 208c9e7521ce30449b21aa507960770d, type: 3}
+  <EnemyWeaponRightHand>k__BackingField: {fileID: 227741087545212684, guid: 208c9e7521ce30449b21aa507960770d, type: 3}
+  <AbilityContainerSetup>k__BackingField: {fileID: 0}
+  <DropListSetup>k__BackingField: {fileID: 0}
+  <WhenTakeDamageDropListSetup>k__BackingField: {fileID: 0}

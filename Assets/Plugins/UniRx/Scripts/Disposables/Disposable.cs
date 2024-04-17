@@ -31,7 +31,7 @@ namespace UniRx
             }
         }
 
-        class AnonymousDisposable : IDisposable
+        public class AnonymousDisposable : IDisposable
         {
             bool isDisposed = false;
             readonly Action dispose;

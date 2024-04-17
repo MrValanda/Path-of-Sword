@@ -10,6 +10,8 @@ namespace UniRx
 
     public sealed class SingleAssignmentDisposable : IDisposable, ICancelable
     {
+        public event Action Disposed;
+
         readonly object gate = new object();
         IDisposable current;
         bool disposed;
@@ -63,6 +65,9 @@ namespace UniRx
             }
 
             if (old != null) old.Dispose();
+            
+            Disposed?.Invoke();
+            Disposed = null;
         }
     }
 }

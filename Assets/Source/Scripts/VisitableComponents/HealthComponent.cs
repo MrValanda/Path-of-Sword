@@ -1,0 +1,57 @@
+using System;
+using Interfaces;
+using Source.Scripts.Interfaces;
+using UnityEngine;
+
+namespace Source.Scripts.VisitableComponents
+{
+    public class HealthComponent : OptimizedMonoBehavior, IVisitable, IDamageable, IDying
+    {
+        public event Action<IDying> Dead;
+        [SerializeField, Min(0)] private float _maxHeatlh;
+
+        public event Action<double> ReceivedDamage;
+
+        private double _currentHealth;
+        public bool IsDead => _currentHealth == 0;
+
+        private void Start()
+        {
+            _currentHealth = _maxHeatlh;
+        }
+
+        public void SetMaxHealth(float maxHealth)
+        {
+            _maxHeatlh = maxHealth;
+        }
+
+        public void Accept(IVisitor visitor)
+        {
+            visitor.Visit(this);
+        }
+
+        public void ApplyDamage(double damage)
+        {
+            if (damage < 0)
+            {
+                throw new ArgumentException("Damage less than zero");
+            }
+
+            _currentHealth = Math.Clamp(_currentHealth - damage, 0, _maxHeatlh);
+            ReceivedDamage?.Invoke(damage);
+            OnApplyDamage(damage);
+            if (_currentHealth == 0)
+            {
+                Dead?.Invoke(this);
+            }
+        }
+
+        protected virtual void OnDead()
+        {
+        }
+
+        protected virtual void OnApplyDamage(double damage)
+        {
+        }
+    }
+}
