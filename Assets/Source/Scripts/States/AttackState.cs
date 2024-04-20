@@ -10,7 +10,6 @@ namespace States
     public class AttackState : State
     {
         [SerializeField] private AttackEventListener attackEventListener;
-        [SerializeField] private Transform _spawnPoint;
         [SerializeField] private List<MoveSet> _moveSets;
         [SerializeField] private AnimationHandler _animator;
         [SerializeField] private Transform _orientation;
@@ -82,11 +81,6 @@ namespace States
         {
             _weapon.Enable();
             Debug.LogError("Start");
-
-            if (_moveSets[_currentAttackIndex].SpawnedEffect != null)
-            {
-                // Instantiate(_moveSets[_currentAttackIndex].SpawnedEffect, _spawnPoint).transform.parent = null;
-            }
         }
 
         private void OnAttackEnded()

@@ -55,6 +55,5 @@ public class SpawnEffectScript : MonoBehaviour
 [Serializable]
 public class MoveSet
 {
-    [field: SerializeField] public ParticleSystem SpawnedEffect { get; private set; }
     [field: SerializeField] public AnimationClip AnimationClip { get; private set; }
 }
