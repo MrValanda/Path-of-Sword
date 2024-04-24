@@ -1,14 +1,17 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using DG.Tweening;
+using Source.Scripts.EntityLogic;
 using Source.Scripts.Tools;
-using Tools;
+using States;
 using UnityEngine;
 using XftWeapon;
 
-namespace States
+namespace Source.Scripts.States
 {
     public class AttackState : State
     {
+        [SerializeField] private Entity _entity;
         [SerializeField] private AttackEventListener attackEventListener;
         [SerializeField] private List<MoveSet> _moveSets;
         [SerializeField] private AnimationHandler _animator;
@@ -34,11 +37,12 @@ namespace States
 
         protected override void OnExit()
         {
+            _entity.Get<ApplyRootMotionHandler>().SetAnimationRootMotionMultiplier(1);
             attackEventListener.AttackStarted -= OnAttackStarted;
             attackEventListener.AttackEnded -= OnAttackEnded;
             attackEventListener.AttackReset -= OnAttackReset;
             _weapon.Disable();
-            // _xWeaponTrailDemo.Deactivate();
+            _xWeaponTrailDemo.Deactivate();
             _currentAttackIndex = 0;
             _isAttacking = false;
         }
@@ -68,6 +72,9 @@ namespace States
                     ? Quaternion.LookRotation(moveDirection)
                     : Quaternion.LookRotation(oritentationForward), _rotationSpeed);
 
+            _entity.Get<ApplyRootMotionHandler>()
+                .SetAnimationRootMotionMultiplier(_moveSets[_currentAttackIndex].RootMultiplierBeforeEndAttack);
+
             _animator.OverrideAnimation(_attacksAnimators[_currentAttackAnimationIndex],
                 _moveSets[_currentAttackIndex].AnimationClip);
 
@@ -86,6 +93,10 @@ namespace States
         private void OnAttackEnded()
         {
             _isAttacking = false;
+
+            _entity.Get<ApplyRootMotionHandler>()
+                .SetAnimationRootMotionMultiplier(_moveSets[_currentAttackIndex].RootMultiplierAfterEndAttack);
+            
             _weapon.Disable();
             Debug.LogError("End");
             _currentAttackIndex++;
@@ -99,5 +110,13 @@ namespace States
             _weapon.Disable();
             _currentAttackIndex = 0;
         }
+    }
+
+    [Serializable]
+    public class MoveSet
+    {
+        [field: SerializeField] public AnimationClip AnimationClip { get; private set; }
+        [field: SerializeField] public float RootMultiplierBeforeEndAttack { get; private set; }
+        [field: SerializeField] public float RootMultiplierAfterEndAttack { get; private set; }
     }
 }
