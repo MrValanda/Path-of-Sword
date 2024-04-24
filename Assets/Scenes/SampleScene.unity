@@ -571,14 +571,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 248775871}
-  m_LocalRotation: {x: -0.70710576, y: -0, z: -0, w: 0.70710784}
-  m_LocalPosition: {x: -0.16, y: 2.0484, z: -0.1505687}
-  m_LocalScale: {x: 0.071921, y: 0.071921, z: 0.071921}
+  m_LocalRotation: {x: -0.0000020042062, y: 0.7071057, z: -0.70710796, w: 0.0000022500753}
+  m_LocalPosition: {x: -0.979, y: 2.268, z: -0.1505687}
+  m_LocalScale: {x: 0.1274795, y: 0.071921, z: 0.31511983}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 9
-  m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 90, y: 0, z: -180}
 --- !u!1 &346251114
 GameObject:
   m_ObjectHideFlags: 0
@@ -1404,7 +1404,7 @@ Camera:
   m_ShutterSpeed: 0.005
   m_Aperture: 16
   m_FocusDistance: 10
-  m_FocalLength: 50
+  m_FocalLength: 23.051785
   m_BladeCount: 5
   m_Curvature: {x: 2, y: 11}
   m_BarrelClipping: 0.25
@@ -1510,7 +1510,7 @@ MonoBehaviour:
     m_Bits: 1
   m_VolumeTrigger: {fileID: 0}
   m_VolumeFrameworkUpdateModeOption: 2
-  m_RenderPostProcessing: 0
+  m_RenderPostProcessing: 1
   m_Antialiasing: 0
   m_AntialiasingQuality: 2
   m_StopNaN: 0
@@ -1718,7 +1718,7 @@ MonoBehaviour:
   Granularity: 100
   Fps: 100
   MyColor: {r: 1, g: 1, b: 1, a: 1}
-  MyMaterial: {fileID: 2100000, guid: 79494735bbfb9e14caa9770c2a23882c, type: 2}
+  MyMaterial: {fileID: 2100000, guid: f56b8db3bc3472d41b29bc653ec5c7af, type: 2}
 --- !u!4 &1100128301
 Transform:
   m_ObjectHideFlags: 0
@@ -2184,6 +2184,55 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1482384366
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1482384368}
+  - component: {fileID: 1482384367}
+  m_Layer: 0
+  m_Name: PostProcess
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1482384367
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1482384366}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 172515602e62fb746b5d573b38a5fe58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IsGlobal: 1
+  priority: 0.42
+  blendDistance: 0
+  weight: 1
+  sharedProfile: {fileID: 11400000, guid: 9ab8e8980c6e5ad47ab59f9186e1380f, type: 2}
+--- !u!4 &1482384368
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1482384366}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.3389704, y: 1.8361402, z: 0.59740746}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 10
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1488544244
 GameObject:
   m_ObjectHideFlags: 0
@@ -2291,9 +2340,6 @@ MonoBehaviour:
   _entity: {fileID: 640803877}
   attackEventListener: {fileID: 1976504022}
   _moveSets:
-  - <AnimationClip>k__BackingField: {fileID: 7400000, guid: 023a20245aaaca745be629e34ca4879b, type: 3}
-    <RootMultiplierBeforeEndAttack>k__BackingField: 10
-    <RootMultiplierAfterEndAttack>k__BackingField: 1
   - <AnimationClip>k__BackingField: {fileID: 7400000, guid: 95f9a86ead00310439aac009bf026130, type: 2}
     <RootMultiplierBeforeEndAttack>k__BackingField: 1
     <RootMultiplierAfterEndAttack>k__BackingField: 1
@@ -7141,7 +7187,7 @@ MonoBehaviour:
       - Value: 2
       - Value: 2
       - Value: 2
-      maxConnectionDistance: 0.12035073
+      maxConnectionDistance: 0.120350726
       userEdit: 0
   gizmoSerializeData:
     always: 0
@@ -7239,7 +7285,8 @@ MonoBehaviour:
     paintMode: 0
     paintMaps: []
     rootBones:
-    - {fileID: 2942304918733896450}
+    - {fileID: 8510599458194249944}
+    - {fileID: 411959334471350720}
     connectionMode: 0
     rotationalInterpolation: 0.5
     rootRotation: 0.5
@@ -7529,9 +7576,6 @@ MonoBehaviour:
   serializeData2:
     selectionData:
       positions:
-      - x: 0
-        y: 1.0597384
-        z: 0.0033794343
       - x: 0.11458242
         y: 1.082596
         z: -0.054979652
@@ -7582,8 +7626,7 @@ MonoBehaviour:
       - Value: 2
       - Value: 2
       - Value: 2
-      - Value: 2
-      - Value: 2
+      - Value: 1
       - Value: 2
       - Value: 2
       - Value: 2
