@@ -27,8 +27,10 @@ Material:
   m_ValidKeywords:
   - _MK_ALBEDO_MAP
   - _MK_ARTISTIC_ANIMATION_STUTTER
+  - _MK_ARTISTIC_PROJECTION_SCREEN_SPACE
   - _MK_EMISSION_MAP
   - _MK_ENVIRONMENT_REFLECTIONS_AMBIENT
+  - _MK_LIGHT_BANDED
   - _MK_RECEIVE_SHADOWS
   - _MK_WRAPPED_DIFFUSE
   m_InvalidKeywords:
@@ -185,7 +187,7 @@ Material:
     - _AlphaToMask: 0
     - _Artistic: 0
     - _ArtisticFrequency: 1
-    - _ArtisticProjection: 0
+    - _ArtisticProjection: 1
     - _Blend: 0
     - _BlendDst: 0
     - _BlendDstAlpha: 0
@@ -197,7 +199,7 @@ Material:
     - _ClearCoatMask: 0
     - _ClearCoatSmoothness: 0
     - _ColorGrading: 0
-    - _Contrast: 1
+    - _Contrast: 1.67
     - _Cull: 2
     - _Cutoff: 0.5
     - _DetailAlbedoMapScale: 1
@@ -225,13 +227,13 @@ Material:
     - _InputTab: 1
     - _Intensity: 1
     - _Iridescence: 0
-    - _IridescenceSize: 1
+    - _IridescenceSize: 0.39
     - _IridescenceSmoothness: 0.5
     - _IridescenceThresholdOffset: 0
-    - _Light: 0
-    - _LightBands: 4
-    - _LightBandsScale: 0.5
-    - _LightThreshold: 0
+    - _Light: 2
+    - _LightBands: 2
+    - _LightBandsScale: 1
+    - _LightThreshold: 0.406
     - _Metallic: 0
     - _Mode: 0
     - _NormalMapIntensity: 1
@@ -250,7 +252,7 @@ Material:
     - _RenderFace: 2
     - _RenderPriority: 0
     - _Rim: 0
-    - _RimSize: 1
+    - _RimSize: 1.58
     - _RimSmoothness: 0.5
     - _RimThresholdOffset: 0.25
     - _Saturation: 1
@@ -284,19 +286,19 @@ Material:
     - _ZTest: 4
     - _ZWrite: 1
     m_Colors:
-    - _AlbedoColor: {r: 0.9811321, g: 0.81826276, b: 0.69882524, a: 1}
+    - _AlbedoColor: {r: 0.6698113, g: 0.6698113, b: 0.6698113, a: 1}
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
-    - _Color: {r: 0.9811321, g: 0.81826276, b: 0.69882524, a: 1}
+    - _Color: {r: 0.6698113, g: 0.6698113, b: 0.6698113, a: 1}
     - _Color0: {r: 1, g: 0, b: 0, a: 1}
     - _Color1: {r: 0, g: 1, b: 0, a: 1}
     - _DissolveBorderColor: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _GoochBrightColor: {r: 1, g: 1, b: 1, a: 1}
-    - _GoochDarkColor: {r: 0.3490566, g: 0.3490566, b: 0.3490566, a: 1}
+    - _GoochDarkColor: {r: 0.9150943, g: 0.9150943, b: 0.9150943, a: 1}
     - _IridescenceColor: {r: 1, g: 1, b: 1, a: 0.5}
     - _OutlineColor: {r: 0, g: 0, b: 0, a: 1}
     - _RimBrightColor: {r: 1, g: 1, b: 1, a: 1}
-    - _RimColor: {r: 1, g: 1, b: 1, a: 1}
+    - _RimColor: {r: 0, g: 0, b: 0, a: 0.05882353}
     - _RimDarkColor: {r: 0, g: 0, b: 0, a: 1}
     - _Rotation: {r: 0, g: 0, b: 0, a: 0}
     - _SpecColor: {r: 0.2, g: 0.2, b: 0.2, a: 1}
