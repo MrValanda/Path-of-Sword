@@ -172,6 +172,7 @@ MonoBehaviour:
   _transitions: {fileID: 0}
   _subStates: []
   checkingTransitionDelay: 0.1
+  _entity: {fileID: 0}
   _applyRootMotionHandler: {fileID: 1976504027}
   _newMultiplier: 1
 --- !u!1 &26422849
@@ -579,6 +580,7 @@ MonoBehaviour:
   _transitions: {fileID: 0}
   _subStates: []
   checkingTransitionDelay: 0.1
+  _entity: {fileID: 0}
   _applyRootMotionHandler: {fileID: 1976504027}
   _newMultiplier: 1
 --- !u!4 &558757386
@@ -612,6 +614,7 @@ GameObject:
   - component: {fileID: 640803875}
   - component: {fileID: 640803874}
   - component: {fileID: 640803876}
+  - component: {fileID: 640803878}
   - component: {fileID: 640803877}
   m_Layer: 6
   m_Name: Player
@@ -792,9 +795,25 @@ MonoBehaviour:
   m_GameObject: {fileID: 640803868}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
+  m_Script: {fileID: 11500000, guid: c05d6b0501afdeb46bb1fedc42cb85af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  transform: {fileID: 640803872}
+  gameObject: {fileID: 640803868}
+--- !u!114 &640803878
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 640803868}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bebcac7579734e07b0b7ea0d60b13cd6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _monoBehaviours:
+  - {fileID: 1976504027}
 --- !u!1 &664181871
 GameObject:
   m_ObjectHideFlags: 0
@@ -2117,13 +2136,19 @@ MonoBehaviour:
   _transitions: {fileID: 1507007317}
   _subStates:
   - {fileID: 67237665}
-  - {fileID: 1846884629}
   checkingTransitionDelay: 0.1
+  _entity: {fileID: 640803877}
   attackEventListener: {fileID: 1976504022}
   _moveSets:
   - <AnimationClip>k__BackingField: {fileID: 7400000, guid: 023a20245aaaca745be629e34ca4879b, type: 3}
-  - <AnimationClip>k__BackingField: {fileID: 7400000, guid: 6f64d966f7566ca448d6a66a0c5868aa, type: 2}
+    <RootMultiplierBeforeEndAttack>k__BackingField: 10
+    <RootMultiplierAfterEndAttack>k__BackingField: 1
   - <AnimationClip>k__BackingField: {fileID: 7400000, guid: 95f9a86ead00310439aac009bf026130, type: 2}
+    <RootMultiplierBeforeEndAttack>k__BackingField: 1
+    <RootMultiplierAfterEndAttack>k__BackingField: 1
+  - <AnimationClip>k__BackingField: {fileID: 7400000, guid: 6f64d966f7566ca448d6a66a0c5868aa, type: 2}
+    <RootMultiplierBeforeEndAttack>k__BackingField: 1
+    <RootMultiplierAfterEndAttack>k__BackingField: 1
   _animator: {fileID: 1976504025}
   _orientation: {fileID: 963194228}
   _whoWasRotate: {fileID: 640803872}
@@ -2781,6 +2806,7 @@ MonoBehaviour:
   _transitions: {fileID: 0}
   _subStates: []
   checkingTransitionDelay: 0.1
+  _entity: {fileID: 0}
   _applyRootMotionHandler: {fileID: 1976504027}
   _newMultiplier: 1
 --- !u!4 &1846884630
@@ -6964,7 +6990,7 @@ MonoBehaviour:
       - Value: 2
       - Value: 2
       - Value: 2
-      maxConnectionDistance: 0.120350726
+      maxConnectionDistance: 0.12035073
       userEdit: 0
   gizmoSerializeData:
     always: 0
