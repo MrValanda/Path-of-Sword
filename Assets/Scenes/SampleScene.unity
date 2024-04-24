@@ -2121,7 +2121,9 @@ MonoBehaviour:
   checkingTransitionDelay: 0.1
   attackEventListener: {fileID: 1976504022}
   _moveSets:
-  - <AnimationClip>k__BackingField: {fileID: 7400000, guid: d2a5135c3d3b5dc4ab7691b390c5b332, type: 3}
+  - <AnimationClip>k__BackingField: {fileID: 7400000, guid: 023a20245aaaca745be629e34ca4879b, type: 3}
+  - <AnimationClip>k__BackingField: {fileID: 7400000, guid: 6f64d966f7566ca448d6a66a0c5868aa, type: 2}
+  - <AnimationClip>k__BackingField: {fileID: 7400000, guid: 95f9a86ead00310439aac009bf026130, type: 2}
   _animator: {fileID: 1976504025}
   _orientation: {fileID: 963194228}
   _whoWasRotate: {fileID: 640803872}
@@ -6962,7 +6964,7 @@ MonoBehaviour:
       - Value: 2
       - Value: 2
       - Value: 2
-      maxConnectionDistance: 0.12035073
+      maxConnectionDistance: 0.120350726
       userEdit: 0
   gizmoSerializeData:
     always: 0
