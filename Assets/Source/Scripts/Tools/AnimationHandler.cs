@@ -5,17 +5,17 @@ namespace Source.Scripts.Tools
 {
     public class AnimationHandler : MonoBehaviour
     {
-        [SerializeField] private Animator _animator;
+        [field:SerializeField] public Animator Animator { get; private set; }
 
-        public bool IsInTransition => _animator.IsInTransition(0);
+        public bool IsInTransition => Animator.IsInTransition(0);
 
-        private Queue<CrossFadeData> _crossFadeQueue = new Queue<CrossFadeData>();
+        private readonly Queue<CrossFadeData> _crossFadeQueue = new Queue<CrossFadeData>();
         private AnimatorOverrideController _animatorOverrideController;
 
         private void Start()
         {
-            _animatorOverrideController ??= new AnimatorOverrideController(_animator.runtimeAnimatorController);
-            _animator.runtimeAnimatorController = _animatorOverrideController;
+            _animatorOverrideController ??= new AnimatorOverrideController(Animator.runtimeAnimatorController);
+            Animator.runtimeAnimatorController = _animatorOverrideController;
         }
 
 
@@ -24,12 +24,12 @@ namespace Source.Scripts.Tools
             if (_crossFadeQueue.Count == 0) return;
 
             CrossFadeData crossFadeData = _crossFadeQueue.Peek();
-            if (_animator.IsInTransition(0) == false)
+            if (Animator.IsInTransition(0) == false)
             {
                 _crossFadeQueue.Dequeue();
                 if (_crossFadeQueue.Count == 0) return;
                 crossFadeData = _crossFadeQueue.Peek();
-                _animator.CrossFade(crossFadeData.NextState, crossFadeData.TransitionDuration, crossFadeData.Layer, 0);
+                Animator.CrossFadeInFixedTime(crossFadeData.NextState, crossFadeData.TransitionDuration, crossFadeData.Layer, 0);
             }
         }
 
@@ -37,7 +37,7 @@ namespace Source.Scripts.Tools
         {
             if (_crossFadeQueue.Count == 0)
             {
-                _animator.CrossFade(nextState, transitionDuration, layer, 0);
+                Animator.CrossFadeInFixedTime(nextState, transitionDuration, layer, 0);
             }
 
             _crossFadeQueue.Enqueue(new CrossFadeData(nextState, layer, transitionDuration));

@@ -2,20 +2,23 @@
 using States;
 using Transitions;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace TransitionsContainer
 {
     public class PlayerAttackStateTransitionContainer : TransitionContainer
     {
-        [SerializeField] private InputKeyDownAndAttackEndTransition _inputKeyDownAndAttackEndTransition;
+        [FormerlySerializedAs("_inputKeyDownAndAttackEndTransition")] [SerializeField] private InputKeyPressedAndAttackEndTransition inputKeyPressedAndAttackEndTransition;
         [SerializeField] private AttackAnimationEndTransition attackAnimationEndTransition;
+        [SerializeField] private InputMouseDownAndAttackEndTransition _inputMouseDownAndAttackEndTransition;
 
         public override List<Transition> GetTransitions()
         {
             Transitions ??= new List<Transition>()
             {
-                _inputKeyDownAndAttackEndTransition,
-                attackAnimationEndTransition
+                inputKeyPressedAndAttackEndTransition,
+                attackAnimationEndTransition,
+                _inputMouseDownAndAttackEndTransition
             };
             return Transitions;
         }

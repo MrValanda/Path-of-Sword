@@ -1,4 +1,4 @@
-﻿using Source.Scripts.EntityLogic;
+﻿using Source.Scripts;
 using Source.Scripts.Tools;
 using UnityEngine;
 
@@ -6,7 +6,6 @@ namespace States
 {
     public class ChangeAnimationMotionMultiplierState : State
     {
-        [SerializeField] private Entity _entity;
         [SerializeField] private ApplyRootMotionHandler _applyRootMotionHandler;
         [SerializeField] private float _newMultiplier;
         private float _previousAnimationMotionMultiplier;

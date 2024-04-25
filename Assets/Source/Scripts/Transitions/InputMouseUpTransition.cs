@@ -1,19 +1,19 @@
-using System;
+﻿using System;
 using UniRx;
 using UnityEngine;
 
 namespace Source.Scripts.Transitions
 {
     [Serializable]
-    public class InputKeyDownTransition : Transition
+    public class InputMouseUpTransition : Transition
     {
-        [SerializeField] private KeyCode _keyCode;
+        [SerializeField] private int _mouseIndex;
 
         private IDisposable _disposable;
 
         public override void OnEnable()
         {
-            _disposable = Observable.EveryUpdate().Where(x => Input.GetKeyDown(_keyCode)).Take(1).Subscribe(_ =>
+            _disposable = Observable.EveryUpdate().Where(x => Input.GetMouseButton(_mouseIndex) == false).Take(1).Subscribe(_ =>
             {
                 OnNeedTransit(this);
             });
