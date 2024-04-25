@@ -20,8 +20,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Fire
-  m_Shader: {fileID: -6465566751694194690, guid: 3487355b8cb6a07408e7e491b9669242, type: 3}
+  m_Name: Fire 2
+  m_Shader: {fileID: -6465566751694194690, guid: 440f420f5b2105940be969ebdc1e57d8, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
@@ -36,10 +36,6 @@ Material:
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
-    - _SampleTexture2D_3a6d0e9156324256bd060d4cde40c9fc_Texture_1_Texture2D:
-        m_Texture: {fileID: 2800000, guid: 0d1fb353c40bd6345af42a3b4f0bdb1a, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
     - unity_Lightmaps:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -54,19 +50,30 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _Alpha_Toon: 12.8
-    - _FireScale: 5.58
-    - _Fire_Contrast: 1.13
+    - _Alpha_Mask: 0
+    - _Alpha_Mask_Width: 0.4
+    - _Alpha_Strong: 10
+    - _Alpha_Trashhold: 0.5
+    - _Bottom_Origin: 0.7
+    - _Bottom_Spread: 1
+    - _Curve_Multiplier: 0
+    - _FireSpeed: -0.5
+    - _Fire_Contrast: 1
+    - _Fire_Layer_1: 4
+    - _Fire_Layer_2: 7
+    - _Fire_Randomize: 1
     - _Fire_Saturation: 1
     - _QueueControl: 0
     - _QueueOffset: 0
-    - _Toon_Fire: 25.06
-    - _Voronoi_Contrast: 2.2
+    - _Toon_Fire: 30
+    - _Top_Origin: 1.8
+    - _Top_Spread: 1
     m_Colors:
-    - _FireCenter: {r: 1.62, g: 1, b: 0, a: 0}
-    - _FireSpeed: {r: -1, g: 0, b: 0, a: 0}
-    - _Fire_Color_1: {r: 1, g: 0, b: 0.018810749, a: 1}
-    - _Fire_Color_2: {r: 0, g: 0, b: 0, a: 1}
+    - _Bottom_Color: {r: 0.7450981, g: 0.007843138, b: 0, a: 0}
+    - _Middle_Color: {r: 0.26274508, g: 0.01960784, b: 0.01176471, a: 0}
+    - _Pattern_Offset: {r: 0, g: 0, b: 0, a: 0}
+    - _Pattern_Tiling: {r: 1, g: 1, b: 0, a: 0}
+    - _Top_Color: {r: 0.36862746, g: 0, b: 0.003921569, a: 0}
   m_BuildTextureStacks: []
 --- !u!114 &681616099791662282
 MonoBehaviour:
