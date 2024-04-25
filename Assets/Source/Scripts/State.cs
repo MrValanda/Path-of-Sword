@@ -1,9 +1,11 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Source.Scripts.EntityLogic;
+using States;
 using UnityEngine;
 
-namespace States
+namespace Source.Scripts
 {
     public abstract class State : OptimizedMonoBehavior
     {
@@ -13,11 +15,15 @@ namespace States
 
         [SerializeField] private TransitionContainer _transitions;
         [SerializeField] private List<State> _subStates;
-        private List<Transition> _detectedTransitions = new List<Transition>();
-
+        
         [SerializeField] private float checkingTransitionDelay = 0.1f;
+        
+        [SerializeField] protected Entity _entity;
+        
         private float _lastTick = 0.1f;
-        protected bool _isPaused { get; private set; }
+        
+        private List<Transition> _detectedTransitions = new List<Transition>();
+        protected bool IsPaused { get; private set; }
 
         public List<Transition> Transitions => _transitions?.GetTransitions() ?? new List<Transition>();
 
@@ -97,7 +103,9 @@ namespace States
             OnUpdate();
         }
 
-        protected virtual void OnUpdate(){}
+        protected virtual void OnUpdate()
+        {
+        }
 
         protected virtual void OnEnter()
         {
@@ -109,7 +117,7 @@ namespace States
 
         public void SetPause(bool isPaused)
         {
-            _isPaused = isPaused;
+            IsPaused = isPaused;
         }
     }
 }

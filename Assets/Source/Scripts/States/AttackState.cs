@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using DG.Tweening;
 using Source.Scripts.EntityLogic;
 using Source.Scripts.Tools;
-using States;
 using UnityEngine;
 using XftWeapon;
 
@@ -11,36 +10,41 @@ namespace Source.Scripts.States
 {
     public class AttackState : State
     {
-        [SerializeField] private Entity _entity;
-        [SerializeField] private AttackEventListener attackEventListener;
         [SerializeField] private List<MoveSet> _moveSets;
-        [SerializeField] private AnimationHandler _animator;
         [SerializeField] private Transform _orientation;
         [SerializeField] private Transform _whoWasRotate;
         [SerializeField] private float _rotationSpeed;
-        [SerializeField] private XWeaponTrail _xWeaponTrailDemo;
-        [SerializeField] private Weapon _weapon;
+        
+        private XWeaponTrail _xWeaponTrailDemo;
+        private Weapon _weapon;
+        private AnimationHandler _animationHandler;
 
         private int _currentAttackIndex;
         private int _currentAttackAnimationIndex;
         private bool _isAttacking;
         private readonly List<string> _attacksAnimators = new List<string>() {"Attack", "Attack2"};
-
+        private AttackEventListener _attackEventListener;
+        
         protected override void OnEnter()
         {
+            _animationHandler ??= _entity.Get<AnimationHandler>();
+            _weapon ??= _entity.Get<Weapon>();
+            _xWeaponTrailDemo ??= _entity.Get<XWeaponTrail>();
+            _attackEventListener ??= _entity.Get<AttackEventListener>();
+
             _xWeaponTrailDemo.Activate();
-            attackEventListener.AttackStarted += OnAttackStarted;
-            attackEventListener.AttackEnded += OnAttackEnded;
-            attackEventListener.AttackReset += OnAttackReset;
+            _attackEventListener.AttackStarted += OnAttackStarted;
+            _attackEventListener.AttackEnded += OnAttackEnded;
+            _attackEventListener.AttackReset += OnAttackReset;
             Attack();
         }
 
         protected override void OnExit()
         {
             _entity.Get<ApplyRootMotionHandler>().SetAnimationRootMotionMultiplier(1);
-            attackEventListener.AttackStarted -= OnAttackStarted;
-            attackEventListener.AttackEnded -= OnAttackEnded;
-            attackEventListener.AttackReset -= OnAttackReset;
+            _attackEventListener.AttackStarted -= OnAttackStarted;
+            _attackEventListener.AttackEnded -= OnAttackEnded;
+            _attackEventListener.AttackReset -= OnAttackReset;
             _weapon.Disable();
             _xWeaponTrailDemo.Deactivate();
             _currentAttackIndex = 0;
@@ -75,11 +79,11 @@ namespace Source.Scripts.States
             _entity.Get<ApplyRootMotionHandler>()
                 .SetAnimationRootMotionMultiplier(_moveSets[_currentAttackIndex].RootMultiplierBeforeEndAttack);
 
-            _animator.OverrideAnimation(_attacksAnimators[_currentAttackAnimationIndex],
+            _animationHandler.OverrideAnimation(_attacksAnimators[_currentAttackAnimationIndex],
                 _moveSets[_currentAttackIndex].AnimationClip);
 
 
-            _animator.CrossFade(_attacksAnimators[_currentAttackAnimationIndex++], 0, 0.1f);
+            _animationHandler.CrossFade(_attacksAnimators[_currentAttackAnimationIndex++], 0, 0.2f);
 
             _currentAttackAnimationIndex %= _attacksAnimators.Count;
         }

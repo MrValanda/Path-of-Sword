@@ -1,5 +1,6 @@
 using System;
 using Interfaces;
+using Source.Scripts.EntityLogic;
 using Source.Scripts.Interfaces;
 using UnityEngine;
 
@@ -9,6 +10,7 @@ namespace Source.Scripts.VisitableComponents
     {
         public event Action<IDying> Dead;
         [SerializeField, Min(0)] private float _maxHeatlh;
+        [SerializeField] private Entity _entity;
 
         public event Action<double> ReceivedDamage;
 
@@ -37,7 +39,10 @@ namespace Source.Scripts.VisitableComponents
                 throw new ArgumentException("Damage less than zero");
             }
 
-            _currentHealth = Math.Clamp(_currentHealth - damage, 0, _maxHeatlh);
+            damage -= damage * _entity.AddOrGet<EntityCurrentStatsData>().DamageReducePercent;
+            _currentHealth =
+                Math.Clamp(_currentHealth - damage,0, _maxHeatlh);
+
             ReceivedDamage?.Invoke(damage);
             OnApplyDamage(damage);
             if (_currentHealth == 0)

@@ -1,6 +1,4 @@
-﻿using Source.Scripts.VisitableComponents;
-
-namespace VisitableComponents
+﻿namespace Source.Scripts.VisitableComponents
 {
     public class PlayerHealthComponent : HealthComponent{
     

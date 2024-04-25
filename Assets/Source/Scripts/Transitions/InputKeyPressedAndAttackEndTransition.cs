@@ -5,7 +5,7 @@ using UnityEngine;
 namespace Transitions
 {
     [Serializable]
-    public class InputKeyDownAndAttackEndTransition : Transition
+    public class InputKeyPressedAndAttackEndTransition : Transition
     {
         [SerializeField] private KeyCode _keyCode;
         [SerializeField] private AttackEventListener _attackEventListener;
@@ -17,7 +17,7 @@ namespace Transitions
         {
             _attackEnded = false;
             _attackEventListener.AttackEnded += OnAttackEnded;
-            _disposable = Observable.EveryUpdate().Where(x => _attackEnded && Input.GetKeyDown(_keyCode)).Take(1)
+            _disposable = Observable.EveryUpdate().Where(x => _attackEnded && Input.GetKey(_keyCode)).Take(1)
                 .Subscribe(_ => { OnNeedTransit(this); });
         }
 

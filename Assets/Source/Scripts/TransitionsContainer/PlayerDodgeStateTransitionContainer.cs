@@ -3,7 +3,7 @@ using States;
 using Transitions;
 using UnityEngine;
 
-namespace TransitionsContainer
+namespace Source.Scripts.TransitionsContainer
 {
     public class PlayerDodgeStateTransitionContainer : TransitionContainer
     {

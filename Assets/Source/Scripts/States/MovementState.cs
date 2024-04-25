@@ -1,27 +1,28 @@
 using DG.Tweening;
+using Source.Scripts.EntityLogic;
 using Source.Scripts.Tools;
-using Tools;
 using UnityEngine;
 
-namespace States
+namespace Source.Scripts.States
 {
     public class MovementState : State
     {
-        [SerializeField] private Animator _animator;
-        [SerializeField] private AnimationHandler _animationHandler;
+        private static readonly int Speed = Animator.StringToHash("Speed");
+        private static readonly string NextState = "Movement";
+        
         [SerializeField] private Transform _whoMoved;
         [SerializeField] private Transform _oritentation;
         [SerializeField] private float _rotationDuration = 0.1f;
         [SerializeField] private float _acceleration;
 
-        private static readonly int Speed = Animator.StringToHash("Speed");
-        private static readonly int InputX = Animator.StringToHash("InputX");
-        private static readonly int InputY = Animator.StringToHash("InputY");
         private Vector3 _moveDirection;
+        private Animator _animator;
 
         private void OnEnable()
         {
-            _animationHandler.CrossFade("Movement",0, 0.1f);
+            AnimationHandler animationHandler = _entity.Get<AnimationHandler>();
+            _animator ??= animationHandler.Animator;
+            animationHandler.CrossFade(NextState, 0, 0.25f);
         }
 
         protected override void OnUpdate()
