@@ -199,7 +199,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 26422849}
-  m_LocalRotation: {x: -0.02586207, y: -0.0000000071817454, z: 0.0000000019833568, w: 0.99966556}
+  m_LocalRotation: {x: -0.02586207, y: 0.0000000071817454, z: -0.0000000019833568, w: 0.99966556}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -641,7 +641,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 248775871}
   m_LocalRotation: {x: -0.0000020042062, y: 0.7071057, z: -0.70710796, w: 0.0000022500753}
-  m_LocalPosition: {x: -0.979, y: 2.268, z: -0.1505687}
+  m_LocalPosition: {x: -0.979, y: 1.564, z: -0.1505687}
   m_LocalScale: {x: 0.1274795, y: 0.071921, z: 0.31511983}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1057,10 +1057,10 @@ Light:
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
   m_Shadows:
-    m_Type: 0
+    m_Type: 2
     m_Resolution: -1
     m_CustomResolution: -1
-    m_Strength: 1
+    m_Strength: 0.43
     m_Bias: 0.05
     m_NormalBias: 0.4
     m_NearPlane: 0.2
@@ -1800,7 +1800,7 @@ MonoBehaviour:
   Granularity: 100
   Fps: 200
   MyColor: {r: 1, g: 1, b: 1, a: 1}
-  MyMaterial: {fileID: 2100000, guid: c2f0827ae99ed034d8762cf14261a0e0, type: 2}
+  MyMaterial: {fileID: 2100000, guid: 7731060a281aca14ca332e282815373d, type: 2}
 --- !u!4 &1100128301
 Transform:
   m_ObjectHideFlags: 0
@@ -2998,7 +2998,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1800246061}
-  m_LocalRotation: {x: 0.026001947, y: -0.000000008162871, z: 0.0000000027170532, w: 0.9996619}
+  m_LocalRotation: {x: 0.026001947, y: 0.0000000081628775, z: -0.0000000027170552, w: 0.9996619}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0

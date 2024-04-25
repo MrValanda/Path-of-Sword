@@ -52,11 +52,12 @@ Material:
     m_Floats:
     - _Alpha_Mask: 0
     - _Alpha_Mask_Width: 0.4
-    - _Alpha_Strong: 10
+    - _Alpha_Strong: 4.83
     - _Alpha_Trashhold: 0.5
     - _Bottom_Origin: 0.7
     - _Bottom_Spread: 1
     - _Curve_Multiplier: 0
+    - _Emission_Strength: 20.97
     - _FireSpeed: -0.5
     - _Fire_Contrast: 1
     - _Fire_Layer_1: 4
@@ -65,15 +66,15 @@ Material:
     - _Fire_Saturation: 1
     - _QueueControl: 0
     - _QueueOffset: 0
-    - _Toon_Fire: 30
+    - _Toon_Fire: 1000
     - _Top_Origin: 1.8
     - _Top_Spread: 1
     m_Colors:
-    - _Bottom_Color: {r: 0.7450981, g: 0.007843138, b: 0, a: 0}
-    - _Middle_Color: {r: 0.26274508, g: 0.01960784, b: 0.01176471, a: 0}
+    - _Bottom_Color: {r: 0.46226418, g: 0.1435452, b: 0, a: 0}
+    - _Middle_Color: {r: 0.2627451, g: 0.059741832, b: 0.011764713, a: 0}
     - _Pattern_Offset: {r: 0, g: 0, b: 0, a: 0}
     - _Pattern_Tiling: {r: 1, g: 1, b: 0, a: 0}
-    - _Top_Color: {r: 0.36862746, g: 0, b: 0.003921569, a: 0}
+    - _Top_Color: {r: 0.33299997, g: 0, b: 0.0035425331, a: 1}
   m_BuildTextureStacks: []
 --- !u!114 &681616099791662282
 MonoBehaviour:
