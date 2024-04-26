@@ -182,7 +182,7 @@ Material:
     - _PatchworkHeight: 0.64
     - _PatchworkPower: 1
     - _PatchworkVariation: 0.13
-    - _Power: 0.638
+    - _Power: 0
     - _QueueControl: -1
     - _QueueOffset: 0
     - _RainbowIntensity: 0
@@ -193,7 +193,7 @@ Material:
     - _SpecularHighlights: 1
     - _SrcBlend: 1
     - _SunFlareFalloff: 90.9
-    - _SunSize: 1
+    - _SunSize: 1.044
     - _TextureAmount: 1
     - _UVSec: 0
     - _WindSpeed: 3
@@ -211,7 +211,7 @@ Material:
     - _GalaxyColor1: {r: 1, g: 0, b: 0.6574917, a: 1}
     - _GalaxyColor2: {r: 0.4681289, g: 0.4470588, b: 1, a: 1}
     - _GalaxyColor3: {r: 0, g: 0.84153175, b: 1, a: 1}
-    - _HorizonColor: {r: 0.05109688, g: 0.52571166, b: 0.8179713, a: 1}
+    - _HorizonColor: {r: 0, g: 0.5561712, b: 0.9057633, a: 1}
     - _LightColor: {r: 0.35569295, g: 0.45956883, b: 0.4802988, a: 1}
     - _LightColor1: {r: 0.35427704, g: 0.5403362, b: 0.4741432, a: 1}
     - _LightColumnColor: {r: 0, g: 0, b: 0, a: 0}
@@ -223,6 +223,6 @@ Material:
     - _SunColor: {r: 10, g: 10, b: 10, a: 0}
     - _SunColor1: {r: 10.43295, g: 10.43295, b: 10.43295, a: 0}
     - _SunDirection: {r: -0.05530402, g: -0.97433305, b: -0.21821257, a: 0}
-    - _SunFlareColor: {r: 0.57729673, g: 0.5448674, b: 0.4198108, a: 0}
-    - _ZenithColor: {r: 0.011664351, g: 0.1741979, b: 0.32425553, a: 1}
+    - _SunFlareColor: {r: 0.68235296, g: 0.67909116, b: 0.5176471, a: 0}
+    - _ZenithColor: {r: 0.015085008, g: 0.16972642, b: 0.3132838, a: 1}
   m_BuildTextureStacks: []

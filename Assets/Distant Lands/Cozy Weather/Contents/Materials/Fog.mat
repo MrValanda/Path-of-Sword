@@ -88,23 +88,23 @@ Material:
     - _DstBlend: 0
     - _EnvironmentReflections: 1
     - _FlareSquish: 4.65
-    - _FogColorStart1: 2
-    - _FogColorStart2: 5
-    - _FogColorStart3: 10
-    - _FogColorStart4: 30
+    - _FogColorStart1: 0
+    - _FogColorStart2: 0.1
+    - _FogColorStart3: 20.1
+    - _FogColorStart4: 29.4
     - _FogDensity: 2
-    - _FogDepthMultiplier: 1.03
+    - _FogDepthMultiplier: 2.9973
     - _FogDepthMultiplier1: 1
     - _FogIntensity: 1
     - _FogIntensity1: 1
-    - _FogOffset: 0.85
+    - _FogOffset: 0
     - _FogOffset1: 1
-    - _FogSmoothness: 2424.871
+    - _FogSmoothness: 8280.161
     - _FogSmoothness1: 100
     - _GlossMapScale: 1
     - _Glossiness: 0.5
     - _GlossyReflections: 1
-    - _LightFalloff: 23.784325
+    - _LightFalloff: 25.17635
     - _LightFalloff1: 10
     - _LightIntensity: 1
     - _Metallic: 0
@@ -123,14 +123,14 @@ Material:
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _FogColor1: {r: 0, g: 0, b: 0, a: 0.007843138}
-    - _FogColor2: {r: 0.026426794, g: 0.20271845, b: 0.32274663, a: 0.13725491}
-    - _FogColor3: {r: 0.0647895, g: 0.2676826, b: 0.43445867, a: 0.5019608}
-    - _FogColor4: {r: 0.024136519, g: 0.25912198, b: 0.48408234, a: 0.75686276}
-    - _FogColor5: {r: 0.36276138, g: 0.62360185, b: 0.78054476, a: 1}
+    - _FogColor1: {r: 1, g: 0, b: 0, a: 0}
+    - _FogColor2: {r: 1, g: 0, b: 0, a: 0}
+    - _FogColor3: {r: 1, g: 0, b: 0, a: 0}
+    - _FogColor4: {r: 1, g: 0, b: 0, a: 0}
+    - _FogColor5: {r: 1, g: 0, b: 0, a: 0}
     - _FogSquish: {r: 1, g: 3.93, b: 0, a: 0}
-    - _LightColor: {r: 2.194308, g: 1.2816439, b: 1.2301812, a: 1}
+    - _LightColor: {r: 1.0833969, g: 1.3920008, b: 1.382235, a: 1}
     - _LightColor1: {r: 11.924528, g: 32, b: 29.818542, a: 0}
-    - _SunDirection: {r: -0.8052548, g: 0.31661826, b: -0.50131595, a: 0}
+    - _SunDirection: {r: -0, g: 1, b: 0.000000059604645, a: 0}
     - _SunDirection1: {r: 0, g: 0, b: 0, a: 0}
   m_BuildTextureStacks: []

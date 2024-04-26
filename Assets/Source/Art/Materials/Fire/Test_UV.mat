@@ -20,7 +20,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Fire
+  m_Name: Test_UV
   m_Shader: {fileID: -6465566751694194690, guid: 440f420f5b2105940be969ebdc1e57d8, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
@@ -36,6 +36,10 @@ Material:
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
+    - _SampleTexture2D_e04d5c1c67e049f5804f0c88e25c5560_Texture_1_Texture2D:
+        m_Texture: {fileID: 2800000, guid: 5f93b0c60bfdbd746b4706db2c61b7e8, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - unity_Lightmaps:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -53,12 +57,12 @@ Material:
     - _Alpha_Mask: 0
     - _Alpha_Mask_Width: 0.4
     - _Alpha_Strong: 4.83
-    - _Alpha_Trashhold: 0.5
-    - _Bottom_Origin: 0.7
-    - _Bottom_Spread: 1
+    - _Alpha_Trashhold: 0
+    - _Bottom_Origin: 0.13
+    - _Bottom_Spread: 0
     - _Curve_Multiplier: 0
-    - _Emission_Strength: 20.97
-    - _FireSpeed: -0.5
+    - _Emission_Strength: 1
+    - _FireSpeed: -2
     - _Fire_Contrast: 1
     - _Fire_Layer_1: 4
     - _Fire_Layer_2: 7
@@ -67,14 +71,14 @@ Material:
     - _QueueControl: 0
     - _QueueOffset: 0
     - _Toon_Fire: 1000
-    - _Top_Origin: 1.8
-    - _Top_Spread: 1
+    - _Top_Origin: 0.33
+    - _Top_Spread: 0
     m_Colors:
-    - _Bottom_Color: {r: 0.46226418, g: 0.1435452, b: 0, a: 0}
-    - _Middle_Color: {r: 0.2627451, g: 0.059741832, b: 0.011764713, a: 0}
+    - _Bottom_Color: {r: 0, g: 0.59607846, b: 0.06825016, a: 0}
+    - _Middle_Color: {r: 0.62352943, g: 0, b: 0.0188963, a: 0}
     - _Pattern_Offset: {r: 0, g: 0, b: 0, a: 0}
     - _Pattern_Tiling: {r: 1, g: 1, b: 0, a: 0}
-    - _Top_Color: {r: 0.33299997, g: 0, b: 0.0035425331, a: 1}
+    - _Top_Color: {r: 0.080822945, g: 0, b: 1, a: 1}
   m_BuildTextureStacks: []
 --- !u!114 &681616099791662282
 MonoBehaviour:

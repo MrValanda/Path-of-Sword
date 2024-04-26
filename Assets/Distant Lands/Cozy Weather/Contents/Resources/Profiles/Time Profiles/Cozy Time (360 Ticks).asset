@@ -47,7 +47,7 @@ MonoBehaviour:
   useLeapYear: 0
   resetTicksOnStart: 0
   startTicks: 120
-  ticksPerDay: 360
+  ticksPerDay: 10
   tickSpeed: 0.5
   tickSpeedMultiplier:
     serializedVersion: 2
@@ -247,7 +247,7 @@ MonoBehaviour:
     start: 0.1388889
     end: 0.20833333
   morningBlock:
-    start: 0.22222222
+    start: 0.22222224
     end: 0.25
   dayBlock:
     start: 0.2777778

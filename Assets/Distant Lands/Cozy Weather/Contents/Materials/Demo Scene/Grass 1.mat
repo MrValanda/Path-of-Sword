@@ -100,7 +100,7 @@ Material:
     - _GlossMapScale: 1
     - _Glossiness: 0.5
     - _GlossyReflections: 1
-    - _GradientAmount: 0.3
+    - _GradientAmount: 1.57
     - _Metallic: 0
     - _Mode: 0
     - _OcclusionStrength: 1
@@ -120,10 +120,10 @@ Material:
     - __dirty: 1
     m_Colors:
     - CZY_SnowColor: {r: 1, g: 1, b: 1, a: 0}
-    - _BottomColor: {r: 0.13311356, g: 0.42189354, b: 0.21604842, a: 1}
+    - _BottomColor: {r: 0.11195429, g: 0.43503994, b: 0.16736865, a: 1}
     - _Color: {r: 0.44968325, g: 0.6669885, b: 0.5206348, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _SnowColor1: {r: 1, g: 1, b: 1, a: 0}
-    - _TopColor: {r: 0.2474039, g: 0.48853648, b: 0.22463919, a: 1}
+    - _TopColor: {r: 0.26838157, g: 0.4974168, b: 0.16491956, a: 1}
     - _WindStrength: {r: 0.2, g: 0, b: 0.2, a: 0}
   m_BuildTextureStacks: []
