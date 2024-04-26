@@ -17,12 +17,13 @@ namespace Source.Scripts.States
 
         private Vector3 _moveDirection;
         private Animator _animator;
+        private static readonly int IsMovement = Animator.StringToHash("IsMovement");
 
         private void OnEnable()
         {
             AnimationHandler animationHandler = _entity.Get<AnimationHandler>();
             _animator ??= animationHandler.Animator;
-            animationHandler.CrossFade(NextState, 0, 0.25f);
+            _animator.SetBool(IsMovement, true);
         }
 
         protected override void OnUpdate()
@@ -49,6 +50,7 @@ namespace Source.Scripts.States
 
         protected override void OnExit()
         {
+            _animator.SetBool(IsMovement, false);
             _animator.SetFloat(Speed, 0);
         }
     }

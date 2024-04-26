@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 0.693
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.12493666, g: 0.15641989, b: 0.21269754, a: 0.693}
+  m_IndirectSpecularColor: {r: 0.12493636, g: 0.1564194, b: 0.21269713, a: 0.693}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -199,7 +199,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 26422849}
-  m_LocalRotation: {x: -0.02586207, y: 0.0000000071817454, z: -0.0000000019833568, w: 0.99966556}
+  m_LocalRotation: {x: -0.02586207, y: -0.0000000071817454, z: 0.0000000019833568, w: 0.99966556}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -539,7 +539,7 @@ MonoBehaviour:
   gameObject: {fileID: 213668047}
   _transitions: {fileID: 213668049}
   _subStates: []
-  checkingTransitionDelay: 0.1
+  checkingTransitionDelay: 0
   _entity: {fileID: 640803877}
   _damageReduce: 1
 --- !u!1 &248775871
@@ -1207,6 +1207,7 @@ GameObject:
   - component: {fileID: 787696157}
   - component: {fileID: 787696156}
   - component: {fileID: 787696155}
+  - component: {fileID: 787696159}
   m_Layer: 0
   m_Name: Cube (1)
   m_TagString: Untagged
@@ -1300,6 +1301,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &787696159
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 787696154}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d87e40b460ffcc44ca414c2344cd3355, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _meshRenderer: {fileID: 0}
+  _particleSystem: {fileID: 0}
 --- !u!1 &806262646
 GameObject:
   m_ObjectHideFlags: 0
@@ -1797,7 +1812,7 @@ MonoBehaviour:
   PointStart: {fileID: 1488544245}
   PointEnd: {fileID: 1552674357}
   MaxFrame: 20
-  Granularity: 100
+  Granularity: 200
   Fps: 200
   MyColor: {r: 1, g: 1, b: 1, a: 1}
   MyMaterial: {fileID: 2100000, guid: 7731060a281aca14ca332e282815373d, type: 2}
@@ -2403,7 +2418,7 @@ MonoBehaviour:
     _attackEventListener: {fileID: 1976504022}
   _inputMouseDownAndAttackEndTransition:
     <NextState>k__BackingField: {fileID: 213668050}
-    <Priority>k__BackingField: 0
+    <Priority>k__BackingField: 11
     _mouseIndex: 1
     _attackEventListener: {fileID: 1976504022}
 --- !u!114 &1507007318
@@ -2423,7 +2438,7 @@ MonoBehaviour:
   _transitions: {fileID: 1507007317}
   _subStates:
   - {fileID: 67237665}
-  checkingTransitionDelay: 0.1
+  checkingTransitionDelay: 0
   _entity: {fileID: 640803877}
   _moveSets:
   - <AnimationClip>k__BackingField: {fileID: 7400000, guid: 95f9a86ead00310439aac009bf026130, type: 2}
