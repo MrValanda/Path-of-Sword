@@ -14,7 +14,7 @@ namespace Source.Scripts.States
         [SerializeField] private Transform _orientation;
         [SerializeField] private Transform _whoWasRotate;
         [SerializeField] private float _rotationSpeed;
-        
+
         private XWeaponTrail _xWeaponTrailDemo;
         private Weapon _weapon;
         private AnimationHandler _animationHandler;
@@ -24,13 +24,16 @@ namespace Source.Scripts.States
         private bool _isAttacking;
         private readonly List<string> _attacksAnimators = new List<string>() {"Attack", "Attack2"};
         private AttackEventListener _attackEventListener;
-        
+        private static readonly int IsAttack = Animator.StringToHash("IsAttacking");
+
         protected override void OnEnter()
         {
             _animationHandler ??= _entity.Get<AnimationHandler>();
             _weapon ??= _entity.Get<Weapon>();
             _xWeaponTrailDemo ??= _entity.Get<XWeaponTrail>();
             _attackEventListener ??= _entity.Get<AttackEventListener>();
+
+            _animationHandler.Animator.SetBool(IsAttack, true);
 
             _xWeaponTrailDemo.Activate();
             _attackEventListener.AttackStarted += OnAttackStarted;
@@ -49,6 +52,7 @@ namespace Source.Scripts.States
             _xWeaponTrailDemo.Deactivate();
             _currentAttackIndex = 0;
             _isAttacking = false;
+            _animationHandler.Animator.SetBool(IsAttack, false);
         }
 
         protected override void OnUpdate()
@@ -82,8 +86,7 @@ namespace Source.Scripts.States
             _animationHandler.OverrideAnimation(_attacksAnimators[_currentAttackAnimationIndex],
                 _moveSets[_currentAttackIndex].AnimationClip);
 
-
-            _animationHandler.CrossFade(_attacksAnimators[_currentAttackAnimationIndex++], 0, 0.2f);
+            _animationHandler.Animator.SetTrigger(_attacksAnimators[_currentAttackAnimationIndex++]);
 
             _currentAttackAnimationIndex %= _attacksAnimators.Count;
         }
@@ -100,7 +103,7 @@ namespace Source.Scripts.States
 
             _entity.Get<ApplyRootMotionHandler>()
                 .SetAnimationRootMotionMultiplier(_moveSets[_currentAttackIndex].RootMultiplierAfterEndAttack);
-            
+
             _weapon.Disable();
             Debug.LogError("End");
             _currentAttackIndex++;

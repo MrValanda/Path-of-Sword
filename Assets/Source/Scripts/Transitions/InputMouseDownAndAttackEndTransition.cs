@@ -17,8 +17,12 @@ namespace Transitions
         {
             _attackEnded = false;
             _attackEventListener.AttackEnded += OnAttackEnded;
-            _disposable = Observable.EveryUpdate().Where(x => _attackEnded && Input.GetMouseButtonDown(_mouseIndex)).Take(1)
-                .Subscribe(_ => { OnNeedTransit(this); });
+            _disposable = Observable.EveryUpdate().Where(x => _attackEnded && Input.GetMouseButton(_mouseIndex)).Take(1)
+                .Subscribe(_ =>
+                {
+                    _disposable?.Dispose();
+                    OnNeedTransit(this);
+                });
         }
 
         public override void OnDisable()

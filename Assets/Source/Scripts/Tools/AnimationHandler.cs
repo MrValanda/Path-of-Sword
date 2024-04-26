@@ -7,7 +7,7 @@ namespace Source.Scripts.Tools
     {
         [field:SerializeField] public Animator Animator { get; private set; }
 
-        public bool IsInTransition => Animator.IsInTransition(0);
+        public bool IsInTransition => false;
 
         private readonly Queue<CrossFadeData> _crossFadeQueue = new Queue<CrossFadeData>();
         private AnimatorOverrideController _animatorOverrideController;
@@ -21,26 +21,24 @@ namespace Source.Scripts.Tools
 
         private void FixedUpdate()
         {
+            return;
             if (_crossFadeQueue.Count == 0) return;
 
             CrossFadeData crossFadeData = _crossFadeQueue.Peek();
+            Debug.LogError(Animator.IsInTransition(0));
             if (Animator.IsInTransition(0) == false)
             {
                 _crossFadeQueue.Dequeue();
                 if (_crossFadeQueue.Count == 0) return;
                 crossFadeData = _crossFadeQueue.Peek();
-                Animator.CrossFadeInFixedTime(crossFadeData.NextState, crossFadeData.TransitionDuration, crossFadeData.Layer, 0);
+                Animator.CrossFadeInFixedTime(crossFadeData.NextState, crossFadeData.TransitionDuration, crossFadeData.Layer, 0,0);
             }
         }
 
         public void CrossFade(string nextState, int layer, float transitionDuration)
         {
-            if (_crossFadeQueue.Count == 0)
-            {
-                Animator.CrossFadeInFixedTime(nextState, transitionDuration, layer, 0);
-            }
-
-            _crossFadeQueue.Enqueue(new CrossFadeData(nextState, layer, transitionDuration));
+            Animator.InterruptMatchTarget(false);
+            Animator.CrossFade(nextState, transitionDuration, layer, 0,0);
         }
 
         public void OverrideAnimation(string animationName, AnimationClip newAnimation)
