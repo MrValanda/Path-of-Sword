@@ -23,7 +23,7 @@ namespace Source.Scripts.States
         private void OnEnable()
         {
             _animator ??= _entity.Get<AnimationHandler>().Animator;
-            
+            StopParry();
             _startParryDisposable?.Dispose();
             _endParryDisposable?.Dispose();
 
@@ -36,10 +36,8 @@ namespace Source.Scripts.States
             _entity.AddOrGet<EntityCurrentStatsData>().DamageReducePercent = _previousReduce;
             _animator.SetBool(IsProtection,false);
             
-            StopParry();
             
             _startParryDisposable?.Dispose();
-            _endParryDisposable?.Dispose();
         }
 
         private void StartParry()
@@ -49,8 +47,8 @@ namespace Source.Scripts.States
             EntityCurrentStatsData entityCurrentStatsData = _entity.AddOrGet<EntityCurrentStatsData>();
             _previousReduce = entityCurrentStatsData.DamageReducePercent;
             entityCurrentStatsData.DamageReducePercent = _damageReduce;
-            
-            _entity.Add(new ParryComponent());
+
+            _entity.Add(new ParryComponent() {WhoParryEntity = _entity});
             _endParryDisposable = SetTimer(_parryEndTime, StopParry);
 
         }

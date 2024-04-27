@@ -71,14 +71,14 @@ Material:
     - _QueueControl: 0
     - _QueueOffset: 0
     - _Toon_Fire: 100
-    - _Top_Origin: 0.36
+    - _Top_Origin: 0.42
     - _Top_Spread: 0.15
     m_Colors:
-    - _Bottom_Color: {r: 0.5283019, g: 0.015679138, b: 0, a: 0}
-    - _Middle_Color: {r: 0.46226418, g: 0, b: 0.013021371, a: 0}
+    - _Bottom_Color: {r: 0.6226415, g: 0.055802763, b: 0.60263544, a: 0}
+    - _Middle_Color: {r: 0.6279439, g: 0, b: 0.6415094, a: 0}
     - _Pattern_Offset: {r: 1.2, g: -0.09, b: 0, a: 0}
     - _Pattern_Tiling: {r: 1, g: 1, b: 0, a: 0}
-    - _Top_Color: {r: 0.26415092, g: 0.0051207747, b: 0, a: 1}
+    - _Top_Color: {r: 0.9716981, g: 0.58384615, b: 0.0779192, a: 1}
   m_BuildTextureStacks: []
 --- !u!114 &681616099791662282
 MonoBehaviour:

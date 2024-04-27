@@ -6,6 +6,11 @@
         {
             return entity.ComponentContainerMonoLinker.ComponentsContainer.GetComponent<T>();
         }
+        
+        public static bool TryGet<T>(this Entity entity,out T component) where T : class
+        {
+            return entity.ComponentContainerMonoLinker.ComponentsContainer.TryGetComponent(out component);
+        }
 
         public static void Add<T>(this Entity entity, T addedItem) where T : class
         {

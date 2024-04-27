@@ -23,9 +23,9 @@ namespace Source.Scripts.Visitors
                     Any(x => x.Type.Equals(healthComponent.GetType().Name)) == false)
                 return;
 
-            if (healthComponent.Entity.TryGetComponent(out ParryComponent parryComponent))
+            if (healthComponent.Entity.TryGet(out ParryComponent parryComponent))
             {
-                parryComponent.WhoParryEntity = _entity;
+                parryComponent.WhomParryEntity = _entity;
                 parryComponent.Execute();
                 return;
             }

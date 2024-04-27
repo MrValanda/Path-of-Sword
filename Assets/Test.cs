@@ -3,6 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using Sirenix.OdinInspector;
 using Source.Scripts.EntityLogic;
+using Source.Scripts.Transitions;
+using Source.Scripts.VisitableComponents;
 using Source.Scripts.Visitors;
 using UnityEngine;
 using XftWeapon;
@@ -14,7 +16,10 @@ public class Test : MonoBehaviour
 
     private void Update()
     {
-        throw new NotImplementedException();
+        if(Input.GetKeyDown(KeyCode.CapsLock))
+        {
+            _swordAttackVisitor.Visit(_entity.Get<PlayerHealthComponent>());
+        }
     }
 
     [Button]
