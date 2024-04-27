@@ -1218,7 +1218,7 @@ Transform:
   - {fileID: 1647113145060970982}
   - {fileID: 4570844009850432951}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &5856197143836898597
 MonoBehaviour:
@@ -1905,22 +1905,22 @@ MonoBehaviour:
       positions:
       - x: 0.045257688
         y: 0.93116254
-        z: 0.061053187
+        z: 0.061053276
       - x: 0.045257717
         y: 0.9059231
-        z: 0.07586932
+        z: 0.07586956
       - x: -0.04525754
         y: 0.9311626
-        z: 0.061053246
+        z: 0.061053276
       - x: -0.04525754
         y: 0.90592325
-        z: 0.07586926
+        z: 0.07586956
       attributes:
       - Value: 1
       - Value: 2
       - Value: 1
       - Value: 2
-      maxConnectionDistance: 0.0292668
+      maxConnectionDistance: 0.029266875
       userEdit: 0
   gizmoSerializeData:
     always: 0
@@ -3005,34 +3005,34 @@ MonoBehaviour:
       positions:
       - x: -0.000002026558
         y: 0.7231375
-        z: -0.05444202
+        z: -0.054441452
       - x: -0.0015983582
         y: 0.7074531
-        z: -0.097893775
+        z: -0.097893715
       - x: -0.0016305745
         y: 0.6344951
-        z: -0.1342645
+        z: -0.13426399
       - x: -0.0019356906
         y: 0.5295356
-        z: -0.15013784
+        z: -0.15013695
       - x: -0.003045112
         y: 0.45725724
-        z: -0.16712818
+        z: -0.16712761
       - x: -0.0070137978
         y: 0.38131082
-        z: -0.18411851
+        z: -0.18411732
       - x: -0.021458805
         y: 0.30108467
-        z: -0.20172028
+        z: -0.20171928
       - x: -0.026658893
         y: 0.21313342
-        z: -0.26712018
+        z: -0.2671194
       - x: -0.011833489
         y: 0.15884441
-        z: -0.37350255
+        z: -0.37350178
       - x: 0.02267
         y: 0.1656936
-        z: -0.46765733
+        z: -0.4676571
       attributes:
       - Value: 1
       - Value: 2
@@ -3634,6 +3634,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4483070611337313715}
+  - {fileID: 8106018177183745592}
   - {fileID: 8765090721948916165}
   - {fileID: 7019039102261425667}
   - {fileID: 7150408624915806118}
@@ -4513,46 +4514,46 @@ MonoBehaviour:
       positions:
       - x: -0.10646364
         y: 1.0825957
-        z: -0.054979593
+        z: -0.05497837
       - x: -0.14085478
         y: 1.0078522
-        z: -0.05017829
+        z: -0.050177574
       - x: -0.16394764
         y: 0.8977885
-        z: -0.043585032
+        z: -0.043584824
       - x: -0.19079676
         y: 0.77355283
-        z: -0.056319
+        z: -0.056318283
       - x: -0.24308933
         y: 0.63918996
-        z: -0.087051034
+        z: -0.087049484
       - x: -0.29872718
         y: 0.49159166
-        z: -0.119559765
+        z: -0.11955929
       - x: -0.304535
         y: 0.34306857
-        z: -0.10970041
+        z: -0.10969925
       - x: 0.11458242
         y: 1.082596
-        z: -0.054979652
+        z: -0.05497837
       - x: 0.14897352
         y: 1.0078523
-        z: -0.05017829
+        z: -0.050177574
       - x: 0.17206615
         y: 0.89778864
-        z: -0.04358509
+        z: -0.043584824
       - x: 0.1989153
         y: 0.77355325
-        z: -0.05631894
+        z: -0.056318283
       - x: 0.2512077
         y: 0.6391905
-        z: -0.087051034
+        z: -0.087049484
       - x: 0.30684584
         y: 0.49159214
-        z: -0.119559765
+        z: -0.11955929
       - x: 0.31265366
         y: 0.34306887
-        z: -0.1097005
+        z: -0.1097002
       attributes:
       - Value: 1
       - Value: 2
@@ -4568,7 +4569,7 @@ MonoBehaviour:
       - Value: 2
       - Value: 2
       - Value: 2
-      maxConnectionDistance: 0.16105184
+      maxConnectionDistance: 0.16105205
       userEdit: 0
   gizmoSerializeData:
     always: 0
@@ -5584,6 +5585,88 @@ Transform:
   m_Father: {fileID: 199985611935281235}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &35729095651577958
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 5884025694810153562}
+    m_Modifications:
+    - target: {fileID: 1970656371153945096, guid: 5ffdd2ef8f8c3ca42a1bc956b7b80a97, type: 3}
+      propertyPath: m_Name
+      value: Non-lethal Self Defence Weapon
+      objectReference: {fileID: 0}
+    - target: {fileID: 1970656371153945096, guid: 5ffdd2ef8f8c3ca42a1bc956b7b80a97, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8070648418563839582, guid: 5ffdd2ef8f8c3ca42a1bc956b7b80a97, type: 3}
+      propertyPath: m_RootOrder
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8070648418563839582, guid: 5ffdd2ef8f8c3ca42a1bc956b7b80a97, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.56591046
+      objectReference: {fileID: 0}
+    - target: {fileID: 8070648418563839582, guid: 5ffdd2ef8f8c3ca42a1bc956b7b80a97, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.56591034
+      objectReference: {fileID: 0}
+    - target: {fileID: 8070648418563839582, guid: 5ffdd2ef8f8c3ca42a1bc956b7b80a97, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.5659102
+      objectReference: {fileID: 0}
+    - target: {fileID: 8070648418563839582, guid: 5ffdd2ef8f8c3ca42a1bc956b7b80a97, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.0064
+      objectReference: {fileID: 0}
+    - target: {fileID: 8070648418563839582, guid: 5ffdd2ef8f8c3ca42a1bc956b7b80a97, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.0452
+      objectReference: {fileID: 0}
+    - target: {fileID: 8070648418563839582, guid: 5ffdd2ef8f8c3ca42a1bc956b7b80a97, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.0174
+      objectReference: {fileID: 0}
+    - target: {fileID: 8070648418563839582, guid: 5ffdd2ef8f8c3ca42a1bc956b7b80a97, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: -0.7528687
+      objectReference: {fileID: 0}
+    - target: {fileID: 8070648418563839582, guid: 5ffdd2ef8f8c3ca42a1bc956b7b80a97, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.12401899
+      objectReference: {fileID: 0}
+    - target: {fileID: 8070648418563839582, guid: 5ffdd2ef8f8c3ca42a1bc956b7b80a97, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.0031424742
+      objectReference: {fileID: 0}
+    - target: {fileID: 8070648418563839582, guid: 5ffdd2ef8f8c3ca42a1bc956b7b80a97, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.646373
+      objectReference: {fileID: 0}
+    - target: {fileID: 8070648418563839582, guid: 5ffdd2ef8f8c3ca42a1bc956b7b80a97, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -11
+      objectReference: {fileID: 0}
+    - target: {fileID: 8070648418563839582, guid: 5ffdd2ef8f8c3ca42a1bc956b7b80a97, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 9.12
+      objectReference: {fileID: 0}
+    - target: {fileID: 8070648418563839582, guid: 5ffdd2ef8f8c3ca42a1bc956b7b80a97, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: -82.175
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 5ffdd2ef8f8c3ca42a1bc956b7b80a97, type: 3}
+--- !u!4 &8106018177183745592 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8070648418563839582, guid: 5ffdd2ef8f8c3ca42a1bc956b7b80a97, type: 3}
+  m_PrefabInstance: {fileID: 35729095651577958}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &6687189772422880722
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5740,7 +5823,7 @@ PrefabInstance:
     - target: {fileID: 1830631742359859446, guid: 49ec153fdae2f5944a298b886f55bc17, type: 3}
       propertyPath: MyMaterial
       value: 
-      objectReference: {fileID: 2100000, guid: c9cc9f630ae5d9f4685c363d04d6dc94, type: 2}
+      objectReference: {fileID: 2100000, guid: db936b0ad5b3d5c42badfce8443c4006, type: 2}
     - target: {fileID: 1830631742359859446, guid: 49ec153fdae2f5944a298b886f55bc17, type: 3}
       propertyPath: UseWithSRP
       value: 1
