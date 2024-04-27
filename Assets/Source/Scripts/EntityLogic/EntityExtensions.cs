@@ -12,9 +12,14 @@
             entity.ComponentContainerMonoLinker.ComponentsContainer.AddComponent(addedItem);
         }
 
+        public static void Remove<T>(this Entity entity) where T : class
+        {
+            entity.ComponentContainerMonoLinker.ComponentsContainer.RemoveComponent<T>();
+        }
+
         public static T AddOrGet<T>(this Entity entity) where T : class, new()
         {
-           return entity.ComponentContainerMonoLinker.ComponentsContainer.AddOrGetComponent<T>();
+            return entity.ComponentContainerMonoLinker.ComponentsContainer.AddOrGetComponent<T>();
         }
     }
 }

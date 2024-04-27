@@ -4,7 +4,6 @@ using Tools;
 using UniRx;
 using UniRx.Triggers;
 using UnityEngine;
-using Visitors;
 
 namespace Source.Scripts.Tools
 {

@@ -93,13 +93,13 @@ Material:
     - _FogColorStart3: 20.1
     - _FogColorStart4: 29.4
     - _FogDensity: 2
-    - _FogDepthMultiplier: 2.9973
+    - _FogDepthMultiplier: 2.91
     - _FogDepthMultiplier1: 1
     - _FogIntensity: 1
     - _FogIntensity1: 1
     - _FogOffset: 0
     - _FogOffset1: 1
-    - _FogSmoothness: 145.76868
+    - _FogSmoothness: 500
     - _FogSmoothness1: 100
     - _GlossMapScale: 1
     - _Glossiness: 0.5
@@ -131,6 +131,6 @@ Material:
     - _FogSquish: {r: 1, g: 3.93, b: 0, a: 0}
     - _LightColor: {r: 1.0833969, g: 1.3920008, b: 1.382235, a: 1}
     - _LightColor1: {r: 11.924528, g: 32, b: 29.818542, a: 0}
-    - _SunDirection: {r: -0, g: 1, b: 0.000000059604645, a: 0}
+    - _SunDirection: {r: -0.33709425, g: 0.88381946, b: -0.32439294, a: 0}
     - _SunDirection1: {r: 0, g: 0, b: 0, a: 0}
   m_BuildTextureStacks: []

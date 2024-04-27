@@ -2307,6 +2307,8 @@ MonoBehaviour:
   checkingTransitionDelay: 0
   _entity: {fileID: 1384929614764249878}
   _damageReduce: 1
+  _parryStartTime: 0
+  _parryEndTime: 0
 --- !u!114 &8765254226633100878
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5717,7 +5719,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: adf6ef2a000849d4bb7e07d1d3f3ead2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _swordAttackVisitor: {fileID: 11400000, guid: 854d9a4771dc511468f3bf9f6b73efc5, type: 2}
+  _swordAttackVisitor:
+    _entity: {fileID: 0}
+    _damageableContainerSetup: {fileID: 0}
+    _damage: 0
   _collider: {fileID: 8270339145663213985}
   _orientation: {fileID: 4629691732500990159}
 --- !u!1001 &8975562162262845743
@@ -5800,6 +5805,18 @@ PrefabInstance:
       propertyPath: _orientation
       value: 
       objectReference: {fileID: 4629691732500990159}
+    - target: {fileID: 7094938295982892779, guid: 49ec153fdae2f5944a298b886f55bc17, type: 3}
+      propertyPath: _swordAttackVisitor._damage
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7094938295982892779, guid: 49ec153fdae2f5944a298b886f55bc17, type: 3}
+      propertyPath: _swordAttackVisitor._entity
+      value: 
+      objectReference: {fileID: 1384929614764249878}
+    - target: {fileID: 7094938295982892779, guid: 49ec153fdae2f5944a298b886f55bc17, type: 3}
+      propertyPath: _swordAttackVisitor._damageableContainerSetup
+      value: 
+      objectReference: {fileID: 11400000, guid: c2c5ac8c0c61c8b44a5352220183fd21, type: 2}
     - target: {fileID: 8125628762043256178, guid: 49ec153fdae2f5944a298b886f55bc17, type: 3}
       propertyPath: m_Name
       value: Guts_Sword

@@ -1,5 +1,6 @@
 using System;
 using Interfaces;
+using Source.Scripts.EntityDataComponents;
 using Source.Scripts.EntityLogic;
 using Source.Scripts.Interfaces;
 using UnityEngine;
@@ -9,10 +10,12 @@ namespace Source.Scripts.VisitableComponents
     public class HealthComponent : OptimizedMonoBehavior, IVisitable, IDamageable, IDying
     {
         public event Action<IDying> Dead;
+        public event Action<double> ReceivedDamage;
+
         [SerializeField, Min(0)] private float _maxHeatlh;
         [SerializeField] private Entity _entity;
 
-        public event Action<double> ReceivedDamage;
+        public Entity Entity => _entity;
 
         private double _currentHealth;
         public bool IsDead => _currentHealth == 0;
@@ -41,7 +44,7 @@ namespace Source.Scripts.VisitableComponents
 
             damage -= damage * _entity.AddOrGet<EntityCurrentStatsData>().DamageReducePercent;
             _currentHealth =
-                Math.Clamp(_currentHealth - damage,0, _maxHeatlh);
+                Math.Clamp(_currentHealth - damage, 0, _maxHeatlh);
 
             ReceivedDamage?.Invoke(damage);
             OnApplyDamage(damage);
