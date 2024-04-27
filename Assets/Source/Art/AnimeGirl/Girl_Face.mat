@@ -32,6 +32,7 @@ Material:
   - _MK_ENVIRONMENT_REFLECTIONS_AMBIENT
   - _MK_LIGHT_BANDED
   - _MK_RECEIVE_SHADOWS
+  - _MK_RIM_DEFAULT
   - _MK_WRAPPED_DIFFUSE
   m_InvalidKeywords:
   - _MK_OUTLINE_HULL_CLIP
@@ -238,8 +239,8 @@ Material:
     - _ReceiveShadows: 1
     - _RenderFace: 2
     - _RenderPriority: 0
-    - _Rim: 0
-    - _RimSize: 1.58
+    - _Rim: 1
+    - _RimSize: 2.17
     - _RimSmoothness: 0.5
     - _RimThresholdOffset: 0.25
     - _Saturation: 1
@@ -273,17 +274,17 @@ Material:
     - _ZTest: 4
     - _ZWrite: 1
     m_Colors:
-    - _AlbedoColor: {r: 0.754717, g: 0.754717, b: 0.754717, a: 1}
+    - _AlbedoColor: {r: 0.9811321, g: 0.8699448, b: 0.83766466, a: 1}
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
-    - _Color: {r: 0.75471693, g: 0.75471693, b: 0.75471693, a: 1}
+    - _Color: {r: 0.9811321, g: 0.8699449, b: 0.83766466, a: 1}
     - _DissolveBorderColor: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _GoochBrightColor: {r: 1, g: 1, b: 1, a: 1}
-    - _GoochDarkColor: {r: 0.9150943, g: 0.9150943, b: 0.9150943, a: 1}
+    - _GoochDarkColor: {r: 0.9339623, g: 0.9339623, b: 0.9339623, a: 1}
     - _IridescenceColor: {r: 1, g: 1, b: 1, a: 0.5}
-    - _RimBrightColor: {r: 1, g: 1, b: 1, a: 1}
-    - _RimColor: {r: 0, g: 0, b: 0, a: 0.05882353}
-    - _RimDarkColor: {r: 0, g: 0, b: 0, a: 1}
+    - _RimBrightColor: {r: 0.754717, g: 0, b: 0, a: 0.57254905}
+    - _RimColor: {r: 0.20784314, g: 0.20784314, b: 0.20784314, a: 0.4392157}
+    - _RimDarkColor: {r: 0, g: 0, b: 0, a: 0.6117647}
     - _SpecColor: {r: 0.2, g: 0.2, b: 0.2, a: 1}
     - _SpecularColor: {r: 1, g: 1, b: 1, a: 1}
     - _VertexAnimationFrequency: {r: 2.5, g: 2.5, b: 2.5, a: 1}

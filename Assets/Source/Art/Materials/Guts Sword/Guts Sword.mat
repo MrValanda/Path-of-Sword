@@ -28,12 +28,11 @@ Material:
   - _MK_ALBEDO_MAP
   - _MK_ARTISTIC_ANIMATION_STUTTER
   - _MK_ARTISTIC_PROJECTION_SCREEN_SPACE
+  - _MK_EMISSION
   - _MK_EMISSION_MAP
   - _MK_ENVIRONMENT_REFLECTIONS_AMBIENT
-  - _MK_IRIDESCENCE_DEFAULT
   - _MK_LIGHT_CEL
   - _MK_RECEIVE_SHADOWS
-  - _MK_RIM_DEFAULT
   - _MK_WRAPPED_DIFFUSE
   m_InvalidKeywords:
   - _MK_OUTLINE_HULL_CLIP
@@ -228,7 +227,7 @@ Material:
     - _Initialized: 0
     - _InputTab: 1
     - _Intensity: 1
-    - _Iridescence: 1
+    - _Iridescence: 0
     - _IridescenceSize: 1.4
     - _IridescenceSmoothness: 0.5
     - _IridescenceThresholdOffset: 0
@@ -253,7 +252,7 @@ Material:
     - _ReceiveShadows: 1
     - _RenderFace: 2
     - _RenderPriority: 0
-    - _Rim: 1
+    - _Rim: 0
     - _RimSize: 1.71
     - _RimSmoothness: 0.5
     - _RimThresholdOffset: 0.25
@@ -294,7 +293,7 @@ Material:
     - _Color0: {r: 1, g: 0, b: 0, a: 1}
     - _Color1: {r: 0, g: 1, b: 0, a: 1}
     - _DissolveBorderColor: {r: 1, g: 1, b: 1, a: 1}
-    - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
+    - _EmissionColor: {r: 0.4245283, g: 0.4245283, b: 0.4245283, a: 1}
     - _GoochBrightColor: {r: 1, g: 1, b: 1, a: 1}
     - _GoochDarkColor: {r: 0, g: 0, b: 0, a: 1}
     - _IridescenceColor: {r: 1, g: 1, b: 1, a: 0.5}
