@@ -61,8 +61,8 @@ Material:
     - _Bottom_Origin: 0.19
     - _Bottom_Spread: 1
     - _Curve_Multiplier: 0
-    - _Emission_Strength: 20
-    - _FireSpeed: -2
+    - _Emission_Strength: 30
+    - _FireSpeed: -8.54
     - _Fire_Contrast: 1
     - _Fire_Layer_1: 4
     - _Fire_Layer_2: 7
@@ -77,7 +77,7 @@ Material:
     - _Bottom_Color: {r: 0.5943396, g: 0.18910806, b: 0, a: 0}
     - _Middle_Color: {r: 0.6981132, g: 0.13092221, b: 0, a: 0}
     - _Pattern_Offset: {r: 0, g: 0, b: 0, a: 0}
-    - _Pattern_Tiling: {r: 1, g: 1, b: 0, a: 0}
+    - _Pattern_Tiling: {r: 1, g: 0.92, b: 0, a: 0}
     - _Top_Color: {r: 1, g: 0.36509785, b: 0, a: 1}
   m_BuildTextureStacks: []
 --- !u!114 &681616099791662282

@@ -159,7 +159,7 @@ Material:
     - _DetailScale: 2.3
     - _DstBlend: 0
     - _EnvironmentReflections: 1
-    - _GalaxyMultiplier: 0
+    - _GalaxyMultiplier: 0.002570077
     - _GlossMapScale: 1
     - _Glossiness: 0.5
     - _GlossyReflections: 1
@@ -211,18 +211,18 @@ Material:
     - _GalaxyColor1: {r: 1, g: 0, b: 0.6574917, a: 1}
     - _GalaxyColor2: {r: 0.4681289, g: 0.4470588, b: 1, a: 1}
     - _GalaxyColor3: {r: 0, g: 0.84153175, b: 1, a: 1}
-    - _HorizonColor: {r: 0, g: 0.55663216, b: 0.9058427, a: 1}
+    - _HorizonColor: {r: 0.020933751, g: 0.37835595, b: 0.63224816, a: 1}
     - _LightColor: {r: 0.35569295, g: 0.45956883, b: 0.4802988, a: 1}
     - _LightColor1: {r: 0.35427704, g: 0.5403362, b: 0.4741432, a: 1}
     - _LightColumnColor: {r: 0, g: 0, b: 0, a: 0}
     - _MoonColor: {r: 0.11000357, g: 0.2264151, b: 0.22527522, a: 0}
     - _MoonDirection: {r: -0.640357, g: -0.766766, b: -0.04486454, a: 0}
     - _MoonFlareColor: {r: 0.023529412, g: 0.08627451, b: 0.14901961, a: 1}
-    - _StarColor: {r: 0, g: 0, b: 0, a: 0}
+    - _StarColor: {r: 7.011666, g: 7.011666, b: 7.011666, a: 0.6607048}
     - _StormDirection: {r: 0, g: 0, b: 0, a: 0}
     - _SunColor: {r: 10, g: 10, b: 10, a: 0}
     - _SunColor1: {r: 10.43295, g: 10.43295, b: 10.43295, a: 0}
     - _SunDirection: {r: -0.05530402, g: -0.97433305, b: -0.21821257, a: 0}
-    - _SunFlareColor: {r: 0.68235296, g: 0.6786977, b: 0.5176471, a: 0}
-    - _ZenithColor: {r: 0.0038829537, g: 0.18055885, b: 0.3456453, a: 1}
+    - _SunFlareColor: {r: 0.5788095, g: 0.5189152, b: 0.39062995, a: 0}
+    - _ZenithColor: {r: 0.004529418, g: 0.07161455, b: 0.1585925, a: 1}
   m_BuildTextureStacks: []
