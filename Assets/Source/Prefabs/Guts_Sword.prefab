@@ -78,7 +78,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   UseWith2D: 0
-  UseWithSRP: 0
+  UseWithSRP: 1
   SortingLayerName: 
   SortingOrder: 0
   PointStart: {fileID: 1830631742348859698}
@@ -87,7 +87,7 @@ MonoBehaviour:
   Granularity: 60
   Fps: 60
   MyColor: {r: 1, g: 1, b: 1, a: 1}
-  MyMaterial: {fileID: 2100000, guid: c9cc9f630ae5d9f4685c363d04d6dc94, type: 2}
+  MyMaterial: {fileID: 2100000, guid: db936b0ad5b3d5c42badfce8443c4006, type: 2}
 --- !u!1 &1830631742349083926
 GameObject:
   m_ObjectHideFlags: 0
@@ -138,7 +138,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4807745213661303964
 Transform:
   m_ObjectHideFlags: 0
@@ -148,12 +148,12 @@ Transform:
   m_GameObject: {fileID: 8125628762043256178}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.6065367, y: 0.6065367, z: 0.6065367}
+  m_LocalScale: {x: 0.68399835, y: 0.6839983, z: 0.6839985}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1830631742348859700}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &7377025853272880945
 MeshFilter:
@@ -238,6 +238,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: adf6ef2a000849d4bb7e07d1d3f3ead2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _swordAttackVisitor: {fileID: 11400000, guid: 854d9a4771dc511468f3bf9f6b73efc5, type: 2}
+  _swordAttackVisitor:
+    _entity: {fileID: 0}
+    _damageableContainerSetup: {fileID: 11400000, guid: c2c5ac8c0c61c8b44a5352220183fd21, type: 2}
+    _damage: 1
   _collider: {fileID: 4257438955406178376}
-  _orientation: {fileID: 4807745213661303964}
+  _orientation: {fileID: 0}

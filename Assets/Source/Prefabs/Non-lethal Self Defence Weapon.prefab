@@ -217,15 +217,15 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1970656371153945096}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.56591064, y: 0.56591034, z: 0.56591034}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4492771601735694504}
   - {fileID: 7713940773007555}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3824215083166949906
 GameObject:
@@ -424,12 +424,12 @@ MonoBehaviour:
     gravity: 0
     gravityDirection:
       x: 0
-      y: -1
+      y: 0
       z: 0
     gravityFalloff: 0
-    stablizationTimeAfterReset: 0.1
+    stablizationTimeAfterReset: 1
     damping:
-      value: 0.05
+      value: 0
       useCurve: 0
       curve:
         serializedVersion: 2
@@ -483,7 +483,7 @@ MonoBehaviour:
         m_PostInfinity: 2
         m_RotationOrder: 4
     inertiaConstraint:
-      movementInertia: 1
+      movementInertia: 0
       rotationInertia: 1
       depthInertia: 0
       centrifualAcceleration: 0
@@ -497,7 +497,7 @@ MonoBehaviour:
         value: 4
         use: 1
     tetherConstraint:
-      distanceCompression: 0.8
+      distanceCompression: 0.4
     distanceConstraint:
       stiffness:
         value: 1
@@ -527,43 +527,43 @@ MonoBehaviour:
           m_PostInfinity: 2
           m_RotationOrder: 4
     triangleBendingConstraint:
-      stiffness: 0.5
+      stiffness: 1
     angleRestorationConstraint:
       useAngleRestoration: 1
       stiffness:
-        value: 0.1
-        useCurve: 1
+        value: 1
+        useCurve: 0
         curve:
           serializedVersion: 2
           m_Curve:
           - serializedVersion: 3
             time: 0
             value: 1
-            inSlope: -1.5032809
-            outSlope: -1.5032809
+            inSlope: 0
+            outSlope: -0.7
             tangentMode: 0
             weightedMode: 0
             inWeight: 0
-            outWeight: 0.033533104
+            outWeight: 0
           - serializedVersion: 3
             time: 1
-            value: 0.097331375
-            inSlope: -0.17397198
-            outSlope: -0.17397198
+            value: 0.3
+            inSlope: -0.7
+            outSlope: 0
             tangentMode: 0
             weightedMode: 0
-            inWeight: 0.045376718
+            inWeight: 0
             outWeight: 0
           m_PreInfinity: 2
           m_PostInfinity: 2
           m_RotationOrder: 4
-      velocityAttenuation: 0.5
+      velocityAttenuation: 0.6
       gravityFalloff: 0
     angleLimitConstraint:
-      useAngleLimit: 0
+      useAngleLimit: 1
       limitAngle:
-        value: 80
-        useCurve: 1
+        value: 45
+        useCurve: 0
         curve:
           serializedVersion: 2
           m_Curve:
@@ -695,42 +695,42 @@ MonoBehaviour:
   serializeData2:
     selectionData:
       positions:
-      - x: 0.027017625
-        y: 0.317932
-        z: 0.000000059604645
-      - x: 0.027017625
-        y: 0.49698165
-        z: 0.000000029802322
-      - x: 0.027017625
-        y: 0.63613486
-        z: 0.000000059604645
-      - x: 0.027017625
-        y: 0.7705976
-        z: 0
-      - x: 0.027017625
-        y: 0.91600496
-        z: 0.000000059604645
-      - x: 0.027017625
-        y: 1.0489041
-        z: 0.00000011920929
-      - x: 0.027017625
-        y: 1.186494
-        z: 0.00000011920929
-      - x: 0.027017625
-        y: 1.310012
-        z: 0.00000011920929
-      - x: 0.027017625
+      - x: 0.027017832
+        y: 0.31793195
+        z: 0.00000047683716
+      - x: 0.027017713
+        y: 0.49698156
+        z: 0.00000047683716
+      - x: 0.027017713
+        y: 0.6361349
+        z: 0.00000059604645
+      - x: 0.027017951
+        y: 0.7705974
+        z: 0.000000834465
+      - x: 0.027017951
+        y: 0.91600484
+        z: 0.0000009536743
+      - x: 0.027017951
+        y: 1.0489042
+        z: 0.0000011920929
+      - x: 0.027017951
+        y: 1.1864944
+        z: 0.0000010728836
+      - x: 0.027017951
+        y: 1.3100123
+        z: 0.0000013113022
+      - x: 0.027017951
         y: 1.430403
-        z: 0.00000011920929
-      - x: 0.027017625
-        y: 1.5335953
-        z: 0
-      - x: 0.027017625
-        y: 1.6242797
-        z: 0
-      - x: 0.027017625
-        y: 1.7321626
-        z: 0
+        z: 0.0000013113022
+      - x: 0.027017951
+        y: 1.5335956
+        z: 0.0000011920929
+      - x: 0.027017951
+        y: 1.6242802
+        z: 0.0000015497208
+      - x: 0.027017832
+        y: 1.732163
+        z: 0.00000166893
       attributes:
       - Value: 1
       - Value: 2
@@ -744,7 +744,7 @@ MonoBehaviour:
       - Value: 2
       - Value: 2
       - Value: 2
-      maxConnectionDistance: 0.17904964
+      maxConnectionDistance: 0.17904961
       userEdit: 0
   gizmoSerializeData:
     always: 0

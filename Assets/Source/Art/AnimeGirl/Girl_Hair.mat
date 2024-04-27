@@ -215,7 +215,7 @@ Material:
     - _Light: 2
     - _LightBands: 2
     - _LightBandsScale: 1
-    - _LightThreshold: 0.406
+    - _LightThreshold: 0
     - _Metallic: 0
     - _Mode: 0
     - _NormalMapIntensity: 1
