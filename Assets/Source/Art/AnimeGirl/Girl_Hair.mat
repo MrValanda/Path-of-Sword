@@ -188,7 +188,7 @@ Material:
     - _Cutoff: 0.5
     - _DetailAlbedoMapScale: 1
     - _DetailNormalMapScale: 1
-    - _DiffuseSmoothness: 0
+    - _DiffuseSmoothness: 1
     - _DiffuseThresholdOffset: 0.25
     - _Dissolve: 0
     - _DissolveAmount: 0.5
@@ -209,13 +209,13 @@ Material:
     - _Initialized: 0
     - _InputTab: 1
     - _Iridescence: 0
-    - _IridescenceSize: 5
+    - _IridescenceSize: 0.39
     - _IridescenceSmoothness: 0.5
     - _IridescenceThresholdOffset: 0
     - _Light: 2
-    - _LightBands: 2
+    - _LightBands: 12
     - _LightBandsScale: 1
-    - _LightThreshold: 0
+    - _LightThreshold: 0.551
     - _Metallic: 0
     - _Mode: 0
     - _NormalMapIntensity: 1
@@ -227,7 +227,7 @@ Material:
     - _RenderFace: 2
     - _RenderPriority: 0
     - _Rim: 1
-    - _RimSize: 3.32
+    - _RimSize: 1.63
     - _RimSmoothness: 0.5
     - _RimThresholdOffset: 0.25
     - _Saturation: 1
@@ -261,17 +261,17 @@ Material:
     - _ZTest: 4
     - _ZWrite: 1
     m_Colors:
-    - _AlbedoColor: {r: 1, g: 0.7058824, b: 0.5882353, a: 1}
+    - _AlbedoColor: {r: 0.509434, g: 0.509434, b: 0.509434, a: 1}
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
-    - _Color: {r: 1, g: 0.7058823, b: 0.5882353, a: 1}
+    - _Color: {r: 0.509434, g: 0.509434, b: 0.509434, a: 1}
     - _DissolveBorderColor: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _GoochBrightColor: {r: 0.6509434, g: 0.6509434, b: 0.6509434, a: 1}
-    - _GoochDarkColor: {r: 0.4528302, g: 0.4528302, b: 0.4528302, a: 1}
-    - _IridescenceColor: {r: 0.18867922, g: 0.17532927, b: 0.17532927, a: 0.5}
-    - _RimBrightColor: {r: 0, g: 0, b: 0, a: 0.57254905}
-    - _RimColor: {r: 0.20784314, g: 0.20784314, b: 0.20784314, a: 0.4392157}
-    - _RimDarkColor: {r: 0.31132078, g: 0.31132078, b: 0.31132078, a: 0.6117647}
+    - _GoochBrightColor: {r: 1, g: 1, b: 1, a: 1}
+    - _GoochDarkColor: {r: 0, g: 0, b: 0, a: 1}
+    - _IridescenceColor: {r: 1, g: 1, b: 1, a: 0.5}
+    - _RimBrightColor: {r: 0.754717, g: 0, b: 0, a: 0.57254905}
+    - _RimColor: {r: 0.20754719, g: 0.20754719, b: 0.20754719, a: 0.4392157}
+    - _RimDarkColor: {r: 0, g: 0, b: 0, a: 0.6117647}
     - _SpecColor: {r: 0.2, g: 0.2, b: 0.2, a: 1}
     - _SpecularColor: {r: 1, g: 1, b: 1, a: 1}
     - _VertexAnimationFrequency: {r: 2.5, g: 2.5, b: 2.5, a: 1}

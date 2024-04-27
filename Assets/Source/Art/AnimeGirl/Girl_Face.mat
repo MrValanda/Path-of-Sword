@@ -226,7 +226,7 @@ Material:
     - _IridescenceSmoothness: 0.5
     - _IridescenceThresholdOffset: 0
     - _Light: 2
-    - _LightBands: 2
+    - _LightBands: 12
     - _LightBandsScale: 1
     - _LightThreshold: 0
     - _Metallic: 0
@@ -279,7 +279,7 @@ Material:
     - _Color: {r: 0.9716981, g: 0.8497775, b: 0.81127626, a: 1}
     - _DissolveBorderColor: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _GoochBrightColor: {r: 0.8207547, g: 0.8207547, b: 0.8207547, a: 1}
+    - _GoochBrightColor: {r: 0.9372549, g: 0.9372549, b: 0.9372549, a: 1}
     - _GoochDarkColor: {r: 0.9716981, g: 0.4236857, b: 0, a: 1}
     - _IridescenceColor: {r: 1, g: 1, b: 1, a: 0.5}
     - _RimBrightColor: {r: 0.754717, g: 0, b: 0, a: 0.57254905}
