@@ -12,8 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac36c75b9c2af5b42a8f1907e068490d, type: 3}
   m_Name: Moon
   m_EditorClassIdentifier: 
-  satelliteReference: {fileID: 2012264065759116755, guid: 6eb90956c95824a43a559a2e547b7cb3,
-    type: 3}
+  satelliteReference: {fileID: 2012264065759116755, guid: 6eb90956c95824a43a559a2e547b7cb3, type: 3}
   orbitRef: {fileID: 0}
   moonRef: {fileID: 0}
   lightRef: {fileID: 0}
