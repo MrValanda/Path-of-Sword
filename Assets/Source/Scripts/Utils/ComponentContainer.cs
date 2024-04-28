@@ -43,7 +43,12 @@ namespace Source.Scripts.Utils
             return success && desiredComponent is T;
         }
 
-        public T GetComponent<T>() where T : class => _components[typeof(T)] as T;
+        public T GetComponent<T>() where T : class
+        {
+            if(_components.ContainsKey(typeof(T)) == false) 
+                return null;
+            return _components[typeof(T)] as T;
+        }
 
         public void RemoveComponent<T>(T component = null) where T : class
         {

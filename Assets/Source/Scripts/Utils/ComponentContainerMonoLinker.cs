@@ -11,9 +11,7 @@ namespace Source.Scripts.Utils
 {
     public class ComponentContainerMonoLinker : MonoBehaviour
     {
-#if UNITY_EDITOR
-        [SerializeField, OnCollectionChanged(Before = nameof(InitComponents))]
-#endif
+        [SerializeField]
         private List<MonoBehaviour> _monoBehaviours = new List<MonoBehaviour>();
 
         public ComponentContainer ComponentsContainer { get; private set; }
@@ -21,6 +19,7 @@ namespace Source.Scripts.Utils
 
         public void Init()
         {
+            Debug.LogError($"Init{_monoBehaviours.Count}");
             ComponentsContainer = new ComponentContainer();
             foreach (var monoBehaviour in _monoBehaviours)
             {
@@ -36,21 +35,5 @@ namespace Source.Scripts.Utils
 
             _monoBehaviours.ForEach(x => ComponentsContainer.AddComponent(x, x.GetType()));
         }
-
-#if UNITY_EDITOR
-        private void InitComponents(CollectionChangeInfo collectionChangeInfo, object value)
-        {
-            switch (collectionChangeInfo.ChangeType)
-            {
-                case CollectionChangeType.Add:
-                case CollectionChangeType.Insert:
-                    if (_monoBehaviours.Any(x => x.GetType() == collectionChangeInfo.Value.GetType()))
-                    {
-                    }
-
-                    break;
-            }
-        }
-#endif
     }
 }
