@@ -17,7 +17,9 @@ namespace Source.Scripts.Tools
 
         public void Enable()
         {
-            _disposable?.Dispose();
+            _collider.enabled = true;
+            if (_disposable != null) return;
+             _disposable?.Dispose();
             _disposable = _collider.OnTriggerEnterAsObservable().Subscribe(x =>
             {
                 if (x.TryGetComponent(out HitBox hitBox) == false) return;
@@ -31,13 +33,16 @@ namespace Source.Scripts.Tools
                 hitBox.Accept(_swordAttackVisitor);
                 hitBox.Accept(impactDirectionVisitor);
             });
-            _collider.enabled = true;
         }
 
         public void Disable()
         {
-            _disposable?.Dispose();
             _collider.enabled = false;
+        }
+
+        private void OnDestroy()
+        {
+            _disposable?.Dispose();
         }
     }
 }
