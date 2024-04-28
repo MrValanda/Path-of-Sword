@@ -205,7 +205,7 @@ Material:
     - _Cutoff: 0.5
     - _DetailAlbedoMapScale: 1
     - _DetailNormalMapScale: 1
-    - _DiffuseSmoothness: 0
+    - _DiffuseSmoothness: 1
     - _DiffuseThresholdOffset: 0.25
     - _Dissolve: 0
     - _DissolveAmount: 0.5
@@ -232,9 +232,9 @@ Material:
     - _IridescenceSmoothness: 0.5
     - _IridescenceThresholdOffset: 0
     - _Light: 2
-    - _LightBands: 2
+    - _LightBands: 12
     - _LightBandsScale: 1
-    - _LightThreshold: 0.406
+    - _LightThreshold: 0
     - _Metallic: 0
     - _Mode: 0
     - _NormalMapIntensity: 1
@@ -253,7 +253,7 @@ Material:
     - _RenderFace: 2
     - _RenderPriority: 0
     - _Rim: 1
-    - _RimSize: 2.17
+    - _RimSize: 1.44
     - _RimSmoothness: 0.5
     - _RimThresholdOffset: 0.25
     - _Saturation: 1
@@ -287,15 +287,15 @@ Material:
     - _ZTest: 4
     - _ZWrite: 1
     m_Colors:
-    - _AlbedoColor: {r: 0.8679245, g: 0.77062416, b: 0.741011, a: 1}
+    - _AlbedoColor: {r: 0.831, g: 0.7407556, b: 0.71067417, a: 1}
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
-    - _Color: {r: 0.8679245, g: 0.77062416, b: 0.741011, a: 1}
+    - _Color: {r: 0.831, g: 0.74075556, b: 0.71067417, a: 1}
     - _Color0: {r: 1, g: 0, b: 0, a: 1}
     - _Color1: {r: 0, g: 1, b: 0, a: 1}
     - _DissolveBorderColor: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _GoochBrightColor: {r: 0.8207547, g: 0.8207547, b: 0.8207547, a: 1}
-    - _GoochDarkColor: {r: 0.735849, g: 0.735849, b: 0.735849, a: 1}
+    - _GoochBrightColor: {r: 0.9339623, g: 0.9339623, b: 0.9339623, a: 1}
+    - _GoochDarkColor: {r: 0.9716981, g: 0.4236857, b: 0, a: 1}
     - _IridescenceColor: {r: 1, g: 1, b: 1, a: 0.5}
     - _OutlineColor: {r: 0, g: 0, b: 0, a: 1}
     - _RimBrightColor: {r: 0.754717, g: 0, b: 0, a: 0.57254905}

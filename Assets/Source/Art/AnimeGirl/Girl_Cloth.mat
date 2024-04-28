@@ -188,7 +188,7 @@ Material:
     - _Cutoff: 0.5
     - _DetailAlbedoMapScale: 1
     - _DetailNormalMapScale: 1
-    - _DiffuseSmoothness: 0
+    - _DiffuseSmoothness: 1
     - _DiffuseThresholdOffset: 0.25
     - _Dissolve: 0
     - _DissolveAmount: 0.5
@@ -213,9 +213,9 @@ Material:
     - _IridescenceSmoothness: 0.5
     - _IridescenceThresholdOffset: 0
     - _Light: 2
-    - _LightBands: 2
+    - _LightBands: 12
     - _LightBandsScale: 1
-    - _LightThreshold: 0.406
+    - _LightThreshold: 0
     - _Metallic: 0
     - _Mode: 0
     - _NormalMapIntensity: 1
@@ -227,7 +227,7 @@ Material:
     - _RenderFace: 2
     - _RenderPriority: 0
     - _Rim: 1
-    - _RimSize: 2.17
+    - _RimSize: 5
     - _RimSmoothness: 0.5
     - _RimThresholdOffset: 0.25
     - _Saturation: 1
@@ -261,17 +261,17 @@ Material:
     - _ZTest: 4
     - _ZWrite: 1
     m_Colors:
-    - _AlbedoColor: {r: 0.4666667, g: 0.6189817, b: 1, a: 1}
+    - _AlbedoColor: {r: 0.5518868, g: 0.82338995, b: 1, a: 1}
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
-    - _Color: {r: 0.46666664, g: 0.6189817, b: 1, a: 1}
+    - _Color: {r: 0.5518868, g: 0.82338995, b: 1, a: 1}
     - _DissolveBorderColor: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _GoochBrightColor: {r: 1, g: 1, b: 1, a: 1}
-    - _GoochDarkColor: {r: 0.8207547, g: 0.8207547, b: 0.8207547, a: 1}
+    - _GoochBrightColor: {r: 0.6886792, g: 0.6464489, b: 0.6464489, a: 1}
+    - _GoochDarkColor: {r: 0, g: 0, b: 0, a: 1}
     - _IridescenceColor: {r: 1, g: 1, b: 1, a: 0.5}
-    - _RimBrightColor: {r: 1, g: 1, b: 1, a: 1}
-    - _RimColor: {r: 0.20784314, g: 0.20784314, b: 0.20784314, a: 0.34901962}
-    - _RimDarkColor: {r: 0, g: 0, b: 0, a: 1}
+    - _RimBrightColor: {r: 0.754717, g: 0, b: 0, a: 0.57254905}
+    - _RimColor: {r: 0.20754719, g: 0.20754719, b: 0.20754719, a: 0.4392157}
+    - _RimDarkColor: {r: 0, g: 0, b: 0, a: 0.6117647}
     - _SpecColor: {r: 0.2, g: 0.2, b: 0.2, a: 1}
     - _SpecularColor: {r: 1, g: 1, b: 1, a: 1}
     - _VertexAnimationFrequency: {r: 2.5, g: 2.5, b: 2.5, a: 1}
