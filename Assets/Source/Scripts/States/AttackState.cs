@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using DG.Tweening;
+using Sirenix.Utilities;
 using Source.Scripts.EntityLogic;
 using Source.Scripts.Tools;
+using Source.Scripts.WeaponModule;
 using UnityEngine;
 using XftWeapon;
 
@@ -15,7 +17,7 @@ namespace Source.Scripts.States
         [SerializeField] private Transform _whoWasRotate;
         [SerializeField] private float _rotationSpeed;
 
-        private XWeaponTrail _xWeaponTrailDemo;
+        private WeaponTrailContainer _weaponTrailContainer;
         private Weapon _weapon;
         private AnimationHandler _animationHandler;
 
@@ -30,12 +32,12 @@ namespace Source.Scripts.States
         {
             _animationHandler ??= _entity.Get<AnimationHandler>();
             _weapon ??= _entity.Get<Weapon>();
-            _xWeaponTrailDemo ??= _entity.Get<XWeaponTrail>();
+            _weaponTrailContainer ??= _entity.Get<WeaponTrailContainer>();
             _attackEventListener ??= _entity.Get<AttackEventListener>();
 
             _animationHandler.Animator.SetBool(IsAttack, true);
 
-            _xWeaponTrailDemo.Activate();
+            _weaponTrailContainer.XWeaponTrails.ForEach(x=>x.Activate());
             _attackEventListener.AttackStarted += OnAttackStarted;
             _attackEventListener.AttackEnded += OnAttackEnded;
             _attackEventListener.AttackReset += OnAttackReset;
@@ -49,7 +51,7 @@ namespace Source.Scripts.States
             _attackEventListener.AttackEnded -= OnAttackEnded;
             _attackEventListener.AttackReset -= OnAttackReset;
             _weapon.Disable();
-            _xWeaponTrailDemo.Deactivate();
+            _weaponTrailContainer.XWeaponTrails.ForEach(x=>x.Deactivate());
             _currentAttackIndex = 0;
             _isAttacking = false;
             _animationHandler.Animator.SetBool(IsAttack, false);

@@ -3,6 +3,7 @@ using UnityEngine;
 
 namespace Source.Scripts.EntityLogic
 {
+    
     [RequireComponent(typeof(ComponentContainerMonoLinker))]
     public class Entity : OptimizedMonoBehavior
     {
@@ -14,6 +15,7 @@ namespace Source.Scripts.EntityLogic
                 {
                     _componentContainerMonoLinker = GetComponent<ComponentContainerMonoLinker>();
                     _componentContainerMonoLinker.Init();
+                    OnComponentContainerInitialize();
                 }
 
                 return _componentContainerMonoLinker;
@@ -21,5 +23,7 @@ namespace Source.Scripts.EntityLogic
         }
 
         private ComponentContainerMonoLinker _componentContainerMonoLinker;
+        
+        protected virtual void OnComponentContainerInitialize(){}
     }
 }
