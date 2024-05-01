@@ -94,8 +94,7 @@ namespace Source.Modules.CombatModule.Scripts
 
         private void OnAttackStarted()
         {
-            _weapon.Enable();
-            Debug.LogError("Start");
+            _weapon.Enable(_weapon.CombatMoveSetSetup[_currentAttackIndex]);
         }
 
         private void OnAttackEnded()
@@ -107,7 +106,6 @@ namespace Source.Modules.CombatModule.Scripts
                     .RootMultiplierAfterEndAttack);
 
             _weapon.Disable();
-            Debug.LogError("End");
             _currentAttackIndex++;
             _currentAttackIndex %= _weapon.CombatMoveSetSetup.Count;
         }
