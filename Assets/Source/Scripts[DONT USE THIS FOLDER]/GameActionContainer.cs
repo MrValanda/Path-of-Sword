@@ -1,0 +1,16 @@
+using System.Collections.Generic;
+using Source.Scripts.Interfaces;
+
+namespace Source.Scripts
+{
+    public class GameActionContainer
+    {
+       public List<IGameAction> GameActions { get; private set; }
+
+       public GameActionContainer(){}
+        public GameActionContainer(List<IGameAction> gameActions)
+        {
+            GameActions = gameActions;
+        }
+    }
+}

@@ -657,22 +657,6 @@ MonoBehaviour:
   - {fileID: 109717512940705732}
   checkingTransitionDelay: 0
   _entity: {fileID: 1384929614764249878}
-  _moveSets:
-  - <AnimationClip>k__BackingField: {fileID: 7400000, guid: 95f9a86ead00310439aac009bf026130, type: 2}
-    <RootMultiplierBeforeEndAttack>k__BackingField: 1
-    <RootMultiplierAfterEndAttack>k__BackingField: 1
-  - <AnimationClip>k__BackingField: {fileID: 7400000, guid: 6f64d966f7566ca448d6a66a0c5868aa, type: 2}
-    <RootMultiplierBeforeEndAttack>k__BackingField: 1
-    <RootMultiplierAfterEndAttack>k__BackingField: 1
-  - <AnimationClip>k__BackingField: {fileID: 7400000, guid: 5029b485ac85ca0478e8877b25e6dec6, type: 3}
-    <RootMultiplierBeforeEndAttack>k__BackingField: 1
-    <RootMultiplierAfterEndAttack>k__BackingField: 1
-  - <AnimationClip>k__BackingField: {fileID: 7400000, guid: e3e4b9f4af1dcba47ac1e41311b3a0d2, type: 3}
-    <RootMultiplierBeforeEndAttack>k__BackingField: 1
-    <RootMultiplierAfterEndAttack>k__BackingField: 1
-  _orientation: {fileID: 0}
-  _whoWasRotate: {fileID: 4629691732500990159}
-  _rotationSpeed: 0.1
 --- !u!114 &8740419788473489874
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1523,7 +1507,6 @@ Transform:
   - {fileID: 8859539972110603567}
   - {fileID: 1647113145060970982}
   - {fileID: 4570844009850432951}
-  - {fileID: 6832337789302076264}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2249,22 +2232,22 @@ MonoBehaviour:
       positions:
       - x: 0.045257628
         y: 0.8914367
-        z: 0.061053246
+        z: 0.061053276
       - x: 0.044981062
         y: 0.9070095
-        z: 0.08630139
+        z: 0.08630276
       - x: -0.0452576
         y: 0.89143676
-        z: 0.061053246
+        z: 0.061053276
       - x: -0.045534194
         y: 0.9070096
-        z: 0.086301446
+        z: 0.08630276
       attributes:
       - Value: 1
       - Value: 2
       - Value: 1
       - Value: 2
-      maxConnectionDistance: 0.029665831
+      maxConnectionDistance: 0.029666923
       userEdit: 0
   gizmoSerializeData:
     always: 0
@@ -2539,38 +2522,6 @@ Transform:
   m_Father: {fileID: 7057331671221036026}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &4133076372540669702
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 6832337789302076264}
-  m_Layer: 6
-  m_Name: Components
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &6832337789302076264
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4133076372540669702}
-  m_LocalRotation: {x: -0, y: 0.40562022, z: -0, w: 0.91404176}
-  m_LocalPosition: {x: -15.029715, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 5132472228457863024}
-  m_Father: {fileID: 4629691732500990159}
-  m_RootOrder: -1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4306086053522593251
 GameObject:
   m_ObjectHideFlags: 0
@@ -2831,59 +2782,6 @@ Transform:
   m_Father: {fileID: 8859539972110603567}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &4644503971237929030
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 5132472228457863024}
-  - component: {fileID: 7481989865426520868}
-  m_Layer: 6
-  m_Name: Equipment
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &5132472228457863024
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4644503971237929030}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 6832337789302076264}
-  m_RootOrder: -1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7481989865426520868
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4644503971237929030}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3fc88ec89c49a4d47a0c35227505ffa7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _ownerEntity: {fileID: 1384929614764249878}
-  _orientation: {fileID: 8859539972110603567}
-  _defaultWeaponData:
-    weaponEntity: {fileID: 3303376795436253243, guid: 9e1a15ba5cbc0d74192b4785182f097e, type: 3}
-  _weaponLocator: {fileID: 1411101949677868412}
-  _swordAttackVisitor:
-    _entity: {fileID: 1384929614764249878}
-    _damageableContainerSetup: {fileID: 11400000, guid: c2c5ac8c0c61c8b44a5352220183fd21, type: 2}
-    _damage: 1
 --- !u!1 &4745276524550099329
 GameObject:
   m_ObjectHideFlags: 0
@@ -3501,34 +3399,34 @@ MonoBehaviour:
       positions:
       - x: -0.000002026558
         y: 0.7231375
-        z: -0.05444202
+        z: -0.054441452
       - x: -0.0015983582
         y: 0.7074531
-        z: -0.097893775
+        z: -0.097893715
       - x: -0.0016305745
         y: 0.6344951
-        z: -0.1342645
+        z: -0.13426399
       - x: -0.0019356906
         y: 0.5295356
-        z: -0.15013784
+        z: -0.15013695
       - x: -0.003045112
         y: 0.45725724
-        z: -0.16712818
+        z: -0.16712761
       - x: -0.0070137978
         y: 0.38131082
-        z: -0.18411851
+        z: -0.18411732
       - x: -0.021458805
         y: 0.30108467
-        z: -0.20172028
+        z: -0.20171928
       - x: -0.026658893
         y: 0.21313342
-        z: -0.26712018
+        z: -0.2671194
       - x: -0.011833489
         y: 0.15884441
-        z: -0.37350255
+        z: -0.37350178
       - x: 0.02267
         y: 0.1656936
-        z: -0.46765733
+        z: -0.4676571
       attributes:
       - Value: 1
       - Value: 2
@@ -5054,46 +4952,46 @@ MonoBehaviour:
       positions:
       - x: 0.11458236
         y: 1.0950835
-        z: -0.048379093
+        z: -0.04837799
       - x: 0.1489734
         y: 1.0211626
-        z: -0.060436934
+        z: -0.06043625
       - x: 0.17206609
         y: 0.9124173
-        z: -0.07865769
+        z: -0.07865715
       - x: 0.19891536
         y: 0.7941879
-        z: -0.11888817
+        z: -0.11888695
       - x: 0.2512077
         y: 0.6701189
-        z: -0.17892747
+        z: -0.17892742
       - x: 0.3068456
         y: 0.5335486
-        z: -0.24366206
+        z: -0.24366093
       - x: 0.31265324
         y: 0.3865895
-        z: -0.26731175
+        z: -0.2673111
       - x: -0.1064637
         y: 1.0950835
-        z: -0.048379093
+        z: -0.04837799
       - x: -0.14085487
         y: 1.0211627
-        z: -0.060437083
+        z: -0.06043625
       - x: -0.16394766
         y: 0.9124179
-        z: -0.07865763
+        z: -0.07865715
       - x: -0.19079672
         y: 0.7941889
-        z: -0.11888799
+        z: -0.11888695
       - x: -0.24308914
         y: 0.67012024
-        z: -0.17892726
+        z: -0.17892647
       - x: -0.298727
         y: 0.5335498
-        z: -0.24366193
+        z: -0.24366093
       - x: -0.3045349
         y: 0.3865905
-        z: -0.26731154
+        z: -0.2673111
       attributes:
       - Value: 1
       - Value: 2
@@ -5109,7 +5007,7 @@ MonoBehaviour:
       - Value: 2
       - Value: 2
       - Value: 2
-      maxConnectionDistance: 0.16105166
+      maxConnectionDistance: 0.16105159
       userEdit: 0
   gizmoSerializeData:
     always: 0
@@ -6007,6 +5905,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: adf6ef2a000849d4bb7e07d1d3f3ead2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  <CombatMoveSetSetup>k__BackingField: {fileID: 0}
   _collider: {fileID: 8270339145663213985}
 --- !u!1001 &8975562162262845743
 PrefabInstance:
