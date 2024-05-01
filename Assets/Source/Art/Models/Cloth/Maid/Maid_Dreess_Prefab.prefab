@@ -558,7 +558,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5061970519445541642}
-  - component: {fileID: 6578406285549590423}
   m_Layer: 0
   m_Name: Maid_Dreess_Prefab
   m_TagString: Untagged
@@ -582,29 +581,8 @@ Transform:
   - {fileID: 8126724174212514228}
   - {fileID: 8241658650049777104}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!95 &6578406285549590423
-Animator:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1957100694500059806}
-  m_Enabled: 1
-  m_Avatar: {fileID: 9000000, guid: ecc20f19b3ece774bb201b3e5918fce7, type: 3}
-  m_Controller: {fileID: 0}
-  m_CullingMode: 1
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1970510469659006265
 GameObject:
   m_ObjectHideFlags: 0
@@ -646,6 +624,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7351583247564388441}
+  - component: {fileID: 5310634439981781115}
   m_Layer: 0
   m_Name: thigh_stretch.r
   m_TagString: Untagged
@@ -670,6 +649,22 @@ Transform:
   m_Father: {fileID: 616113951277976823}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5310634439981781115
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1974209102008856690}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6f5338a96461264fb9a1132c8509672, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  center: {x: 0, y: 0.12, z: 0}
+  size: {x: 0.042, y: 0.068, z: 0.34}
+  direction: 1
+  radiusSeparation: 1
 --- !u!1 &2317632058422116794
 GameObject:
   m_ObjectHideFlags: 0
@@ -966,7 +961,10 @@ MonoBehaviour:
     colliderCollisionConstraint:
       mode: 1
       friction: 0.05
-      colliderList: []
+      colliderList:
+      - {fileID: 5733834172410906198}
+      - {fileID: 5310634439981781115}
+      - {fileID: 4610950044285527366}
     selfCollisionConstraint:
       selfMode: 0
       surfaceThickness:
@@ -2681,6 +2679,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6067358429938626748}
+  - component: {fileID: 5733834172410906198}
   m_Layer: 0
   m_Name: thigh_stretch.l
   m_TagString: Untagged
@@ -2705,6 +2704,22 @@ Transform:
   m_Father: {fileID: 616113951277976823}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5733834172410906198
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6482635501013322065}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6f5338a96461264fb9a1132c8509672, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  center: {x: 0, y: 0.12, z: 0}
+  size: {x: 0.042, y: 0.068, z: 0.34}
+  direction: 1
+  radiusSeparation: 1
 --- !u!1 &6491984374793571272
 GameObject:
   m_ObjectHideFlags: 0
@@ -3810,6 +3825,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 552063643197566839}
+  - component: {fileID: 4610950044285527366}
   m_Layer: 0
   m_Name: spine_01.x
   m_TagString: Untagged
@@ -3833,6 +3849,20 @@ Transform:
   m_Father: {fileID: 616113951277976823}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4610950044285527366
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8581364091638087892}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f2b68b2c7953ebb479b78627f19a6ccb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  center: {x: 0, y: 0, z: 0.005}
+  size: {x: 0.081, y: 0, z: 0}
 --- !u!1 &8837833039459320268
 GameObject:
   m_ObjectHideFlags: 0
