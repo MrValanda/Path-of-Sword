@@ -1,4 +1,4 @@
-using Source.Scripts.PlayerModule;
+using Source.Scripts_DONT_USE_THIS_FOLDER_.PlayerModule;
 using UnityEngine;
 
 namespace Source.CodeLibrary.ServiceBootstrap.SceneContainers

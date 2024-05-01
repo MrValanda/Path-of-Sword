@@ -1,14 +1,18 @@
 using System;
+using Source.Scripts.CombatModule;
+using Source.Scripts.Setups;
 using Source.Scripts.Visitors;
 using Tools;
 using UniRx;
 using UniRx.Triggers;
 using UnityEngine;
 
-namespace Source.Scripts.WeaponModule
+namespace Source.Modules.WeaponModule.Scripts
 {
     public class Weapon : MonoBehaviour
     {
+        [field: SerializeField] public CombatMoveSetSetup CombatMoveSetSetup { get; private set; }
+        
         [SerializeField] private Collider _collider;
 
         private IDisposable _disposable;

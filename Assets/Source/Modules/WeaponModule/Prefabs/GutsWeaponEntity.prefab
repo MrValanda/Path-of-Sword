@@ -5350,6 +5350,10 @@ PrefabInstance:
       propertyPath: _collider
       value: 
       objectReference: {fileID: 3807470170234353295}
+    - target: {fileID: 6400105454745601122, guid: 38bd8b43c934d674d841c210ddd2221d, type: 3}
+      propertyPath: <CombatMoveSetSetup>k__BackingField
+      value: 
+      objectReference: {fileID: 11400000, guid: 9d01e581286f3e44abcbe83728967a99, type: 2}
     - target: {fileID: 8895882815111987649, guid: 38bd8b43c934d674d841c210ddd2221d, type: 3}
       propertyPath: m_Name
       value: GutsWeaponEntity

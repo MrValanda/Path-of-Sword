@@ -3,12 +3,13 @@ using Lean.Pool;
 using Sirenix.OdinInspector;
 using Source.Scripts.EntityLogic;
 using Source.Scripts.Visitors;
+using Source.Scripts.WeaponModule;
 using UnityEngine;
-using XftWeapon;
 
-namespace Source.Scripts.WeaponModule
+namespace Source.Modules.WeaponModule.Scripts
 {
-    public class Equipment : MonoBehaviour
+    [Serializable]
+    public class Equipment 
     {
         [SerializeField] private Entity _ownerEntity;
         [SerializeField] private Transform _orientation;
@@ -17,13 +18,13 @@ namespace Source.Scripts.WeaponModule
         [SerializeField] private SwordAttackVisitor _swordAttackVisitor;
         public WeaponData CurrentWeaponData { get; private set; }
 
-        private void Start()
+        public void Initialize()
         {
             WeaponEntity currentWeaponEntity = LeanPool.Spawn(_defaultWeaponData.weaponEntity, _weaponLocator);
             EquipWeapon(currentWeaponEntity);
         }
-
-        private void EquipWeapon(WeaponEntity currentWeaponEntity)
+        
+        public void EquipWeapon(WeaponEntity currentWeaponEntity)
         {
             CurrentWeaponData = new WeaponData() {weaponEntity = currentWeaponEntity};
 

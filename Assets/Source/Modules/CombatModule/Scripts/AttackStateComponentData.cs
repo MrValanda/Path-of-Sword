@@ -9,7 +9,6 @@ namespace Source.Scripts.EntityDataComponents
     [Serializable]
     public class AttackStateComponentData
     {
-        [field:SerializeField] public CombatMoveSetSetup CombatMoveSets { get; private set; }
         [field:SerializeField] public Transform WhoWasRotate{ get; private set; }
         [field:SerializeField] public float RotationSpeed{ get; private set; }
         

@@ -1,14 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using DG.Tweening;
 using Sirenix.Utilities;
+using Source.Modules.WeaponModule.Scripts;
+using Source.Scripts;
 using Source.Scripts.EntityDataComponents;
 using Source.Scripts.EntityLogic;
 using Source.Scripts.Tools;
 using Source.Scripts.WeaponModule;
 using UnityEngine;
 
-namespace Source.Scripts.States
+namespace Source.Modules.CombatModule.Scripts
 {
     public class AttackState : State
     {
@@ -80,11 +81,11 @@ namespace Source.Scripts.States
                     : Quaternion.LookRotation(orientationForward), _attackStateComponentData.RotationSpeed);
 
             _entity.Get<ApplyRootMotionHandler>()
-                .SetAnimationRootMotionMultiplier(_attackStateComponentData.CombatMoveSets[_currentAttackIndex]
+                .SetAnimationRootMotionMultiplier(_weapon.CombatMoveSetSetup[_currentAttackIndex]
                     .RootMultiplierBeforeEndAttack);
 
             _animationHandler.OverrideAnimation(_attacksAnimators[_currentAttackAnimationIndex],
-                _attackStateComponentData.CombatMoveSets[_currentAttackIndex].AnimationClip);
+                _weapon.CombatMoveSetSetup[_currentAttackIndex].AnimationClip);
 
             _animationHandler.Animator.SetTrigger(_attacksAnimators[_currentAttackAnimationIndex++]);
 
@@ -102,13 +103,13 @@ namespace Source.Scripts.States
             _isAttacking = false;
 
             _entity.Get<ApplyRootMotionHandler>()
-                .SetAnimationRootMotionMultiplier(_attackStateComponentData.CombatMoveSets[_currentAttackIndex]
+                .SetAnimationRootMotionMultiplier(_weapon.CombatMoveSetSetup[_currentAttackIndex]
                     .RootMultiplierAfterEndAttack);
 
             _weapon.Disable();
             Debug.LogError("End");
             _currentAttackIndex++;
-            _currentAttackIndex %= _attackStateComponentData.CombatMoveSets.Count;
+            _currentAttackIndex %= _weapon.CombatMoveSetSetup.Count;
         }
 
         private void OnAttackReset()
