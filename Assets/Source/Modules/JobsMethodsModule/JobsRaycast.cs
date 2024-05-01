@@ -4,10 +4,9 @@ namespace Source.Modules.JobsMethodsModule
 {
     public static class JobsRaycast 
     {
-
-        public static void OverlapSphere(Vector3 point)
+        public static void OverlapSphere(Vector3 point,float radius)
         {
-            OverlapSphereCommand overlapSphereCommand = new OverlapSphereCommand();
+            OverlapSphereCommand overlapSphereCommand = new OverlapSphereCommand(point,radius,QueryParameters.Default);
         }
     }
 }
