@@ -232,9 +232,9 @@ Material:
     - _IridescenceSmoothness: 0.5
     - _IridescenceThresholdOffset: 0
     - _Light: 2
-    - _LightBands: 12
+    - _LightBands: 4
     - _LightBandsScale: 1
-    - _LightThreshold: 0
+    - _LightThreshold: 1
     - _Metallic: 0
     - _Mode: 0
     - _NormalMapIntensity: 1
@@ -253,7 +253,7 @@ Material:
     - _RenderFace: 2
     - _RenderPriority: 0
     - _Rim: 1
-    - _RimSize: 1.44
+    - _RimSize: 0.82
     - _RimSmoothness: 0.5
     - _RimThresholdOffset: 0.25
     - _Saturation: 1
@@ -287,15 +287,15 @@ Material:
     - _ZTest: 4
     - _ZWrite: 1
     m_Colors:
-    - _AlbedoColor: {r: 0.7924528, g: 0.7924528, b: 0.7924528, a: 1}
+    - _AlbedoColor: {r: 1, g: 1, b: 1, a: 1}
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
-    - _Color: {r: 0.7924528, g: 0.7924528, b: 0.7924528, a: 1}
+    - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _Color0: {r: 1, g: 0, b: 0, a: 1}
     - _Color1: {r: 0, g: 1, b: 0, a: 1}
     - _DissolveBorderColor: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _GoochBrightColor: {r: 0.6037736, g: 0.6037736, b: 0.6037736, a: 1}
-    - _GoochDarkColor: {r: 0, g: 0, b: 0, a: 1}
+    - _GoochBrightColor: {r: 1, g: 1, b: 1, a: 1}
+    - _GoochDarkColor: {r: 0.5377358, g: 0.5377358, b: 0.5377358, a: 1}
     - _IridescenceColor: {r: 1, g: 1, b: 1, a: 0.5}
     - _OutlineColor: {r: 0, g: 0, b: 0, a: 1}
     - _RimBrightColor: {r: 0.754717, g: 0, b: 0, a: 0.57254905}

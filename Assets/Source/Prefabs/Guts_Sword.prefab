@@ -153,7 +153,7 @@ Transform:
   m_Children:
   - {fileID: 1830631742348859700}
   m_Father: {fileID: 0}
-  m_RootOrder: -1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &7377025853272880945
 MeshFilter:
@@ -238,9 +238,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: adf6ef2a000849d4bb7e07d1d3f3ead2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _swordAttackVisitor:
-    _entity: {fileID: 0}
-    _damageableContainerSetup: {fileID: 11400000, guid: c2c5ac8c0c61c8b44a5352220183fd21, type: 2}
-    _damage: 1
-  _collider: {fileID: 4257438955406178376}
-  _orientation: {fileID: 0}
+  _weaponHitBoxes: []
+  <CombatMoveSetSetup>k__BackingField: {fileID: 0}
