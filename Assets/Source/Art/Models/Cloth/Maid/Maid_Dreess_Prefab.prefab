@@ -719,7 +719,7 @@ MonoBehaviour:
     connectionMode: 0
     rotationalInterpolation: 0.5
     rootRotation: 0.5
-    updateMode: 0
+    updateMode: 1
     animationPoseRatio: 0
     reductionSetting:
       simpleDistance: 0.1
@@ -962,9 +962,9 @@ MonoBehaviour:
       mode: 1
       friction: 0.05
       colliderList:
+      - {fileID: 2855139774840452163}
       - {fileID: 5733834172410906198}
       - {fileID: 5310634439981781115}
-      - {fileID: 4610950044285527366}
     selfCollisionConstraint:
       selfMode: 0
       surfaceThickness:
@@ -3825,7 +3825,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 552063643197566839}
-  - component: {fileID: 4610950044285527366}
+  - component: {fileID: 2855139774840452163}
   m_Layer: 0
   m_Name: spine_01.x
   m_TagString: Untagged
@@ -3849,7 +3849,7 @@ Transform:
   m_Father: {fileID: 616113951277976823}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4610950044285527366
+--- !u!114 &2855139774840452163
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -3858,11 +3858,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 8581364091638087892}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f2b68b2c7953ebb479b78627f19a6ccb, type: 3}
+  m_Script: {fileID: 11500000, guid: e6f5338a96461264fb9a1132c8509672, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  center: {x: 0, y: 0, z: 0.005}
-  size: {x: 0.081, y: 0, z: 0}
+  center: {x: 0, y: -0.08, z: 0}
+  size: {x: 0.09, y: 0.097, z: 0.34}
+  direction: 1
+  radiusSeparation: 1
 --- !u!1 &8837833039459320268
 GameObject:
   m_ObjectHideFlags: 0
