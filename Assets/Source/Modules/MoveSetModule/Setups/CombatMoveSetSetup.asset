@@ -25,25 +25,25 @@ MonoBehaviour:
   - <AnimationClip>k__BackingField: {fileID: 7400002, guid: 52c2de492ef1443458626e80a78b7c99, type: 3}
     <RootMultiplierBeforeEndAttack>k__BackingField: 1
     <RootMultiplierAfterEndAttack>k__BackingField: 1
-    <NumberOfHitsPerUnit>k__BackingField: 1
-    <DelayBetweenHits>k__BackingField: 0.13610512
+    <NumberOfHitsPerUnit>k__BackingField: 11
+    <DelayBetweenHits>k__BackingField: 0
   - <AnimationClip>k__BackingField: {fileID: 7400000, guid: 77fc626278dbd774a9e6b1fee68562c4, type: 3}
     <RootMultiplierBeforeEndAttack>k__BackingField: 1
     <RootMultiplierAfterEndAttack>k__BackingField: 1
-    <NumberOfHitsPerUnit>k__BackingField: 1
-    <DelayBetweenHits>k__BackingField: 0.019756513
+    <NumberOfHitsPerUnit>k__BackingField: 111
+    <DelayBetweenHits>k__BackingField: 0
   - <AnimationClip>k__BackingField: {fileID: 7400000, guid: 5029b485ac85ca0478e8877b25e6dec6, type: 3}
     <RootMultiplierBeforeEndAttack>k__BackingField: 1
     <RootMultiplierAfterEndAttack>k__BackingField: 1
-    <NumberOfHitsPerUnit>k__BackingField: 1
-    <DelayBetweenHits>k__BackingField: 0.43430007
+    <NumberOfHitsPerUnit>k__BackingField: 111
+    <DelayBetweenHits>k__BackingField: 0
   - <AnimationClip>k__BackingField: {fileID: 7400000, guid: d2a5135c3d3b5dc4ab7691b390c5b332, type: 3}
     <RootMultiplierBeforeEndAttack>k__BackingField: 1
     <RootMultiplierAfterEndAttack>k__BackingField: 1
     <NumberOfHitsPerUnit>k__BackingField: 1
-    <DelayBetweenHits>k__BackingField: 0.3389513
+    <DelayBetweenHits>k__BackingField: 0
   - <AnimationClip>k__BackingField: {fileID: 7400000, guid: 18acd5aa23ba1ec45b97b336327cbf2d, type: 3}
     <RootMultiplierBeforeEndAttack>k__BackingField: 1
     <RootMultiplierAfterEndAttack>k__BackingField: 1
-    <NumberOfHitsPerUnit>k__BackingField: 1
-    <DelayBetweenHits>k__BackingField: 0.69482493
+    <NumberOfHitsPerUnit>k__BackingField: 111
+    <DelayBetweenHits>k__BackingField: 0
