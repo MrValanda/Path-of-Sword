@@ -59,7 +59,6 @@ namespace Source.Modules.CombatModule.Scripts
         {
             if (_isAttacking == false && Input.GetMouseButtonDown(0))
             {
-                _weapon.Disable();
                 Attack();
             }
         }

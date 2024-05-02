@@ -5215,6 +5215,7 @@ GameObject:
   - component: {fileID: 882520341455614769}
   - component: {fileID: 3644833158819360279}
   - component: {fileID: 6748659781885424095}
+  - component: {fileID: 467344260458509509}
   m_Layer: 0
   m_Name: Guts_Sword (1)
   m_TagString: Untagged
@@ -5291,6 +5292,27 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &467344260458509509
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8105327731047506645}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.15591215, y: 2.0010397, z: 0.2567708}
+  m_Center: {x: -0.0031821167, y: 0.640133, z: -0.0056319796}
 --- !u!1 &8176552465711579622
 GameObject:
   m_ObjectHideFlags: 0
@@ -5452,6 +5474,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6400105454745601122, guid: 38bd8b43c934d674d841c210ddd2221d, type: 3}
+      propertyPath: _weaponHitBoxes
+      value: 
+      objectReference: {fileID: 467344260458509509}
     - target: {fileID: 6400105454745601122, guid: 38bd8b43c934d674d841c210ddd2221d, type: 3}
       propertyPath: _weaponHitBoxes.Array.size
       value: 3

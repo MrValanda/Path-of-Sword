@@ -4,21 +4,22 @@ using Source.Scripts.CombatModule;
 using Source.Scripts.Visitors;
 using Tools;
 using UniRx;
+using UniRx.Triggers;
 using UnityEngine;
 
 namespace Source.Modules.WeaponModule.Scripts
 {
     public partial class Weapon : MonoBehaviour
     {
-        [SerializeField] private List<WeaponHitBox> _weaponHitBoxes;
+        [SerializeField] private Collider _weaponHitBoxes;
         [field: SerializeField] public CombatMoveSetSetup CombatMoveSetSetup { get; private set; }
-        
+
         private readonly Dictionary<HitBox, EntityAttackData> _entityAttackDatas = new(111);
 
-        private IDisposable _disposable;
+        private IDisposable _colliderTriggerDisposable;
         private SwordAttackVisitor _swordAttackVisitor;
         private Transform _orientation;
-        
+
         public void Initialize(SwordAttackVisitor swordAttackVisitor, Transform orientation)
         {
             _swordAttackVisitor = swordAttackVisitor;
@@ -32,71 +33,47 @@ namespace Source.Modules.WeaponModule.Scripts
 
         public void Enable(AttackDataInfo currentAttackDataInfo)
         {
-            Disable();
-            _disposable = Observable.EveryFixedUpdate().Subscribe(
-                    x =>
-                    {
-                        ExecuteAttack(currentAttackDataInfo);
+            _entityAttackDatas.Clear();
+            _weaponHitBoxes.enabled = true;
+         
+            _colliderTriggerDisposable = _weaponHitBoxes.OnTriggerStayAsObservable().Subscribe(
+                x =>
+                {
+                    ExecuteAttack(currentAttackDataInfo, x);
 
-                        //    if (x.TryGetComponent(out HitBox hitBox) == false) return;
-                        // Vector3 direction = hitBox.transform.InverseTransformDirection(_orientation.forward);
-                        // direction.y = 0;
-                        // direction.x = Math.Clamp(direction.x * 10, -1, 1);
-                        // direction.z = Math.Clamp(direction.z * 10, -1, 1);
-                        // ImpactDirectionVisitor impactDirectionVisitor =
-                        //     new ImpactDirectionVisitor(new Vector2(direction.x, direction.z));
-                        //
-                        // hitBox.Accept(_swordAttackVisitor);
-                        // hitBox.Accept(impactDirectionVisitor);
-                    });
+                   
+                });
         }
 
         public void Disable()
         {
+            _weaponHitBoxes.enabled = false;
             _entityAttackDatas.Clear();
-            _disposable?.Dispose();
+            _colliderTriggerDisposable?.Dispose();
         }
 
-        private void ExecuteAttack(AttackDataInfo currentAttackDataInfo)
+        private void ExecuteAttack(AttackDataInfo currentAttackDataInfo, Collider triggerCollider)
         {
-            foreach (WeaponHitBox weaponHitBox in _weaponHitBoxes)
+            if (triggerCollider.TryGetComponent(out HitBox hitBox) == false) return;
+
+            if (_entityAttackDatas.ContainsKey(hitBox))
             {
-                foreach (ColliderHit colliderHit in weaponHitBox.ExecuteHit(111))
+                if (Time.time - _entityAttackDatas[hitBox].LastAttackTime >=
+                    currentAttackDataInfo.DelayBetweenHits &&
+                    _entityAttackDatas[hitBox].AttackHits < currentAttackDataInfo.NumberOfHitsPerUnit)
                 {
-                    if (colliderHit.collider.TryGetComponent(out HitBox hitBox) == false) continue;
-
-                    if (_entityAttackDatas.ContainsKey(hitBox))
-                    {
-                        if (Time.time - _entityAttackDatas[hitBox].LastAttackTime >=
-                            currentAttackDataInfo.DelayBetweenHits &&
-                            _entityAttackDatas[hitBox].AttackHits < currentAttackDataInfo.NumberOfHitsPerUnit)
-                        {
-                            hitBox.Accept(_swordAttackVisitor);
-                            Debug.LogError("ACCEPT");
-                            _entityAttackDatas[hitBox].AttackHits++;
-                            _entityAttackDatas[hitBox].LastAttackTime = Time.time;
-                        }
-                    }
-                    else
-                    {
-                        hitBox.Accept(_swordAttackVisitor);
-                        Debug.LogError("ACCEPT");
-
-                        _entityAttackDatas.Add(hitBox,
-                            new EntityAttackData() {AttackHits = 1, LastAttackTime = Time.time});
-                    }
+                    hitBox.Accept(_swordAttackVisitor);
+                    _entityAttackDatas[hitBox].AttackHits++;
+                    _entityAttackDatas[hitBox].LastAttackTime = Time.time;
                 }
             }
-        }
-
-#if UNITY_EDITOR
-        private void OnDrawGizmos()
-        {
-            foreach (WeaponHitBox weaponHitBox in _weaponHitBoxes)
+            else
             {
-                Gizmos.DrawWireSphere(weaponHitBox.hitBoxPoint.position, weaponHitBox.radius  * weaponHitBox.lossyScaleFactor.lossyScale.x);
+                hitBox.Accept(_swordAttackVisitor);
+
+                _entityAttackDatas.Add(hitBox,
+                    new EntityAttackData() {AttackHits = 1, LastAttackTime = Time.time});
             }
         }
-#endif
     }
 }
