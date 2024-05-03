@@ -4993,7 +4993,7 @@ MonoBehaviour:
   SortingOrder: 0
   PointStart: {fileID: 2863296479368971727}
   PointEnd: {fileID: 6607344107113291915}
-  MaxFrame: 12
+  MaxFrame: 6
   Granularity: 60
   Fps: 60
   MyColor: {r: 1, g: 1, b: 1, a: 1}
@@ -5156,7 +5156,7 @@ MonoBehaviour:
   SortingOrder: 0
   PointStart: {fileID: 2600636211201155718}
   PointEnd: {fileID: 8655134641666829012}
-  MaxFrame: 12
+  MaxFrame: 5
   Granularity: 60
   Fps: 60
   MyColor: {r: 1, g: 1, b: 1, a: 1}
@@ -5397,7 +5397,7 @@ MonoBehaviour:
   SortingOrder: 0
   PointStart: {fileID: 6756443469274602471}
   PointEnd: {fileID: 4951629375388825184}
-  MaxFrame: 12
+  MaxFrame: 5
   Granularity: 60
   Fps: 60
   MyColor: {r: 1, g: 1, b: 1, a: 1}

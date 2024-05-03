@@ -23,7 +23,7 @@ MonoBehaviour:
     SerializationNodes: []
   <SkinPartName>k__BackingField: Maid
   <TitleText>k__BackingField: 
-  <SkinPartType>k__BackingField: 7
+  <SkinPartType>k__BackingField: 2
   <SkinModel>k__BackingField: {fileID: 1957100694500059806, guid: 335768e5a3c6f1944988efcf799c5ebe, type: 3}
   <SkinEquipmentData>k__BackingField:
     <SkinRarityType>k__BackingField: 0

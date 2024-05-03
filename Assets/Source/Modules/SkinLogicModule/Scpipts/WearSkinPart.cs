@@ -42,7 +42,7 @@ namespace SkinLogic
 
             foreach (var skinnedMeshRenderer in _dressedObject.GetComponentsInChildren<SkinnedMeshRenderer>())
             {
-                DestroyImmediate(skinnedMeshRenderer.rootBone.gameObject);
+                //DestroyImmediate(skinnedMeshRenderer.rootBone.gameObject);
                 skinnedMeshRenderer.bones = root.bones;
                 skinnedMeshRenderer.rootBone = root.rootBone;
             }
