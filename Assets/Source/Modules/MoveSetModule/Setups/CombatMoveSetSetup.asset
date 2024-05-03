@@ -40,10 +40,10 @@ MonoBehaviour:
   - <AnimationClip>k__BackingField: {fileID: 7400000, guid: d2a5135c3d3b5dc4ab7691b390c5b332, type: 3}
     <RootMultiplierBeforeEndAttack>k__BackingField: 1
     <RootMultiplierAfterEndAttack>k__BackingField: 1
-    <NumberOfHitsPerUnit>k__BackingField: 1
-    <DelayBetweenHits>k__BackingField: 0
+    <NumberOfHitsPerUnit>k__BackingField: 2
+    <DelayBetweenHits>k__BackingField: 0.1
   - <AnimationClip>k__BackingField: {fileID: 7400000, guid: 18acd5aa23ba1ec45b97b336327cbf2d, type: 3}
     <RootMultiplierBeforeEndAttack>k__BackingField: 1
     <RootMultiplierAfterEndAttack>k__BackingField: 1
     <NumberOfHitsPerUnit>k__BackingField: 2
-    <DelayBetweenHits>k__BackingField: 0.2
+    <DelayBetweenHits>k__BackingField: 0.1

@@ -7,7 +7,7 @@ namespace Source.Scripts.Tools
     {
         [field:SerializeField] public Animator Animator { get; private set; }
 
-        public bool IsInTransition => false;
+        public bool IsInTransition => Animator.IsInTransition(0);
 
         private readonly Queue<CrossFadeData> _crossFadeQueue = new Queue<CrossFadeData>();
         private AnimatorOverrideController _animatorOverrideController;

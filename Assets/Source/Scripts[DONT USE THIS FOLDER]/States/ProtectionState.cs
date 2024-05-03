@@ -1,4 +1,5 @@
 ﻿using System;
+using Source.Modules.CombatModule.Scripts;
 using Source.Scripts.EntityDataComponents;
 using Source.Scripts.EntityLogic;
 using Source.Scripts.Tools;

@@ -576,14 +576,14 @@ ModelImporter:
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
       events:
-      - time: 0.093568735
+      - time: 0.05270335
         functionName: StartAttack
         data: 
         objectReferenceParameter: {instanceID: 0}
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
-      - time: 0.252459
+      - time: 0.29813206
         functionName: EndAttack
         data: 
         objectReferenceParameter: {instanceID: 0}
@@ -591,7 +591,7 @@ ModelImporter:
         intParameter: 0
         messageOptions: 0
       - time: 0.5704918
-        functionName: ResetAttack
+        functionName: StopListen
         data: 
         objectReferenceParameter: {instanceID: 0}
         floatParameter: 0
@@ -599,6 +599,13 @@ ModelImporter:
         messageOptions: 0
       - time: 0.99016404
         functionName: AnimationEnd
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.23606558
+        functionName: StartListen
         data: 
         objectReferenceParameter: {instanceID: 0}
         floatParameter: 0

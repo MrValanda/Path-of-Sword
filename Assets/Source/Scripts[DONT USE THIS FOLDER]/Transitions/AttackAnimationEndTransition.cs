@@ -1,4 +1,5 @@
 ﻿using System;
+using Source.Modules.CombatModule.Scripts;
 using UnityEngine;
 
 namespace Transitions

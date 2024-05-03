@@ -24,7 +24,7 @@ namespace Source.Scripts.CombatModule
         [field: SerializeField] public AnimationClip AnimationClip { get; private set; }
         [field: SerializeField] public float RootMultiplierBeforeEndAttack { get; private set; }
         [field: SerializeField] public float RootMultiplierAfterEndAttack { get; private set; }
-        [field: SerializeField] public int NumberOfHitsPerUnit { get; private set; }
+        [field: SerializeField,Min(1)] public int NumberOfHitsPerUnit { get; private set; }
         [field: SerializeField, Min(0)] public float DelayBetweenHits { get; private set; }
 
 #if UNITY_EDITOR
@@ -39,7 +39,7 @@ namespace Source.Scripts.CombatModule
             if(startAttackEvent == null || endAttackEvent == null) return;
             
             float attackTime = endAttackEvent.time - startAttackEvent.time;
-            DelayBetweenHits = attackTime / NumberOfHitsPerUnit;
+            DelayBetweenHits = attackTime / Math.Max(NumberOfHitsPerUnit - 1, 1);
         }
 #endif
     }

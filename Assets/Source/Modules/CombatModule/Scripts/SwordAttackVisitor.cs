@@ -1,6 +1,7 @@
 using System;
 using System.Linq;
 using Interfaces;
+using Source.Modules.CombatModule.Scripts;
 using Source.Scripts.EntityDataComponents;
 using Source.Scripts.EntityLogic;
 using Source.Scripts.Setups.Characters;

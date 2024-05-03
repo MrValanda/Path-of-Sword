@@ -1,57 +1,59 @@
 ﻿using System;
 using Source.Scripts.Tools;
-using Tools;
 using UnityEngine;
+using UnityEngine.Scripting;
 
-public class AttackEventListener : OptimizedMonoBehavior
+namespace Source.Modules.CombatModule.Scripts
 {
-    public event Action AttackEnded;
-
-    public event Action AttackReset;
-
-    public event Action AttackAnimationEnd;
-
-    public event Action AttackStarted;
-
-    [SerializeField] private AnimationHandler _animationHandler;
-
-    private void StartAttack()
+    public class AttackEventListener : OptimizedMonoBehavior
     {
-        if (_animationHandler.IsInTransition)
+        public event Action AttackEnded;
+        public event Action StartListenCombo;
+        public event Action StopListenCombo;
+        public event Action AttackAnimationEnd;
+        public event Action AttackStarted;
+
+        [SerializeField] private AnimationHandler _animationHandler;
+        
+
+        [Preserve]
+        private void StartListen()
         {
-            return;
+            StartListenCombo?.Invoke();
         }
 
-        AttackStarted?.Invoke();
-    }
-
-    private void ResetAttack()
-    {
-        if (_animationHandler.IsInTransition)
+        [Preserve]
+        private void StartAttack()
         {
-            return;
+            AttackStarted?.Invoke();
         }
 
-        AttackReset?.Invoke();
-    }
-
-    private void EndAttack()
-    {
-        if (_animationHandler.IsInTransition)
+        [Preserve]
+        private void StopListen()
         {
-            return;
+            if (_animationHandler.IsInTransition)
+            {
+                return;
+            }
+
+            StopListenCombo?.Invoke();
         }
 
-        AttackEnded?.Invoke();
-    }
-
-    private void AnimationEnd()
-    {
-        if (_animationHandler.IsInTransition)
+        [Preserve]
+        private void EndAttack()
         {
-            return;
+            AttackEnded?.Invoke();
         }
 
-        AttackAnimationEnd?.Invoke();
+        [Preserve]
+        private void AnimationEnd()
+        {
+            if (_animationHandler.IsInTransition)
+            {
+                return;
+            }
+
+            AttackAnimationEnd?.Invoke();
+        }
     }
 }

@@ -38,7 +38,8 @@ namespace Source.Modules.CombatModule.Scripts
             _weaponTrailContainer.XWeaponTrails.ForEach(x => x.Activate());
             _attackEventListener.AttackStarted += OnAttackStarted;
             _attackEventListener.AttackEnded += OnAttackEnded;
-            _attackEventListener.AttackReset += OnAttackReset;
+            _attackEventListener.StartListenCombo += OnStartListenCombo;
+            _attackEventListener.StopListenCombo += OnStopListenCombo;
             Attack();
         }
 
@@ -47,7 +48,8 @@ namespace Source.Modules.CombatModule.Scripts
             _entity.Get<ApplyRootMotionHandler>().SetAnimationRootMotionMultiplier(1);
             _attackEventListener.AttackStarted -= OnAttackStarted;
             _attackEventListener.AttackEnded -= OnAttackEnded;
-            _attackEventListener.AttackReset -= OnAttackReset;
+            _attackEventListener.StartListenCombo -= OnStartListenCombo;
+            _attackEventListener.StopListenCombo -= OnStopListenCombo;
             _weapon.Disable();
             _weaponTrailContainer.XWeaponTrails.ForEach(x => x.Deactivate());
             _currentAttackIndex = 0;
@@ -98,22 +100,22 @@ namespace Source.Modules.CombatModule.Scripts
 
         private void OnAttackEnded()
         {
-            _isAttacking = false;
-
             _entity.Get<ApplyRootMotionHandler>()
                 .SetAnimationRootMotionMultiplier(_weapon.CombatMoveSetSetup[_currentAttackIndex]
                     .RootMultiplierAfterEndAttack);
 
-            _weapon.Disable();
+             _weapon.Disable();
+        }
+
+        private void OnStartListenCombo()
+        {
+            _isAttacking = false;
             _currentAttackIndex++;
             _currentAttackIndex %= _weapon.CombatMoveSetSetup.Count;
         }
 
-        private void OnAttackReset()
+        private void OnStopListenCombo()
         {
-            Debug.LogError("Reset");
-
-            _weapon.Disable();
             _currentAttackIndex = 0;
         }
     }

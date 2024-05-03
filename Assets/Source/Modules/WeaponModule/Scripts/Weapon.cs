@@ -40,8 +40,6 @@ namespace Source.Modules.WeaponModule.Scripts
                 x =>
                 {
                     ExecuteAttack(currentAttackDataInfo, x);
-
-                   
                 });
         }
 
