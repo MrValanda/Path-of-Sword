@@ -1,16 +1,18 @@
 ﻿using System.Collections.Generic;
+using Source.Scripts_DONT_USE_THIS_FOLDER_.Transitions;
 using States;
 using Transitions;
 using UnityEngine;
 using UnityEngine.Serialization;
 
-namespace TransitionsContainer
+namespace Source.Modules.CombatModule.Scripts
 {
     public class PlayerAttackStateTransitionContainer : TransitionContainer
     {
         [FormerlySerializedAs("_inputKeyDownAndAttackEndTransition")] [SerializeField] private InputKeyPressedAndAttackEndTransition inputKeyPressedAndAttackEndTransition;
         [SerializeField] private AttackAnimationEndTransition attackAnimationEndTransition;
         [SerializeField] private InputMouseDownAndAttackEndTransition _inputMouseDownAndAttackEndTransition;
+        [SerializeField] private EntityContainsParryBrokenComponent _entityContainsParryBrokenComponent;
 
         public override List<Transition> GetTransitions()
         {
@@ -18,7 +20,8 @@ namespace TransitionsContainer
             {
                 inputKeyPressedAndAttackEndTransition,
                 attackAnimationEndTransition,
-                _inputMouseDownAndAttackEndTransition
+                _inputMouseDownAndAttackEndTransition,
+                _entityContainsParryBrokenComponent
             };
             return Transitions;
         }

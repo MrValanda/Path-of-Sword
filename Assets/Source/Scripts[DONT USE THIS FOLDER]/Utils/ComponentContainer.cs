@@ -1,23 +1,27 @@
 ﻿using System;
 using System.Collections.Generic;
 using Source.Scripts.Interfaces;
-using UnityEngine.Rendering;
 
-namespace Source.Scripts.Utils
+namespace Source.Scripts_DONT_USE_THIS_FOLDER_.Utils
 {
     public class ComponentContainer : IComponentContainer
     {
+        public event Action<Type> ComponentAdded;
+        public event Action<Type> ComponentRemoved;
+        
         private readonly Dictionary<Type, object> _components = new();
-
+        
         public IComponentContainer AddComponent<T>(T component) where T : class
         {
-            _components[typeof(T)] = component;
-            
+            Type type = typeof(T);
+            _components[type] = component;
+            ComponentAdded?.Invoke(type);
             return this;
         }
         public void AddComponent<T>(T component,Type type) where T : class
         {
             _components[type] = component;
+            ComponentAdded?.Invoke(type);
         }
 
         public T AddOrGetComponent<T>() where T : class, new()
@@ -52,10 +56,12 @@ namespace Source.Scripts.Utils
 
         public void RemoveComponent<T>(T component = null) where T : class
         {
-            if(_components.ContainsKey(typeof(T)) == false) 
+            Type type = typeof(T);
+            if(_components.ContainsKey(type) == false) 
                 return;
             
-            _components.Remove(typeof(T));
+            ComponentRemoved?.Invoke(type);
+            _components.Remove(type);
         }
     }
 }

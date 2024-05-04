@@ -16,7 +16,23 @@ namespace Source.Modules.CombatModule.Scripts
             WhoParryEntity.transform.LookAt(WhomParryEntity.transform);
             WhoParryEntity.Get<AnimationHandler>().Animator.SetTrigger(Parry);
             WhomParryEntity.Get<AnimationHandler>().Animator.SetTrigger(ParryBroken);
+            
+            WhomParryEntity.Add(new ParryBrokenComponent()
+                {WhoBrokenParry = WhoParryEntity, WhomBrokenParry = WhomParryEntity});
+            
             Debug.LogError("Parry");
+        }
+    }
+
+    public class ParryBrokenComponent
+    {
+        public Entity WhoBrokenParry;
+        public Entity WhomBrokenParry;
+
+
+        public void Execute()
+        {
+            
         }
     }
 }
