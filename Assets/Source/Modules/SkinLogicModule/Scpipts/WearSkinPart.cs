@@ -1,3 +1,4 @@
+using System;
 using Lean.Pool;
 using Sirenix.OdinInspector;
 using Source.Scripts.SkinLogic;
@@ -42,12 +43,21 @@ namespace SkinLogic
 
             foreach (var skinnedMeshRenderer in _dressedObject.GetComponentsInChildren<SkinnedMeshRenderer>())
             {
-                //DestroyImmediate(skinnedMeshRenderer.rootBone.gameObject);
+                if (skinnedMeshRenderer.gameObject.TryGetComponent(out RootLinker rootLinker))
+                {
+                    rootLinker.Initialize(skinnedMeshRenderer.bones, root.bones);
+                }
+                else
+                {
+                    skinnedMeshRenderer.gameObject.AddComponent<RootLinker>()
+                        .Initialize(skinnedMeshRenderer.bones, root.bones);
+                }
+
                 skinnedMeshRenderer.bones = root.bones;
                 skinnedMeshRenderer.rootBone = root.rootBone;
             }
         }
-        
+
         [Button]
         private void WearObject(GameObject gb)
         {
