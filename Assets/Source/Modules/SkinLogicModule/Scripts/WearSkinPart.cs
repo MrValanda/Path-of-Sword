@@ -1,4 +1,6 @@
 using System;
+using System.Collections.Generic;
+using System.Linq;
 using Lean.Pool;
 using Sirenix.OdinInspector;
 using Source.Scripts.SkinLogic;
@@ -43,19 +45,46 @@ namespace SkinLogic
 
             foreach (var skinnedMeshRenderer in _dressedObject.GetComponentsInChildren<SkinnedMeshRenderer>())
             {
+                Transform[] baseRoot = GetIntersectionBones(skinnedMeshRenderer);
+
                 if (skinnedMeshRenderer.gameObject.TryGetComponent(out RootLinker rootLinker))
                 {
-                    rootLinker.Initialize(skinnedMeshRenderer.bones, root.bones);
+                    rootLinker.Initialize(baseRoot, root.bones);
                 }
                 else
                 {
                     skinnedMeshRenderer.gameObject.AddComponent<RootLinker>()
-                        .Initialize(skinnedMeshRenderer.bones, root.bones);
+                        .Initialize(baseRoot, root.bones);
                 }
 
                 skinnedMeshRenderer.bones = root.bones;
                 skinnedMeshRenderer.rootBone = root.rootBone;
             }
+        }
+
+        private Transform[] GetIntersectionBones(SkinnedMeshRenderer skinnedMeshRenderer)
+        {
+            Transform[] baseRoot = skinnedMeshRenderer.bones;
+
+            string[] linkedRootNames = root.bones.Select(x => x.name).ToArray();
+
+            List<string> usedNames = new List<string>(111);
+            List<Transform> resultRootBone = new List<Transform>();
+
+            foreach (var bone in baseRoot)
+            {
+                string boneName = bone.name;
+                if (usedNames.Contains(boneName)) continue;
+
+                if (linkedRootNames.Contains(boneName))
+                {
+                    resultRootBone.Add(bone);
+                    usedNames.Add(boneName);
+                }
+            }
+
+            baseRoot = resultRootBone.ToArray();
+            return baseRoot;
         }
 
         [Button]

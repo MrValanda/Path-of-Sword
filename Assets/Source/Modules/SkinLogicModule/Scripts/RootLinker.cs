@@ -1,4 +1,5 @@
 ﻿using System;
+using Sirenix.Utilities;
 using Source.Modules.SkinLogicModule.Scripts;
 using Unity.Collections;
 using Unity.Jobs;
@@ -27,7 +28,9 @@ namespace SkinLogic
                 _linkedRootPositions.Dispose();
                 _linkedRootRotations.Dispose();
             }
-            Debug.LogError(baseRoot.Length+" "+linkedRoot.Length);
+
+            baseRoot.ForEach(x => Debug.LogError(x.name));
+            Debug.LogError(baseRoot.Length +" " + linkedRoot.Length);
             _baseRoot = new TransformAccessArray(baseRoot);
             _linkedRoot = new TransformAccessArray(linkedRoot);
             _linkedRootPositions = new NativeArray<Vector3>(linkedRoot.Length, Allocator.Persistent);
