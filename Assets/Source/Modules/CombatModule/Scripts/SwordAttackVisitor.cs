@@ -30,7 +30,7 @@ namespace Source.Scripts.Visitors
                 parryComponent.Execute();
                 return;
             }
-
+            
             healthComponent.ApplyDamage(_damage);
         }
 
