@@ -20,7 +20,6 @@ namespace Source.Scripts.Utils
 
         public void Init()
         {
-            Debug.LogError($"Init{_monoBehaviours.Count}");
             ComponentsContainer = new ComponentContainer();
             foreach (var monoBehaviour in _monoBehaviours)
             {

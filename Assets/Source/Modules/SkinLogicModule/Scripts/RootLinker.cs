@@ -29,8 +29,6 @@ namespace SkinLogic
                 _linkedRootRotations.Dispose();
             }
 
-            baseRoot.ForEach(x => Debug.LogError(x.name));
-            Debug.LogError(baseRoot.Length +" " + linkedRoot.Length);
             _baseRoot = new TransformAccessArray(baseRoot);
             _linkedRoot = new TransformAccessArray(linkedRoot);
             _linkedRootPositions = new NativeArray<Vector3>(linkedRoot.Length, Allocator.Persistent);

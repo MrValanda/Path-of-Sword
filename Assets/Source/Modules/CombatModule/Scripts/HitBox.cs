@@ -13,7 +13,6 @@ namespace Tools
 
         public void Accept(IVisitor visitor)
         {
-            Debug.LogError("ACCEPT");
             _animation?.Accept(visitor);
             _healthComponent.Accept(visitor);
         }
