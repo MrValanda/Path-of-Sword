@@ -60,18 +60,30 @@ namespace Source.Modules.WeaponModule.Scripts
                     currentAttackDataInfo.DelayBetweenHits &&
                     _entityAttackDatas[hitBox].AttackHits < currentAttackDataInfo.NumberOfHitsPerUnit)
                 {
-                    hitBox.Accept(_swordAttackVisitor);
+                    AttackAction(hitBox);
                     _entityAttackDatas[hitBox].AttackHits++;
                     _entityAttackDatas[hitBox].LastAttackTime = Time.time;
                 }
             }
             else
             {
-                hitBox.Accept(_swordAttackVisitor);
-
+                AttackAction(hitBox);
                 _entityAttackDatas.Add(hitBox,
                     new EntityAttackData() {AttackHits = 1, LastAttackTime = Time.time});
             }
+           
+        }
+
+        private void AttackAction(HitBox hitBox)
+        {
+            hitBox.Accept(_swordAttackVisitor);
+            Vector3 direction = hitBox.transform.InverseTransformDirection(_orientation.forward);
+            direction.y = 0;
+            direction.x = Math.Clamp(direction.x * 10, -1, 1);
+            direction.z = Math.Clamp(direction.z * 10, -1, 1);
+            ImpactDirectionVisitor impactDirectionVisitor =
+                new ImpactDirectionVisitor(new Vector2(direction.x, direction.z));
+            hitBox.Accept(impactDirectionVisitor);
         }
     }
 }
