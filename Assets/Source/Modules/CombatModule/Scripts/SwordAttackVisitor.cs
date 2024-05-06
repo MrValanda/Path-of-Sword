@@ -16,7 +16,6 @@ namespace Source.Scripts.Visitors
     {
         [SerializeField] private Entity _entity;
         [SerializeField] private DamageableContainerSetup _damageableContainerSetup;
-        [SerializeField] private float _damage;
 
         public void Visit(HealthComponent healthComponent)
         {
@@ -30,8 +29,8 @@ namespace Source.Scripts.Visitors
                 parryComponent.Execute();
                 return;
             }
-            
-            healthComponent.ApplyDamage(_damage);
+
+            healthComponent.ApplyDamage(_entity.Get<CurrentAttackData>().CurrentAttackDataInfo.Damage);
         }
 
         public void Visit(Animation animation)

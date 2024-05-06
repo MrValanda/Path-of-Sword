@@ -3,6 +3,7 @@ using DG.Tweening;
 using Sirenix.Utilities;
 using Source.Modules.WeaponModule.Scripts;
 using Source.Scripts;
+using Source.Scripts.CombatModule;
 using Source.Scripts.EntityDataComponents;
 using Source.Scripts.EntityLogic;
 using Source.Scripts.Tools;
@@ -45,6 +46,7 @@ namespace Source.Modules.CombatModule.Scripts
 
         protected override void OnExit()
         {
+            _entity.Remove<CurrentAttackData>();
             _entity.Get<ApplyRootMotionHandler>().SetAnimationRootMotionMultiplier(1);
             _attackEventListener.AttackStarted -= OnAttackStarted;
             _attackEventListener.AttackEnded -= OnAttackEnded;
@@ -81,12 +83,14 @@ namespace Source.Modules.CombatModule.Scripts
                     ? Quaternion.LookRotation(moveDirection)
                     : Quaternion.LookRotation(orientationForward), _attackStateComponentData.RotationSpeed);
 
+            AttackDataInfo attackDataInfo = _weapon.CombatMoveSetSetup[_currentAttackIndex];
+            _entity.AddOrGet<CurrentAttackData>().CurrentAttackDataInfo = attackDataInfo;
             _entity.Get<ApplyRootMotionHandler>()
-                .SetAnimationRootMotionMultiplier(_weapon.CombatMoveSetSetup[_currentAttackIndex]
+                .SetAnimationRootMotionMultiplier(attackDataInfo
                     .RootMultiplierBeforeEndAttack);
 
             _animationHandler.OverrideAnimation(_attacksAnimators[_currentAttackAnimationIndex],
-                _weapon.CombatMoveSetSetup[_currentAttackIndex].AnimationClip);
+                attackDataInfo.AnimationClip);
 
             _animationHandler.Animator.SetTrigger(_attacksAnimators[_currentAttackAnimationIndex++]);
 

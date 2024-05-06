@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using Sirenix.OdinInspector;
+using Source.Modules.MoveSetModule.Scripts;
 using UnityEngine;
 
 namespace Source.Scripts.CombatModule
@@ -24,8 +25,10 @@ namespace Source.Scripts.CombatModule
         [field: SerializeField] public AnimationClip AnimationClip { get; private set; }
         [field: SerializeField] public float RootMultiplierBeforeEndAttack { get; private set; }
         [field: SerializeField] public float RootMultiplierAfterEndAttack { get; private set; }
-        [field: SerializeField,Min(1)] public int NumberOfHitsPerUnit { get; private set; }
+        [field: SerializeField, Min(1)] public int NumberOfHitsPerUnit { get; private set; }
         [field: SerializeField, Min(0)] public float DelayBetweenHits { get; private set; }
+        [field: SerializeField, Min(0)] public float Damage { get; private set; }
+        [field: SerializeField, ] public ParryAnimationIndex ParryAnimationIndex { get; private set; }
 
 #if UNITY_EDITOR
         [Button]
@@ -36,8 +39,8 @@ namespace Source.Scripts.CombatModule
             AnimationEvent endAttackEvent =
                 AnimationClip.events.FirstOrDefault(x => x.functionName.Equals("EndAttack"));
 
-            if(startAttackEvent == null || endAttackEvent == null) return;
-            
+            if (startAttackEvent == null || endAttackEvent == null) return;
+
             float attackTime = endAttackEvent.time - startAttackEvent.time;
             DelayBetweenHits = attackTime / Math.Max(NumberOfHitsPerUnit - 1, 1);
         }
