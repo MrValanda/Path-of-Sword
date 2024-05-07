@@ -59,7 +59,10 @@ namespace Source.Scripts_DONT_USE_THIS_FOLDER_.Utils
             Type type = typeof(T);
             if(_components.ContainsKey(type) == false) 
                 return;
-            
+            if (_components[type] is IDisposable disposable)
+            {
+                disposable.Dispose();
+            }
             ComponentRemoved?.Invoke(type);
             _components.Remove(type);
         }

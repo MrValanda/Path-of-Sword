@@ -1,14 +1,17 @@
 using UnityEngine;
 
-public class OptimizedMonoBehavior : MonoBehaviour
+namespace Source.Scripts_DONT_USE_THIS_FOLDER_.Tools
 {
-    [HideInInspector] public new Transform transform;
-
-    [HideInInspector] public new GameObject gameObject;
-
-    protected  virtual void OnValidate()
+    public class OptimizedMonoBehavior : MonoBehaviour
     {
-        transform = base.transform;
-        gameObject = base.gameObject;
+        [HideInInspector] public new Transform transform;
+
+        [HideInInspector] public new GameObject gameObject;
+
+        protected  virtual void OnValidate()
+        {
+            transform = base.transform;
+            gameObject = base.gameObject;
+        }
     }
 }

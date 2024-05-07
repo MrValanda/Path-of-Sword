@@ -13,7 +13,7 @@ namespace Source.Scripts.Utils
     public class ComponentContainerMonoLinker : MonoBehaviour
     {
         [SerializeField]
-        private List<MonoBehaviour> _monoBehaviours = new List<MonoBehaviour>();
+        private List<Component> _monoBehaviours = new List<Component>();
 
         public ComponentContainer ComponentsContainer { get; private set; }
 

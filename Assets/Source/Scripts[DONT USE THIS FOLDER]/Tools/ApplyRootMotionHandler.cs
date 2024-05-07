@@ -1,13 +1,16 @@
+using Source.Modules.MovementModule.Scripts;
+using Source.Scripts.EntityLogic;
 using UnityEngine;
 
 namespace Source.Scripts.Tools
 {
     public class ApplyRootMotionHandler : MonoBehaviour
     {
+        [SerializeField] private Entity _entity;
         [SerializeField] private CharacterController _characterController;
         [SerializeField] private Animator _animator;
-        private float _verticalSpeed;
         [SerializeField] private float _animationRootMotionMultiplayer = 1;
+        private float _verticalSpeed;
 
         public void SetAnimationRootMotionMultiplier(float newMultiplier)
         {
@@ -21,6 +24,8 @@ namespace Source.Scripts.Tools
 
         private void OnAnimatorMove()
         {
+            if(_entity.TryGet<AddForceDirectionComponent>(out _)) return;
+            
             Vector3 animatorMove = _animator.deltaPosition * _animationRootMotionMultiplayer;
         
             Vector3 moveWithGravity = animatorMove + Vector3.up * _verticalSpeed;
