@@ -15,9 +15,9 @@ namespace Source.Modules.CombatModule.Scripts
         public event Action AttackStarted;
 
         [SerializeField] private AnimationHandler _animationHandler;
-        
 
-        [Preserve]
+        
+[Preserve]
         private void StartListen()
         {
             StartListenCombo?.Invoke();

@@ -32,6 +32,7 @@ namespace Source.Modules.WeaponModule.Scripts
             {
                 weapon.Initialize(_swordAttackVisitor, _orientation);
                 _ownerEntity.Add(weapon);
+                Debug.LogError("EquipWeapon " + _ownerEntity.name);
             }
 
             if (currentWeaponEntity.TryGet(out WeaponTrailContainer weaponTrailContainer))

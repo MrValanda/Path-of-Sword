@@ -10,12 +10,14 @@ namespace Source.Modules.MovementModule.Scripts
     {
         public Entity WhoWillMoveEntity;
         private CancellationTokenSource _cancellationTokenSource;
+        private Vector3 _previousForce;
  
         public void Execute(Vector3 force, float deceleration)
         {
             Dispose();
             _cancellationTokenSource = new CancellationTokenSource();
-            AddForce(force, deceleration, _cancellationTokenSource.Token).Forget();
+            _previousForce += force;
+            AddForce(_previousForce, deceleration, _cancellationTokenSource.Token).Forget();
         }
 
         public void Dispose()
@@ -27,11 +29,11 @@ namespace Source.Modules.MovementModule.Scripts
         private async UniTaskVoid AddForce(Vector3 force, float deceleration,
             CancellationToken token)
         {
-            Vector3 currentForce = force;
-            while (token.IsCancellationRequested == false && currentForce != Vector3.zero)
+            _previousForce = force;
+            while (token.IsCancellationRequested == false && _previousForce != Vector3.zero)
             {
-                WhoWillMoveEntity.Get<CharacterController>().SimpleMove(currentForce);
-                currentForce = Vector3.Lerp(currentForce, Vector3.zero, Time.deltaTime * deceleration);
+                WhoWillMoveEntity.Get<CharacterController>().SimpleMove(_previousForce);
+                _previousForce = Vector3.Lerp(_previousForce, Vector3.zero, Time.deltaTime * deceleration);
                 await UniTask.Yield(token);
             }
 

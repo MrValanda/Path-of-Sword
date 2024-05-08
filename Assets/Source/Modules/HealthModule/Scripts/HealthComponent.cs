@@ -1,6 +1,5 @@
 using System;
 using Interfaces;
-using Source.Scripts.EntityDataComponents;
 using Source.Scripts.EntityLogic;
 using Source.Scripts.Interfaces;
 using Source.Scripts_DONT_USE_THIS_FOLDER_.Tools;

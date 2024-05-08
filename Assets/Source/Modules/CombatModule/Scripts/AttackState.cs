@@ -1,10 +1,10 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using DG.Tweening;
 using Sirenix.Utilities;
 using Source.Modules.WeaponModule.Scripts;
 using Source.Scripts;
 using Source.Scripts.CombatModule;
-using Source.Scripts.EntityDataComponents;
 using Source.Scripts.EntityLogic;
 using Source.Scripts.Tools;
 using Source.Scripts.WeaponModule;
@@ -61,7 +61,8 @@ namespace Source.Modules.CombatModule.Scripts
 
         protected override void OnUpdate()
         {
-            if (_isAttacking == false && Input.GetMouseButtonDown(0))
+            if (_isAttacking == false &&
+                _attackStateComponentData.ConditionsContainer.ContainerData.TrueForAll(x => x.GetStatus()))
             {
                 Attack();
             }

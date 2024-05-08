@@ -11,14 +11,7 @@ namespace Source.Scripts.Tools
 
         private readonly Queue<CrossFadeData> _crossFadeQueue = new Queue<CrossFadeData>();
         private AnimatorOverrideController _animatorOverrideController;
-
-        private void Start()
-        {
-            _animatorOverrideController ??= new AnimatorOverrideController(Animator.runtimeAnimatorController);
-            Animator.runtimeAnimatorController = _animatorOverrideController;
-        }
-
-
+        
         private void FixedUpdate()
         {
             return;
@@ -43,6 +36,11 @@ namespace Source.Scripts.Tools
 
         public void OverrideAnimation(string animationName, AnimationClip newAnimation)
         {
+            if (_animatorOverrideController == null)
+            {
+                _animatorOverrideController = new AnimatorOverrideController(Animator.runtimeAnimatorController);
+                Animator.runtimeAnimatorController = _animatorOverrideController;
+            }
             _animatorOverrideController[animationName] = newAnimation;
         }
 

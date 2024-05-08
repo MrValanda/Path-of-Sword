@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using Source.Scripts.Transitions;
 using States;
+using Transitions;
 using UnityEngine;
 
 namespace Source.Scripts.TransitionsContainer
@@ -8,12 +9,13 @@ namespace Source.Scripts.TransitionsContainer
     public class PlayerProtectionStateTransitionContainer : TransitionContainer
     {
         [SerializeField] private InputMouseUpTransition  _inputMouseUpTransition;
+        [SerializeField] private MouseDownTransition  _mouseDownTransition;
 
         public override List<Transition> GetTransitions()
         {
             Transitions ??= new List<Transition>()
             {
-                _inputMouseUpTransition
+                _inputMouseUpTransition,_mouseDownTransition
             };
             return Transitions;
         }
