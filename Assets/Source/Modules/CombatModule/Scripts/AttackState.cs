@@ -2,9 +2,9 @@
 using System.Linq;
 using DG.Tweening;
 using Sirenix.Utilities;
+using Source.Modules.MoveSetModule.Scripts;
 using Source.Modules.WeaponModule.Scripts;
 using Source.Scripts;
-using Source.Scripts.CombatModule;
 using Source.Scripts.EntityLogic;
 using Source.Scripts.Tools;
 using Source.Scripts.WeaponModule;
@@ -14,6 +14,7 @@ namespace Source.Modules.CombatModule.Scripts
 {
     public class AttackState : State
     {
+        public bool IsAttacking { get; private set; }
         private WeaponTrailContainer _weaponTrailContainer;
         private Weapon _weapon;
         private AnimationHandler _animationHandler;
@@ -21,8 +22,7 @@ namespace Source.Modules.CombatModule.Scripts
 
         private int _currentAttackIndex;
         private int _currentAttackAnimationIndex;
-        private bool _isAttacking;
-        private readonly List<string> _attacksAnimators = new List<string>() {"Attack", "Attack2"};
+        private readonly List<string> _attacksAnimators = new() {"Attack", "Attack2"};
         private AttackEventListener _attackEventListener;
         private static readonly int IsAttack = Animator.StringToHash("IsAttacking");
 
@@ -55,13 +55,13 @@ namespace Source.Modules.CombatModule.Scripts
             _weapon.Disable();
             _weaponTrailContainer.XWeaponTrails.ForEach(x => x.Deactivate());
             _currentAttackIndex = 0;
-            _isAttacking = false;
+            IsAttacking = false;
             _animationHandler.Animator.SetBool(IsAttack, false);
         }
 
         protected override void OnUpdate()
         {
-            if (_isAttacking == false &&
+            if (IsAttacking == false &&
                 _attackStateComponentData.ConditionsContainer.ContainerData.TrueForAll(x => x.GetStatus()))
             {
                 Attack();
@@ -70,7 +70,7 @@ namespace Source.Modules.CombatModule.Scripts
 
         private void Attack()
         {
-            _isAttacking = true;
+            IsAttacking = true;
             Vector3 orientationForward = _attackStateComponentData.Orientation.forward;
             Vector3 orientationRight = _attackStateComponentData.Orientation.right;
             orientationForward.y = 0;
@@ -109,12 +109,12 @@ namespace Source.Modules.CombatModule.Scripts
                 .SetAnimationRootMotionMultiplier(_weapon.CombatMoveSetSetup[_currentAttackIndex]
                     .RootMultiplierAfterEndAttack);
 
-             _weapon.Disable();
+            _weapon.Disable();
         }
 
         private void OnStartListenCombo()
         {
-            _isAttacking = false;
+            IsAttacking = false;
             _currentAttackIndex++;
             _currentAttackIndex %= _weapon.CombatMoveSetSetup.Count;
         }

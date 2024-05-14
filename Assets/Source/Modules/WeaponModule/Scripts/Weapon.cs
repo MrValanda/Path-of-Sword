@@ -1,6 +1,6 @@
 using System;
 using System.Collections.Generic;
-using Source.Scripts.CombatModule;
+using Source.Modules.MoveSetModule.Scripts;
 using Source.Scripts.Visitors;
 using Tools;
 using UniRx;

@@ -1,4 +1,4 @@
-﻿using Source.Scripts.CombatModule;
+﻿using Source.Modules.MoveSetModule.Scripts;
 
 namespace Source.Modules.CombatModule.Scripts
 {

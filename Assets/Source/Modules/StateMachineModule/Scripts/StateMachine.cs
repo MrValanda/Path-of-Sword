@@ -1,43 +1,45 @@
 using Source.Scripts;
 using Source.Scripts_DONT_USE_THIS_FOLDER_.Tools;
-using States;
 using UnityEngine;
 
-public class StateMachine : OptimizedMonoBehavior
+namespace Source.Modules.StateMachineModule.Scripts
 {
-    [SerializeField] private State _startState;
-
-    [field:SerializeField]
-    public State CurrentState { get; private set; }
-
-    [SerializeField] private bool isAutoInit = false;
-
-    private void Start()
+    public class StateMachine : OptimizedMonoBehavior
     {
-        Cursor.visible = false;
-        Cursor.lockState = CursorLockMode.Locked;
-        if (isAutoInit) Init();
-    }
+        [SerializeField] private State _startState;
 
-    public void Init()
-    {
-        Transit(_startState);
-    }
-        
-    private void Transit(State nextState)
-    {
-        if (CurrentState != null)
+        [field:SerializeField]
+        public State CurrentState { get; private set; }
+
+        [SerializeField] private bool isAutoInit = false;
+
+        private void Start()
         {
-            CurrentState.TransitionDetected -= Transit;
-            CurrentState.Exit();
+            Cursor.visible = false;
+            Cursor.lockState = CursorLockMode.Locked;
+            if (isAutoInit) Init();
         }
         
-        CurrentState = nextState;
-        
-        if (CurrentState != null)
+        public void Init()
         {
-            CurrentState.TransitionDetected += Transit;
-            CurrentState.Enter();
+            Transit(_startState);
+        }
+        
+        private void Transit(State nextState)
+        {
+            if (CurrentState != null)
+            {
+                CurrentState.TransitionDetected -= Transit;
+                CurrentState.Exit();
+            }
+        
+            CurrentState = nextState;
+        
+            if (CurrentState != null)
+            {
+                CurrentState.TransitionDetected += Transit;
+                CurrentState.Enter();
+            }
         }
     }
 }

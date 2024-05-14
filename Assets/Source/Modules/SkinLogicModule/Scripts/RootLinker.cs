@@ -40,6 +40,8 @@ namespace SkinLogic
         {
             _baseRoot.Dispose();
             _linkedRoot.Dispose();
+            _linkedRootPositions.Dispose();
+            _linkedRootRotations.Dispose();
         }
 
         private void Update()

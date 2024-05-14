@@ -37,7 +37,7 @@ MonoBehaviour:
     <DelayBetweenHits>k__BackingField: 0
     <Damage>k__BackingField: 1
     <ParryAnimationIndex>k__BackingField: 3
-    <ParryBackForce>k__BackingField: 15
+    <ParryBackForce>k__BackingField: 14
   - <AnimationClip>k__BackingField: {fileID: 7400000, guid: 5029b485ac85ca0478e8877b25e6dec6, type: 3}
     <RootMultiplierBeforeEndAttack>k__BackingField: 1
     <RootMultiplierAfterEndAttack>k__BackingField: 1
@@ -45,7 +45,7 @@ MonoBehaviour:
     <DelayBetweenHits>k__BackingField: 0
     <Damage>k__BackingField: 1
     <ParryAnimationIndex>k__BackingField: 3
-    <ParryBackForce>k__BackingField: 15
+    <ParryBackForce>k__BackingField: 14
   - <AnimationClip>k__BackingField: {fileID: 7400000, guid: d2a5135c3d3b5dc4ab7691b390c5b332, type: 3}
     <RootMultiplierBeforeEndAttack>k__BackingField: 1
     <RootMultiplierAfterEndAttack>k__BackingField: 1
@@ -53,7 +53,7 @@ MonoBehaviour:
     <DelayBetweenHits>k__BackingField: 0.1
     <Damage>k__BackingField: 1
     <ParryAnimationIndex>k__BackingField: 1
-    <ParryBackForce>k__BackingField: 15
+    <ParryBackForce>k__BackingField: 14
   - <AnimationClip>k__BackingField: {fileID: 7400000, guid: 18acd5aa23ba1ec45b97b336327cbf2d, type: 3}
     <RootMultiplierBeforeEndAttack>k__BackingField: 1
     <RootMultiplierAfterEndAttack>k__BackingField: 1
@@ -61,4 +61,4 @@ MonoBehaviour:
     <DelayBetweenHits>k__BackingField: 0.1
     <Damage>k__BackingField: 1
     <ParryAnimationIndex>k__BackingField: 2
-    <ParryBackForce>k__BackingField: 15
+    <ParryBackForce>k__BackingField: 14

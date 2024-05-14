@@ -2,10 +2,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using Sirenix.OdinInspector;
-using Source.Modules.MoveSetModule.Scripts;
 using UnityEngine;
 
-namespace Source.Scripts.CombatModule
+namespace Source.Modules.MoveSetModule.Scripts
 {
     [CreateAssetMenu(fileName = nameof(CombatMoveSetSetup), menuName = "Setups/" + nameof(CombatMoveSetSetup),
         order = 0)]

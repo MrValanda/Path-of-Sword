@@ -8,6 +8,8 @@ namespace Transitions
     public class AttackAnimationEndTransition : Transition
     {
         [SerializeField] private AttackEventListener _attackEventListener;
+        [SerializeField] private AttackState _attackState;
+
         public override void OnEnable()
         {
             _attackEventListener.AttackAnimationEnd += OnAttackReset;
@@ -17,8 +19,10 @@ namespace Transitions
         {
             _attackEventListener.AttackAnimationEnd -= OnAttackReset;
         }
+
         private void OnAttackReset()
         {
+            if (_attackState.IsAttacking) return;
             OnNeedTransit(this);
         }
     }

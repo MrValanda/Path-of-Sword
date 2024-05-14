@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using Sirenix.OdinInspector;
 using Source.Modules.CombatModule.Scripts;
+using Source.Modules.CombatModule.Scripts.Parry;
 using Source.Modules.WeaponModule.Scripts;
 using Source.Scripts.EntityLogic;
 using UnityEngine;
@@ -14,6 +15,7 @@ namespace Source.Modules.CompositeRootModule
         [SerializeField,TabGroup("Equipment")] private Equipment _equipment;
         [SerializeField] private Transform _orientation;
         [SerializeField] private InputMouseDownCondition _inputMouseDownCondition;
+        [SerializeField] private ParryHandlerData _parryHandlerData;
         public void Compose()
         {
             Container<ICondition> conditionsContainer =
@@ -27,6 +29,9 @@ namespace Source.Modules.CompositeRootModule
             
             _playerEntity.Add(_attackStateComponentData);
             _playerEntity.Add(_equipment);
+            ParryHandler parryHandler = new ParryHandler();
+            parryHandler.Initialize(_playerEntity,_parryHandlerData);
+            _playerEntity.Add(parryHandler);
         }
     }
 }

@@ -46,6 +46,7 @@ namespace Source.Scripts.VisitableComponents
             _currentHealth =
                 Math.Clamp(_currentHealth - damage, 0, _maxHeatlh);
 
+            Debug.LogError("TAKE DAMAGE" + damage);
             ReceivedDamage?.Invoke(damage);
             OnApplyDamage(damage);
             if (_currentHealth == 0)

@@ -66,5 +66,10 @@ namespace Source.Scripts_DONT_USE_THIS_FOLDER_.Utils
             ComponentRemoved?.Invoke(type);
             _components.Remove(type);
         }
+
+        public bool ContainsComponent<T>() where T : class
+        {
+            return _components.ContainsKey(typeof(T));
+        }
     }
 }

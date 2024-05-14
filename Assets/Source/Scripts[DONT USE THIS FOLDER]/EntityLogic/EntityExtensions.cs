@@ -6,8 +6,13 @@
         {
             return entity.ComponentContainerMonoLinker.ComponentsContainer.GetComponent<T>();
         }
-        
-        public static bool TryGet<T>(this Entity entity,out T component) where T : class
+
+        public static bool Contains<T>(this Entity entity) where T : class
+        {
+            return entity.ComponentContainerMonoLinker.ComponentsContainer.ContainsComponent<T>();
+        }
+
+        public static bool TryGet<T>(this Entity entity, out T component) where T : class
         {
             return entity.ComponentContainerMonoLinker.ComponentsContainer.TryGetComponent(out component);
         }
