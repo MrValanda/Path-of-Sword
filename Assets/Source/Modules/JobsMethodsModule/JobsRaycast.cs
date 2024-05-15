@@ -11,10 +11,13 @@ namespace Source.Modules.JobsMethodsModule
         {
             NativeArray<ColliderHit> result = new NativeArray<ColliderHit>(maxCollideCount, Allocator.TempJob);
             NativeArray<OverlapSphereCommand> commands = new NativeArray<OverlapSphereCommand>(1, Allocator.TempJob);
+            
             commands[0] = new OverlapSphereCommand(point,radius,queryParameters);
             JobHandle jobHandle = OverlapSphereCommand.ScheduleBatch(commands, result, 1, maxCollideCount);
+            
             jobHandle.Complete();
             ColliderHit[] colliderHits = result.Where(x=>x.collider != null).ToArray();
+            
             result.Dispose();
             commands.Dispose();
             return colliderHits;
@@ -27,12 +30,13 @@ namespace Source.Modules.JobsMethodsModule
 
             commands[0] = new RaycastCommand(from, direction, queryParameters, distance);
             JobHandle jobHandle = RaycastCommand.ScheduleBatch(commands, result, 1, maxCollideCount);
+            
             jobHandle.Complete();
             RaycastHit[] raycastHits = result.Where(x=>x.collider != null).ToArray();
+            
             result.Dispose();
             commands.Dispose();
             return raycastHits;
-
         }
     }
 }

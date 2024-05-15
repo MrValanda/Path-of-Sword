@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Lean.Pool;
 using Sirenix.OdinInspector;
+using Source.Modules.SkinLogicModule.Scripts;
 using Source.Scripts.SkinLogic;
 using TMPro;
 using UnityEngine;

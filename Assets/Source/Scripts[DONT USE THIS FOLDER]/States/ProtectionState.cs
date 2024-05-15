@@ -1,9 +1,9 @@
 ﻿using Source.Modules.CombatModule.Scripts;
 using Source.Modules.CombatModule.Scripts.Parry;
+using Source.Modules.HealthModule.Scripts;
 using Source.Scripts;
 using Source.Scripts.EntityLogic;
 using Source.Scripts.Tools;
-using Source.Scripts.VisitableComponents;
 using UnityEngine;
 
 namespace Source.Scripts_DONT_USE_THIS_FOLDER_.States
@@ -12,19 +12,18 @@ namespace Source.Scripts_DONT_USE_THIS_FOLDER_.States
     {
         private static readonly int IsProtection = Animator.StringToHash("IsProtection");
         private static readonly int Protect = Animator.StringToHash("Protect");
-    
+        
         [SerializeField, Range(0, 1)] private float _damageReduce;
 
+        public float PreviousDamageReduce { get; private set; }
+        
         private Animator _animator;
-  
-        private float _previousReduce;
         private ProtectionEventListener _protectionEventListener;
         
         private void OnEnable()
         {
             _animator ??= _entity.Get<AnimationHandler>().Animator;
             _protectionEventListener ??= _entity.Get<ProtectionEventListener>();
-            
             if (_entity.TryGet(out ParryHandler parryHandler))
             {
                 _protectionEventListener.ParryStarted -= StartParry;
@@ -44,10 +43,9 @@ namespace Source.Scripts_DONT_USE_THIS_FOLDER_.States
 
         private void OnDisable()
         {
-            _entity.AddOrGet<EntityCurrentStatsData>().DamageReducePercent = _previousReduce;
             _animator.SetBool(IsProtection,false);
         }
-
+        
         private void StartParry()
         {
             _entity.Add(new ParryComponent() {WhoParryEntity = _entity});
@@ -56,7 +54,7 @@ namespace Source.Scripts_DONT_USE_THIS_FOLDER_.States
         private void ProtectionStart()
         {
             EntityCurrentStatsData entityCurrentStatsData = _entity.AddOrGet<EntityCurrentStatsData>();
-            _previousReduce = entityCurrentStatsData.DamageReducePercent;
+            PreviousDamageReduce = entityCurrentStatsData.DamageReducePercent;
             entityCurrentStatsData.DamageReducePercent = _damageReduce;
         }
         

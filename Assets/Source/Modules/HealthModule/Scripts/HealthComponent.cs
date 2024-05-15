@@ -1,5 +1,6 @@
 using System;
 using Interfaces;
+using Source.Modules.HealthModule.Scripts;
 using Source.Scripts.EntityLogic;
 using Source.Scripts.Interfaces;
 using Source.Scripts_DONT_USE_THIS_FOLDER_.Tools;

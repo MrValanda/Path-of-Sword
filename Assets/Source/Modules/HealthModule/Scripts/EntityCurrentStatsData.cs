@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Source.Scripts.VisitableComponents
+namespace Source.Modules.HealthModule.Scripts
 {
     public class EntityCurrentStatsData
     {

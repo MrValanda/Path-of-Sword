@@ -33,6 +33,7 @@ namespace Source.Modules.WeaponModule.Scripts
                     queryParameters,11f, maxHitCount);
                 Debug.DrawLine(_previousExecuteHit,hitBoxPoint.position);
                 _previousExecuteHit = hitBoxPoint.position;
+                
                 return raycastHits;
             }
         }

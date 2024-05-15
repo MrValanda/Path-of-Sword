@@ -2,7 +2,7 @@
 using UnityEngine;
 using UnityEngine.Jobs;
 
-namespace SkinLogic
+namespace Source.Modules.SkinLogicModule.Scripts
 {
     public struct TransformsConverterToValueTypes : IJobParallelForTransform
     {

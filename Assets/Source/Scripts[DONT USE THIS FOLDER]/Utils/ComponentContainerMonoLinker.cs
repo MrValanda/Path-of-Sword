@@ -29,7 +29,8 @@ namespace Source.Scripts.Utils
                 {
                     ComponentsContainer.AddComponent(monoBehaviour, interfaceType);
                 }
-
+                ComponentsContainer.AddComponent(monoBehaviour,  type.BaseType);
+                
                 ComponentsContainer.AddComponent(monoBehaviour, type);
             }
 

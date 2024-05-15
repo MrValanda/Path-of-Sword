@@ -1,13 +1,11 @@
-﻿using System;
-using Sirenix.Utilities;
-using Source.Modules.SkinLogicModule.Scripts;
+﻿using SkinLogic;
 using Source.Scripts_DONT_USE_THIS_FOLDER_.Tools;
 using Unity.Collections;
 using Unity.Jobs;
 using UnityEngine;
 using UnityEngine.Jobs;
 
-namespace SkinLogic
+namespace Source.Modules.SkinLogicModule.Scripts
 {
     public class RootLinker : OptimizedMonoBehavior
     {
