@@ -46,7 +46,7 @@ namespace Source.Modules.StaggerModule.Scripts
                 }
                 else
                 {
-                    SetLayersWeight(0.2f, 0);
+                    SetLayersWeight(1f, 0);
                 }
                 _lastReceivedDamage = Time.time;
             }
