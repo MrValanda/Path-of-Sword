@@ -341,6 +341,7 @@ MonoBehaviour:
   _transitions: {fileID: 6107431576714243650}
   _subStates:
   - {fileID: 7579981729981454287}
+  - {fileID: 772741247151588282}
   checkingTransitionDelay: 0.1
   _entity: {fileID: 1384929614764249878}
   _animator: {fileID: 1006070321431672206}
@@ -359,6 +360,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75b39e6cda492fe438604d411a825503, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes: []
   _dodgeEndTransition:
     <NextState>k__BackingField: {fileID: 8950689718659074906}
     <Priority>k__BackingField: 0
@@ -483,6 +493,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a9c22eddf0b17904d843586cde6289c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes: []
   inputKeyPressedAndAttackEndTransition:
     <NextState>k__BackingField: {fileID: 6808166471663055000}
     <Priority>k__BackingField: 0
@@ -492,6 +511,7 @@ MonoBehaviour:
     <NextState>k__BackingField: {fileID: 8950689718659074906}
     <Priority>k__BackingField: 0
     _attackEventListener: {fileID: 1082773108359920441}
+    _attackState: {fileID: 92028848825305781}
   _inputMouseDownAndAttackEndTransition:
     <NextState>k__BackingField: {fileID: 1077089938273136338}
     <Priority>k__BackingField: 1
@@ -1432,6 +1452,8 @@ GameObject:
   - component: {fileID: 9021426120409475742}
   - component: {fileID: 4068999829740757786}
   - component: {fileID: 1384929614764249878}
+  - component: {fileID: 7350665176944658826}
+  - component: {fileID: 1986360540702537216}
   m_Layer: 6
   m_Name: Player
   m_TagString: Untagged
@@ -1456,7 +1478,7 @@ Transform:
   - {fileID: 4570844009850432951}
   - {fileID: 8382256752426624719}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &5856197143836898597
 MonoBehaviour:
@@ -1497,7 +1519,7 @@ CharacterController:
   m_Enabled: 1
   serializedVersion: 3
   m_Height: 2
-  m_Radius: 0.27
+  m_Radius: 0.46
   m_SlopeLimit: 45
   m_StepOffset: 0.3
   m_SkinWidth: 0.08
@@ -1624,6 +1646,8 @@ MonoBehaviour:
   - {fileID: 9021426120409475742}
   - {fileID: 3300080380673428432}
   - {fileID: 2873686313292590806}
+  - {fileID: 4253592724539772509}
+  - {fileID: 5253313219944896133}
 --- !u!114 &1384929614764249878
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1638,6 +1662,34 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   transform: {fileID: 4629691732500990159}
   gameObject: {fileID: 2962796325168543894}
+--- !u!114 &7350665176944658826
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2962796325168543894}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f1fee0f9f22e0cd428ad515e505ee694, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _healthComponent: {fileID: 9021426120409475742}
+  _animation: {fileID: 1986360540702537216}
+--- !u!114 &1986360540702537216
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2962796325168543894}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e4fbeafd29749f2a6fb99e50a9dd4fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _animator: {fileID: 1006070321431672206}
+  _animatorOverrideController: {fileID: 0}
 --- !u!1 &2977663154568933857
 GameObject:
   m_ObjectHideFlags: 0
@@ -1922,6 +1974,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a33e0d6ca32642a391be36cada51b6a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes: []
   _delayTransition:
     <NextState>k__BackingField: {fileID: 8950689718659074906}
     <Priority>k__BackingField: 0
@@ -2332,6 +2393,56 @@ Transform:
   m_Father: {fileID: 1256540672469637484}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &3633300918131968139
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2875620573290089437}
+  - component: {fileID: 3018339882712778374}
+  m_Layer: 0
+  m_Name: StaggerState
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2875620573290089437
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3633300918131968139}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1647113145060970982}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3018339882712778374
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3633300918131968139}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d17e09031bc684b46a10692b98a1708d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  transform: {fileID: 2875620573290089437}
+  gameObject: {fileID: 3633300918131968139}
+  _transitions: {fileID: 0}
+  _subStates: []
+  checkingTransitionDelay: 0.1
+  _entity: {fileID: 1384929614764249878}
 --- !u!1 &3658049978513568446
 GameObject:
   m_ObjectHideFlags: 0
@@ -2539,12 +2650,12 @@ MonoBehaviour:
   transform: {fileID: 7748441194248329965}
   gameObject: {fileID: 4400293904290085044}
   _transitions: {fileID: 8765254226633100878}
-  _subStates: []
+  _subStates:
+  - {fileID: 109717512940705732}
+  - {fileID: 3018339882712778374}
   checkingTransitionDelay: 0
   _entity: {fileID: 1384929614764249878}
   _damageReduce: 1
-  _parryStartTime: 0
-  _parryEndTime: 0
 --- !u!114 &8765254226633100878
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2557,10 +2668,33 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7435b5b9f77140d9ba2cd9c8b833d439, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes: []
   _inputMouseUpTransition:
-    <NextState>k__BackingField: {fileID: 8950689718659074906}
+    <NextState>k__BackingField: {fileID: 772741247151588282}
     <Priority>k__BackingField: 0
     _mouseIndex: 1
+  _mouseDownTransition:
+    <NextState>k__BackingField: {fileID: 1077089938273136338}
+    <Priority>k__BackingField: 1
+    _mouseKey: 1
+    _needListenedPressed: 0
+  _inputKeyDownTransition:
+    <NextState>k__BackingField: {fileID: 6808166471663055000}
+    <Priority>k__BackingField: 2
+    _keyCode: 32
+  _inputMouseDownAndNotParryComponent:
+    <NextState>k__BackingField: {fileID: 772741247151588282}
+    <Priority>k__BackingField: 0
+    _mouseKey: 0
+    _entity: {fileID: 1384929614764249878}
 --- !u!1 &4476704425993344703
 GameObject:
   m_ObjectHideFlags: 0
@@ -3412,6 +3546,162 @@ MonoBehaviour:
   size: {x: 0.057, y: 0.1, z: 0.451}
   direction: 1
   radiusSeparation: 1
+--- !u!1 &5540112619541417465
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7736015700371448666}
+  - component: {fileID: 772741247151588282}
+  - component: {fileID: 5073099379917047908}
+  m_Layer: 0
+  m_Name: EndProtectionState
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7736015700371448666
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5540112619541417465}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1647113145060970982}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &772741247151588282
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5540112619541417465}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 725991d20086426ab42334b1ebbe4903, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  transform: {fileID: 7736015700371448666}
+  gameObject: {fileID: 5540112619541417465}
+  _transitions: {fileID: 5073099379917047908}
+  _subStates:
+  - {fileID: 3018339882712778374}
+  checkingTransitionDelay: 0
+  _entity: {fileID: 1384929614764249878}
+--- !u!114 &5073099379917047908
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5540112619541417465}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0e5e5ebd51c4034b896283d12cad9a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects:
+    - {fileID: 1077089938273136338}
+    - {fileID: 8950689718659074906}
+    - {fileID: 5253313219944896133}
+    - {fileID: 6808166471663055000}
+    - {fileID: 92028848825305781}
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: _transitions
+      Entry: 7
+      Data: 0|System.Collections.Generic.List`1[[Transition, Assembly-CSharp]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 4
+    - Name: 
+      Entry: 7
+      Data: 1|Transitions.MouseDownTransition, Assembly-CSharp
+    - Name: <NextState>k__BackingField
+      Entry: 10
+      Data: 0
+    - Name: <Priority>k__BackingField
+      Entry: 4
+      Data: 1
+    - Name: _mouseKey
+      Entry: 3
+      Data: 1
+    - Name: _needListenedPressed
+      Entry: 5
+      Data: false
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 2|Transitions.EndProtectionEventTransition, Assembly-CSharp
+    - Name: <NextState>k__BackingField
+      Entry: 10
+      Data: 1
+    - Name: <Priority>k__BackingField
+      Entry: 4
+      Data: 0
+    - Name: _protectionEventListener
+      Entry: 10
+      Data: 2
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 3|Source.Scripts.Transitions.InputKeyDownTransition, Assembly-CSharp
+    - Name: <NextState>k__BackingField
+      Entry: 10
+      Data: 3
+    - Name: <Priority>k__BackingField
+      Entry: 4
+      Data: 2
+    - Name: _keyCode
+      Entry: 3
+      Data: 32
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 4|Transitions.MouseDownTransition, Assembly-CSharp
+    - Name: <NextState>k__BackingField
+      Entry: 10
+      Data: 4
+    - Name: <Priority>k__BackingField
+      Entry: 4
+      Data: 0
+    - Name: _mouseKey
+      Entry: 3
+      Data: 0
+    - Name: _needListenedPressed
+      Entry: 5
+      Data: true
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
 --- !u!1 &5565569096918797890
 GameObject:
   m_ObjectHideFlags: 0
@@ -3476,6 +3766,7 @@ GameObject:
   - component: {fileID: 3446958316651116691}
   - component: {fileID: 488665255321871871}
   - component: {fileID: 1920952887624531951}
+  - component: {fileID: 5253313219944896133}
   m_Layer: 0
   m_Name: Model_Unity_Ver1
   m_TagString: Untagged
@@ -3585,6 +3876,20 @@ MonoBehaviour:
   _characterController: {fileID: 4253592724539772509}
   _animator: {fileID: 1006070321431672206}
   _animationRootMotionMultiplayer: 1
+--- !u!114 &5253313219944896133
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5599754423215770830}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d07e10b385f24536a5ed0493a809fbd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  transform: {fileID: 8859539972110603567}
+  gameObject: {fileID: 5599754423215770830}
 --- !u!1 &5601540732071533239
 GameObject:
   m_ObjectHideFlags: 0
@@ -3992,7 +4297,8 @@ MonoBehaviour:
   _transitions: {fileID: 6034636540350121886}
   _subStates:
   - {fileID: 4367685489883776976}
-  checkingTransitionDelay: 0.1
+  - {fileID: 3018339882712778374}
+  checkingTransitionDelay: 0
   _entity: {fileID: 1384929614764249878}
   _whoMoved: {fileID: 4629691732500990159}
   _oritentation: {fileID: 0}
@@ -4010,6 +4316,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d24c38e8ac3d5d74a982be0e95db6d9f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes: []
   _inputKeyDownTransition:
     <NextState>k__BackingField: {fileID: 6808166471663055000}
     <Priority>k__BackingField: 0
@@ -4018,10 +4333,12 @@ MonoBehaviour:
     <NextState>k__BackingField: {fileID: 92028848825305781}
     <Priority>k__BackingField: 0
     _mouseKey: 0
+    _needListenedPressed: 0
   _desiredToProtection:
     <NextState>k__BackingField: {fileID: 1077089938273136338}
     <Priority>k__BackingField: 0
     _mouseKey: 1
+    _needListenedPressed: 1
 --- !u!1 &6221081247827548109
 GameObject:
   m_ObjectHideFlags: 0
@@ -4913,6 +5230,8 @@ Transform:
   - {fileID: 7586730296049736481}
   - {fileID: 7748441194248329965}
   - {fileID: 1352428395719033383}
+  - {fileID: 7736015700371448666}
+  - {fileID: 2875620573290089437}
   m_Father: {fileID: 4629691732500990159}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

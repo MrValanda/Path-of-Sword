@@ -12,14 +12,12 @@ namespace Source.Scripts_DONT_USE_THIS_FOLDER_.States
     {
         private static readonly int IsProtection = Animator.StringToHash("IsProtection");
         private static readonly int Protect = Animator.StringToHash("Protect");
-        
+
         [SerializeField, Range(0, 1)] private float _damageReduce;
 
-        public float PreviousDamageReduce { get; private set; }
-        
         private Animator _animator;
         private ProtectionEventListener _protectionEventListener;
-        
+
         private void OnEnable()
         {
             _animator ??= _entity.Get<AnimationHandler>().Animator;
@@ -33,19 +31,19 @@ namespace Source.Scripts_DONT_USE_THIS_FOLDER_.States
                 _protectionEventListener.ParryStarted += StartParry;
                 _protectionEventListener.ParryEnded += StopParry;
                 _protectionEventListener.ProtectionStarted += ProtectionStart;
-                
+
                 parryHandler.Parry();
             }
 
-            _animator.SetBool(IsProtection,true);
+            _animator.SetBool(IsProtection, true);
             _animator.SetTrigger(Protect);
         }
 
         private void OnDisable()
         {
-            _animator.SetBool(IsProtection,false);
+            _animator.SetBool(IsProtection, false);
         }
-        
+
         private void StartParry()
         {
             _entity.Add(new ParryComponent() {WhoParryEntity = _entity});
@@ -53,11 +51,9 @@ namespace Source.Scripts_DONT_USE_THIS_FOLDER_.States
 
         private void ProtectionStart()
         {
-            EntityCurrentStatsData entityCurrentStatsData = _entity.AddOrGet<EntityCurrentStatsData>();
-            PreviousDamageReduce = entityCurrentStatsData.DamageReducePercent;
-            entityCurrentStatsData.DamageReducePercent = _damageReduce;
+            _entity.AddOrGet<EntityCurrentStatsData>().DamageReducePercent = _damageReduce;
         }
-        
+
         private void StopParry()
         {
             _entity.Remove<ParryComponent>();

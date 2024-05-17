@@ -52,7 +52,7 @@ namespace Source.Modules.StaggerModule.Scripts
             }
         }
 
-        private void SetLayersWeight(float impactWeight,float protectionImpactWeight)
+        public void SetLayersWeight(float impactWeight,float protectionImpactWeight)
         {
             _animator.SetLayerWeight(_animator.GetLayerIndex(ImpactLayerName), impactWeight);
             _animator.SetLayerWeight(_animator.GetLayerIndex(ProtectionImpactLayerName), protectionImpactWeight);

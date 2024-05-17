@@ -2,7 +2,6 @@ using System.Collections.Generic;
 using Sirenix.OdinInspector;
 using Source.Modules.CombatModule.Scripts;
 using Source.Modules.CombatModule.Scripts.Parry;
-using Source.Modules.StaggerModule.Scripts;
 using Source.Modules.WeaponModule.Scripts;
 using Source.Scripts.EntityLogic;
 using UnityEngine;
@@ -35,11 +34,6 @@ namespace Source.Modules.CompositeRootModule
             ParryHandler parryHandler = new ParryHandler();
             parryHandler.Initialize(_playerEntity,_parryHandlerData);
             _playerEntity.Add(parryHandler);
-            
-            StaggerHandler staggerHandler = new StaggerHandler();
-            staggerHandler.Initialize(_playerEntity);
-            
-            _playerEntity.Add(staggerHandler);
         }
     }
 }
