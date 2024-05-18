@@ -7,13 +7,19 @@ namespace Source.Modules.LockOnTargetModule.Scripts
 {
     public class LockOnSelector : OptimizedMonoBehavior
     {
-        [SerializeField] private CinemachineVirtualCamera _cameraLockOn;
         [SerializeField] private LayerMask _layerMask;
         [SerializeField] private float _radiusLockAt;
 
         public bool IsLocked { get; private set; }
         public LockOnTarget CurrentLockOnTarget { get; private set; }
 
+        private CinemachineVirtualCamera _cameraLockOn;
+
+        public void Initialize(CinemachineVirtualCamera cameraLockOn)
+        {
+            _cameraLockOn = cameraLockOn;
+        }
+        
         private void Update()
         {
             if (Input.GetKeyDown(KeyCode.C) == false) return;

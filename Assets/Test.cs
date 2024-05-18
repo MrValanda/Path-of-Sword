@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using Sirenix.OdinInspector;
+using Source.Modules.CombatModule.Scripts;
 using Source.Scripts.EntityLogic;
 using Source.Scripts.Transitions;
 using Source.Scripts.VisitableComponents;

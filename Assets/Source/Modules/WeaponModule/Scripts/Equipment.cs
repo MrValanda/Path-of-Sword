@@ -1,8 +1,8 @@
 using System;
 using Lean.Pool;
 using Sirenix.OdinInspector;
+using Source.Modules.CombatModule.Scripts;
 using Source.Scripts.EntityLogic;
-using Source.Scripts.Visitors;
 using Source.Scripts.WeaponModule;
 using UnityEngine;
 
@@ -11,16 +11,20 @@ namespace Source.Modules.WeaponModule.Scripts
     [Serializable]
     public class Equipment 
     {
-        [SerializeField] private Entity _ownerEntity;
-        [SerializeField] private Transform _orientation;
         [SerializeField] private WeaponData _defaultWeaponData;
-        [SerializeField] private Transform _weaponLocator;
         [SerializeField] private SwordAttackVisitor _swordAttackVisitor;
         public WeaponData CurrentWeaponData { get; private set; }
 
-        public void Initialize()
+        private Entity _ownerEntity;
+        private Transform _orientation;
+
+        public void Initialize(Entity ownerEntity)
         {
-            WeaponEntity currentWeaponEntity = LeanPool.Spawn(_defaultWeaponData.weaponEntity, _weaponLocator);
+            _ownerEntity = ownerEntity;
+            _orientation = ownerEntity.transform;
+            _swordAttackVisitor.Initialize(ownerEntity);
+            WeaponEntity currentWeaponEntity = LeanPool.Spawn(_defaultWeaponData.weaponEntity,
+                _ownerEntity.Get<WeaponLocator>().transform);
             EquipWeapon(currentWeaponEntity);
         }
         

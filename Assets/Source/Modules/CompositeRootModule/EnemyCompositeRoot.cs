@@ -12,7 +12,6 @@ namespace Source.Modules.CompositeRootModule
     {
         [SerializeField] private Entity _enemyEntity;
         [SerializeField] private StateMachine _enemyStateMachine;
-        [SerializeField,TabGroup("AttackState")] private AttackStateComponentData _attackStateComponentData;
         [SerializeField,TabGroup("Equipment")] private Equipment _equipment;
         [SerializeField] private Transform _orientation;
 
@@ -23,11 +22,12 @@ namespace Source.Modules.CompositeRootModule
                 {
                     new InfinitySuccessCondition()
                 });
-            _attackStateComponentData.Initialize(_orientation, conditionsContainer);
+            AttackStateComponentData attackStateComponentData =
+                new AttackStateComponentData(_enemyEntity.transform, 0.1f, _orientation, conditionsContainer);
+
+            _equipment.Initialize(_enemyEntity);
             
-            _equipment.Initialize();
-            
-            _enemyEntity.Add(_attackStateComponentData);
+            _enemyEntity.Add(attackStateComponentData);
             _enemyEntity.Add(_equipment);
             _enemyStateMachine.Init();
         }

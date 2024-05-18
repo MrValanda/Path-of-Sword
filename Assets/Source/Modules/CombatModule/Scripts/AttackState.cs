@@ -82,7 +82,7 @@ namespace Source.Modules.CombatModule.Scripts
             _attackStateComponentData.WhoWasRotate.DORotateQuaternion(
                 moveDirection != Vector3.zero
                     ? Quaternion.LookRotation(moveDirection)
-                    : Quaternion.LookRotation(orientationForward), _attackStateComponentData.RotationSpeed);
+                    : Quaternion.LookRotation(orientationForward), _attackStateComponentData.RotationDuration);
 
             AttackDataInfo attackDataInfo = _weapon.CombatMoveSetSetup[_currentAttackIndex];
             _entity.AddOrGet<CurrentAttackData>().CurrentAttackDataInfo = attackDataInfo;

@@ -1,14 +1,13 @@
 using System;
 using System.Linq;
 using Interfaces;
-using Source.Modules.CombatModule.Scripts;
 using Source.Scripts.EntityLogic;
 using Source.Scripts.Setups.Characters;
 using Source.Scripts.VisitableComponents;
 using UnityEngine;
 using Animation = Source.Scripts.Enemy.Animation;
 
-namespace Source.Scripts.Visitors
+namespace Source.Modules.CombatModule.Scripts
 {
     [Serializable]
     public class SwordAttackVisitor : IVisitor
@@ -16,6 +15,11 @@ namespace Source.Scripts.Visitors
         [SerializeField] private Entity _entity;
         [SerializeField] private DamageableContainerSetup _damageableContainerSetup;
 
+        public void Initialize(Entity entity)
+        {
+            _entity = entity;
+        }
+        
         public void Visit(HealthComponent healthComponent)
         {
             if (_damageableContainerSetup.DamageableTypes.

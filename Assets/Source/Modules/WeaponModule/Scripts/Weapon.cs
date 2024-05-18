@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using Source.Modules.CombatModule.Scripts;
 using Source.Modules.MoveSetModule.Scripts;
 using Source.Scripts.Visitors;
 using Tools;
