@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using BehaviorDesigner.Runtime.Tasks;
+using Source.Modules.BehaviorTreeModule;
 using Source.Scripts.GameActions;
 using Source.Scripts.GameConditionals;
 using Source.Scripts.Interfaces;
@@ -17,7 +18,7 @@ namespace Source.Scripts.Enemy
         [SerializeField] private PushEnemyAwayFromTargetGameAction pushEnemyAwayFromTargetGameAction;
         [SerializeField] private IsDeathCondition _isDeathCondition;
         [SerializeField] private EnemyCanSeeFOVCondition _enemyCanSeeFOVCondition;
-        [SerializeField] private EnemyCanAttackCondition _enemyCanAttackCondition;
+        [SerializeField] private EntityCanAttackCondition entityCanAttackCondition;
         [SerializeField] private EnemyIsMaxChaseDistance _enemyIsMaxChaseDistance;
         [SerializeField] private AbilityProcessingCondition _abilityProcessingCondition;
         [SerializeField] private AbilityCasterCanUseAbilityCondition _abilityCasterCanUseAbilityCondition;
@@ -67,7 +68,7 @@ namespace Source.Scripts.Enemy
 
         public override GameConditionsContainer GetCanAttackConditionsContainer()
         {
-            return new(new List<IGameCondition>() {_enemyCanAttackCondition});
+            return new(new List<IGameCondition>() {entityCanAttackCondition});
         }
 
         public override GameConditionsContainer GetNeedToBackSpawnPointConditionsContainer()

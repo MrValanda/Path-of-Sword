@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using BehaviorDesigner.Runtime.Tasks;
 using DG.Tweening;
 using Sirenix.Utilities;
 using Source.Modules.MoveSetModule.Scripts;
@@ -61,8 +62,10 @@ namespace Source.Modules.CombatModule.Scripts
 
         protected override void OnUpdate()
         {
-            if (IsAttacking == false &&
-                _attackStateComponentData.ConditionsContainer.ContainerData.TrueForAll(x => x.GetStatus()))
+            bool conditionExecuted = _attackStateComponentData.ConditionsContainer.ContainerData.TrueForAll(x =>
+                x.GetConditionStatus() == TaskStatus.Success);
+           
+            if (IsAttacking == false && conditionExecuted)
             {
                 Attack();
             }
@@ -85,7 +88,7 @@ namespace Source.Modules.CombatModule.Scripts
                     : Quaternion.LookRotation(orientationForward), _attackStateComponentData.RotationDuration);
 
             AttackDataInfo attackDataInfo = _weapon.CombatMoveSetSetup[_currentAttackIndex];
-            _entity.AddOrGet<CurrentAttackData>().CurrentAttackDataInfo = attackDataInfo;
+            _entity.AddOrGet<CurrentAttackData>().CurrentHitInfo = attackDataInfo.HitInfo;
             _entity.Get<ApplyRootMotionHandler>()
                 .SetAnimationRootMotionMultiplier(attackDataInfo
                     .RootMultiplierBeforeEndAttack);
@@ -100,7 +103,7 @@ namespace Source.Modules.CombatModule.Scripts
 
         private void OnAttackStarted()
         {
-            _weapon.Enable(_weapon.CombatMoveSetSetup[_currentAttackIndex]);
+            _weapon.Enable(_weapon.CombatMoveSetSetup[_currentAttackIndex].HitInfo);
         }
 
         private void OnAttackEnded()

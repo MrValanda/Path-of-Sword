@@ -1,17 +1,20 @@
 ﻿using BehaviorDesigner.Runtime.Tasks;
 using Source.Scripts.BehaviorsNodes.SharedVariables;
 using Source.Scripts.Interfaces;
+using Source.Scripts_DONT_USE_THIS_FOLDER_.BehaviorsNodes.SharedVariables;
+using UnityEngine.Scripting;
 using Action = BehaviorDesigner.Runtime.Tasks.Action;
 
-namespace Source.Scripts.BehaviorsNodes.Actions
+namespace Source.Modules.BehaviorTreeModule
 {
+    [Preserve]
     public class PerformingGameActions : Action
     {
         public SharedGameActionsContainer AttackSharedGameActionsContainer;
 
         public override void OnStart()
         {
-            foreach (IGameAction valueGameAction in AttackSharedGameActionsContainer.Value.GameActions)
+            foreach (IGameAction valueGameAction in AttackSharedGameActionsContainer.Value)
             {
                 valueGameAction.OnStart();
             }
@@ -19,7 +22,7 @@ namespace Source.Scripts.BehaviorsNodes.Actions
 
         public override void OnEnd()
         {
-            foreach (IGameAction valueGameAction in AttackSharedGameActionsContainer.Value.GameActions)
+            foreach (IGameAction valueGameAction in AttackSharedGameActionsContainer.Value)
             {
                 valueGameAction.OnExit();
             }
@@ -27,9 +30,9 @@ namespace Source.Scripts.BehaviorsNodes.Actions
 
         public override TaskStatus OnUpdate()
         {
-            if (AttackSharedGameActionsContainer.Value.GameActions.Count == 0) return TaskStatus.Success;
+            if (AttackSharedGameActionsContainer.Value.Count == 0) return TaskStatus.Success;
             TaskStatus taskStatus = TaskStatus.Inactive;
-            foreach (IGameAction gameAction in AttackSharedGameActionsContainer.Value.GameActions)
+            foreach (IGameAction gameAction in AttackSharedGameActionsContainer.Value)
             {
                 TaskStatus executeActionStatus = gameAction.ExecuteAction();
                 switch (executeActionStatus)

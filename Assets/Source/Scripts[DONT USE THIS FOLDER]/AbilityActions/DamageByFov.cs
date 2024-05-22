@@ -1,6 +1,8 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Source.Modules.EnemyModule.Scripts;
+using Source.Scripts.EntityLogic;
 using Source.Scripts.GameConditionals;
 using Source.Scripts.GameExtensions;
 using Source.Scripts.Interfaces;
@@ -27,7 +29,7 @@ namespace Source.Scripts.AbilityActions
             _damageableContainerSetup = damageableContainerSetup;
         }
 
-        public void ExecuteAction(Transform castPoint, Enemy.Enemy abilityCaster, AbilityDataSetup baseAbilityDataSetup)
+        public void ExecuteAction(Transform castPoint, Entity abilityCaster, AbilityDataSetup baseAbilityDataSetup)
         {
             if (baseAbilityDataSetup.IndicatorDataSetup is not ConeIndicatorDataSetup coneIndicatorDataSetup)
             {
@@ -35,9 +37,10 @@ namespace Source.Scripts.AbilityActions
                 return;
             }
 
-            abilityCaster.UpdateDamage(baseAbilityDataSetup.Damage);
+
             DamageExecute(castPoint, coneIndicatorDataSetup.Radius, coneIndicatorDataSetup.Angle,
-                (float) abilityCaster.CurrentDamage, abilityCaster.ComponentContainer.GetComponent<IDamageable>());
+                abilityCaster.Get<DamageCalculator>().CalculateDamage(baseAbilityDataSetup.Damage),
+                abilityCaster.Get<IDamageable>());
         }
 
         public void DamageExecute(Transform castPoint, float radius, float angle, float damage,
@@ -46,7 +49,8 @@ namespace Source.Scripts.AbilityActions
             _fieldOfViewChecker ??= new FieldOfViewChecker();
             Collider[] overlapSphere = Physics.OverlapSphere(castPoint.position, radius);
             List<IDamageable> unitsToAttack = overlapSphere
-                .Where(x => CheckUnitInFieldOfView(castPoint, radius, angle, x)).Where(x => x.CanAttackUnit(_damageableContainerSetup))
+                .Where(x => CheckUnitInFieldOfView(castPoint, radius, angle, x))
+                .Where(x => x.CanAttackUnit(_damageableContainerSetup))
                 .Select(x => x.GetComponent<IDamageable>()).ToList();
 
             foreach (IDamageable damageable in unitsToAttack)

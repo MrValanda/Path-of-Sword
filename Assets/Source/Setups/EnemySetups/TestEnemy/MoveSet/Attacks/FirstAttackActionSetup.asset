@@ -15,8 +15,7 @@ MonoBehaviour:
   serializationData:
     SerializedFormat: 2
     SerializedBytes: 
-    ReferencedUnityObjects:
-    - {fileID: 11400000, guid: 99f3625ff4f57c342b1022d78f5580ff, type: 2}
+    ReferencedUnityObjects: []
     SerializedBytesString: 
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
@@ -31,19 +30,28 @@ MonoBehaviour:
       Data: 1
     - Name: 
       Entry: 7
-      Data: 1|Source.Scripts.AbilityActions.DamageByRect, Assembly-CSharp
-    - Name: _layerObstacles
+      Data: 1|Source.Scripts.AbilityActions.EnableWeapon, Assembly-CSharp
+    - Name: _hitInfo
       Entry: 7
-      Data: UnityEngine.LayerMask, UnityEngine.CoreModule
-    - Name: 
+      Data: Source.Modules.MoveSetModule.Scripts.HitInfo, Assembly-CSharp
+    - Name: <NumberOfHitsPerUnit>k__BackingField
+      Entry: 3
+      Data: 1
+    - Name: <DelayBetweenHits>k__BackingField
+      Entry: 4
+      Data: 0
+    - Name: <Damage>k__BackingField
+      Entry: 4
+      Data: 0
+    - Name: <ParryAnimationIndex>k__BackingField
       Entry: 3
       Data: 0
+    - Name: <ParryBackForce>k__BackingField
+      Entry: 4
+      Data: 15
     - Name: 
       Entry: 8
       Data: 
-    - Name: _damageableContainerSetup
-      Entry: 10
-      Data: 0
     - Name: 
       Entry: 8
       Data: 

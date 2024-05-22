@@ -27,8 +27,8 @@ MonoBehaviour:
   <DamageMultiplier>k__BackingField: 1
   <DefaultMoveSpeed>k__BackingField: 0
   <DefaultAcceleration>k__BackingField: 0
-  <AttackRadius>k__BackingField: 0
-  <DetectRadius>k__BackingField: 0
+  <AttackRadius>k__BackingField: 5
+  <DetectRadius>k__BackingField: 1000
   <ViewAngle>k__BackingField: 360
   <ForcePush>k__BackingField: 4
   <SlowMotionTime>k__BackingField: 0

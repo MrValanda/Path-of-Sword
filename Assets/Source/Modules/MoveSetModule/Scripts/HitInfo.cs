@@ -1,0 +1,15 @@
+﻿using System;
+using UnityEngine;
+
+namespace Source.Modules.MoveSetModule.Scripts
+{
+    [Serializable]
+    public struct HitInfo
+    {
+        [field: SerializeField, Min(1)] public int NumberOfHitsPerUnit { get; private set; }
+        [field: SerializeField, Min(0)] public float DelayBetweenHits { get; private set; }
+        [field: SerializeField, Min(0)] public float Damage { get; private set; }
+        [field: SerializeField] public ParryAnimationIndex ParryAnimationIndex { get; private set; }
+        [field: SerializeField] public float ParryBackForce { get; private set; }
+    }
+}

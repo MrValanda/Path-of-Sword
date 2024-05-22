@@ -21,8 +21,8 @@ MonoBehaviour:
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
     SerializationNodes: []
-  <AbilityAnimation>k__BackingField: {fileID: 7400000, guid: 77fc626278dbd774a9e6b1fee68562c4, type: 3}
+  <AbilityAnimation>k__BackingField: {fileID: -6312165629281718861, guid: 77fc626278dbd774a9e6b1fee68562c4, type: 3}
   <AbilityDataSetup>k__BackingField: {fileID: 11400000, guid: 22c8864c53f15f441b937c7c15385349, type: 2}
   <AbilityToUseConditions>k__BackingField: {fileID: 11400000, guid: 0aa27a1332152b844baa80ab097ad1e6, type: 2}
   <AbilityStartedActions>k__BackingField: {fileID: 11400000, guid: 0060514983c88064388f9dd68351ea8b, type: 2}
-  <AbilityEndedActions>k__BackingField: {fileID: 0}
+  <AbilityEndedActions>k__BackingField: {fileID: 11400000, guid: 971401a2eda5d604a80a644337768fed, type: 2}

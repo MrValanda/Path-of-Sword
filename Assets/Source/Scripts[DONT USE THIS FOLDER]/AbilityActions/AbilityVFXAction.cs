@@ -1,4 +1,5 @@
 ﻿using System;
+using Source.Scripts.EntityLogic;
 using Source.Scripts.Interfaces;
 using Source.Scripts.Setups;
 using UnityEngine;
@@ -10,7 +11,7 @@ namespace Source.Scripts.AbilityActions
     {
         [SerializeField] private ParticleSystem _abilityParticle;
         
-        public void ExecuteAction(Transform castPoint, Enemy.Enemy abilityCaster, AbilityDataSetup baseAbilitySetup)
+        public void ExecuteAction(Transform castPoint, Entity abilityCaster, AbilityDataSetup baseAbilitySetup)
         {
             GameObject.Instantiate(_abilityParticle, castPoint);
 

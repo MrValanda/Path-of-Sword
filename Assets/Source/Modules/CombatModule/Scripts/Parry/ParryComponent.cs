@@ -18,7 +18,7 @@ namespace Source.Modules.CombatModule.Scripts
 
         public void Execute()
         {
-            AttackDataInfo currentAttackDataInfo = WhomParryEntity.Get<CurrentAttackData>().CurrentAttackDataInfo;
+            HitInfo currentAttackDataInfo = WhomParryEntity.Get<CurrentAttackData>().CurrentHitInfo;
             WhoParryEntity.transform.LookAt(WhomParryEntity.transform);
             Quaternion transformRotation = WhoParryEntity.transform.rotation;
             transformRotation.x = transformRotation.z = 0;

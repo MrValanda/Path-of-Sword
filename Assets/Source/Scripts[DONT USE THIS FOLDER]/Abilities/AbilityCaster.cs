@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Sirenix.OdinInspector;
 using Source.Scripts.AnimationEventListeners;
+using Source.Scripts.EntityLogic;
 using Source.Scripts.Interfaces;
 using Source.Scripts.Setups;
 using UnityEngine;
@@ -29,11 +30,11 @@ namespace Source.Scripts.Abilities
 
         public bool IsAbilityProcessed { get; private set; }
 
-        public Enemy.Enemy Sender { get; private set; }
+        public Entity Sender { get; private set; }
 
         private readonly Dictionary<string, float> _cooldownAbilities = new Dictionary<string, float>();
 
-        public void Init(AbilityContainerSetup abilityContainerSetup, Enemy.Enemy sender)
+        public void Init(AbilityContainerSetup abilityContainerSetup, Entity sender)
         {
             _castPoint ??= new GameObject().transform;
             _abilityContainerSetup = abilityContainerSetup;
@@ -44,7 +45,7 @@ namespace Source.Scripts.Abilities
             }
 
             Sender = sender;
-            Sender.ComponentContainer.GetComponent<IDying>().Dead += OnSenderDeath;
+            Sender.Get<IDying>().Dead += OnSenderDeath;
             _lastEndSpellTime = 0;
             _lastCastSpellTime = 0;
         }
@@ -62,7 +63,7 @@ namespace Source.Scripts.Abilities
         [Button]
         public AbilitySetup UseSpell()
         {
-            if (CanUseAbility(out var readyAbilities) == false || Sender.IsDead)
+            if (CanUseAbility(out var readyAbilities) == false || Sender.Get<IDying>().IsDead)
             {
                 return null;
             }
@@ -123,7 +124,7 @@ namespace Source.Scripts.Abilities
 
         private void OnSenderDeath(IDying obj)
         {
-            Sender.ComponentContainer.GetComponent<IDying>().Dead -= OnSenderDeath;
+            Sender.Get<IDying>().Dead -= OnSenderDeath;
             IsAbilityProcessed = false;
             _abilityEventListener.AbilityEnded -= OnAbilityEnded;
             _currentUsedAbility?.StopCast();

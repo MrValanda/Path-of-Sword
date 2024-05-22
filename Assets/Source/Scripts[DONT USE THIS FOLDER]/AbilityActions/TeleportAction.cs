@@ -1,5 +1,7 @@
 ﻿using System;
 using Source.CodeLibrary.ServiceBootstrap;
+using Source.Modules.DamageableFindersModule;
+using Source.Scripts.EntityLogic;
 using Source.Scripts.Interfaces;
 using Source.Scripts.ResourceFolder;
 using Source.Scripts.Setups;
@@ -18,22 +20,18 @@ namespace Source.Scripts.AbilityActions
 
         [SerializeField] private float _minTeleportDistance;
         [SerializeField] private float _maxTeleportDistance;
-        [SerializeField] private Vector3 _vfxSize;
         [SerializeField] private TeleportCentre _teleportCentreType;
 
 
-        public void ExecuteAction(Transform castPoint, Enemy.Enemy abilityCaster, AbilityDataSetup baseAbilitySetup)
+        public void ExecuteAction(Transform castPoint, Entity abilityCaster, AbilityDataSetup baseAbilitySetup)
         {
             InCirclePointFinderByRaycast inCirclePointFinderByRaycast = new InCirclePointFinderByRaycast();
 
-            Vector3 teleportFindCentre = abilityCaster.PatrolPoints[0].PatrolPoint.position;
+            Vector3 teleportFindCentre = Vector3.zero;
             switch (_teleportCentreType)
             {
                 case TeleportCentre.Target:
-                    teleportFindCentre = abilityCaster.Target.transform.position;
-                    break;
-                case TeleportCentre.PatrolPoint:
-                    teleportFindCentre = abilityCaster.PatrolPoints[0].PatrolPoint.position;
+                    teleportFindCentre = abilityCaster.Get<DamageableSelector>().SelectedDamageable.transform.position;
                     break;
             }
 

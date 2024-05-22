@@ -1,13 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
 using BehaviorDesigner.Runtime.Tasks;
+using Source.Modules.BehaviorTreeModule;
 using Source.Scripts.Abilities;
 using Source.Scripts.AnimationEventListeners;
 using Source.Scripts.BehaviorTreeEventSenders;
 using Source.Scripts.Enemy;
+using Source.Scripts.EntityLogic;
 using Source.Scripts.Interfaces;
 using Source.Scripts.Setups;
+using Source.Scripts.Setups.Characters;
 using UnityEngine;
+using Animation = Source.Scripts.Enemy.Animation;
 
 namespace Source.Scripts.GameActions
 {
@@ -20,60 +24,52 @@ namespace Source.Scripts.GameActions
             "Attack2",
         };
 
-        [SerializeField] private Enemy.Enemy _enemy;
-        [SerializeField] private AbilityEventListener _abilityEventListener;
-        [SerializeField] private NeedStayAfkBehaviorTreeEventSender _needStayAfkBehaviorTreeEventSender;
+        private Entity _entity;
+        private AbilityEventListener _abilityEventListener;
+        private NeedStayAfkBehaviorTreeEventSender _needStayAfkBehaviorTreeEventSender;
 
         private int _previousIndex;
         private int _previousChainIndex;
         private int _previousAttackStateNameIndex;
         private Ability _currentUsedAttackAbility;
         private Transform _castPoint;
-        private float _lastAttackTime;
         private bool _needCastNewSpell;
 
-        public EnemyAttackGameAction(Enemy.Enemy enemy,
+        public EnemyAttackGameAction(Entity entity,
             NeedStayAfkBehaviorTreeEventSender needStayAfkBehaviorTreeEventSender)
         {
-            _enemy = enemy;
-            _enemy.ComponentContainer.GetComponent<IDying>().Dead += OnEnemyDead;
-            _enemy.AbilityCaster.StartCastSpell += OnAbilityStartCastSpell;
+            _entity = entity;
             _needStayAfkBehaviorTreeEventSender = needStayAfkBehaviorTreeEventSender;
-        }
-
-        public void OnStart()
-        {
+            _abilityEventListener = _entity.Get<AbilityEventListener>();
             _castPoint ??= new GameObject().transform;
-            _enemy.AbilityCaster.BlockCast();
+        }
+        
+        public void OnConditionAbort()
+        {
+            _needCastNewSpell = true;
+            _abilityEventListener.AbilityEnded -= OnAbilityEnded;
+            _currentUsedAttackAbility?.StopCast();
         }
 
         public void OnExit()
         {
-          //  _currentUsedAttackAbility?.StopCast();
+            //  _currentUsedAttackAbility?.StopCast();
         }
-        
+
         private void OnAbilityStartCastSpell()
         {
-            _enemy.AbilityCaster.UnBlockCast();
             _currentUsedAttackAbility?.StopCast();
         }
 
         public TaskStatus ExecuteAction()
         {
-            if (_enemy.AbilityCaster.IsAbilityProcessed)
+            List<AbilityChain> abilityChains = _entity.Get<EnemyCharacterSetup>().MoveSetSetup.AbilityChains;
+            if (abilityChains.Count == 0)
             {
-                _currentUsedAttackAbility?.StopCast();
-                _enemy.AbilityCaster.UnBlockCast();
                 return TaskStatus.Success;
             }
 
-            if (_enemy.EnemyCharacterSetup.MoveSetSetup.AbilityChains.Count == 0)
-            {
-                _enemy.AbilityCaster.UnBlockCast();
-                return TaskStatus.Success;
-            }
-
-            _enemy.EnemyComponents.NpcMovement.Move(Vector3.zero);
+            _entity.Get<IMovement>().Move(Vector3.zero);
 
             if (_needCastNewSpell == false && _currentUsedAttackAbility is {IsCasted: true})
             {
@@ -81,19 +77,16 @@ namespace Source.Scripts.GameActions
             }
 
             _abilityEventListener.AbilityEnded -= OnAbilityEnded;
-            List<AttackAbilitySetup> attackSetups =
-                _enemy.EnemyCharacterSetup.MoveSetSetup.AbilityChains[_previousChainIndex].AbilitySetups;
+            List<AttackAbilitySetup> attackSetups = abilityChains[_previousChainIndex].AbilitySetups;
 
             if (_currentUsedAttackAbility != null && _previousIndex >= attackSetups.Count)
             {
                 _currentUsedAttackAbility = null;
                 _previousIndex = 0;
-                _needStayAfkBehaviorTreeEventSender.SendEvent(_enemy.EnemyCharacterSetup.MoveSetSetup
-                    .AbilityChains[_previousChainIndex].AfkTimeAfterChain);
+                _needStayAfkBehaviorTreeEventSender?.SendEvent(abilityChains[_previousChainIndex].AfkTimeAfterChain);
                 _previousChainIndex++;
-                _previousChainIndex %= _enemy.EnemyCharacterSetup.MoveSetSetup.AbilityChains.Count;
+                _previousChainIndex %= abilityChains.Count;
 
-                _enemy.AbilityCaster.UnBlockCast();
                 return TaskStatus.Success;
             }
 
@@ -103,21 +96,19 @@ namespace Source.Scripts.GameActions
 
             _currentUsedAttackAbility = new Ability(new AbilityDataContainer()
             {
-                AbilitySetup = currentAttackSetup, Animator = _enemy.EnemyComponents.Animation.Animator,
+                AbilitySetup = currentAttackSetup, Animator = _entity.Get<Animation>().Animator,
                 AbilityEventListener = _abilityEventListener
             }, AttackStateNames[_previousAttackStateNameIndex++]);
 
             _previousAttackStateNameIndex %= AttackStateNames.Count;
 
-            AbilityUseData addOrGetComponent = _enemy.ComponentContainer.AddOrGetComponent<AbilityUseData>();
+            AbilityUseData addOrGetComponent = _entity.AddOrGet<AbilityUseData>();
             addOrGetComponent.CurrentAbility = _currentUsedAttackAbility;
 
-            _castPoint.position = _enemy.transform.position;
-            _castPoint.forward = _enemy.transform.forward;
-            _lastAttackTime = Time.time;
-            _currentUsedAttackAbility.CastSpell(_castPoint, _enemy);
+            _castPoint.position = _entity.transform.position;
+            _castPoint.forward = _entity.transform.forward;
+            _currentUsedAttackAbility.CastSpell(_castPoint, _entity);
             _needCastNewSpell = false;
-            _enemy.UpdateDamage(currentAttackSetup.AbilityDataSetup.Damage);
             _abilityEventListener.AbilityEnded += OnAbilityEnded;
             return TaskStatus.Running;
         }
@@ -133,7 +124,7 @@ namespace Source.Scripts.GameActions
 
             if (afkTimeAfterAbility > 0)
             {
-                _needStayAfkBehaviorTreeEventSender.SendEvent(afkTimeAfterAbility);
+                _needStayAfkBehaviorTreeEventSender?.SendEvent(afkTimeAfterAbility);
             }
 
             _needCastNewSpell = true;

@@ -23,7 +23,7 @@ MonoBehaviour:
     SerializationNodes:
     - Name: <IndicatorDataSetup>k__BackingField
       Entry: 7
-      Data: 0|Source.Scripts.Setups.RectangleIndicatorDataSetup, Assembly-CSharp
+      Data: 0|Source.Scripts.Setups.ConeIndicatorDataSetup, Assembly-CSharp
     - Name: <MainTexture>k__BackingField
       Entry: 6
       Data: 
@@ -62,7 +62,7 @@ MonoBehaviour:
       Data: 0
     - Name: 
       Entry: 4
-      Data: 0.141176477
+      Data: 0.31764707
     - Name: 
       Entry: 8
       Data: 
@@ -71,31 +71,31 @@ MonoBehaviour:
       Data: UnityEngine.Color, UnityEngine.CoreModule
     - Name: 
       Entry: 4
+      Data: 0
+    - Name: 
+      Entry: 4
       Data: 1
     - Name: 
       Entry: 4
-      Data: 0
+      Data: 0.00427413
     - Name: 
       Entry: 4
-      Data: 0
-    - Name: 
-      Entry: 4
-      Data: 0.5686275
+      Data: 0.454901963
     - Name: 
       Entry: 8
       Data: 
-    - Name: <MaxDistance>k__BackingField
+    - Name: <Angle>k__BackingField
       Entry: 4
-      Data: 10
-    - Name: <Width>k__BackingField
+      Data: 180
+    - Name: <Radius>k__BackingField
       Entry: 4
       Data: 2
     - Name: 
       Entry: 8
       Data: 
   <Damage>k__BackingField: 0
-  <PreparationAttackTime>k__BackingField: 5
-  <StartAttackTime>k__BackingField: 0.08082192
+  <PreparationAttackTime>k__BackingField: 1.052788
+  <StartAttackTime>k__BackingField: 0.051177036
   <AfkTimeAfterAbility>k__BackingField: 0
   <NeedPreparationIndicator>k__BackingField: 1
   <ObstacleLayers>k__BackingField:

@@ -1,10 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using Source.Scripts.Interfaces;
 
 namespace Source.Scripts_DONT_USE_THIS_FOLDER_.Utils
 {
-    public class ComponentContainer : IComponentContainer
+    public class ComponentContainer : IComponentContainer,IDisposable
     {
         public event Action<Type> ComponentAdded;
         public event Action<Type> ComponentRemoved;
@@ -59,10 +60,12 @@ namespace Source.Scripts_DONT_USE_THIS_FOLDER_.Utils
             Type type = typeof(T);
             if(_components.ContainsKey(type) == false) 
                 return;
+            
             if (_components[type] is IDisposable disposable)
             {
                 disposable.Dispose();
             }
+            
             ComponentRemoved?.Invoke(type);
             _components.Remove(type);
         }
@@ -70,6 +73,14 @@ namespace Source.Scripts_DONT_USE_THIS_FOLDER_.Utils
         public bool ContainsComponent<T>() where T : class
         {
             return _components.ContainsKey(typeof(T));
+        }
+
+        public void Dispose()
+        {
+            foreach (var type in _components.Keys.ToList())
+            {
+                _components.Remove(type);
+            }
         }
     }
 }

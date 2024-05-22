@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using Sirenix.OdinInspector;
+using Sirenix.Serialization;
 using Source.Scripts.AnimationEventNames;
 using Source.Scripts.EditorTools;
 using UnityEngine;
@@ -42,14 +43,5 @@ namespace Source.Scripts.Setups
                 }
             }
         }
-
-#if UNITY_EDITOR
-        [Button]
-        private void CreateAbilityDataSetup(string name, string path = @"Assets/Source/Setups/Abilities/AbilityData")
-        {
-            AssetCreator<AbilityDataSetup> assetCreator = new();
-            AbilityDataSetup ??= assetCreator.CreateAsset(path, name);
-        }
-#endif
     }
 }

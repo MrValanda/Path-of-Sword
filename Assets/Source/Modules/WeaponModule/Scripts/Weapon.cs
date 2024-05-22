@@ -27,12 +27,12 @@ namespace Source.Modules.WeaponModule.Scripts
             _orientation = orientation;
         }
 
-        private void OnDestroy()
+        private void OnDisable()
         {
             Disable();
         }
 
-        public void Enable(AttackDataInfo currentAttackDataInfo)
+        public void Enable(HitInfo currentHitDataInfo)
         {
             _entityAttackDatas.Clear();
             _weaponHitBoxes.enabled = true;
@@ -40,7 +40,7 @@ namespace Source.Modules.WeaponModule.Scripts
             _colliderTriggerDisposable = _weaponHitBoxes.OnTriggerStayAsObservable().Subscribe(
                 x =>
                 {
-                    ExecuteAttack(currentAttackDataInfo, x);
+                    ExecuteAttack(currentHitDataInfo, x);
                 });
         }
 
@@ -51,7 +51,7 @@ namespace Source.Modules.WeaponModule.Scripts
             _colliderTriggerDisposable?.Dispose();
         }
 
-        private void ExecuteAttack(AttackDataInfo currentAttackDataInfo, Collider triggerCollider)
+        private void ExecuteAttack(HitInfo currentAttackDataInfo, Collider triggerCollider)
         {
             if (triggerCollider.TryGetComponent(out HitBox hitBox) == false) return;
 

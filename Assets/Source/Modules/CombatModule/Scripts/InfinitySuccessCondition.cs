@@ -1,13 +1,15 @@
 ﻿using System;
+using BehaviorDesigner.Runtime.Tasks;
+using Source.Scripts.Interfaces;
 
 namespace Source.Modules.CombatModule.Scripts
 {
     [Serializable]
-    public class InfinitySuccessCondition : ICondition
+    public class InfinitySuccessCondition : IGameCondition
     {
-        public bool GetStatus()
+        public TaskStatus GetConditionStatus()
         {
-            return true;
+            return TaskStatus.Success;
         }
     }
 }

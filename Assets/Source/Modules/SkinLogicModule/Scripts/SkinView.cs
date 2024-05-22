@@ -3,11 +3,10 @@ using System.Linq;
 using Sirenix.OdinInspector;
 using Sirenix.Serialization;
 using SkinLogic;
-using Source.CodeLibrary.ServiceBootstrap;
-using Source.Scripts.Data;
+using Source.Scripts.SkinLogic;
 using UnityEngine;
 
-namespace Source.Scripts.SkinLogic
+namespace Source.Modules.SkinLogicModule.Scripts
 {
     public class SkinView : SerializedMonoBehaviour
     {

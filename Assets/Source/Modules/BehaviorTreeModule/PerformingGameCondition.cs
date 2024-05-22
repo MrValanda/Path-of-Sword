@@ -1,8 +1,8 @@
 ﻿using BehaviorDesigner.Runtime.Tasks;
-using Source.Scripts.BehaviorsNodes.SharedVariables;
 using Source.Scripts.Interfaces;
+using Source.Scripts_DONT_USE_THIS_FOLDER_.BehaviorsNodes.SharedVariables;
 
-namespace Source.Scripts.BehaviorsNodes.Conditions
+namespace Source.Modules.BehaviorTreeModule
 {
     public class PerformingGameCondition : Conditional
     {
@@ -10,7 +10,7 @@ namespace Source.Scripts.BehaviorsNodes.Conditions
 
         public override void OnStart()
         {
-            foreach (IGameCondition valueGameCondition in CanSeeSharedGameConditionsContainer.Value.GameConditions)
+            foreach (IGameCondition valueGameCondition in CanSeeSharedGameConditionsContainer.Value)
             {
                 valueGameCondition.InitData();
             }
@@ -18,7 +18,7 @@ namespace Source.Scripts.BehaviorsNodes.Conditions
 
         public override TaskStatus OnUpdate()
         {
-            foreach (IGameCondition valueGameCondition in CanSeeSharedGameConditionsContainer.Value.GameConditions)
+            foreach (IGameCondition valueGameCondition in CanSeeSharedGameConditionsContainer.Value)
             {
                 if (valueGameCondition.GetConditionStatus() == TaskStatus.Failure)
                 {

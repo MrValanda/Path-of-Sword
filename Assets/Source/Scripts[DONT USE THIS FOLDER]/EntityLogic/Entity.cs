@@ -33,6 +33,7 @@ namespace Source.Scripts.EntityLogic
         {
             _componentContainerMonoLinker.ComponentsContainer.ComponentAdded -= OnComponentAdded;
             _componentContainerMonoLinker.ComponentsContainer.ComponentRemoved -= OnComponentRemoved;
+            _componentContainerMonoLinker.ComponentsContainer.Dispose();
         }
 
         private void OnComponentAdded(Type type)

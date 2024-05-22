@@ -1,6 +1,7 @@
 using System;
 using Source.Modules.CombatModule.Scripts;
 using Source.Modules.HealthModule.Scripts;
+using Source.Modules.MovementModule.Scripts;
 using Source.Scripts.EntityLogic;
 using Source.Scripts.Tools;
 using Source.Scripts.VisitableComponents;
@@ -37,6 +38,9 @@ namespace Source.Modules.StaggerModule.Scripts
             {
                 SetLayersWeight(0, 1);
                 _entity.Get<ParryEffectSpawner>().SpawnEffect();
+                AddForceDirectionComponent addForceDirectionComponent = _entity.AddOrGet<AddForceDirectionComponent>();
+                addForceDirectionComponent.WhoWillMoveEntity = _entity;
+                addForceDirectionComponent.Execute(-_entity.transform.forward*15, 10);
             }
             else
             {

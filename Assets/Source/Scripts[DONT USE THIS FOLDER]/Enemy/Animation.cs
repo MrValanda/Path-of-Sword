@@ -14,15 +14,15 @@ namespace Source.Scripts.Enemy
 
         public Animator Animator => _animator;
 
-        // private void Awake()
-        // {
-        //     if (_animatorOverrideController == null)
-        //     {
-        //         _animatorOverrideController = new AnimatorOverrideController(_animator.runtimeAnimatorController);
-        //     }
-        //
-        //     _animator.runtimeAnimatorController = _animatorOverrideController;
-        // }
+        private void Awake()
+        {
+            if (_animatorOverrideController == null)
+            {
+                _animatorOverrideController = new AnimatorOverrideController(_animator.runtimeAnimatorController);
+            }
+        
+            _animator.runtimeAnimatorController = _animatorOverrideController;
+        }
 
         public void Accept(IVisitor visitor)
         {

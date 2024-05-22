@@ -1,4 +1,6 @@
 ﻿using System;
+using Source.Modules.DamageableFindersModule;
+using Source.Scripts.EntityLogic;
 using Source.Scripts.GameConditionals;
 using Source.Scripts.Interfaces;
 using Source.Scripts.Setups;
@@ -12,9 +14,10 @@ namespace Source.Scripts.AbilityConditions
         [SerializeField] private float _maxDistance;
         [SerializeField] private float _minDistance;
 
-        public bool CanExecute(Transform castPoint, Enemy.Enemy abilityCaster, AbilityDataSetup baseAbilitySetup)
+        public bool CanExecute(Transform castPoint, Entity abilityCaster, AbilityDataSetup baseAbilitySetup)
         {
-            var distance = Vector3.Distance(abilityCaster.transform.position, abilityCaster.Target.transform.position);
+            var distance = Vector3.Distance(abilityCaster.transform.position,
+                abilityCaster.Get<DamageableSelector>().SelectedDamageable.transform.position);
             return distance <= _maxDistance && distance >= _minDistance;
         }
     }

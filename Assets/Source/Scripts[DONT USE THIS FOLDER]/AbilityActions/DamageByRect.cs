@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using Source.Modules.EnemyModule.Scripts;
+using Source.Scripts.EntityLogic;
 using Source.Scripts.GameExtensions;
 using Source.Scripts.Interfaces;
 using Source.Scripts.Setups;
@@ -25,7 +27,7 @@ namespace Source.Scripts.AbilityActions
             _damageableContainerSetup = damageableContainerSetup;
         }
 
-        public void ExecuteAction(Transform castPoint, Enemy.Enemy abilityCaster, AbilityDataSetup baseAbilityDataSetup)
+        public void ExecuteAction(Transform castPoint, Entity abilityCaster, AbilityDataSetup baseAbilityDataSetup)
         {
             if (baseAbilityDataSetup.IndicatorDataSetup is not RectangleIndicatorDataSetup rectangleIndicatorDataSetup)
             {
@@ -34,9 +36,9 @@ namespace Source.Scripts.AbilityActions
                 return;
             }
 
-            abilityCaster.UpdateDamage(baseAbilityDataSetup.Damage);
             DamageExecute(castPoint, rectangleIndicatorDataSetup.Width, rectangleIndicatorDataSetup.MaxDistance,
-                (float) abilityCaster.CurrentDamage, abilityCaster.ComponentContainer.GetComponent<IDamageable>());
+                abilityCaster.Get<DamageCalculator>().CalculateDamage(baseAbilityDataSetup.Damage),
+                abilityCaster.Get<IDamageable>());
         }
 
         public void DamageExecute(Transform castPoint, float width, float distance, float damage,

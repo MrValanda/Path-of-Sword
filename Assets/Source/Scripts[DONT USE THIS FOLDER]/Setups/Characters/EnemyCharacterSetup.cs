@@ -8,9 +8,9 @@ namespace Source.Scripts.Setups.Characters
     public class EnemyCharacterSetup : SerializedScriptableObject
     {
         [field: SerializeField] public EnemyTaskType EnemyTaskType { get; private set; }
-        [field: SerializeField] public double DefaultHealth { get; private set; }
-        [field: SerializeField] public double HealthMultiplier { get; private set; }
-        [field: SerializeField] public double DamageMultiplier { get; private set; }
+        [field: SerializeField] public float DefaultHealth { get; private set; }
+        [field: SerializeField] public float HealthMultiplier { get; private set; }
+        [field: SerializeField] public float DamageMultiplier { get; private set; }
         [field: SerializeField] public float DefaultMoveSpeed { get; private set; }
         [field: SerializeField] public float DefaultAcceleration { get; private set; }
         [field: SerializeField] public float AttackRadius { get; private set; }

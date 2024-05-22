@@ -13,11 +13,13 @@ namespace Source.Modules.CombatModule.Scripts
     public class SwordAttackVisitor : IVisitor
     {
         [SerializeField] private Entity _entity;
-        [SerializeField] private DamageableContainerSetup _damageableContainerSetup;
 
-        public void Initialize(Entity entity)
+        private DamageableContainerSetup _damageableContainerSetup;
+
+        public void Initialize(Entity entity,DamageableContainerSetup damageableContainerSetup)
         {
             _entity = entity;
+            _damageableContainerSetup = damageableContainerSetup;
         }
         
         public void Visit(HealthComponent healthComponent)
@@ -33,7 +35,7 @@ namespace Source.Modules.CombatModule.Scripts
                 return;
             }
 
-            healthComponent.ApplyDamage(_entity.Get<CurrentAttackData>().CurrentAttackDataInfo.Damage);
+            healthComponent.ApplyDamage(_entity.Get<CurrentAttackData>().CurrentHitInfo.Damage);
         }
 
         public void Visit(Animation animation)

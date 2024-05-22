@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace Source.Modules.CombatModule.Scripts.Parry
 {
-    public class ParryHandler : IDisposable
+    public class ParryHandler 
     {
         private static string parryAnimationName = "StrongParryAnimation";
         private Entity _entity;
@@ -17,11 +17,7 @@ namespace Source.Modules.CombatModule.Scripts.Parry
             _entity = entity;
             _parryHandlerData = parryHandlerData;
         }
-
-        public void Dispose()
-        {
-        }
-
+        
         public void Parry()
         {
             if (_entity.Contains<ParryCompleteComponent>())

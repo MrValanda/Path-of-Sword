@@ -1,16 +1,18 @@
 ﻿using System;
+using BehaviorDesigner.Runtime.Tasks;
+using Source.Scripts.Interfaces;
 using UnityEngine;
 
 namespace Source.Modules.CombatModule.Scripts
 {
     [Serializable]
-    public class InputMouseDownCondition : ICondition
+    public class InputMouseDownCondition : IGameCondition
     {
         [SerializeField] private int _mouseIndex;
         
-        public bool GetStatus()
+        public TaskStatus GetConditionStatus()
         {
-            return Input.GetMouseButtonDown(_mouseIndex);
+            return Input.GetMouseButtonDown(_mouseIndex) ? TaskStatus.Success : TaskStatus.Failure;
         }
     }
 }

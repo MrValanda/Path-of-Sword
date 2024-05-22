@@ -1,6 +1,7 @@
 ﻿using System;
 using BehaviorDesigner.Runtime.Tasks;
 using Lean.Pool;
+using Source.Modules.BehaviorTreeModule;
 using Source.Scripts.Interfaces;
 using UnityEngine;
 

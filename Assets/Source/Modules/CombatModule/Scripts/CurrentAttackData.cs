@@ -4,6 +4,6 @@ namespace Source.Modules.CombatModule.Scripts
 {
     public class CurrentAttackData
     {
-        public AttackDataInfo CurrentAttackDataInfo;
+        public HitInfo CurrentHitInfo;
     }
 }

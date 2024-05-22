@@ -15,6 +15,7 @@ using Source.Scripts.Interfaces;
 using Source.Scripts.Setups;
 using Source.Scripts.Setups.Characters;
 using Source.Scripts.Utils;
+using Source.Scripts_DONT_USE_THIS_FOLDER_.BehaviorsNodes.SharedVariables;
 using Source.Scripts_DONT_USE_THIS_FOLDER_.Utils;
 using UnityEngine;
 
@@ -87,7 +88,7 @@ namespace Source.Scripts.Enemy
             GetComponent<CapsuleCollider>().enabled = true;
             AbilityCaster.Init(EnemyCharacterSetup.AbilityContainerSetup
                 ? EnemyCharacterSetup.AbilityContainerSetup
-                : ScriptableObject.CreateInstance<AbilityContainerSetup>(), this);
+                : ScriptableObject.CreateInstance<AbilityContainerSetup>(), null);
 
             EnemyWeaponLeftHand = LeanPool.Spawn(EnemyCharacterSetup.EnemyWeaponLeftHand,
                 EnemyComponents.WeaponParentLeftHand);
@@ -129,51 +130,51 @@ namespace Source.Scripts.Enemy
 
         private void InitAbilityVariables()
         {
-            InitVariable<SharedGameConditionsContainer, GameConditionsContainer>(
-                BehaviorVariables._abilityProcessingGameConditions,
-                _enemyBehaviorTreeDataContainer.GetAbilityProcessingConditionsContainer());
-
-            InitVariable<SharedGameActionsContainer, GameActionContainer>(
-                BehaviorVariables._abilityProcessCastingGameActions,
-                _enemyBehaviorTreeDataContainer.GetProcessingUseAbilityActionsContainer());
-
-            InitVariable<SharedGameActionsContainer, GameActionContainer>(
-                BehaviorVariables._afkActionsContainer,
-                _enemyBehaviorTreeDataContainer.GetAfkGameActionsContainer());
-
-            InitVariable<SharedGameConditionsContainer, GameConditionsContainer>(
-                BehaviorVariables._canUseAbilityConditionsContainer,
-                _enemyBehaviorTreeDataContainer.GetCanUseAbilityConditionsContainer());
-
-            InitVariable<SharedGameActionsContainer, GameActionContainer>(BehaviorVariables._startUseAbilityGameActions,
-                _enemyBehaviorTreeDataContainer.GetStartUseAbilityActionsContainer());
+            // InitVariable<SharedGameConditionsContainer, GameConditionsContainer>(
+            //     BehaviorVariables._abilityProcessingGameConditions,
+            //     _enemyBehaviorTreeDataContainer.GetAbilityProcessingConditionsContainer());
+            //
+            // InitVariable<SharedGameActionsContainer, GameActionContainer>(
+            //     BehaviorVariables._abilityProcessCastingGameActions,
+            //     _enemyBehaviorTreeDataContainer.GetProcessingUseAbilityActionsContainer());
+            //
+            // InitVariable<SharedGameActionsContainer, GameActionContainer>(
+            //     BehaviorVariables._afkActionsContainer,
+            //     _enemyBehaviorTreeDataContainer.GetAfkGameActionsContainer());
+            //
+            // InitVariable<SharedGameConditionsContainer, GameConditionsContainer>(
+            //     BehaviorVariables._canUseAbilityConditionsContainer,
+            //     _enemyBehaviorTreeDataContainer.GetCanUseAbilityConditionsContainer());
+            //
+            // InitVariable<SharedGameActionsContainer, GameActionContainer>(BehaviorVariables._startUseAbilityGameActions,
+            //     _enemyBehaviorTreeDataContainer.GetStartUseAbilityActionsContainer());
         }
 
         private void InitDeathVariables()
         {
-            InitVariable<SharedGameConditionsContainer, GameConditionsContainer>(
-                BehaviorVariables._deathGameConditionContainer,
-                _enemyBehaviorTreeDataContainer.GetIsDeathConditionsContainer());
+            // InitVariable<SharedGameConditionsContainer, GameConditionsContainer>(
+            //     BehaviorVariables._deathGameConditionContainer,
+            //     _enemyBehaviorTreeDataContainer.GetIsDeathConditionsContainer());
 
-            InitVariable<SharedGameActionsContainer, GameActionContainer>(BehaviorVariables._deathGameActions,
-                _enemyBehaviorTreeDataContainer.GetDeathActionsContainer());
-
-            InitVariable<SharedGameActionsContainer, GameActionContainer>(BehaviorVariables._takeDamageGameActions,
-                _enemyBehaviorTreeDataContainer.GetTakeDamageGameActionsContainer());
+            // InitVariable<SharedGameActionsContainer, GameActionContainer>(BehaviorVariables._deathGameActions,
+            //     _enemyBehaviorTreeDataContainer.GetDeathActionsContainer());
+            //
+            // InitVariable<SharedGameActionsContainer, GameActionContainer>(BehaviorVariables._takeDamageGameActions,
+            //     _enemyBehaviorTreeDataContainer.GetTakeDamageGameActionsContainer());
         }
 
         private void InitAttackVariables()
         {
-            InitVariable<SharedGameActionsContainer, GameActionContainer>(BehaviorVariables._attackGameActions,
-                _enemyBehaviorTreeDataContainer.GetAttackActionsContainer());
+            // InitVariable<SharedGameActionsContainer, GameActionContainer>(BehaviorVariables._attackGameActions,
+            //     _enemyBehaviorTreeDataContainer.GetAttackActionsContainer());
 
-            InitVariable<SharedGameConditionsContainer, GameConditionsContainer>(
-                BehaviorVariables._canAttackGameConditionsContainer,
-                _enemyBehaviorTreeDataContainer.GetCanAttackConditionsContainer());
-
-            InitVariable<SharedGameConditionsContainer, GameConditionsContainer>(
-                BehaviorVariables._canSeeGameConditionsContainer,
-                _enemyBehaviorTreeDataContainer.GetCanSeeConditionsContainer());
+            // InitVariable<SharedGameConditionsContainer, GameConditionsContainer>(
+            //     BehaviorVariables._canAttackGameConditionsContainer,
+            //     _enemyBehaviorTreeDataContainer.GetCanAttackConditionsContainer());
+            //
+            // InitVariable<SharedGameConditionsContainer, GameConditionsContainer>(
+            //     BehaviorVariables._canSeeGameConditionsContainer,
+            //     _enemyBehaviorTreeDataContainer.GetCanSeeConditionsContainer());
         }
 
         private void InitBehaviorVariables(Transform targetTransform, IAttackPointCalculator attackPointCalculator)
@@ -197,14 +198,14 @@ namespace Source.Scripts.Enemy
             InitVariable<SharedGameObject, GameObject>(BehaviorVariables._enemyAnimator,
                 EnemyComponents.Animation.gameObject);
 
-            InitVariable<SharedGameConditionsContainer, GameConditionsContainer>(
-                BehaviorVariables._needBackToSpawnPoint,
-                _enemyBehaviorTreeDataContainer.GetNeedToBackSpawnPointConditionsContainer());
+            // InitVariable<SharedGameConditionsContainer, GameConditionsContainer>(
+            //     BehaviorVariables._needBackToSpawnPoint,
+            //     _enemyBehaviorTreeDataContainer.GetNeedToBackSpawnPointConditionsContainer());
         }
 
         public virtual IAttackPointCalculator GetAttackPointCalculator()
         {
-            return new MeleeAttackPointCalculator(Target.transform, transform);
+            return null;
         }
 
         private void InitVariable<T, T1>(string nameVariable, T1 value) where T : SharedVariable<T1>, new()

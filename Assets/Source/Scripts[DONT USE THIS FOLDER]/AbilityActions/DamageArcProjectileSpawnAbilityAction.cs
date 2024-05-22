@@ -3,9 +3,14 @@ using System.Linq;
 using DG.Tweening;
 using Lean.Pool;
 using Sirenix.OdinInspector;
+using Source.Modules.DamageableFindersModule;
+using Source.Modules.EnemyModule.Scripts;
+using Source.Modules.WeaponModule.Scripts;
+using Source.Scripts.EntityLogic;
 using Source.Scripts.Interfaces;
 using Source.Scripts.ProjectilesLogic;
 using Source.Scripts.Setups;
+using Source.Scripts.Setups.Characters;
 using UnityEngine;
 
 namespace Source.Scripts.AbilityActions
@@ -21,15 +26,13 @@ namespace Source.Scripts.AbilityActions
         [SerializeField] private float _flyingDelay;
         [SerializeField] private Ease _ease = Ease.Linear;
 
-        public void ExecuteAction(Transform castPoint, Enemy.Enemy abilityCaster, AbilityDataSetup baseAbilitySetup)
+        public void ExecuteAction(Transform castPoint, Entity abilityCaster, AbilityDataSetup baseAbilitySetup)
         {
-            abilityCaster.UpdateDamage(baseAbilitySetup.Damage);
-
-            Vector3 transformPosition = abilityCaster.Target.transform.position;
+            Vector3 transformPosition = abilityCaster.Get<DamageableSelector>().SelectedDamageable.transform.position;
             abilityCaster.transform.DOLookAt(transformPosition, 0.1f).OnComplete(() =>
             {
                 DamagedProjectileArcLogic spawnedProjectile =
-                    LeanPool.Spawn(_projectileArcLogic, abilityCaster.EnemyWeaponRightHand.transform);
+                    LeanPool.Spawn(_projectileArcLogic, abilityCaster.Get<WeaponLocator>().transform);
                 //   spawnedProjectile.transform.localScale = _projectileArcLogic.transform.localScale;
 
                 spawnedProjectile.InitIndicator(baseAbilitySetup.IndicatorDataSetup,
@@ -37,8 +40,10 @@ namespace Source.Scripts.AbilityActions
 
                 spawnedProjectile.LaunchProjectile(transformPosition, _jumpPower, _duration, _ease, _flyingDelay);
 
-                spawnedProjectile.InitDamage((float) abilityCaster.CurrentDamage, baseAbilitySetup.IndicatorDataSetup,
-                    baseAbilitySetup.ObstacleLayers, abilityCaster.EnemyCharacterSetup.AttakedUnits);
+                spawnedProjectile.InitDamage(
+                    abilityCaster.Get<DamageCalculator>().CalculateDamage(baseAbilitySetup.Damage),
+                    baseAbilitySetup.IndicatorDataSetup,
+                    baseAbilitySetup.ObstacleLayers, abilityCaster.Get<EnemyCharacterSetup>().AttakedUnits);
             });
         }
 

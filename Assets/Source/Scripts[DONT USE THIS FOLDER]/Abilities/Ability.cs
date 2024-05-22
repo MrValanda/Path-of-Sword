@@ -5,11 +5,13 @@ using Sirenix.OdinInspector;
 using Source.CodeLibrary.ServiceBootstrap;
 using Source.Scripts.AnimationEventListeners;
 using Source.Scripts.AnimationEventNames;
+using Source.Scripts.EntityLogic;
 using Source.Scripts.Factories;
 using Source.Scripts.Interfaces;
 using Source.Scripts.Setups;
 using UniRx;
 using UnityEngine;
+using Animation = Source.Scripts.Enemy.Animation;
 using Object = UnityEngine.Object;
 
 namespace Source.Scripts.Abilities
@@ -30,10 +32,10 @@ namespace Source.Scripts.Abilities
 
         private AnimationPartPlayer _animationPartPlayer;
         private Transform _castPoint;
-        private Enemy.Enemy _abilityCaster;
+        private Entity _abilityCaster;
         private IndicatorHandler.IndicatorHandler _spawnedIndicatorHandler;
         private IDisposable _indicatorTimer;
-        private IndicatorHandlerFactory _indicatorHandlerFactory;
+        private readonly IndicatorHandlerFactory _indicatorHandlerFactory;
 
         public bool IsCasted { get; private set; }
 
@@ -53,12 +55,7 @@ namespace Source.Scripts.Abilities
             ServiceLocator.Global.Get(out _indicatorHandlerFactory);
              _indicatorHandlerPrefab = _indicatorHandlerFactory.GetFactoryItem(_abilitySetup.AbilityDataSetup.IndicatorDataSetup.GetType());
         }
-
-        ~Ability()
-        {
-            Dispose();
-        }
-
+        
         private void OnPreparationStarted()
         {
             AnimationEvent startPreparationEvent =
@@ -132,18 +129,18 @@ namespace Source.Scripts.Abilities
         }
 
         [Button]
-        public void CastSpell(Transform castPoint, Enemy.Enemy abilityCaster)
+        public void CastSpell(Transform castPoint, Entity entity)
         {
-            _abilityCaster = abilityCaster;
+            _abilityCaster = entity;
             _castPoint = castPoint;
 
-            abilityCaster.EnemyComponents.Animation.OverrideAnimation(_stateName, _abilitySetup.AbilityAnimation);
+            entity.Get<Animation>().OverrideAnimation(_stateName, _abilitySetup.AbilityAnimation);
             _animationPartPlayer ??= new AnimationPartPlayer(_animator);
 
             PlayCastAnimation();
             IsCasted = true;
-            abilityCaster.ComponentContainer.GetComponent<IDying>().Dead -= OnDied;
-            abilityCaster.ComponentContainer.GetComponent<IDying>().Dead += OnDied;
+            entity.Get<IDying>().Dead -= OnDied;
+            entity.Get<IDying>().Dead += OnDied;
         }
 
         private void OnDied(IDying obj)

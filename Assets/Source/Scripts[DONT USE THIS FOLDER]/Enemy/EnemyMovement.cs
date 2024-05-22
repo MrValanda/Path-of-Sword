@@ -1,5 +1,4 @@
-﻿using System;
-using System.Threading;
+﻿using System.Threading;
 using Cysharp.Threading.Tasks;
 using Source.Scripts.Interfaces;
 using UnityEngine;
@@ -17,12 +16,25 @@ namespace Source.Scripts.Enemy
         private CancellationTokenSource _cancellationTokenSource;
         private static readonly int Speed = Animator.StringToHash("Speed");
 
+        private void Start()
+        {
+            Init(5, 1);
+        }
+
         public void Init(float speed, float acceleration)
         {
             _characterController = GetComponent<CharacterController>();
             _speed = speed;
             _acceleration = acceleration;
             CanMove = true;
+        }
+
+        private void LateUpdate()
+        {
+            Vector3 velocity = _characterController.velocity;
+            velocity.y = 0;
+
+            _animator.SetFloat(Speed, velocity.magnitude / _speed, 0.1f, Time.deltaTime);
         }
 
         public void Move(Vector3 direction)
@@ -32,11 +44,7 @@ namespace Source.Scripts.Enemy
                 return;
             }
 
-            _characterController.Move(direction * _speed * Time.deltaTime);
-            Vector3 velocity = _characterController.velocity;
-            velocity.y = 0;
-
-            _animator.SetFloat(Speed, velocity.magnitude / _speed);
+            _characterController.SimpleMove(direction * _speed);
         }
 
         public void PushByDirection(Vector3 force, float time)

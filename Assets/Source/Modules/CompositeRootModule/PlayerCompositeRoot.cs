@@ -8,6 +8,8 @@ using Source.Modules.LockOnTargetModule.Scripts;
 using Source.Modules.MovementModule.Scripts;
 using Source.Modules.WeaponModule.Scripts;
 using Source.Scripts.EntityLogic;
+using Source.Scripts.Interfaces;
+using Source.Scripts.Setups.Characters;
 using UnityEngine;
 
 namespace Source.Modules.CompositeRootModule
@@ -25,6 +27,7 @@ namespace Source.Modules.CompositeRootModule
         [SerializeField] private ParryHandlerData _parryHandlerData;
         [SerializeField] private CinemachineVirtualCamera _lockOnTargetCamera;
         [SerializeField] private CinemachineFreeLook _freeLookCamera;
+        [SerializeField] private DamageableContainerSetup _damageableContainerSetup;
         [SerializeField] private bool _spawnPlayer;
 
         public void Compose()
@@ -33,8 +36,8 @@ namespace Source.Modules.CompositeRootModule
                 ? LeanPool.Spawn(_playerEntity, transform.position, Quaternion.identity)
                 : _playerEntity;
             
-            Container<ICondition> conditionsContainer =
-                new Container<ICondition>(new List<ICondition>()
+            Container<IGameCondition> conditionsContainer =
+                new Container<IGameCondition>(new List<IGameCondition>()
                 {
                     _inputMouseDownCondition
                 });
@@ -43,7 +46,7 @@ namespace Source.Modules.CompositeRootModule
                 new AttackStateComponentData(entity.transform, 0.1f, _orientation, conditionsContainer);
             entity.Add(attackStateComponentData);
 
-            _equipment.Initialize(entity);
+            _equipment.Initialize(entity, _damageableContainerSetup);
             entity.Add(_equipment);
 
             ParryHandler parryHandler = new ParryHandler();

@@ -3,6 +3,7 @@ using Lean.Pool;
 using Sirenix.OdinInspector;
 using Source.Modules.CombatModule.Scripts;
 using Source.Scripts.EntityLogic;
+using Source.Scripts.Setups.Characters;
 using Source.Scripts.WeaponModule;
 using UnityEngine;
 
@@ -18,11 +19,11 @@ namespace Source.Modules.WeaponModule.Scripts
         private Entity _ownerEntity;
         private Transform _orientation;
 
-        public void Initialize(Entity ownerEntity)
+        public void Initialize(Entity ownerEntity,DamageableContainerSetup damageableContainerSetup)
         {
             _ownerEntity = ownerEntity;
             _orientation = ownerEntity.transform;
-            _swordAttackVisitor.Initialize(ownerEntity);
+            _swordAttackVisitor.Initialize(ownerEntity, damageableContainerSetup);
             WeaponEntity currentWeaponEntity = LeanPool.Spawn(_defaultWeaponData.weaponEntity,
                 _ownerEntity.Get<WeaponLocator>().transform);
             EquipWeapon(currentWeaponEntity);

@@ -8,7 +8,7 @@ namespace VisitableComponents
     {
         private void Awake()
         {
-            Entity.Add(new ParryComponent() {WhoParryEntity = Entity});
+           // Entity.Add(new ParryComponent() {WhoParryEntity = Entity});
         }
     }
 }

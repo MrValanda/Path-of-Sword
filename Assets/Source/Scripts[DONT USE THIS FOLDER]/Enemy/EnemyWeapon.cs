@@ -6,7 +6,6 @@ namespace Source.Scripts.Enemy
 {
     public class EnemyWeapon : MonoBehaviour
     {
-
         [field: SerializeField] public Collider Collider { get; private set; }
         [field: SerializeField] public Rigidbody Rigidbody { get; private set; }
         
