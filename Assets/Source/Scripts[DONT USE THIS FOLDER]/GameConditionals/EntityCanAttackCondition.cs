@@ -1,5 +1,6 @@
 ﻿using System;
 using BehaviorDesigner.Runtime.Tasks;
+using Source.Modules.BehaviorTreeModule;
 using Source.Modules.DamageableFindersModule;
 using Source.Scripts.Enemy;
 using Source.Scripts.EntityLogic;

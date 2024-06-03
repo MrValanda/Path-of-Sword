@@ -1,10 +1,14 @@
-﻿using Source.Modules.MovementModule.Scripts;
+﻿using System;
+using Source.CodeLibrary.ServiceBootstrap;
+using Source.Modules.CameraModule.Scripts;
+using Source.Modules.MovementModule.Scripts;
 using Source.Modules.MoveSetModule.Scripts;
 using Source.Scripts.EntityLogic;
 using Source.Scripts.Tools;
+using UniRx;
 using UnityEngine;
 
-namespace Source.Modules.CombatModule.Scripts
+namespace Source.Modules.CombatModule.Scripts.Parry
 {
     public class ParryComponent
     {
@@ -15,7 +19,8 @@ namespace Source.Modules.CombatModule.Scripts
 
         public Entity WhoParryEntity;
         public Entity WhomParryEntity;
-
+        private IDisposable _disposable;
+        
         public void Execute()
         {
             HitInfo currentAttackDataInfo = WhomParryEntity.Get<CurrentAttackData>().CurrentHitInfo;
@@ -30,14 +35,17 @@ namespace Source.Modules.CombatModule.Scripts
             addForceDirectionComponent.WhoWillMoveEntity = WhoParryEntity;
             addForceDirectionComponent.Execute(-WhoParryEntity.transform.forward * currentAttackDataInfo.ParryBackForce,
                 Deceleration);
-
+            _disposable?.Dispose();
+            
             WhoParryEntity.Get<ParryEffectSpawner>().SpawnEffect();
             WhoParryEntity.AddOrGet<ParryCompleteComponent>().WhomParryEntity = WhomParryEntity;
             WhoParryEntity.AddOrGet<ParryCompleteComponent>().WhoParryEntity = WhoParryEntity;
             
+            ServiceLocator.For(WhomParryEntity).Get<CameraShakeService>().Shake(1, 0.5f);
             Animator animator = WhoParryEntity.Get<AnimationHandler>().Animator;
+            
             animator.SetTrigger(Parry);
-            animator.SetFloat(ParryIndex, (float) currentAttackDataInfo.ParryAnimationIndex);
+            animator.SetFloat(ParryIndex, (float) WhomParryEntity.Get<CurrentAttackData>().CurrentParryAnimationIndex);
 
             // WhomParryEntity.Get<AnimationHandler>().Animator.SetTrigger(ParryBroken);
             // WhomParryEntity.Add(new ParryBrokenComponent()

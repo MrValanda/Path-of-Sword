@@ -1,13 +1,16 @@
 ﻿using System.Collections.Generic;
 using Sirenix.OdinInspector;
+using Source.Modules.BehaviorTreeModule;
 using Source.Modules.CombatModule.Scripts;
 using Source.Modules.DamageableFindersModule;
 using Source.Modules.EnemyModule.Scripts;
+using Source.Modules.StaggerModule.Scripts;
 using Source.Modules.WeaponModule.Scripts;
-using Source.Scripts.BehaviorTreeEventSenders;
 using Source.Scripts.EntityLogic;
 using Source.Scripts.Interfaces;
 using Source.Scripts.Setups.Characters;
+using Source.Scripts_DONT_USE_THIS_FOLDER_.Abilities;
+using UnityEditor.SceneManagement;
 using UnityEngine;
 
 namespace Source.Modules.CompositeRootModule
@@ -47,6 +50,14 @@ namespace Source.Modules.CompositeRootModule
             _enemyEntity.Add(damageableSelector);
             _enemyEntity.Add(_enemyCharacterSetup);
             _enemyEntity.Add(new DamageCalculator(_enemyCharacterSetup.DamageMultiplier, 1));
+            
+            AbilityCaster abilityCaster = new AbilityCaster();
+            abilityCaster.Init(_enemyCharacterSetup.AbilityContainerSetup, _enemyEntity);
+            
+            _enemyEntity.Add(abilityCaster);
+            StaggerHandler staggerHandler = new StaggerHandler();
+            staggerHandler.Initialize(_enemyEntity);
+            _enemyEntity.Add(staggerHandler);
             _behaviorTreeCompositeRoot.Compose();
         }
     }

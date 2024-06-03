@@ -10,16 +10,28 @@ namespace Source.Scripts.Setups
 {
     public class BaseAbilitySetup : SerializedScriptableObject
     {
-        [field: SerializeField] public AnimationClip AbilityAnimation { get; private set; }
+        [field: SerializeField,InlineEditor(InlineEditorModes.LargePreview)] public AnimationClip AbilityAnimation { get; private set; }
 
-        [field: SerializeField, InlineEditor(InlineEditorModes.FullEditor)]
+        [field: SerializeField, InlineEditor(InlineEditorObjectFieldModes.Foldout), TabGroup("AbilityDataSetup")]
         public AbilityDataSetup AbilityDataSetup { get; private set; }
 
-        [field: SerializeField, InlineEditor] public AbilityConditionSetup AbilityToUseConditions { get; private set; }
+        [field: SerializeField, InlineEditor(InlineEditorObjectFieldModes.Foldout), TabGroup("Conditions")]
+        public AbilityConditionSetup AbilityToUseConditions { get; private set; }
 
-        [field: SerializeField, InlineEditor] public AbilityActionSetup AbilityStartedActions { get; private set; }
+        [field: SerializeField, InlineEditor(InlineEditorObjectFieldModes.Foldout),
+                TabGroup("AbilityPreparationStartActions")]
+        public AbilityActionSetup AbilityPreparationStartActions { get; private set; }
 
-        [field: SerializeField, InlineEditor] public AbilityActionSetup AbilityEndedActions { get; private set; }
+        [field: SerializeField, InlineEditor(InlineEditorObjectFieldModes.Foldout),
+                TabGroup("AbilityPreparationEndActions")]
+        public AbilityActionSetup AbilityPreparationEndActions { get; private set; }
+
+        [field: SerializeField, InlineEditor(InlineEditorObjectFieldModes.Foldout), TabGroup("StartAbilityActions")]
+        public AbilityActionSetup AbilityStartedActions { get; private set; }
+
+        [field: SerializeField, InlineEditor(InlineEditorObjectFieldModes.Foldout), TabGroup("EndAbilityActions")]
+        public AbilityActionSetup AbilityEndedActions { get; private set; }
+
 
         private void OnValidate()
         {
@@ -43,5 +55,24 @@ namespace Source.Scripts.Setups
                 }
             }
         }
+
+#if UNITY_EDITOR
+        [Button]
+        public void CreateAbilityData(string abilityDataName,
+            [FolderPath] string path = @"Assets/Source/Setups/Attacks")
+        {
+            AssetCreator<AbilityDataSetup> assetCreator = new AssetCreator<AbilityDataSetup>();
+
+            AbilityDataSetup = assetCreator.CreateAsset(path, abilityDataName);
+        }
+
+        [Button]
+        public void CreateAbilityAction(string abilityActionName,
+            [FolderPath] string path = @"Assets/Source/Setups/Attacks")
+        {
+            AssetCreator<AbilityActionSetup> assetCreator = new AssetCreator<AbilityActionSetup>();
+            assetCreator.CreateAsset(path, abilityActionName);
+        }
+#endif
     }
 }

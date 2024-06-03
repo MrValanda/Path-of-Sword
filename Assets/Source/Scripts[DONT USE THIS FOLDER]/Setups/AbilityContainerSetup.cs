@@ -13,7 +13,7 @@ namespace Source.Scripts.Setups
 
 #if UNITY_EDITOR
         [Button]
-        private void CreateAsset(string path,string name)
+        private void CreateAsset([FolderPath]string path,string name)
         {
             AssetCreator<AbilitySetup> assetCreator = new AssetCreator<AbilitySetup>();
             AbilitySetups.Add(assetCreator.CreateAsset(path, name));

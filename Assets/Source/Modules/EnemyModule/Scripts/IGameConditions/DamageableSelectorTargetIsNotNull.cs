@@ -1,25 +1,28 @@
 using BehaviorDesigner.Runtime.Tasks;
+using Source.Modules.BehaviorTreeModule;
 using Source.Modules.DamageableFindersModule;
 using Source.Scripts.EntityLogic;
-using Source.Scripts.Interfaces;
 using UnityEngine;
 
-public class DamageableSelectorIsNotNull : IGameCondition
+namespace Source.Modules.EnemyModule.Scripts.IGameConditions
 {
-    private readonly Entity _entity;
-
-    public DamageableSelectorIsNotNull(Entity entity)
+    public class DamageableSelectorIsNotNull : IGameCondition
     {
-        _entity = entity;
-        
-        if (_entity.Contains<DamageableSelector>() == false)
+        private readonly Entity _entity;
+
+        public DamageableSelectorIsNotNull(Entity entity)
         {
-            Debug.LogError($"{_entity.name} not contains {nameof(DamageableSelector)}");
+            _entity = entity;
+        
+            if (_entity.Contains<DamageableSelector>() == false)
+            {
+                Debug.LogError($"{_entity.name} not contains {nameof(DamageableSelector)}");
+            }
         }
-    }
 
-    public TaskStatus GetConditionStatus()
-    {
-        return _entity.Get<DamageableSelector>().SelectedDamageable == null ? TaskStatus.Failure : TaskStatus.Success;
+        public TaskStatus GetConditionStatus()
+        {
+            return _entity.Get<DamageableSelector>().SelectedDamageable == null ? TaskStatus.Failure : TaskStatus.Success;
+        }
     }
 }

@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <AbilityChains>k__BackingField:
   - <AbilitySetups>k__BackingField:
-    - {fileID: 11400000, guid: 3f92565c955018b4985cc9a3c5cee8bf, type: 2}
-    <AfkTimeAfterChain>k__BackingField: 0.1
-  - <AbilitySetups>k__BackingField:
     - {fileID: 11400000, guid: cd3c21d79ac3aeb42b0539fec2a1bb2b, type: 2}
+    <AfkTimeAfterChain>k__BackingField: 0
+  - <AbilitySetups>k__BackingField:
+    - {fileID: 11400000, guid: 564d973d2f0fb694f9bff9fde15ae64e, type: 2}
     <AfkTimeAfterChain>k__BackingField: 0

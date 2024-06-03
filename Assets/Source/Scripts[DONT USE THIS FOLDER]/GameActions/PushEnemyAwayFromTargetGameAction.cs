@@ -22,7 +22,7 @@ namespace Source.Scripts.GameActions
             Vector3 direction = (_enemy.transform.position - _enemy.Target.transform.position);
             direction.y = 0;
             direction = direction.normalized;
-            _enemy.EnemyComponents.NpcMovement.PushByDirection(direction * _enemy.EnemyCharacterSetup.ForcePush, _time);
+            _enemy.EnemyComponents.NpcMovement.PushByDirection(direction * 1, _time);
             return TaskStatus.Success;
         }
     }

@@ -10,5 +10,7 @@ namespace Source.Modules.EnemyModule.Scripts
         public static string CanUseAbility = "CanUseAbility";
         public static string CanUseAbilityWithoutAnimation = "CanUseAbilityWithoutAnimation";
         public static string UseAbilityWithoutAnimationActions = "UseAbilityWithoutAnimationActions";
+        public static string AfkTime = "_afkTime";
+        public static string AfkGameActions = "AfkGameActions";
     }
 }

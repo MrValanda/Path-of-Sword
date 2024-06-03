@@ -1,22 +1,27 @@
 using Source.Scripts;
 using Source.Scripts.EntityLogic;
+using UnityEngine;
 
 namespace Source.Modules.StaggerModule.Scripts
 {
     public class StaggerState : State
     {
-        private StaggerHandler _staggerHandler;
-        private void OnEnable()
+        [SerializeField] private float _impactWeight;
+        protected override void OnEnter()
         {
-            _staggerHandler ??= new StaggerHandler();
-            _staggerHandler.Initialize(_entity);
-            _entity.Add(_staggerHandler);
-        }
+            if (_entity.Contains<StaggerHandler>() == false)
+            {
+                StaggerHandler staggerHandler = new StaggerHandler();
+                _entity.Add(staggerHandler);
+                staggerHandler.Initialize(_entity);
+            }
 
-        private void OnDisable()
+            _entity.Get<StaggerHandler>().SetImpactWeight(_impactWeight);
+        }
+        
+        protected override void OnExit()
         {
-            _staggerHandler.SetLayersWeight(0, 0);
-            _entity.Remove<StaggerHandler>();
+            _entity.Get<StaggerHandler>().SetImpactWeight(0);
         }
     }
 }

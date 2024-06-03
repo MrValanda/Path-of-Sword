@@ -1,5 +1,6 @@
 ﻿using System;
 using Source.Modules.CombatModule.Scripts;
+using Source.Modules.CombatModule.Scripts.Parry;
 using Source.Scripts.EntityLogic;
 using UniRx;
 using UnityEngine;

@@ -1,6 +1,7 @@
 ﻿using System;
 using BehaviorDesigner.Runtime.Tasks;
 using Source.CodeLibrary.ServiceBootstrap;
+using Source.Modules.BehaviorTreeModule;
 using Source.Scripts.Interfaces;
 using UnityEngine;
 

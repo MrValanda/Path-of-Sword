@@ -24,12 +24,10 @@ namespace Source.Scripts.Tools
 
         private void OnAnimatorMove()
         {
-            //if(_entity.TryGet<AddForceDirectionComponent>(out _)) return;
-            
+            //if (_entity.TryGet<AddForceDirectionComponent>(out _)) return;
+
             Vector3 animatorMove = _animator.deltaPosition * _animationRootMotionMultiplayer;
-        
             Vector3 moveWithGravity = animatorMove + Vector3.up * _verticalSpeed;
-            _characterController.Move(animatorMove);
             moveWithGravity.x = 0;
             moveWithGravity.z = 0;
             if (Mathf.Abs(animatorMove.y) == 0)
@@ -47,6 +45,12 @@ namespace Source.Scripts.Tools
             {
                 _verticalSpeed = 0f;
             }
+            if (animatorMove.sqrMagnitude < 0.0001)
+            {
+                return;
+            }
+      
+            _characterController.Move(animatorMove);
         }
     }
 }

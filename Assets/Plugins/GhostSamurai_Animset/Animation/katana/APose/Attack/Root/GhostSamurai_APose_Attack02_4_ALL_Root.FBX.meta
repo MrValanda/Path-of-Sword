@@ -570,7 +570,7 @@ ModelImporter:
       name: GhostSamurai_APose_Attack02_4_ALL_Root
       takeName: GhostSamurai_APose_Attack02_4_ALL_Root
       internalID: 0
-      firstFrame: 2000
+      firstFrame: 1999.9999
       lastFrame: 2380
       wrapMode: 0
       orientationOffsetY: 0

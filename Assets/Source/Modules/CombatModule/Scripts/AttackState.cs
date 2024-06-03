@@ -88,6 +88,7 @@ namespace Source.Modules.CombatModule.Scripts
                     : Quaternion.LookRotation(orientationForward), _attackStateComponentData.RotationDuration);
 
             AttackDataInfo attackDataInfo = _weapon.CombatMoveSetSetup[_currentAttackIndex];
+            
             _entity.AddOrGet<CurrentAttackData>().CurrentHitInfo = attackDataInfo.HitInfo;
             _entity.Get<ApplyRootMotionHandler>()
                 .SetAnimationRootMotionMultiplier(attackDataInfo

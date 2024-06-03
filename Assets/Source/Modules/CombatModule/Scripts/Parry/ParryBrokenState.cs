@@ -1,3 +1,4 @@
+using Source.Modules.CombatModule.Scripts.Parry;
 using Source.Scripts;
 using Source.Scripts.EntityLogic;
 

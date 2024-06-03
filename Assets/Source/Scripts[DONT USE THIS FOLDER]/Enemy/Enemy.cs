@@ -15,6 +15,7 @@ using Source.Scripts.Interfaces;
 using Source.Scripts.Setups;
 using Source.Scripts.Setups.Characters;
 using Source.Scripts.Utils;
+using Source.Scripts_DONT_USE_THIS_FOLDER_.Abilities;
 using Source.Scripts_DONT_USE_THIS_FOLDER_.BehaviorsNodes.SharedVariables;
 using Source.Scripts_DONT_USE_THIS_FOLDER_.Utils;
 using UnityEngine;
@@ -90,10 +91,6 @@ namespace Source.Scripts.Enemy
                 ? EnemyCharacterSetup.AbilityContainerSetup
                 : ScriptableObject.CreateInstance<AbilityContainerSetup>(), null);
 
-            EnemyWeaponLeftHand = LeanPool.Spawn(EnemyCharacterSetup.EnemyWeaponLeftHand,
-                EnemyComponents.WeaponParentLeftHand);
-            EnemyWeaponRightHand = LeanPool.Spawn(EnemyCharacterSetup.EnemyWeaponRightHand,
-                EnemyComponents.WeaponParentRightHand);
 
             EnemyWeaponLeftHand.Init(EnemyCharacterSetup.AttakedUnits.DamageableTypes
                     .Select(x => x.Type).ToList());

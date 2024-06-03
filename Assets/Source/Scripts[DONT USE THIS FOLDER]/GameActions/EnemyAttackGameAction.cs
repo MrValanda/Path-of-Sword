@@ -5,7 +5,6 @@ using Source.Modules.BehaviorTreeModule;
 using Source.Scripts.Abilities;
 using Source.Scripts.AnimationEventListeners;
 using Source.Scripts.BehaviorTreeEventSenders;
-using Source.Scripts.Enemy;
 using Source.Scripts.EntityLogic;
 using Source.Scripts.Interfaces;
 using Source.Scripts.Setups;
@@ -34,6 +33,7 @@ namespace Source.Scripts.GameActions
         private Ability _currentUsedAttackAbility;
         private Transform _castPoint;
         private bool _needCastNewSpell;
+        private static readonly int IsAttacking = Animator.StringToHash("IsAttacking");
 
         public EnemyAttackGameAction(Entity entity,
             NeedStayAfkBehaviorTreeEventSender needStayAfkBehaviorTreeEventSender)
@@ -43,7 +43,7 @@ namespace Source.Scripts.GameActions
             _abilityEventListener = _entity.Get<AbilityEventListener>();
             _castPoint ??= new GameObject().transform;
         }
-        
+
         public void OnConditionAbort()
         {
             _needCastNewSpell = true;
@@ -51,8 +51,14 @@ namespace Source.Scripts.GameActions
             _currentUsedAttackAbility?.StopCast();
         }
 
+        public void OnStart()
+        {
+            _entity.Get<Animation>().Animator.SetBool(IsAttacking, true);
+        }
+
         public void OnExit()
         {
+            _entity.Get<Animation>().Animator.SetBool(IsAttacking, false);
             //  _currentUsedAttackAbility?.StopCast();
         }
 
@@ -101,10 +107,7 @@ namespace Source.Scripts.GameActions
             }, AttackStateNames[_previousAttackStateNameIndex++]);
 
             _previousAttackStateNameIndex %= AttackStateNames.Count;
-
-            AbilityUseData addOrGetComponent = _entity.AddOrGet<AbilityUseData>();
-            addOrGetComponent.CurrentAbility = _currentUsedAttackAbility;
-
+            
             _castPoint.position = _entity.transform.position;
             _castPoint.forward = _entity.transform.forward;
             _currentUsedAttackAbility.CastSpell(_castPoint, _entity);

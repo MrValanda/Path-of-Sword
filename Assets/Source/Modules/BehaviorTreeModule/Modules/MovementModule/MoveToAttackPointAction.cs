@@ -1,5 +1,4 @@
 using BehaviorDesigner.Runtime.Tasks;
-using Source.Modules.MoveSetModule.Scripts;
 using Source.Scripts.EntityLogic;
 using Source.Scripts.Interfaces;
 using UnityEngine;
@@ -8,12 +7,12 @@ using Animation = Source.Scripts.Enemy.Animation;
 
 namespace Source.Modules.BehaviorTreeModule.Modules.MovementModule
 {
-    
     [Preserve]
     public class MoveToAttackPointAction : IGameAction
     {
         private readonly IAttackPointCalculator _attackPointCalculator;
         private readonly Entity _senderEntity;
+        private static readonly int IsMovement = Animator.StringToHash("IsMovement");
 
         public MoveToAttackPointAction(IAttackPointCalculator attackPointCalculator,Entity senderEntity)
         {
@@ -23,7 +22,13 @@ namespace Source.Modules.BehaviorTreeModule.Modules.MovementModule
 
         public void OnStart()
         {
-            _senderEntity.Get<Animation>().Animator.CrossFade("Movement", 0.1f, 0, 0);
+            _senderEntity.Get<Animation>().Animator.SetBool(IsMovement,true);
+        }
+
+        public void OnExit()
+        {
+            _senderEntity.Get<Animation>().Animator.SetBool(IsMovement, false);
+            _senderEntity.Get<IMovement>().Move(Vector3.zero);
         }
 
         public TaskStatus ExecuteAction()
@@ -33,11 +38,6 @@ namespace Source.Modules.BehaviorTreeModule.Modules.MovementModule
             _senderEntity.transform.forward = direction;
             
             return direction == Vector3.zero ? TaskStatus.Success : TaskStatus.Running;
-        }
-
-        public void OnExit()
-        {
-            _senderEntity.Get<IMovement>().Move(Vector3.zero);
         }
     }
 }

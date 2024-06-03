@@ -6,7 +6,7 @@ namespace Source.Scripts.NPC.Collector
     {
         public static void InitVariable<T, T1>(this BehaviorTree behaviorTree,string nameVariable, T1 value) where T : SharedVariable<T1>, new()
         {
-            behaviorTree.SetVariable(nameVariable, new T() {Value = value});
+            behaviorTree.SetVariable(nameVariable, new T {Value = value});
         }
     }
 }

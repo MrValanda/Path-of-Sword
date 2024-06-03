@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using Cinemachine;
 using Lean.Pool;
 using Sirenix.OdinInspector;
+using Source.Modules.BehaviorTreeModule;
 using Source.Modules.CombatModule.Scripts;
 using Source.Modules.CombatModule.Scripts.Parry;
 using Source.Modules.LockOnTargetModule.Scripts;

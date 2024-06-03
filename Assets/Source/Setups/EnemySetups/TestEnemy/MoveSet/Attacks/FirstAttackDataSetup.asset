@@ -89,15 +89,15 @@ MonoBehaviour:
       Data: 180
     - Name: <Radius>k__BackingField
       Entry: 4
-      Data: 2
+      Data: 5
     - Name: 
       Entry: 8
       Data: 
   <Damage>k__BackingField: 0
-  <PreparationAttackTime>k__BackingField: 1.052788
+  <PreparationAttackTime>k__BackingField: 6
   <StartAttackTime>k__BackingField: 0.051177036
-  <AfkTimeAfterAbility>k__BackingField: 0
-  <NeedPreparationIndicator>k__BackingField: 1
+  <AfkTimeAfterAbility>k__BackingField: 5
+  <NeedPreparationIndicator>k__BackingField: 0
   <ObstacleLayers>k__BackingField:
     serializedVersion: 2
     m_Bits: 0

@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d4d743e4b7e4abf963ff1598df79d8b, type: 3}
+  m_Name: LongEnemyAttack
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes: []
+  <AbilityAnimation>k__BackingField: {fileID: 7400002, guid: 899ccc5bb593a7f43aa8c65d4178d9fc, type: 3}
+  <AbilityDataSetup>k__BackingField: {fileID: 11400000, guid: f3faac1188f97b443b2c823ba78d1dfa, type: 2}
+  <AbilityToUseConditions>k__BackingField: {fileID: 11400000, guid: 0aa27a1332152b844baa80ab097ad1e6, type: 2}
+  <AbilityPreparationStartActions>k__BackingField: {fileID: 0}
+  <AbilityPreparationEndActions>k__BackingField: {fileID: 0}
+  <AbilityStartedActions>k__BackingField: {fileID: 11400000, guid: 2bf662a8606545543832f9e08450fd9c, type: 2}
+  <AbilityEndedActions>k__BackingField: {fileID: 11400000, guid: 971401a2eda5d604a80a644337768fed, type: 2}

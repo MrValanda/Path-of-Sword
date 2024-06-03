@@ -1,6 +1,8 @@
 using System;
 using System.Linq;
 using Interfaces;
+using Source.Modules.CombatModule.Scripts.Parry;
+using Source.Modules.MovementModule.Scripts;
 using Source.Scripts.EntityLogic;
 using Source.Scripts.Setups.Characters;
 using Source.Scripts.VisitableComponents;
@@ -16,16 +18,16 @@ namespace Source.Modules.CombatModule.Scripts
 
         private DamageableContainerSetup _damageableContainerSetup;
 
-        public void Initialize(Entity entity,DamageableContainerSetup damageableContainerSetup)
+        public void Initialize(Entity entity, DamageableContainerSetup damageableContainerSetup)
         {
             _entity = entity;
             _damageableContainerSetup = damageableContainerSetup;
         }
-        
+
         public void Visit(HealthComponent healthComponent)
         {
-            if (_damageableContainerSetup.DamageableTypes.
-                    Any(x => x.Type.Equals(healthComponent.GetType().Name)) == false)
+            if (_damageableContainerSetup.DamageableTypes.Any(x => x.Type.Equals(healthComponent.GetType().Name)) ==
+                false)
                 return;
 
             if (healthComponent.Entity.TryGet(out ParryComponent parryComponent))
@@ -35,6 +37,11 @@ namespace Source.Modules.CombatModule.Scripts
                 return;
             }
 
+            AddForceDirectionComponent addForceDirectionComponent =
+                healthComponent.Entity.AddOrGet<AddForceDirectionComponent>();
+            addForceDirectionComponent.WhoWillMoveEntity = healthComponent.Entity;
+            addForceDirectionComponent.Execute(_entity.transform.forward *
+                                               _entity.Get<CurrentAttackData>().CurrentHitInfo.ParryBackForce, 10f);
             healthComponent.ApplyDamage(_entity.Get<CurrentAttackData>().CurrentHitInfo.Damage);
         }
 

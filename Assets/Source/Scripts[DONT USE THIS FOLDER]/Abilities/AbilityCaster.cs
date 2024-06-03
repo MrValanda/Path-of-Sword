@@ -2,24 +2,25 @@
 using System.Collections.Generic;
 using System.Linq;
 using Sirenix.OdinInspector;
+using Source.Scripts.Abilities;
 using Source.Scripts.AnimationEventListeners;
 using Source.Scripts.EntityLogic;
 using Source.Scripts.Interfaces;
 using Source.Scripts.Setups;
 using UnityEngine;
+using Animation = Source.Scripts.Enemy.Animation;
 using Random = UnityEngine.Random;
 
-namespace Source.Scripts.Abilities
+namespace Source.Scripts_DONT_USE_THIS_FOLDER_.Abilities
 {
-    public class AbilityCaster : MonoBehaviour
+    public class AbilityCaster
     {
         public event Action StartCastSpell;
         public event Action<Ability> AbilityEnded;
 
-        [SerializeField] private AbilityEventListener _abilityEventListener;
-        [SerializeField] private Animator _animator;
+        private AbilityEventListener _abilityEventListener;
+        private Animator _animator;
 
-        private float _lastCastSpellTime;
         private float _lastEndSpellTime;
         private float _currentCooldown;
 
@@ -37,6 +38,10 @@ namespace Source.Scripts.Abilities
         public void Init(AbilityContainerSetup abilityContainerSetup, Entity sender)
         {
             _castPoint ??= new GameObject().transform;
+            
+            _abilityEventListener = sender.Get<AbilityEventListener>();
+            _animator = sender.Get<Animation>().Animator;
+            
             _abilityContainerSetup = abilityContainerSetup;
             _cooldownAbilities.Clear();
             foreach (AbilitySetup abilitySetup in abilityContainerSetup.AbilitySetups)
@@ -47,17 +52,6 @@ namespace Source.Scripts.Abilities
             Sender = sender;
             Sender.Get<IDying>().Dead += OnSenderDeath;
             _lastEndSpellTime = 0;
-            _lastCastSpellTime = 0;
-        }
-
-        public void BlockCast()
-        {
-            _castBlocked = true;
-        }
-
-        public void UnBlockCast()
-        {
-            _castBlocked = false;
         }
 
         [Button]
@@ -71,6 +65,22 @@ namespace Source.Scripts.Abilities
             StartCastSpell?.Invoke();
             IsAbilityProcessed = true;
             _abilityEventListener.AbilityEnded += OnAbilityEnded;
+            AbilitySetup abilitySetup = GetRandomAbility(readyAbilities);
+
+            _currentUsedAbility = new Ability(new AbilityDataContainer()
+            {
+                AbilitySetup = abilitySetup, Animator = _animator, AbilityEventListener = _abilityEventListener
+            });
+            _castPoint.parent = Sender.transform;
+            _castPoint.position = Sender.transform.position;
+            _castPoint.forward = Sender.transform.forward;
+            _currentUsedAbility.CastSpell(_castPoint, Sender);
+            _currentCooldown = abilitySetup.CooldownToUseAbility;
+            return abilitySetup;
+        }
+
+        private static AbilitySetup GetRandomAbility(List<AbilitySetup> readyAbilities)
+        {
             AbilitySetup abilitySetup = null;
 
             float totalWeight = readyAbilities.Sum(x => x.ChanceToUse);
@@ -88,20 +98,10 @@ namespace Source.Scripts.Abilities
                 }
             }
 
-            _currentUsedAbility = new Ability(new AbilityDataContainer()
-            {
-                AbilitySetup = abilitySetup, Animator = _animator, AbilityEventListener = _abilityEventListener
-            });
-            
-            _castPoint.position = Sender.transform.position;
-            _castPoint.forward = Sender.transform.forward;
-            _currentUsedAbility.CastSpell(_castPoint, Sender);
-            _currentCooldown = abilitySetup.CooldownToUseAbility;
-            _lastCastSpellTime = Time.time;
             return abilitySetup;
         }
 
-        public void StopSpell()
+        public void StopCastSpell()
         {
             IsAbilityProcessed = false;
             _currentUsedAbility?.StopCast();

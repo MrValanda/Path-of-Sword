@@ -15,6 +15,8 @@ namespace Source.Scripts.Setups
         [field: SerializeField] public float StartAttackTime { get; private set; }
         [field: SerializeField] public float AfkTimeAfterAbility { get; private set; }
         [field: SerializeField] public bool NeedPreparationIndicator { get; private set; }
+        [field: SerializeField] public float RootMultiplierBeforeAbilityStart { get; private set; } = 1;
+        [field: SerializeField] public float RootMultiplierAfterAbilityStart { get; private set; } = 1;
         [field: SerializeField] public LayerMask ObstacleLayers { get; private set; }
 
 #if UNITY_EDITOR

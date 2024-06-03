@@ -1,6 +1,6 @@
 ﻿using BehaviorDesigner.Runtime.Tasks;
 
-namespace Source.Scripts.Interfaces
+namespace Source.Modules.BehaviorTreeModule
 {
     public interface IGameCondition
     {

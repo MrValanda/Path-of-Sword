@@ -1,11 +1,15 @@
 ﻿using System;
 using Source.CodeLibrary.ServiceBootstrap;
 using Source.Modules.DamageableFindersModule;
+using Source.Modules.MovementModule.Scripts;
 using Source.Scripts.EntityLogic;
 using Source.Scripts.Interfaces;
 using Source.Scripts.ResourceFolder;
 using Source.Scripts.Setups;
+using Source.Scripts.Tools;
+using UniRx;
 using UnityEngine;
+using Animation = Source.Scripts.Enemy.Animation;
 
 namespace Source.Scripts.AbilityActions
 {
@@ -25,6 +29,7 @@ namespace Source.Scripts.AbilityActions
 
         public void ExecuteAction(Transform castPoint, Entity abilityCaster, AbilityDataSetup baseAbilitySetup)
         {
+            if (abilityCaster.Get<DamageableSelector>().SelectedDamageable == null) return;
             InCirclePointFinderByRaycast inCirclePointFinderByRaycast = new InCirclePointFinderByRaycast();
 
             Vector3 teleportFindCentre = Vector3.zero;

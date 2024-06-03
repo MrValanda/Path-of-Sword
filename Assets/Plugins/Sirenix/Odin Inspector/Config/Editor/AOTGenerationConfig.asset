@@ -16,8 +16,115 @@ MonoBehaviour:
   deleteDllAfterBuilds: 1
   AutomateForAllAOTPlatforms: 1
   automateForPlatforms: 0900000014000000
-  lastScan: 638498877169983129
+  lastScan: 638526732037713620
   supportSerializedTypes:
+  - TypeName: Source.Scripts.AbilityActions.AbilityVFXAction, Assembly-CSharp
+    IsCustom: 0
+    Emit: 1
+  - TypeName: System.Boolean, mscorlib
+    IsCustom: 0
+    Emit: 1
+  - TypeName: UnityEngine.Color, UnityEngine.CoreModule
+    IsCustom: 0
+    Emit: 1
+  - TypeName: Source.Scripts.Setups.ConeIndicatorDataSetup, Assembly-CSharp
+    IsCustom: 0
+    Emit: 1
+  - TypeName: System.Collections.Generic.Dictionary`2[[SkinLogic.SkinPartType, Assembly-CSharp],[SkinLogic.WearSkinPart,
+      Assembly-CSharp]], mscorlib
+    IsCustom: 0
+    Emit: 1
+  - TypeName: Source.Scripts.AbilityActions.DisableWeapon, Assembly-CSharp
+    IsCustom: 0
+    Emit: 1
+  - TypeName: Source.Scripts.AbilityConditions.DistanceAbilityCondition, Assembly-CSharp
+    IsCustom: 0
+    Emit: 1
+  - TypeName: Source.Scripts.AbilityActions.EnableWeapon, Assembly-CSharp
+    IsCustom: 0
+    Emit: 1
+  - TypeName: Transitions.EndProtectionEventTransition, Assembly-CSharp
+    IsCustom: 0
+    Emit: 1
+  - TypeName: System.Collections.Generic.EnumEqualityComparer`1[[SkinLogic.SkinPartType,
+      Assembly-CSharp]], mscorlib
+    IsCustom: 0
+    Emit: 1
+  - TypeName: System.Single, mscorlib
+    IsCustom: 0
+    Emit: 1
+  - TypeName: Source.Modules.MoveSetModule.Scripts.HitInfo, Assembly-CSharp
+    IsCustom: 0
+    Emit: 1
+  - TypeName: Source.Scripts.Interfaces.IAbilityAction, Assembly-CSharp
+    IsCustom: 0
+    Emit: 1
+  - TypeName: Source.Scripts.Interfaces.IAbilityCondition, Assembly-CSharp
+    IsCustom: 0
+    Emit: 1
+  - TypeName: System.Collections.Generic.IEqualityComparer`1[[SkinLogic.SkinPartType,
+      Assembly-CSharp]], mscorlib
+    IsCustom: 0
+    Emit: 1
+  - TypeName: Source.Scripts.Setups.IndicatorDataSetup, Assembly-CSharp
+    IsCustom: 0
+    Emit: 1
+  - TypeName: Source.Scripts.Transitions.InputKeyDownTransition, Assembly-CSharp
+    IsCustom: 0
+    Emit: 1
+  - TypeName: System.Int32, mscorlib
+    IsCustom: 0
+    Emit: 1
+  - TypeName: UnityEngine.KeyCode, UnityEngine.CoreModule
+    IsCustom: 0
+    Emit: 1
+  - TypeName: System.Collections.Generic.List`1[[Source.Scripts.Interfaces.IAbilityAction,
+      Assembly-CSharp]], mscorlib
+    IsCustom: 0
+    Emit: 1
+  - TypeName: System.Collections.Generic.List`1[[Source.Scripts.Interfaces.IAbilityCondition,
+      Assembly-CSharp]], mscorlib
+    IsCustom: 0
+    Emit: 1
+  - TypeName: System.Collections.Generic.List`1[[Transition, Assembly-CSharp]], mscorlib
+    IsCustom: 0
+    Emit: 1
+  - TypeName: Source.Scripts.AbilityActions.LookAtTargetAction, Assembly-CSharp
+    IsCustom: 0
+    Emit: 1
+  - TypeName: Transitions.MouseDownTransition, Assembly-CSharp
+    IsCustom: 0
+    Emit: 1
+  - TypeName: Source.Modules.MoveSetModule.Scripts.ParryAnimationIndex, Assembly-CSharp
+    IsCustom: 0
+    Emit: 1
+  - TypeName: UnityEngine.ParticleSystem, UnityEngine.ParticleSystemModule
+    IsCustom: 0
+    Emit: 1
+  - TypeName: Source.Modules.CombatModule.Scripts.ProtectionEventListener, Assembly-CSharp
+    IsCustom: 0
+    Emit: 1
+  - TypeName: SkinLogic.SkinPartType, Assembly-CSharp
+    IsCustom: 0
+    Emit: 1
+  - TypeName: Source.Scripts.State, Assembly-CSharp
+    IsCustom: 0
+    Emit: 1
+  - TypeName: Source.Scripts.AbilityActions.TeleportAction, Assembly-CSharp
+    IsCustom: 0
+    Emit: 1
+  - TypeName: Source.Scripts.AbilityActions.TeleportAction+TeleportCentre, Assembly-CSharp
+    IsCustom: 0
+    Emit: 1
+  - TypeName: UnityEngine.Texture, UnityEngine.CoreModule
+    IsCustom: 0
+    Emit: 1
+  - TypeName: Transition, Assembly-CSharp
+    IsCustom: 0
+    Emit: 1
+  - TypeName: SkinLogic.WearSkinPart, Assembly-CSharp
+    IsCustom: 0
+    Emit: 1
   - TypeName: Source.Scripts.Utils.SO.CustomPath, Assembly-CSharp
     IsCustom: 0
     Emit: 1
@@ -37,9 +144,6 @@ MonoBehaviour:
     Emit: 1
   - TypeName: System.Collections.Generic.List`1[[Source.Scripts.Utils.SO.CustomPath,
       Assembly-CSharp]], mscorlib
-    IsCustom: 0
-    Emit: 1
-  - TypeName: System.Object, mscorlib
     IsCustom: 0
     Emit: 1
   - TypeName: System.Collections.Generic.ObjectEqualityComparer`1[[System.Type, mscorlib]],

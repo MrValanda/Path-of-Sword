@@ -5,5 +5,6 @@ namespace Source.Modules.CombatModule.Scripts
     public class CurrentAttackData
     {
         public HitInfo CurrentHitInfo;
+        public ParryAnimationIndex CurrentParryAnimationIndex;
     }
 }

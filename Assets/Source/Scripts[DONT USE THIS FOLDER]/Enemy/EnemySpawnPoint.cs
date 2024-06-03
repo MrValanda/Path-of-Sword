@@ -183,9 +183,6 @@ namespace Source.Scripts.Enemy
                 enemySpawnData.EnemyBalance.ViewAngle, enemySpawnData.EnemyBalance.DetectRadius);
 
             Handles.color = Color.cyan;
-            Handles.DrawWireArc(transform.position, Vector3.up, transform.forward,
-                enemySpawnData.EnemyBalance.ViewAngle, enemySpawnData.EnemyBalance.MaxChaseDistance);
-
 
             Handles.color = Color.white;
             List<Vector3> points = _patrolPointDatas.Select(x => x.PatrolPoint?.position ?? Vector3.zero).ToList();

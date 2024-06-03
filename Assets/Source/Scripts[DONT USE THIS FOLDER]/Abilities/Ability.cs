@@ -5,10 +5,12 @@ using Sirenix.OdinInspector;
 using Source.CodeLibrary.ServiceBootstrap;
 using Source.Scripts.AnimationEventListeners;
 using Source.Scripts.AnimationEventNames;
+using Source.Scripts.Enemy;
 using Source.Scripts.EntityLogic;
 using Source.Scripts.Factories;
 using Source.Scripts.Interfaces;
 using Source.Scripts.Setups;
+using Source.Scripts.Tools;
 using UniRx;
 using UnityEngine;
 using Animation = Source.Scripts.Enemy.Animation;
@@ -27,6 +29,8 @@ namespace Source.Scripts.Abilities
 
         private readonly List<IAbilityAction> _abilityStartedActions;
         private readonly List<IAbilityAction> _abilityEndedActions;
+        private readonly List<IAbilityAction> _abilityPreparationStartedActions;
+        private readonly List<IAbilityAction> _abilityPreparationEndedActions;
 
         public BaseAbilitySetup AbilitySetup => _abilitySetup;
 
@@ -35,8 +39,7 @@ namespace Source.Scripts.Abilities
         private Entity _abilityCaster;
         private IndicatorHandler.IndicatorHandler _spawnedIndicatorHandler;
         private IDisposable _indicatorTimer;
-        private readonly IndicatorHandlerFactory _indicatorHandlerFactory;
-
+        private float _previousRootMotionMultiplier;
         public bool IsCasted { get; private set; }
 
         public Ability(AbilityDataContainer abilityDataContainer, string stateName = "Ability")
@@ -45,19 +48,28 @@ namespace Source.Scripts.Abilities
             _abilityEventListener = abilityDataContainer.AbilityEventListener;
             _animator = abilityDataContainer.Animator;
             _abilitySetup = abilityDataContainer.AbilitySetup;
+
             _abilityStartedActions = _abilitySetup?.AbilityStartedActions?.AbilityActions ?? new List<IAbilityAction>();
             _abilityEndedActions = _abilitySetup?.AbilityEndedActions?.AbilityActions ?? new List<IAbilityAction>();
+            _abilityPreparationStartedActions = _abilitySetup?.AbilityPreparationStartActions?.AbilityActions ??
+                                                new List<IAbilityAction>();
+            _abilityPreparationEndedActions = _abilitySetup?.AbilityPreparationEndActions?.AbilityActions ??
+                                              new List<IAbilityAction>();
+
             _abilityEventListener.AbilityStarted += OnAbilityStarted;
             _abilityEventListener.AbilityEnded += OnAbilityEnded;
             _abilityEventListener.PreparationStarted += OnPreparationStarted;
             _abilityEventListener.PreparationEnded += OnPreparationEnded;
 
-            ServiceLocator.Global.Get(out _indicatorHandlerFactory);
-             _indicatorHandlerPrefab = _indicatorHandlerFactory.GetFactoryItem(_abilitySetup.AbilityDataSetup.IndicatorDataSetup.GetType());
+            ServiceLocator.Global.Get(out IndicatorHandlerFactory indicatorHandlerFactory);
+            _indicatorHandlerPrefab =
+                indicatorHandlerFactory.GetFactoryItem(_abilitySetup.AbilityDataSetup.IndicatorDataSetup.GetType());
         }
-        
+
         private void OnPreparationStarted()
         {
+            ExecuteActions(_abilityPreparationStartedActions);
+
             AnimationEvent startPreparationEvent =
                 _abilitySetup.AbilityAnimation.events.FirstOrDefault(x =>
                     x.functionName.Equals(AbilityEventNames.PreparationStartEventName));
@@ -108,6 +120,8 @@ namespace Source.Scripts.Abilities
 
         private void OnPreparationEnded()
         {
+            ExecuteActions(_abilityPreparationEndedActions);
+
             _animationPartPlayer.Reset();
         }
 
@@ -122,12 +136,6 @@ namespace Source.Scripts.Abilities
             Object.Destroy(_spawnedIndicatorHandler.gameObject);
         }
 
-        public float GetAbilityTime()
-        {
-            return _abilitySetup.AbilityAnimation.length + _abilitySetup.AbilityDataSetup.PreparationAttackTime +
-                   _abilitySetup.AbilityDataSetup.StartAttackTime;
-        }
-
         [Button]
         public void CastSpell(Transform castPoint, Entity entity)
         {
@@ -136,9 +144,13 @@ namespace Source.Scripts.Abilities
 
             entity.Get<Animation>().OverrideAnimation(_stateName, _abilitySetup.AbilityAnimation);
             _animationPartPlayer ??= new AnimationPartPlayer(_animator);
-
+            entity.AddOrGet<AbilityUseData>().CurrentAbility = this;
             PlayCastAnimation();
             IsCasted = true;
+            ApplyRootMotionHandler applyRootMotionHandler = entity.Get<ApplyRootMotionHandler>();
+            _previousRootMotionMultiplier = applyRootMotionHandler.GetAnimationMotionMultiplier();
+            applyRootMotionHandler
+                .SetAnimationRootMotionMultiplier(_abilitySetup.AbilityDataSetup.RootMultiplierBeforeAbilityStart);
             entity.Get<IDying>().Dead -= OnDied;
             entity.Get<IDying>().Dead += OnDied;
         }
@@ -158,20 +170,18 @@ namespace Source.Scripts.Abilities
 
         private void OnAbilityStarted()
         {
-            foreach (IAbilityAction abilityStartedAction in _abilityStartedActions)
-            {
-                abilityStartedAction.ExecuteAction(_castPoint, _abilityCaster, _abilitySetup.AbilityDataSetup);
-            }
+            _abilityCaster.Get<ApplyRootMotionHandler>()
+                .SetAnimationRootMotionMultiplier(_abilitySetup.AbilityDataSetup.RootMultiplierAfterAbilityStart);
+            ExecuteActions(_abilityStartedActions);
         }
 
         private void OnAbilityEnded()
         {
+            _abilityCaster.Get<ApplyRootMotionHandler>()
+                .SetAnimationRootMotionMultiplier(_previousRootMotionMultiplier);
             Dispose();
             _animationPartPlayer.Reset();
-            foreach (IAbilityAction abilityEndedAction in _abilityEndedActions)
-            {
-                abilityEndedAction.ExecuteAction(_castPoint, _abilityCaster, _abilitySetup.AbilityDataSetup);
-            }
+            ExecuteActions(_abilityEndedActions);
         }
 
         private void PlayCastAnimation()
@@ -184,7 +194,16 @@ namespace Source.Scripts.Abilities
 
             _animationPartPlayer.AnimatePartAnimation(_abilitySetup.AbilityDataSetup.StartAttackTime,
                 startPreparationEvent.time);
-            _animator.CrossFadeInFixedTime(_stateName, 0.2f, 0, 0);
+            _animator.SetTrigger(_stateName);
+        }
+
+        private void ExecuteActions(List<IAbilityAction> abilityActions)
+        {
+            foreach (IAbilityAction abilityPreparationStartedAction in abilityActions)
+            {
+                abilityPreparationStartedAction.ExecuteAction(_castPoint, _abilityCaster,
+                    _abilitySetup.AbilityDataSetup);
+            }
         }
     }
 }

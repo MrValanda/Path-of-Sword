@@ -1,6 +1,7 @@
 ﻿using System;
 using BehaviorDesigner.Runtime.Tasks;
 using Sirenix.Serialization;
+using Source.Modules.BehaviorTreeModule;
 using Source.Scripts.Interfaces;
 using UnityEngine;
 
@@ -19,7 +20,7 @@ namespace Source.Scripts.GameConditionals
         public TaskStatus GetConditionStatus()
         {
             return Vector3.Distance(_enemy.EnemySpawnPoint.transform.position, _enemy.transform.position) >
-                   _enemy.EnemyCharacterSetup.MaxChaseDistance
+                 1
                 ? TaskStatus.Success
                 : TaskStatus.Failure;
         }

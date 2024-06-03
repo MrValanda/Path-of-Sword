@@ -16,6 +16,7 @@ namespace Source.Scripts.AbilityConditions
 
         public bool CanExecute(Transform castPoint, Entity abilityCaster, AbilityDataSetup baseAbilitySetup)
         {
+            if (abilityCaster.Get<DamageableSelector>().SelectedDamageable == null) return false;
             var distance = Vector3.Distance(abilityCaster.transform.position,
                 abilityCaster.Get<DamageableSelector>().SelectedDamageable.transform.position);
             return distance <= _maxDistance && distance >= _minDistance;

@@ -21,7 +21,6 @@ MonoBehaviour:
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
     SerializationNodes: []
-  <EnemyTaskType>k__BackingField: 1
   <DefaultHealth>k__BackingField: 1000
   <HealthMultiplier>k__BackingField: 1
   <DamageMultiplier>k__BackingField: 1
@@ -30,13 +29,8 @@ MonoBehaviour:
   <AttackRadius>k__BackingField: 5
   <DetectRadius>k__BackingField: 1000
   <ViewAngle>k__BackingField: 360
-  <ForcePush>k__BackingField: 4
-  <SlowMotionTime>k__BackingField: 0
-  <MaxChaseDistance>k__BackingField: 100
   <AttakedUnits>k__BackingField: {fileID: 11400000, guid: 99f3625ff4f57c342b1022d78f5580ff, type: 2}
   <MoveSetSetup>k__BackingField: {fileID: 11400000, guid: a3595d4ae2e2623418d415764abce8cd, type: 2}
-  <EnemyWeaponLeftHand>k__BackingField: {fileID: 227741087545212684, guid: 208c9e7521ce30449b21aa507960770d, type: 3}
-  <EnemyWeaponRightHand>k__BackingField: {fileID: 227741087545212684, guid: 208c9e7521ce30449b21aa507960770d, type: 3}
-  <AbilityContainerSetup>k__BackingField: {fileID: 0}
+  <AbilityContainerSetup>k__BackingField: {fileID: 11400000, guid: 3fe0b5fb2e7a9be45b3cc21254073ae8, type: 2}
   <DropListSetup>k__BackingField: {fileID: 0}
   <WhenTakeDamageDropListSetup>k__BackingField: {fileID: 0}

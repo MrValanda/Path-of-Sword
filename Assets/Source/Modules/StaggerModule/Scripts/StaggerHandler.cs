@@ -11,12 +11,13 @@ namespace Source.Modules.StaggerModule.Scripts
 {
     public class StaggerHandler : IDisposable
     {
-        private static readonly string ImpactLayerName = "Impact";
         private static readonly string ProtectionImpactLayerName = "ProtectionImpact";
-        
+
         private Entity _entity;
         private float _lastReceivedDamage;
         private Animator _animator;
+        private string _impactLayerName = "Impact";
+        public float ImpactWeight { get; private set; }
 
         public void Initialize(Entity entity)
         {
@@ -24,12 +25,23 @@ namespace Source.Modules.StaggerModule.Scripts
             _animator ??= _entity.Get<AnimationHandler>().Animator;
             HealthComponent healthComponent = _entity.Get<HealthComponent>();
             healthComponent.ReceivedDamage += OnReceivedDamage;
+            ImpactWeight = 1;
         }
 
         public void Dispose()
         {
             HealthComponent healthComponent = _entity.Get<HealthComponent>();
             healthComponent.ReceivedDamage -= OnReceivedDamage;
+        }
+
+        public void SetImpactLayerName(string impactNameLayer)
+        {
+            _impactLayerName = impactNameLayer;
+        }
+
+        public void SetImpactWeight(float impactWeight)
+        {
+            ImpactWeight = impactWeight;
         }
 
         private void OnReceivedDamage(double obj)
@@ -40,25 +52,26 @@ namespace Source.Modules.StaggerModule.Scripts
                 _entity.Get<ParryEffectSpawner>().SpawnEffect();
                 AddForceDirectionComponent addForceDirectionComponent = _entity.AddOrGet<AddForceDirectionComponent>();
                 addForceDirectionComponent.WhoWillMoveEntity = _entity;
-                addForceDirectionComponent.Execute(-_entity.transform.forward*15, 10);
+                addForceDirectionComponent.Execute(-_entity.transform.forward * 15, 10);
             }
             else
             {
-                if(Time.time - _lastReceivedDamage > 1)
+                if (Time.time - _lastReceivedDamage > 1)
                 {
-                    SetLayersWeight(1, 0);
+                    SetLayersWeight(ImpactWeight, 0);
                 }
                 else
                 {
-                    SetLayersWeight(1f, 0);
+                    SetLayersWeight(ImpactWeight / 2, 0);
                 }
+
                 _lastReceivedDamage = Time.time;
             }
         }
 
-        public void SetLayersWeight(float impactWeight,float protectionImpactWeight)
+        public void SetLayersWeight(float impactWeight, float protectionImpactWeight)
         {
-            _animator.SetLayerWeight(_animator.GetLayerIndex(ImpactLayerName), impactWeight);
+            _animator.SetLayerWeight(_animator.GetLayerIndex(_impactLayerName), impactWeight);
             _animator.SetLayerWeight(_animator.GetLayerIndex(ProtectionImpactLayerName), protectionImpactWeight);
         }
     }
