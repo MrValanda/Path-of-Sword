@@ -144,13 +144,17 @@ namespace Source.Scripts.Abilities
 
             entity.Get<Animation>().OverrideAnimation(_stateName, _abilitySetup.AbilityAnimation);
             _animationPartPlayer ??= new AnimationPartPlayer(_animator);
+            
             entity.AddOrGet<AbilityUseData>().CurrentAbility = this;
             PlayCastAnimation();
+            
             IsCasted = true;
             ApplyRootMotionHandler applyRootMotionHandler = entity.Get<ApplyRootMotionHandler>();
             _previousRootMotionMultiplier = applyRootMotionHandler.GetAnimationMotionMultiplier();
+            
             applyRootMotionHandler
                 .SetAnimationRootMotionMultiplier(_abilitySetup.AbilityDataSetup.RootMultiplierBeforeAbilityStart);
+            
             entity.Get<IDying>().Dead -= OnDied;
             entity.Get<IDying>().Dead += OnDied;
         }

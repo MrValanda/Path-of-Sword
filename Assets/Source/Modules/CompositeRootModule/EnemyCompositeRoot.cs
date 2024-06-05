@@ -7,10 +7,8 @@ using Source.Modules.EnemyModule.Scripts;
 using Source.Modules.StaggerModule.Scripts;
 using Source.Modules.WeaponModule.Scripts;
 using Source.Scripts.EntityLogic;
-using Source.Scripts.Interfaces;
 using Source.Scripts.Setups.Characters;
 using Source.Scripts_DONT_USE_THIS_FOLDER_.Abilities;
-using UnityEditor.SceneManagement;
 using UnityEngine;
 
 namespace Source.Modules.CompositeRootModule
