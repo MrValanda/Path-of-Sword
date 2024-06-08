@@ -2,6 +2,7 @@ using System;
 using System.Linq;
 using Interfaces;
 using Source.Modules.CombatModule.Scripts.Parry;
+using Source.Modules.HealthModule.Scripts;
 using Source.Modules.MovementModule.Scripts;
 using Source.Scripts.EntityLogic;
 using Source.Scripts.Setups.Characters;
@@ -26,6 +27,10 @@ namespace Source.Modules.CombatModule.Scripts
 
         public void Visit(HealthComponent healthComponent)
         {
+            if ( healthComponent.IsDead)
+            {
+                 return;
+            }
             if (_damageableContainerSetup.DamageableTypes.Any(x => x.Type.Equals(healthComponent.GetType().Name)) ==
                 false)
                 return;

@@ -73,6 +73,8 @@ MonoBehaviour:
     - {fileID: 8566301479444004576}
     - {fileID: 432095749872772088}
     - {fileID: 3167805506874806653}
+    - {fileID: 187284488894654574}
+    - {fileID: 1475188606615726485}
     SerializedBytesString: 
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
@@ -83,7 +85,7 @@ MonoBehaviour:
       Data: 0|System.Collections.Generic.List`1[[Transition, Assembly-CSharp]], mscorlib
     - Name: 
       Entry: 12
-      Data: 4
+      Data: 5
     - Name: 
       Entry: 7
       Data: 1|Transitions.MouseDownTransition, Assembly-CSharp
@@ -147,6 +149,24 @@ MonoBehaviour:
     - Name: _needListenedPressed
       Entry: 5
       Data: true
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 5|Source.Modules.HealthModule.Scripts.CurrentHealthLessTransition, Assembly-CSharp
+    - Name: <NextState>k__BackingField
+      Entry: 10
+      Data: 5
+    - Name: <Priority>k__BackingField
+      Entry: 4
+      Data: 1111
+    - Name: _healthComponent
+      Entry: 10
+      Data: 6
+    - Name: _value
+      Entry: 4
+      Data: 0
     - Name: 
       Entry: 8
       Data: 
@@ -345,8 +365,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   transform: {fileID: 4627685699021436319}
   gameObject: {fileID: 104818196371400171}
-  _maxHeatlh: 1000
   _entity: {fileID: 5507489092510473831}
+  <MaxHealth>k__BackingField: 100
 --- !u!114 &7256019958450580173
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -541,6 +561,11 @@ MonoBehaviour:
     <NextState>k__BackingField: {fileID: 2837088698749756220}
     <Priority>k__BackingField: 0
     _delay: 0.2
+  _lessTransition:
+    <NextState>k__BackingField: {fileID: 187284488894654574}
+    <Priority>k__BackingField: 11111
+    _healthComponent: {fileID: 1475188606615726485}
+    _value: 0
 --- !u!1 &1025207557079046562
 GameObject:
   m_ObjectHideFlags: 0
@@ -818,6 +843,11 @@ MonoBehaviour:
     <Priority>k__BackingField: 0
     _dodgeEventListener: {fileID: 128846719392384990}
     _mouseIndex: 0
+  _lessTransition:
+    <NextState>k__BackingField: {fileID: 187284488894654574}
+    <Priority>k__BackingField: 1111
+    _healthComponent: {fileID: 1475188606615726485}
+    _value: 0
 --- !u!1 &2241987073334679081
 GameObject:
   m_ObjectHideFlags: 0
@@ -917,6 +947,110 @@ MonoBehaviour:
   gameObject: {fileID: 2758993711013040185}
   _effectPoint: {fileID: 0}
   _effect: {fileID: 198158662045118438, guid: a5986da717b87c046b2b6f8a0c583b45, type: 3}
+--- !u!1 &2816079472975920394
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2271618003268275960}
+  - component: {fileID: 187284488894654574}
+  - component: {fileID: 6064361014904339312}
+  m_Layer: 6
+  m_Name: DeathState
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2271618003268275960
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2816079472975920394}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3187473335334914547}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &187284488894654574
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2816079472975920394}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e79d17d65ba1034694596dc23767b42, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  transform: {fileID: 2271618003268275960}
+  gameObject: {fileID: 2816079472975920394}
+  _transitions: {fileID: 6064361014904339312}
+  _subStates: []
+  checkingTransitionDelay: 0
+  _entity: {fileID: 5507489092510473831}
+--- !u!114 &6064361014904339312
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2816079472975920394}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0e5e5ebd51c4034b896283d12cad9a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects:
+    - {fileID: 2837088698749756220}
+    - {fileID: 1475188606615726485}
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: _transitions
+      Entry: 7
+      Data: 0|System.Collections.Generic.List`1[[Transition, Assembly-CSharp]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 7
+      Data: 1|Source.Modules.HealthModule.Scripts.CurrentHealthMoreTransition, Assembly-CSharp
+    - Name: <NextState>k__BackingField
+      Entry: 10
+      Data: 0
+    - Name: <Priority>k__BackingField
+      Entry: 4
+      Data: 0
+    - Name: _healthComponent
+      Entry: 10
+      Data: 1
+    - Name: _value
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
 --- !u!1 &2859286714759392881
 GameObject:
   m_ObjectHideFlags: 0
@@ -948,8 +1082,9 @@ Transform:
   - {fileID: 6281038392234784507}
   - {fileID: 1153246475016138681}
   - {fileID: 1507346420647439529}
-  - {fileID: 3800523844570179552}
+  - {fileID: 2271618003268275960}
   - {fileID: 1974918297861558314}
+  - {fileID: 3800523844570179552}
   - {fileID: 7725140141779330543}
   - {fileID: 9047391113591707720}
   - {fileID: 4809664966903314507}
@@ -1217,6 +1352,11 @@ MonoBehaviour:
     <Priority>k__BackingField: 0
     _mouseKey: 1
     _needListenedPressed: 1
+  _lessTransition:
+    <NextState>k__BackingField: {fileID: 187284488894654574}
+    <Priority>k__BackingField: 11111
+    _healthComponent: {fileID: 1475188606615726485}
+    _value: 0
 --- !u!1 &4261004988686613827
 GameObject:
   m_ObjectHideFlags: 0
@@ -1312,6 +1452,11 @@ MonoBehaviour:
     <NextState>k__BackingField: {fileID: 662119888602333906}
     <Priority>k__BackingField: 11
     _entity: {fileID: 5507489092510473831}
+  _lessTransition:
+    <NextState>k__BackingField: {fileID: 187284488894654574}
+    <Priority>k__BackingField: 1111
+    _healthComponent: {fileID: 1475188606615726485}
+    _value: 0
 --- !u!1 &5090893153856846801
 GameObject:
   m_ObjectHideFlags: 0
@@ -1605,6 +1750,11 @@ MonoBehaviour:
     <Priority>k__BackingField: 0
     _mouseKey: 0
     _entity: {fileID: 5507489092510473831}
+  _lessTransition:
+    <NextState>k__BackingField: {fileID: 187284488894654574}
+    <Priority>k__BackingField: 1111
+    _healthComponent: {fileID: 1475188606615726485}
+    _value: 0
 --- !u!1 &9032835412003083309
 GameObject:
   m_ObjectHideFlags: 0

@@ -5,7 +5,6 @@ using Source.Scripts.BehaviorTreeEventSenders;
 using Source.Scripts.Enemy;
 using Source.Scripts.EntityLogic;
 using Source.Scripts_DONT_USE_THIS_FOLDER_.Abilities;
-using Transform = UnityEngine.Transform;
 
 namespace Source.Modules.EnemyModule.Scripts.IGameActions
 {
@@ -56,7 +55,6 @@ namespace Source.Modules.EnemyModule.Scripts.IGameActions
                 _needCastAbility = false;
                 _abilityCaster.UseSpell();
             }
-
             return _abilityCaster.IsAbilityProcessed ? TaskStatus.Running : TaskStatus.Success;
         }
     }

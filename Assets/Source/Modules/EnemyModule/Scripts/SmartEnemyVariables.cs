@@ -1,6 +1,6 @@
 namespace Source.Modules.EnemyModule.Scripts
 {
-    public class SmartEnemyVariables
+    public static class SmartEnemyVariables
     {
         public static string MoveToTargetActionsSequence = "MoveToTargetActionsSequence";
         public static string CanMoveToTargetConditions = "CanMoveToTargetConditions";
@@ -12,5 +12,7 @@ namespace Source.Modules.EnemyModule.Scripts
         public static string UseAbilityWithoutAnimationActions = "UseAbilityWithoutAnimationActions";
         public static string AfkTime = "_afkTime";
         public static string AfkGameActions = "AfkGameActions";
+        public static string IsDie = "IsDIe";
+        public static string DieActions = "DieActions";
     }
 }

@@ -1,34 +1,41 @@
 using System;
 using Interfaces;
-using Source.Modules.HealthModule.Scripts;
 using Source.Scripts.EntityLogic;
 using Source.Scripts.Interfaces;
 using Source.Scripts_DONT_USE_THIS_FOLDER_.Tools;
 using UnityEngine;
 
-namespace Source.Scripts.VisitableComponents
+namespace Source.Modules.HealthModule.Scripts
 {
     public class HealthComponent : OptimizedMonoBehavior, IVisitable, IDamageable, IDying
     {
         public event Action<IDying> Dead;
         public event Action<double> ReceivedDamage;
 
-        [SerializeField, Min(0)] private float _maxHeatlh;
         [SerializeField] private Entity _entity;
+        [field:SerializeField, Min(0)] public float MaxHealth { get; private set; }
 
         public Entity Entity => _entity;
 
-        private double _currentHealth;
-        public bool IsDead => _currentHealth == 0;
+        public double CurrentHealth { get; private set; }
+        public bool IsDead => CurrentHealth == 0;
 
         private void Start()
         {
-            _currentHealth = _maxHeatlh;
+            CurrentHealth = MaxHealth;
+        }
+
+        private void Update()
+        {
+            if (Input.GetKeyDown(KeyCode.CapsLock))
+            {
+                CurrentHealth = MaxHealth;
+            }
         }
 
         public void SetMaxHealth(float maxHealth)
         {
-            _maxHeatlh = maxHealth;
+            MaxHealth = maxHealth;
         }
 
         public void Accept(IVisitor visitor)
@@ -44,13 +51,13 @@ namespace Source.Scripts.VisitableComponents
             }
 
             damage -= damage * _entity.AddOrGet<EntityCurrentStatsData>().DamageReducePercent;
-            _currentHealth =
-                Math.Clamp(_currentHealth - damage, 0, _maxHeatlh);
+            CurrentHealth =
+                Math.Clamp(CurrentHealth - damage, 0, MaxHealth);
 
             Debug.LogError("TAKE DAMAGE" + damage);
             ReceivedDamage?.Invoke(damage);
             OnApplyDamage(damage);
-            if (_currentHealth == 0)
+            if (CurrentHealth == 0)
             {
                 Dead?.Invoke(this);
             }

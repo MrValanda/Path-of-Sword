@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Sirenix.OdinInspector;
 using Source.Modules.CombatModule.Scripts;
+using Source.Modules.HealthModule.Scripts;
 using Source.Scripts.EntityLogic;
 using Source.Scripts.Transitions;
 using Source.Scripts.VisitableComponents;
@@ -21,7 +22,7 @@ public class Test : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.CapsLock))
         {
-            _swordAttackVisitor.Visit(_entity.Get<PlayerHealthComponent>());
+            _swordAttackVisitor.Visit(_entity.Get<HealthComponent>());
         }
     }
 

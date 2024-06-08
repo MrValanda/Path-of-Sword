@@ -6,6 +6,7 @@ using Source.Modules.CompositeRootModule;
 using Source.Modules.DamageableFindersModule;
 using Source.Modules.EnemyModule.Scripts.IGameActions;
 using Source.Modules.EnemyModule.Scripts.IGameConditions;
+using Source.Modules.HealthModule.Scripts;
 using Source.Scripts.AttackPointCalculators;
 using Source.Scripts.BehaviorTreeEventSenders;
 using Source.Scripts.EntityLogic;
@@ -13,9 +14,11 @@ using Source.Scripts.GameActions;
 using Source.Scripts.GameConditionals;
 using Source.Scripts.Interfaces;
 using Source.Scripts.NPC.Collector;
+using Source.Scripts.VisitableComponents;
 using Source.Scripts_DONT_USE_THIS_FOLDER_.Abilities;
 using Source.Scripts_DONT_USE_THIS_FOLDER_.BehaviorsNodes.SharedVariables;
 using UnityEngine;
+using Animation = Source.Scripts.Enemy.Animation;
 
 namespace Source.Modules.EnemyModule.Scripts
 {
@@ -76,6 +79,17 @@ namespace Source.Modules.EnemyModule.Scripts
                 {
                 });
 
+            InitSequence(SmartEnemyVariables.IsDie, SmartEnemyVariables.DieActions,
+                new()
+                {
+                    new IsDieCondition(_entity.Get<HealthComponent>())
+                },
+                new()
+                {
+                    new SetAnimationBool(_entity.Get<Animation>().Animator, true, "IsDeath"), 
+                    new WaitAction(),
+                });
+          
             BehaviorTree.EnableBehavior();
         }
 

@@ -95,7 +95,7 @@ MonoBehaviour:
       Data: 
   <Damage>k__BackingField: 0
   <PreparationAttackTime>k__BackingField: 3
-  <StartAttackTime>k__BackingField: 0.01
+  <StartAttackTime>k__BackingField: 0.1
   <AfkTimeAfterAbility>k__BackingField: 3
   <NeedPreparationIndicator>k__BackingField: 0
   <RootMultiplierBeforeAbilityStart>k__BackingField: 1

@@ -42,7 +42,7 @@ MonoBehaviour:
       Data: 0.1
     - Name: <Damage>k__BackingField
       Entry: 4
-      Data: 0
+      Data: 10
     - Name: <ParryBackForce>k__BackingField
       Entry: 4
       Data: 5

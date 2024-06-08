@@ -1,6 +1,4 @@
 ﻿using System;
-using Cysharp.Threading.Tasks;
-using DG.Tweening;
 using Source.Scripts;
 using Source.Scripts.EntityLogic;
 using Source.Scripts.Tools;
@@ -36,19 +34,25 @@ namespace Source.Modules.MovementModule.Scripts
             }
 
             _animationHandler ??= _entity.Get<AnimationHandler>();
-            _animationHandler.Animator.SetLayerWeight(_animationHandler.Animator.GetLayerIndex(DodgeLayerName), 1);
+            SmoothDodge(0, 1, 10);
+
             _animationHandler.Animator.SetTrigger(Dodge);
-            _disposable?.Dispose();
         }
 
         private void OnDisable()
         {
-            float weight = 1;
+            SmoothDodge(1, 0, 2);
+        }
+
+        private void SmoothDodge(float baseWeight,float endWeight,float speed)
+        {
+            _disposable?.Dispose();
+            int layerIndex = _animationHandler.Animator.GetLayerIndex("DodgeLayer");
             _disposable = Observable.EveryUpdate().Subscribe(_ =>
             {
-                weight = Mathf.Lerp(weight, 0, Time.deltaTime * 2);
-                _animationHandler.Animator.SetLayerWeight(_animationHandler.Animator.GetLayerIndex("DodgeLayer"),
-                    weight);
+                baseWeight = Mathf.Lerp(baseWeight, endWeight, Time.deltaTime * speed);
+                _animationHandler.Animator.SetLayerWeight(layerIndex,
+                    baseWeight);
             });
         }
 

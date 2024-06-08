@@ -24,7 +24,7 @@ namespace Source.Scripts.Tools
 
         private void OnAnimatorMove()
         {
-            //if (_entity.TryGet<AddForceDirectionComponent>(out _)) return;
+            if (_entity.Contains<MoveToTargetComponent>()) return;
 
             Vector3 animatorMove = _animator.deltaPosition * _animationRootMotionMultiplayer;
             Vector3 moveWithGravity = animatorMove + Vector3.up * _verticalSpeed;

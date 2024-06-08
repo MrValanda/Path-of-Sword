@@ -5,12 +5,13 @@ using Sirenix.OdinInspector;
 using Source.Modules.BehaviorTreeModule;
 using Source.Modules.CombatModule.Scripts;
 using Source.Modules.CombatModule.Scripts.Parry;
+using Source.Modules.HealthModule.Scripts;
 using Source.Modules.LockOnTargetModule.Scripts;
 using Source.Modules.MovementModule.Scripts;
 using Source.Modules.WeaponModule.Scripts;
 using Source.Scripts.EntityLogic;
-using Source.Scripts.Interfaces;
 using Source.Scripts.Setups.Characters;
+using Source.Scripts.VisitableComponents;
 using UnityEngine;
 
 namespace Source.Modules.CompositeRootModule
@@ -29,6 +30,7 @@ namespace Source.Modules.CompositeRootModule
         [SerializeField] private CinemachineVirtualCamera _lockOnTargetCamera;
         [SerializeField] private CinemachineFreeLook _freeLookCamera;
         [SerializeField] private DamageableContainerSetup _damageableContainerSetup;
+        [SerializeField] private HealthView _playerHealthView;
         [SerializeField] private bool _spawnPlayer;
 
         public void Compose()
@@ -44,28 +46,30 @@ namespace Source.Modules.CompositeRootModule
                 });
 
             AttackStateComponentData attackStateComponentData =
-                new AttackStateComponentData(entity.transform, 0.1f, _orientation, conditionsContainer);
+                new(entity.transform, 0.1f, _orientation, conditionsContainer);
             entity.Add(attackStateComponentData);
 
             _equipment.Initialize(entity, _damageableContainerSetup);
             entity.Add(_equipment);
 
-            ParryHandler parryHandler = new ParryHandler();
+            ParryHandler parryHandler = new();
             parryHandler.Initialize(entity, _parryHandlerData);
             entity.Add(parryHandler);
 
-            MovementStateData movementStateData =
-                new MovementStateData(entity.transform, _orientation, 0.1f, 10);
+            MovementStateData movementStateData = new(entity.transform, _orientation, 0.1f, 10);
 
             entity.Add(movementStateData);
 
-            DodgeStateData dodgeStateData = new DodgeStateData(_orientation, entity.transform);
+            DodgeStateData dodgeStateData = new(_orientation, entity.transform);
             entity.Add(dodgeStateData);
 
             _freeLookCamera.Follow = entity.Get<CameraFollowTarget>().transform;
             _freeLookCamera.LookAt = entity.Get<CameraFollowTarget>().transform;
             _lockOnTargetCamera.Follow = entity.Get<CameraFollowTarget>().transform;
             entity.Get<LockOnSelector>().Initialize(_lockOnTargetCamera);
+
+            HealthController healthController = new(_playerHealthView, entity.Get<HealthComponent>());
+            entity.Add(healthController);
         }
     }
 }

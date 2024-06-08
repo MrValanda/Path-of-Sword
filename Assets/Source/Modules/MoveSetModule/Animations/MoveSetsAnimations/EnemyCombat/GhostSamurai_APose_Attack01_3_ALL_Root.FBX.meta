@@ -593,21 +593,7 @@ ModelImporter:
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
-      - time: 0.10272018
-        functionName: AbilityStart
-        data: 
-        objectReferenceParameter: {instanceID: 0}
-        floatParameter: 0
-        intParameter: 0
-        messageOptions: 0
-      - time: 0.7217907
-        functionName: AbilityEnd
-        data: 
-        objectReferenceParameter: {instanceID: 0}
-        floatParameter: 0
-        intParameter: 0
-        messageOptions: 0
-      - time: 0.19085228
+      - time: 0.20024195
         functionName: ParryType
         data: 
         objectReferenceParameter: {instanceID: 0}
@@ -628,8 +614,15 @@ ModelImporter:
         floatParameter: 0
         intParameter: 3
         messageOptions: 0
-      - time: 0.09918195
-        functionName: ParryTyoe
+      - time: 0.7217907
+        functionName: AbilityEnd
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.09627315
+        functionName: AbilityStart
         data: 
         objectReferenceParameter: {instanceID: 0}
         floatParameter: 0

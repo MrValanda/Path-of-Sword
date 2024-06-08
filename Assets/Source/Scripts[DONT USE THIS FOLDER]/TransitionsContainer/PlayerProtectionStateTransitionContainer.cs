@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using Source.Modules.HealthModule.Scripts;
 using Source.Scripts.Transitions;
 using States;
 using Transitions;
@@ -12,13 +13,17 @@ namespace Source.Scripts.TransitionsContainer
         [SerializeField] private MouseDownTransition _mouseDownTransition;
         [SerializeField] private InputKeyDownTransition _inputKeyDownTransition;
         [SerializeField] private InputMouseDownAndNotParryComponent _inputMouseDownAndNotParryComponent;
+        [SerializeField] private CurrentHealthLessTransition _lessTransition;
 
         public override List<Transition> GetTransitions()
         {
             Transitions ??= new List<Transition>()
             {
-                _inputMouseUpTransition, _mouseDownTransition, _inputKeyDownTransition,
-                _inputMouseDownAndNotParryComponent
+                _inputMouseUpTransition, 
+                _mouseDownTransition, 
+                _inputKeyDownTransition,
+                _inputMouseDownAndNotParryComponent,
+                _lessTransition
             };
             return Transitions;
         }

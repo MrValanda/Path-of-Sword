@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using Source.Modules.HealthModule.Scripts;
 using Source.Scripts_DONT_USE_THIS_FOLDER_.Transitions;
 using States;
 using Transitions;
@@ -13,6 +14,8 @@ namespace Source.Modules.CombatModule.Scripts
         [SerializeField] private AttackAnimationEndTransition attackAnimationEndTransition;
         [SerializeField] private InputMouseDownAndAttackEndTransition _inputMouseDownAndAttackEndTransition;
         [SerializeField] private EntityContainsParryBrokenComponent _entityContainsParryBrokenComponent;
+        [SerializeField] private CurrentHealthLessTransition _lessTransition;
+
 
         public override List<Transition> GetTransitions()
         {
@@ -21,7 +24,8 @@ namespace Source.Modules.CombatModule.Scripts
                 inputKeyPressedAndAttackEndTransition,
                 attackAnimationEndTransition,
                 _inputMouseDownAndAttackEndTransition,
-                _entityContainsParryBrokenComponent
+                _entityContainsParryBrokenComponent,
+                _lessTransition
             };
             return Transitions;
         }

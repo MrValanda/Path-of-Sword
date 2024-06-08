@@ -4,10 +4,12 @@ using Source.Modules.BehaviorTreeModule;
 using Source.Modules.CombatModule.Scripts;
 using Source.Modules.DamageableFindersModule;
 using Source.Modules.EnemyModule.Scripts;
+using Source.Modules.HealthModule.Scripts;
 using Source.Modules.StaggerModule.Scripts;
 using Source.Modules.WeaponModule.Scripts;
 using Source.Scripts.EntityLogic;
 using Source.Scripts.Setups.Characters;
+using Source.Scripts.VisitableComponents;
 using Source.Scripts_DONT_USE_THIS_FOLDER_.Abilities;
 using UnityEngine;
 
@@ -17,10 +19,14 @@ namespace Source.Modules.CompositeRootModule
     {
         [SerializeField] private Entity _enemyEntity;
         [SerializeField] private BehaviorTreeCompositeRoot _behaviorTreeCompositeRoot;
-        [SerializeField,TabGroup("Equipment")] private Equipment _equipment;
+
+        [SerializeField, TabGroup("Equipment")]
+        private Equipment _equipment;
+
         [SerializeField] private Transform _orientation;
         [SerializeField] private DamageableContainerSetup _damageableContainerSetup;
         [SerializeField] private EnemyCharacterSetup _enemyCharacterSetup;
+        [SerializeField] private HealthView _enemyHealthView;
 
         public void Compose()
         {
@@ -30,32 +36,38 @@ namespace Source.Modules.CompositeRootModule
                     new InfinitySuccessCondition()
                 });
             AttackStateComponentData attackStateComponentData =
-                new AttackStateComponentData(_enemyEntity.transform, 0.1f, _orientation, conditionsContainer);
+                new(_enemyEntity.transform, 0.1f, _orientation, conditionsContainer);
 
             _equipment.Initialize(_enemyEntity, _damageableContainerSetup);
-            
+
             _enemyEntity.Add(attackStateComponentData);
             _enemyEntity.Add(_equipment);
 
 
-            DamageableFinder damageableFinder = new DamageableFinder(_damageableContainerSetup,
+            DamageableFinder damageableFinder = new(
+                _damageableContainerSetup,
                 _enemyEntity.Get<DamageableFinderCollider>().Collider);
 
             _enemyEntity.Add(damageableFinder);
 
-            DamageableSelector damageableSelector = new DamageableSelector();
+            DamageableSelector damageableSelector = new();
             damageableSelector.Initialize(_enemyEntity.transform, damageableFinder);
+
             _enemyEntity.Add(damageableSelector);
             _enemyEntity.Add(_enemyCharacterSetup);
             _enemyEntity.Add(new DamageCalculator(_enemyCharacterSetup.DamageMultiplier, 1));
-            
-            AbilityCaster abilityCaster = new AbilityCaster();
+
+            AbilityCaster abilityCaster = new();
             abilityCaster.Init(_enemyCharacterSetup.AbilityContainerSetup, _enemyEntity);
-            
+
             _enemyEntity.Add(abilityCaster);
-            StaggerHandler staggerHandler = new StaggerHandler();
+            StaggerHandler staggerHandler = new();
             staggerHandler.Initialize(_enemyEntity);
             _enemyEntity.Add(staggerHandler);
+
+            HealthController healthController = new(_enemyHealthView, _enemyEntity.Get<HealthComponent>());
+            _enemyEntity.Add(healthController);
+            
             _behaviorTreeCompositeRoot.Compose();
         }
     }
