@@ -50,9 +50,6 @@ namespace Source.Modules.StaggerModule.Scripts
             {
                 SetLayersWeight(0, 1);
                 _entity.Get<ParryEffectSpawner>().SpawnEffect();
-                AddForceDirectionComponent addForceDirectionComponent = _entity.AddOrGet<AddForceDirectionComponent>();
-                addForceDirectionComponent.WhoWillMoveEntity = _entity;
-                addForceDirectionComponent.Execute(-_entity.transform.forward * 15, 10);
             }
             else
             {
@@ -62,7 +59,7 @@ namespace Source.Modules.StaggerModule.Scripts
                 }
                 else
                 {
-                    SetLayersWeight(ImpactWeight / 2, 0);
+                    SetLayersWeight(ImpactWeight, 0);
                 }
 
                 _lastReceivedDamage = Time.time;

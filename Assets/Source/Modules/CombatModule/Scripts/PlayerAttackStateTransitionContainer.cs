@@ -15,17 +15,19 @@ namespace Source.Modules.CombatModule.Scripts
         [SerializeField] private InputMouseDownAndAttackEndTransition _inputMouseDownAndAttackEndTransition;
         [SerializeField] private EntityContainsParryBrokenComponent _entityContainsParryBrokenComponent;
         [SerializeField] private CurrentHealthLessTransition _lessTransition;
+        [SerializeField] private ReceiveDamageTransition _receiveDamageTransition;
 
 
         public override List<Transition> GetTransitions()
         {
             Transitions ??= new List<Transition>()
             {
+                _lessTransition,
                 inputKeyPressedAndAttackEndTransition,
                 attackAnimationEndTransition,
                 _inputMouseDownAndAttackEndTransition,
                 _entityContainsParryBrokenComponent,
-                _lessTransition
+                _receiveDamageTransition
             };
             return Transitions;
         }

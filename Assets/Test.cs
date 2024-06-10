@@ -1,17 +1,9 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using System.Linq;
 using Sirenix.OdinInspector;
 using Source.Modules.CombatModule.Scripts;
 using Source.Modules.HealthModule.Scripts;
 using Source.Scripts.EntityLogic;
-using Source.Scripts.Transitions;
-using Source.Scripts.VisitableComponents;
-using Source.Scripts.Visitors;
 using UnityEngine;
-using UnityEngine.Jobs;
-using XftWeapon;
 
 public class Test : MonoBehaviour
 {

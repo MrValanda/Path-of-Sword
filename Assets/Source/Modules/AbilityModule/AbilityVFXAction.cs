@@ -1,4 +1,5 @@
 ﻿using System;
+using Lean.Pool;
 using Source.Scripts.EntityLogic;
 using Source.Scripts.Interfaces;
 using Source.Scripts.Setups;
@@ -13,8 +14,7 @@ namespace Source.Scripts.AbilityActions
         
         public void ExecuteAction(Transform castPoint, Entity abilityCaster, AbilityDataSetup baseAbilitySetup)
         {
-            GameObject.Instantiate(_abilityParticle, castPoint);
-
+            LeanPool.Spawn(_abilityParticle, castPoint.position, _abilityParticle.transform.rotation);
         }
 
         // public void ExecuteAction(Transform castPoint, Enemy.Enemy abilityCaster, AbilityDataSetup baseAbilitySetup)

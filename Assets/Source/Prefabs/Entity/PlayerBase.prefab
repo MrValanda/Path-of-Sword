@@ -432,7 +432,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _animator: {fileID: 8688568207137020602}
-  _animatorOverrideController: {fileID: 0}
+  _animatorOverrideController: {fileID: 22100000, guid: b5668d0d7fded9243821a2c173cb120f, type: 2}
+  _test: 0
 --- !u!1 &874873662628139185
 GameObject:
   m_ObjectHideFlags: 0
@@ -1082,6 +1083,7 @@ Transform:
   - {fileID: 6281038392234784507}
   - {fileID: 1153246475016138681}
   - {fileID: 1507346420647439529}
+  - {fileID: 1264806566768285804}
   - {fileID: 2271618003268275960}
   - {fileID: 1974918297861558314}
   - {fileID: 3800523844570179552}
@@ -1457,6 +1459,11 @@ MonoBehaviour:
     <Priority>k__BackingField: 1111
     _healthComponent: {fileID: 1475188606615726485}
     _value: 0
+  _receiveDamageTransition:
+    <NextState>k__BackingField: {fileID: 574140150551551526}
+    <Priority>k__BackingField: 1110
+    _healthComponent: {fileID: 1475188606615726485}
+    _damageToTransit: 0
 --- !u!1 &5090893153856846801
 GameObject:
   m_ObjectHideFlags: 0
@@ -1507,7 +1514,7 @@ MonoBehaviour:
   _subStates: []
   checkingTransitionDelay: 0.1
   _entity: {fileID: 5507489092510473831}
-  _impactWeight: 0.2
+  _impactWeight: 1
 --- !u!1 &5579572434164419216
 GameObject:
   m_ObjectHideFlags: 0
@@ -1560,6 +1567,106 @@ MonoBehaviour:
   _entity: {fileID: 0}
   _applyRootMotionHandler: {fileID: 1148459775096035269}
   _newMultiplier: 1
+--- !u!1 &6757194490736363578
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1264806566768285804}
+  - component: {fileID: 574140150551551526}
+  - component: {fileID: 7688221623792018288}
+  m_Layer: 6
+  m_Name: IdleState
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1264806566768285804
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6757194490736363578}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3187473335334914547}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &574140150551551526
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6757194490736363578}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c15ca0f45e534a2086baf7a70679e3fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  transform: {fileID: 1264806566768285804}
+  gameObject: {fileID: 6757194490736363578}
+  _transitions: {fileID: 7688221623792018288}
+  _subStates: []
+  checkingTransitionDelay: 0
+  _entity: {fileID: 5507489092510473831}
+--- !u!114 &7688221623792018288
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6757194490736363578}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0e5e5ebd51c4034b896283d12cad9a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects:
+    - {fileID: 2837088698749756220}
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: _transitions
+      Entry: 7
+      Data: 0|System.Collections.Generic.List`1[[Transition, Assembly-CSharp]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 7
+      Data: 1|Transitions.DelayTransition, Assembly-CSharp
+    - Name: <NextState>k__BackingField
+      Entry: 10
+      Data: 0
+    - Name: <Priority>k__BackingField
+      Entry: 4
+      Data: 0
+    - Name: _delay
+      Entry: 4
+      Data: 0.1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
 --- !u!1 &6869421410390577416
 GameObject:
   m_ObjectHideFlags: 0
@@ -1803,7 +1910,7 @@ Animator:
   m_GameObject: {fileID: 9032835412003083309}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: 3567dd98042d7e54db95a4e8cc3b7213, type: 3}
-  m_Controller: {fileID: 9100000, guid: c076642723cd1f24c9bb027832077bd2, type: 2}
+  m_Controller: {fileID: 22100000, guid: b5668d0d7fded9243821a2c173cb120f, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 1
   m_ApplyRootMotion: 1
@@ -1841,6 +1948,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3be93f0aaee846147b6e8b910a9428ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _animatorOverrideController: {fileID: 22100000, guid: b5668d0d7fded9243821a2c173cb120f, type: 2}
   <Animator>k__BackingField: {fileID: 8688568207137020602}
 --- !u!114 &128846719392384990
 MonoBehaviour:

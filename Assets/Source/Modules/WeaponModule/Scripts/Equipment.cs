@@ -5,6 +5,7 @@ using Source.Modules.CombatModule.Scripts;
 using Source.Scripts.EntityLogic;
 using Source.Scripts.Setups.Characters;
 using Source.Scripts.WeaponModule;
+using Tools;
 using UnityEngine;
 
 namespace Source.Modules.WeaponModule.Scripts
@@ -35,7 +36,7 @@ namespace Source.Modules.WeaponModule.Scripts
 
             if (currentWeaponEntity.TryGet(out Weapon weapon))
             {
-                weapon.Initialize(_swordAttackVisitor, _orientation);
+                weapon.Initialize(_swordAttackVisitor, _orientation,_ownerEntity.Get<HitBox>());
                 _ownerEntity.Add(weapon);
                 Debug.LogError("EquipWeapon " + _ownerEntity.name);
             }

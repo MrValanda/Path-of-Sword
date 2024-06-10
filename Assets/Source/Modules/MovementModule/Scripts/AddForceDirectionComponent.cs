@@ -32,7 +32,7 @@ namespace Source.Modules.MovementModule.Scripts
             _previousForce = force;
             while (token.IsCancellationRequested == false && _previousForce != Vector3.zero)
             {
-                WhoWillMoveEntity.Get<CharacterController>().SimpleMove(_previousForce);
+                WhoWillMoveEntity.Get<CharacterController>().Move(_previousForce * Time.deltaTime);
                 _previousForce = Vector3.Lerp(_previousForce, Vector3.zero, Time.deltaTime * deceleration);
                 await UniTask.Yield(token);
             }

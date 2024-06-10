@@ -4,7 +4,7 @@ using States;
 using Transitions;
 using UnityEngine;
 
-namespace Source.Modules.CombatModule.Scripts
+namespace Source.Modules.CombatModule.Scripts.Parry
 {
     public class ParryBrokenTransitionContainer : TransitionContainer
     {

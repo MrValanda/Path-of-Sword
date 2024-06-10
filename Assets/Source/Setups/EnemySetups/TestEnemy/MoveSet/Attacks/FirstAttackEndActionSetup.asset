@@ -27,10 +27,17 @@ MonoBehaviour:
         Assembly-CSharp]], mscorlib
     - Name: 
       Entry: 12
-      Data: 1
+      Data: 2
     - Name: 
       Entry: 7
       Data: 1|Source.Scripts.AbilityActions.DisableWeapon, Assembly-CSharp
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 2|Source.Modules.EnemyModule.Scripts.IGameActions.StopRotateToTargetAction,
+        Assembly-CSharp
     - Name: 
       Entry: 8
       Data: 

@@ -20,11 +20,13 @@ namespace Source.Modules.WeaponModule.Scripts
         private IDisposable _colliderTriggerDisposable;
         private SwordAttackVisitor _swordAttackVisitor;
         private Transform _orientation;
+        private HitBox _senderHitBox;
 
-        public void Initialize(SwordAttackVisitor swordAttackVisitor, Transform orientation)
+        public void Initialize(SwordAttackVisitor swordAttackVisitor, Transform orientation, HitBox senderHitBox)
         {
             _swordAttackVisitor = swordAttackVisitor;
             _orientation = orientation;
+            _senderHitBox = senderHitBox;
         }
 
         private void OnDisable()
@@ -36,12 +38,9 @@ namespace Source.Modules.WeaponModule.Scripts
         {
             _entityAttackDatas.Clear();
             _weaponHitBoxes.enabled = true;
-         
+
             _colliderTriggerDisposable = _weaponHitBoxes.OnTriggerStayAsObservable().Subscribe(
-                x =>
-                {
-                    ExecuteAttack(currentHitDataInfo, x);
-                });
+                x => { ExecuteAttack(currentHitDataInfo, x); });
         }
 
         public void Disable()
@@ -53,8 +52,8 @@ namespace Source.Modules.WeaponModule.Scripts
 
         private void ExecuteAttack(HitInfo currentAttackDataInfo, Collider triggerCollider)
         {
-            if (triggerCollider.TryGetComponent(out HitBox hitBox) == false) return;
-
+            if (triggerCollider.TryGetComponent(out HitBox hitBox) == false ||
+                ReferenceEquals(hitBox, _senderHitBox)) return;
             if (_entityAttackDatas.ContainsKey(hitBox))
             {
                 if (Time.time - _entityAttackDatas[hitBox].LastAttackTime >=
@@ -72,7 +71,6 @@ namespace Source.Modules.WeaponModule.Scripts
                 _entityAttackDatas.Add(hitBox,
                     new EntityAttackData() {AttackHits = 1, LastAttackTime = Time.time});
             }
-           
         }
 
         private void AttackAction(HitBox hitBox)
@@ -85,6 +83,7 @@ namespace Source.Modules.WeaponModule.Scripts
             ImpactDirectionVisitor impactDirectionVisitor =
                 new ImpactDirectionVisitor(new Vector2(direction.x, direction.z));
             hitBox.Accept(impactDirectionVisitor);
+            Debug.LogError("ExecuteAttack " + hitBox.name);
         }
     }
 }

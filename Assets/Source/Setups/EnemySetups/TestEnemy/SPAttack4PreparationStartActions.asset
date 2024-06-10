@@ -28,13 +28,23 @@ MonoBehaviour:
         Assembly-CSharp]], mscorlib
     - Name: 
       Entry: 12
-      Data: 1
+      Data: 2
     - Name: 
       Entry: 7
       Data: 1|Source.Scripts.AbilityActions.AbilityVFXAction, Assembly-CSharp
     - Name: _abilityParticle
       Entry: 10
       Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 2|Source.Modules.EnemyModule.Scripts.IGameActions.RotateToTargetAction,
+        Assembly-CSharp
+    - Name: _rotationSpeed
+      Entry: 4
+      Data: 10
     - Name: 
       Entry: 8
       Data: 

@@ -45,11 +45,7 @@ namespace Source.Scripts.Tools
             {
                 _verticalSpeed = 0f;
             }
-            if (animatorMove.sqrMagnitude < 0.0001)
-            {
-                return;
-            }
-      
+          
             _characterController.Move(animatorMove);
         }
     }

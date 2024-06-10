@@ -21,7 +21,7 @@ namespace Source.Modules.HealthModule.Scripts
         public override void OnEnable()
         {
             _disposable = Observable.EveryUpdate()
-                .Where(_ => _healthComponent.CurrentHealth <= _value)
+                .Where(_ => _healthComponent.CurrentHealth <= _value).Take(1)
                 .Subscribe(_ =>
                 {
                     OnNeedTransit(this);
