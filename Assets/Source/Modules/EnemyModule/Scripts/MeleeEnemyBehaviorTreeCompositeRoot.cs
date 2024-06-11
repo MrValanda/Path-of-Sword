@@ -39,7 +39,7 @@ namespace Source.Modules.EnemyModule.Scripts
             DisableEntityComponent<ParryComponent> disableParryComponent =
                 new DisableEntityComponent<ParryComponent>(_entity);
 
-            ChangeStaggerImpactValue staggerImpactValue = new ChangeStaggerImpactValue(_entity, 0.5f);
+            ChangeStaggerImpactValue staggerImpactValue = new ChangeStaggerImpactValue(_entity, 0.3f);
 
             InitSequence(SmartEnemyVariables.CanMoveToTargetConditions, SmartEnemyVariables.MoveToTargetActionsSequence,
                 new()

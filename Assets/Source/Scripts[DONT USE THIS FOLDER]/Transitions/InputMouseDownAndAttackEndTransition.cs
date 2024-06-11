@@ -17,8 +17,9 @@ namespace Transitions
         public override void OnEnable()
         {
             _attackEnded = false;
-            _attackEventListener.AttackEnded += OnAttackEnded;
-            _disposable = Observable.EveryUpdate().Where(x => _attackEnded && Input.GetMouseButton(_mouseIndex)).Take(1)
+            _attackEventListener.StopListenCombo += OnAttackEnded;
+            _attackEventListener.StartListenCombo += OnAttackStarted;
+            _disposable = Observable.EveryLateUpdate().Where(x => _attackEnded && Input.GetMouseButton(_mouseIndex)).Take(1)
                 .Subscribe(_ =>
                 {
                     _disposable?.Dispose();
@@ -28,8 +29,14 @@ namespace Transitions
 
         public override void OnDisable()
         {
-            _attackEventListener.AttackEnded -= OnAttackEnded;
+            _attackEventListener.StopListenCombo -= OnAttackEnded;
+            _attackEventListener.StartListenCombo -= OnAttackStarted;
             _disposable?.Dispose();
+        }
+
+        private void OnAttackStarted()
+        {
+            _attackEnded = false;
         }
 
         private void OnAttackEnded()

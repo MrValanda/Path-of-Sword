@@ -1,12 +1,24 @@
 ﻿using System;
 using Source.Scripts_DONT_USE_THIS_FOLDER_.Tools;
+using UnityEngine.Scripting;
 
-public class DodgeEventListener :  OptimizedMonoBehavior
+namespace Source.Modules.CombatModule.Scripts
 {
-    public event Action DodgeEnded;
-
-    private void DodgeEnd()
+    public class DodgeEventListener : OptimizedMonoBehavior
     {
-        DodgeEnded?.Invoke();
+        public event Action DodgeEnded;
+        public event Action StartListenDodgeAttack;
+
+        [Preserve]
+        private void DodgeEnd()
+        {
+            DodgeEnded?.Invoke();
+        }
+
+        [Preserve]
+        private void StartListenAttack()
+        {
+            StartListenDodgeAttack?.Invoke();
+        }
     }
 }

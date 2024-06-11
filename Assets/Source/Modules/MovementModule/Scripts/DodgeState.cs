@@ -2,13 +2,14 @@
 using Source.Scripts;
 using Source.Scripts.EntityLogic;
 using Source.Scripts.Tools;
-using UniRx;
 using UnityEngine;
 
 namespace Source.Modules.MovementModule.Scripts
 {
     public class DodgeState : State
     {
+        [SerializeField] private float _dodgeForce;
+        [SerializeField] private float _dodgeStopForce;
         private static readonly string DodgeLayerName = "DodgeLayer";
         private static readonly int Dodge = Animator.StringToHash("Dodge");
 
@@ -34,26 +35,20 @@ namespace Source.Modules.MovementModule.Scripts
             }
 
             _animationHandler ??= _entity.Get<AnimationHandler>();
-            SmoothDodge(0, 1, 10);
-
+            AddForceDirectionComponent addForceDirectionComponent = _entity.AddOrGet<AddForceDirectionComponent>();
+            addForceDirectionComponent.WhoWillMoveEntity = _entity;
+            addForceDirectionComponent.Execute(_dodgeStateData.WhoWasRotate.forward.normalized * _dodgeForce,
+                _dodgeStopForce);
             _animationHandler.Animator.SetTrigger(Dodge);
+            _animationHandler.Animator.SetLayerWeight(_animationHandler.Animator.GetLayerIndex("DodgeLayer"),
+                1);
         }
 
-        private void OnDisable()
+        protected override void OnExit()
         {
-            SmoothDodge(1, 0, 2);
-        }
-
-        private void SmoothDodge(float baseWeight,float endWeight,float speed)
-        {
-            _disposable?.Dispose();
-            int layerIndex = _animationHandler.Animator.GetLayerIndex("DodgeLayer");
-            _disposable = Observable.EveryUpdate().Subscribe(_ =>
-            {
-                baseWeight = Mathf.Lerp(baseWeight, endWeight, Time.deltaTime * speed);
-                _animationHandler.Animator.SetLayerWeight(layerIndex,
-                    baseWeight);
-            });
+            _entity.Remove<AddForceDirectionComponent>();
+            _animationHandler.Animator.SetLayerWeight(_animationHandler.Animator.GetLayerIndex("DodgeLayer"),
+                0);
         }
 
         private void FixedUpdate()

@@ -1,4 +1,5 @@
 ﻿using System;
+using Source.Modules.CombatModule.Scripts;
 using UniRx;
 using UnityEngine;
 
@@ -15,7 +16,7 @@ namespace Transitions
         public override void OnEnable()
         {
             _dodgeEnded = false;
-            _dodgeEventListener.DodgeEnded += OnDodgeEnded;
+            _dodgeEventListener.StartListenDodgeAttack += OnDodgeEnded;
             _disposable = Observable.EveryUpdate().Where(_ => _dodgeEnded && Input.GetMouseButton(_mouseIndex)).Take(1)
                 .Subscribe(
                     _ => { OnNeedTransit(this); });
@@ -24,7 +25,7 @@ namespace Transitions
         public override void OnDisable()
         {
             _disposable?.Dispose();
-            _dodgeEventListener.DodgeEnded -= OnDodgeEnded;
+            _dodgeEventListener.StartListenDodgeAttack -= OnDodgeEnded;
         }
 
         private void OnDodgeEnded()

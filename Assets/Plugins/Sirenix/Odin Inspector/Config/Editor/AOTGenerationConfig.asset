@@ -16,8 +16,42 @@ MonoBehaviour:
   deleteDllAfterBuilds: 1
   AutomateForAllAOTPlatforms: 1
   automateForPlatforms: 0900000014000000
-  lastScan: 638526732037713620
+  lastScan: 638537307764711503
   supportSerializedTypes:
+  - TypeName: Source.Modules.HealthModule.Scripts.CurrentHealthLessTransition, Assembly-CSharp
+    IsCustom: 0
+    Emit: 1
+  - TypeName: Source.Modules.HealthModule.Scripts.CurrentHealthMoreTransition, Assembly-CSharp
+    IsCustom: 0
+    Emit: 1
+  - TypeName: Transitions.DelayTransition, Assembly-CSharp
+    IsCustom: 0
+    Emit: 1
+  - TypeName: Source.Modules.HealthModule.Scripts.HealthComponent, Assembly-CSharp
+    IsCustom: 0
+    Emit: 1
+  - TypeName: Source.Modules.EnemyModule.Scripts.IGameActions.MoveToTargetAction,
+      Assembly-CSharp
+    IsCustom: 0
+    Emit: 1
+  - TypeName: Source.Modules.HealthModule.Scripts.ReceiveDamageTransition, Assembly-CSharp
+    IsCustom: 0
+    Emit: 1
+  - TypeName: Source.Scripts.Setups.RectangleIndicatorDataSetup, Assembly-CSharp
+    IsCustom: 0
+    Emit: 1
+  - TypeName: Source.Modules.EnemyModule.Scripts.IGameActions.RotateToTargetAction,
+      Assembly-CSharp
+    IsCustom: 0
+    Emit: 1
+  - TypeName: Source.Modules.EnemyModule.Scripts.IGameActions.StopMoveToTargetAction,
+      Assembly-CSharp
+    IsCustom: 0
+    Emit: 1
+  - TypeName: Source.Modules.EnemyModule.Scripts.IGameActions.StopRotateToTargetAction,
+      Assembly-CSharp
+    IsCustom: 0
+    Emit: 1
   - TypeName: Source.Scripts.AbilityActions.AbilityVFXAction, Assembly-CSharp
     IsCustom: 0
     Emit: 1
@@ -30,7 +64,14 @@ MonoBehaviour:
   - TypeName: Source.Scripts.Setups.ConeIndicatorDataSetup, Assembly-CSharp
     IsCustom: 0
     Emit: 1
+  - TypeName: Source.Scripts.Utils.SO.CustomPath, Assembly-CSharp
+    IsCustom: 0
+    Emit: 1
   - TypeName: System.Collections.Generic.Dictionary`2[[SkinLogic.SkinPartType, Assembly-CSharp],[SkinLogic.WearSkinPart,
+      Assembly-CSharp]], mscorlib
+    IsCustom: 0
+    Emit: 1
+  - TypeName: System.Collections.Generic.Dictionary`2[[System.Type, mscorlib],[Source.Scripts.IndicatorHandler.IndicatorHandler,
       Assembly-CSharp]], mscorlib
     IsCustom: 0
     Emit: 1
@@ -62,11 +103,21 @@ MonoBehaviour:
   - TypeName: Source.Scripts.Interfaces.IAbilityCondition, Assembly-CSharp
     IsCustom: 0
     Emit: 1
+  - TypeName: Source.Scripts.Interfaces.IDamageable, Assembly-CSharp
+    IsCustom: 0
+    Emit: 1
   - TypeName: System.Collections.Generic.IEqualityComparer`1[[SkinLogic.SkinPartType,
       Assembly-CSharp]], mscorlib
     IsCustom: 0
     Emit: 1
+  - TypeName: System.Collections.Generic.IEqualityComparer`1[[System.Type, mscorlib]],
+      mscorlib
+    IsCustom: 0
+    Emit: 1
   - TypeName: Source.Scripts.Setups.IndicatorDataSetup, Assembly-CSharp
+    IsCustom: 0
+    Emit: 1
+  - TypeName: Source.Scripts.IndicatorHandler.IndicatorHandler, Assembly-CSharp
     IsCustom: 0
     Emit: 1
   - TypeName: Source.Scripts.Transitions.InputKeyDownTransition, Assembly-CSharp
@@ -76,6 +127,10 @@ MonoBehaviour:
     IsCustom: 0
     Emit: 1
   - TypeName: UnityEngine.KeyCode, UnityEngine.CoreModule
+    IsCustom: 0
+    Emit: 1
+  - TypeName: System.Collections.Generic.List`1[[Source.Scripts.Utils.SO.CustomPath,
+      Assembly-CSharp]], mscorlib
     IsCustom: 0
     Emit: 1
   - TypeName: System.Collections.Generic.List`1[[Source.Scripts.Interfaces.IAbilityAction,
@@ -95,7 +150,8 @@ MonoBehaviour:
   - TypeName: Transitions.MouseDownTransition, Assembly-CSharp
     IsCustom: 0
     Emit: 1
-  - TypeName: Source.Modules.MoveSetModule.Scripts.ParryAnimationIndex, Assembly-CSharp
+  - TypeName: System.Collections.Generic.ObjectEqualityComparer`1[[System.Type, mscorlib]],
+      mscorlib
     IsCustom: 0
     Emit: 1
   - TypeName: UnityEngine.ParticleSystem, UnityEngine.ParticleSystemModule
@@ -110,10 +166,7 @@ MonoBehaviour:
   - TypeName: Source.Scripts.State, Assembly-CSharp
     IsCustom: 0
     Emit: 1
-  - TypeName: Source.Scripts.AbilityActions.TeleportAction, Assembly-CSharp
-    IsCustom: 0
-    Emit: 1
-  - TypeName: Source.Scripts.AbilityActions.TeleportAction+TeleportCentre, Assembly-CSharp
+  - TypeName: System.String, mscorlib
     IsCustom: 0
     Emit: 1
   - TypeName: UnityEngine.Texture, UnityEngine.CoreModule
@@ -122,37 +175,9 @@ MonoBehaviour:
   - TypeName: Transition, Assembly-CSharp
     IsCustom: 0
     Emit: 1
-  - TypeName: SkinLogic.WearSkinPart, Assembly-CSharp
-    IsCustom: 0
-    Emit: 1
-  - TypeName: Source.Scripts.Utils.SO.CustomPath, Assembly-CSharp
-    IsCustom: 0
-    Emit: 1
-  - TypeName: System.Collections.Generic.Dictionary`2[[System.Type, mscorlib],[Source.Scripts.IndicatorHandler.IndicatorHandler,
-      Assembly-CSharp]], mscorlib
-    IsCustom: 0
-    Emit: 1
-  - TypeName: Source.Scripts.Interfaces.IDamageable, Assembly-CSharp
-    IsCustom: 0
-    Emit: 1
-  - TypeName: System.Collections.Generic.IEqualityComparer`1[[System.Type, mscorlib]],
-      mscorlib
-    IsCustom: 0
-    Emit: 1
-  - TypeName: Source.Scripts.IndicatorHandler.IndicatorHandler, Assembly-CSharp
-    IsCustom: 0
-    Emit: 1
-  - TypeName: System.Collections.Generic.List`1[[Source.Scripts.Utils.SO.CustomPath,
-      Assembly-CSharp]], mscorlib
-    IsCustom: 0
-    Emit: 1
-  - TypeName: System.Collections.Generic.ObjectEqualityComparer`1[[System.Type, mscorlib]],
-      mscorlib
-    IsCustom: 0
-    Emit: 1
-  - TypeName: System.String, mscorlib
-    IsCustom: 0
-    Emit: 1
   - TypeName: System.Type, mscorlib
+    IsCustom: 0
+    Emit: 1
+  - TypeName: SkinLogic.WearSkinPart, Assembly-CSharp
     IsCustom: 0
     Emit: 1
