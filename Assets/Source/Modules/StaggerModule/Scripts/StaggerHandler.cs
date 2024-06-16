@@ -4,14 +4,14 @@ using Source.Modules.HealthModule.Scripts;
 using Source.Modules.MovementModule.Scripts;
 using Source.Scripts.EntityLogic;
 using Source.Scripts.Tools;
-using Source.Scripts.VisitableComponents;
 using UnityEngine;
 
 namespace Source.Modules.StaggerModule.Scripts
 {
     public class StaggerHandler : IDisposable
     {
-        private static readonly string ProtectionImpactLayerName = "ProtectionImpact";
+        private static readonly int ProtectionImpact = Animator.StringToHash("ProtectionImpact");
+        private static readonly int Impact = Animator.StringToHash("Impact");
 
         private Entity _entity;
         private float _lastReceivedDamage;
@@ -46,30 +46,44 @@ namespace Source.Modules.StaggerModule.Scripts
 
         private void OnReceivedDamage(double obj)
         {
+            Debug.LogError(_entity.Get<EntityCurrentStatsData>().DamageReducePercent);
             if (_entity.Get<EntityCurrentStatsData>().DamageReducePercent > 0)
             {
-                SetLayersWeight(0, 1);
-                _entity.Get<ParryEffectSpawner>().SpawnEffect();
+                _entity.Add(new ProtectionImpactOneFrame(_entity));
+                _entity.Get<ProtectionSpawner>().SpawnEffect();
+                if (_entity.Contains<DodgeTag>() == false)
+                {
+                    _animator.SetTrigger(ProtectionImpact);
+                }
             }
             else
             {
                 if (Time.time - _lastReceivedDamage > 1)
                 {
-                    SetLayersWeight(ImpactWeight, 0);
+                    SetLayersWeight(ImpactWeight);
                 }
                 else
                 {
-                    SetLayersWeight(ImpactWeight, 0);
+                    SetLayersWeight(ImpactWeight);
+                }
+
+                if (_entity.Contains<DodgeTag>() == false)
+                {
+                    _animator.SetTrigger(Impact);
+
+                    if (_entity.Contains<ReceiveDamageSpawner>())
+                    {
+                        _entity.Get<ReceiveDamageSpawner>().SpawnEffect();
+                    }
                 }
 
                 _lastReceivedDamage = Time.time;
             }
         }
 
-        public void SetLayersWeight(float impactWeight, float protectionImpactWeight)
+        public void SetLayersWeight(float impactWeight)
         {
             _animator.SetLayerWeight(_animator.GetLayerIndex(_impactLayerName), impactWeight);
-            _animator.SetLayerWeight(_animator.GetLayerIndex(ProtectionImpactLayerName), protectionImpactWeight);
         }
     }
 }

@@ -6,12 +6,16 @@ using UnityEngine;
 
 namespace Source.Modules.MovementModule.Scripts
 {
+public class DodgeTag {}
+
     public class DodgeState : State
     {
-        [SerializeField] private float _dodgeForce;
-        [SerializeField] private float _dodgeStopForce;
         private static readonly string DodgeLayerName = "DodgeLayer";
         private static readonly int Dodge = Animator.StringToHash("Dodge");
+        private static readonly int IsDodge = Animator.StringToHash("IsDodge");
+
+        [SerializeField] private float _dodgeForce;
+        [SerializeField] private float _dodgeStopForce;
 
         private Vector3 _direction;
         private AnimationHandler _animationHandler;
@@ -40,15 +44,19 @@ namespace Source.Modules.MovementModule.Scripts
             addForceDirectionComponent.Execute(_dodgeStateData.WhoWasRotate.forward.normalized * _dodgeForce,
                 _dodgeStopForce);
             _animationHandler.Animator.SetTrigger(Dodge);
+            _animationHandler.Animator.SetBool(IsDodge, true);
             _animationHandler.Animator.SetLayerWeight(_animationHandler.Animator.GetLayerIndex("DodgeLayer"),
                 1);
+            _entity.Add(new DodgeTag());
         }
 
         protected override void OnExit()
         {
+            _entity.Remove<DodgeTag>();
             _entity.Remove<AddForceDirectionComponent>();
+            _animationHandler.Animator.SetBool(IsDodge, false);
             _animationHandler.Animator.SetLayerWeight(_animationHandler.Animator.GetLayerIndex("DodgeLayer"),
-                0);
+                1);
         }
 
         private void FixedUpdate()

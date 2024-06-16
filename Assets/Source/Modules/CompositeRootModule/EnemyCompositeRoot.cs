@@ -30,17 +30,8 @@ namespace Source.Modules.CompositeRootModule
 
         public void Compose()
         {
-            Container<IGameCondition> conditionsContainer =
-                new Container<IGameCondition>(new List<IGameCondition>()
-                {
-                    new InfinitySuccessCondition()
-                });
-            AttackStateComponentData attackStateComponentData =
-                new(_enemyEntity.transform, 0.1f, _orientation, conditionsContainer);
-
             _equipment.Initialize(_enemyEntity, _damageableContainerSetup);
 
-            _enemyEntity.Add(attackStateComponentData);
             _enemyEntity.Add(_equipment);
 
 

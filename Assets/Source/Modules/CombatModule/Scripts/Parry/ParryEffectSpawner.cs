@@ -1,17 +1,7 @@
-﻿using Lean.Pool;
-using Source.Scripts_DONT_USE_THIS_FOLDER_.Tools;
-using UnityEngine;
-
-namespace Source.Modules.CombatModule.Scripts
+﻿namespace Source.Modules.CombatModule.Scripts.Parry
 {
-    public class ParryEffectSpawner : OptimizedMonoBehavior
+    public class ParryEffectSpawner : EffectSpawner
     {
-        [SerializeField] private Transform _effectPoint;
-        [SerializeField] private ParticleSystem _effect;
-
-        public void SpawnEffect()
-        {
-            LeanPool.Spawn(_effect, _effectPoint.position,Quaternion.identity).Play();
-        }
+     
     }
 }

@@ -37,7 +37,7 @@ namespace Source.Modules.MeshTrailModule.Scripts
                 meshTrailView.Initialize(mesh, trailMaterial);
                 Observable.Timer(TimeSpan.FromSeconds(_timeToDestroyTrailView)).Subscribe(_ =>
                 {
-                    meshTrailView.transform.DOScale(Vector3.zero, 0.2f).OnComplete(() =>
+                    meshTrailView.transform.DOScale(new Vector3(0,0,1), 0.2f).OnComplete(() =>
                     {
                         LeanPool.Despawn(meshTrailView);
                     });

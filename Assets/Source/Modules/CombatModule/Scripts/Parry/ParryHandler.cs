@@ -30,7 +30,6 @@ namespace Source.Modules.CombatModule.Scripts.Parry
                 ? _parryHandlerData.StrongParryAnimation
                 : _parryHandlerData.WeakParryAnimation;
 
-            Debug.LogError(currentParryAnimation.name);
             
             _entity.Get<AnimationHandler>()
                 .OverrideAnimation(parryAnimationName,currentParryAnimation);

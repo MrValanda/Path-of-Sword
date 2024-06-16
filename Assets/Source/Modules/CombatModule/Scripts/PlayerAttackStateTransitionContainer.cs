@@ -10,7 +10,7 @@ namespace Source.Modules.CombatModule.Scripts
 {
     public class PlayerAttackStateTransitionContainer : TransitionContainer
     {
-        [FormerlySerializedAs("_inputKeyDownAndAttackEndTransition")] [SerializeField] private InputKeyPressedAndAttackEndTransition inputKeyPressedAndAttackEndTransition;
+        [FormerlySerializedAs("_inputKeyDownAndAttackEndTransition")] [SerializeField] private DodgeTransition dodgeTransition;
         [SerializeField] private AttackAnimationEndTransition attackAnimationEndTransition;
         [SerializeField] private InputMouseDownAndAttackEndTransition _inputMouseDownAndAttackEndTransition;
         [SerializeField] private EntityContainsParryBrokenComponent _entityContainsParryBrokenComponent;
@@ -23,7 +23,7 @@ namespace Source.Modules.CombatModule.Scripts
             Transitions ??= new List<Transition>()
             {
                 _lessTransition,
-                inputKeyPressedAndAttackEndTransition,
+                dodgeTransition,
                 attackAnimationEndTransition,
                 _inputMouseDownAndAttackEndTransition,
                 _entityContainsParryBrokenComponent,

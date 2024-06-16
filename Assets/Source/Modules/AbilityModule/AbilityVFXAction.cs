@@ -14,7 +14,7 @@ namespace Source.Scripts.AbilityActions
         
         public void ExecuteAction(Transform castPoint, Entity abilityCaster, AbilityDataSetup baseAbilitySetup)
         {
-            LeanPool.Spawn(_abilityParticle, castPoint.position, _abilityParticle.transform.rotation);
+            LeanPool.Spawn(_abilityParticle, castPoint);
         }
 
         // public void ExecuteAction(Transform castPoint, Enemy.Enemy abilityCaster, AbilityDataSetup baseAbilitySetup)

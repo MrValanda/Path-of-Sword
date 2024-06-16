@@ -35,6 +35,7 @@ namespace Source.Modules.CombatModule.Scripts
                 false)
                 return;
 
+            Debug.LogError(healthComponent.Entity.Contains<ParryComponent>());
             if (healthComponent.Entity.TryGet(out ParryComponent parryComponent))
             {
                 parryComponent.WhomParryEntity = _entity;

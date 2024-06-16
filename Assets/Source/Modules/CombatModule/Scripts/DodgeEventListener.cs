@@ -8,6 +8,7 @@ namespace Source.Modules.CombatModule.Scripts
     {
         public event Action DodgeEnded;
         public event Action StartListenDodgeAttack;
+        public event Action StartListenDodge;
 
         [Preserve]
         private void DodgeEnd()
@@ -19,6 +20,12 @@ namespace Source.Modules.CombatModule.Scripts
         private void StartListenAttack()
         {
             StartListenDodgeAttack?.Invoke();
+        }
+
+        [Preserve]
+        private void ListenDodge()
+        {
+            StartListenDodge?.Invoke();
         }
     }
 }

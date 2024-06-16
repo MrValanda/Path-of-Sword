@@ -7,7 +7,9 @@ namespace Source.Modules.StaggerModule.Scripts
     public class StaggerState : State
     {
         [SerializeField] private float _impactWeight;
-        [SerializeField] private float _protectionImpactWeight;
+        [SerializeField] private float _impactWeightExit;
+       
+       
         protected override void OnEnter()
         {
             if (_entity.Contains<StaggerHandler>() == false)
@@ -17,12 +19,12 @@ namespace Source.Modules.StaggerModule.Scripts
                 staggerHandler.Initialize(_entity);
             }
 
-            _entity.Get<StaggerHandler>().SetLayersWeight(_impactWeight,_protectionImpactWeight);
+            _entity.Get<StaggerHandler>().SetImpactWeight(_impactWeight);
         }
         
         protected override void OnExit()
         {
-            _entity.Get<StaggerHandler>().SetLayersWeight(0,0);
+            _entity.Get<StaggerHandler>().SetImpactWeight(_impactWeightExit);
 
         }
     }

@@ -597,7 +597,7 @@ ModelImporter:
         intParameter: 0
         messageOptions: 0
       - time: 0.62921345
-        functionName: ResetAttack
+        functionName: StopListen
         data: 
         objectReferenceParameter: {instanceID: 0}
         floatParameter: 0
@@ -605,6 +605,13 @@ ModelImporter:
         messageOptions: 0
       - time: 0.98876405
         functionName: AnimationEnd
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.4008234
+        functionName: StartListen
         data: 
         objectReferenceParameter: {instanceID: 0}
         floatParameter: 0

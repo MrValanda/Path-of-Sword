@@ -324,8 +324,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   transform: {fileID: 4627685699021436319}
   gameObject: {fileID: 104818196371400171}
-  _healthComponent: {fileID: 1475188606615726485}
-  _animator: {fileID: 8688568207137020602}
 --- !u!114 &6634809444044897792
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -391,6 +389,8 @@ MonoBehaviour:
   - {fileID: 8566301479444004576}
   - {fileID: 3625125095765409521}
   - {fileID: 948023905641590333}
+  - {fileID: 3927974998083071030}
+  - {fileID: 7967983471246579409}
 --- !u!114 &5507489092510473831
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -654,7 +654,7 @@ MonoBehaviour:
   checkingTransitionDelay: 0.1
   _entity: {fileID: 5507489092510473831}
   _impactWeight: 1
-  _protectionImpactWeight: 0
+  _impactWeightExit: 0
 --- !u!1 &1118713513797433636
 GameObject:
   m_ObjectHideFlags: 0
@@ -798,7 +798,7 @@ MonoBehaviour:
   _renderer: {fileID: 0}
   _material: {fileID: 2100000, guid: f2412c05aa285ba4f9c572ad34052628, type: 2}
   _meshTrailView: {fileID: 1128989790172992069, guid: 5151bf941a977b2489df3da038547f48, type: 3}
-  _timeToDestroyTrailView: 2
+  _timeToDestroyTrailView: 0.75
   _intervalSpawnTrailView: 0.2
 --- !u!1 &2185186324215254395
 GameObject:
@@ -883,7 +883,7 @@ MonoBehaviour:
     <Priority>k__BackingField: 0
     _dodgeEventListener: {fileID: 128846719392384990}
   _dodgeEndAndMouseDownTransition:
-    <NextState>k__BackingField: {fileID: 3167805506874806653}
+    <NextState>k__BackingField: {fileID: 1227732926087156417}
     <Priority>k__BackingField: 1
     _dodgeEventListener: {fileID: 128846719392384990}
     _mouseIndex: 0
@@ -952,6 +952,8 @@ GameObject:
   m_Component:
   - component: {fileID: 8225980126250873118}
   - component: {fileID: 2121059324008992311}
+  - component: {fileID: 3927974998083071030}
+  - component: {fileID: 7967983471246579409}
   m_Layer: 6
   m_Name: Components
   m_TagString: Untagged
@@ -991,6 +993,38 @@ MonoBehaviour:
   gameObject: {fileID: 2758993711013040185}
   _effectPoint: {fileID: 0}
   _effect: {fileID: 198158662045118438, guid: a5986da717b87c046b2b6f8a0c583b45, type: 3}
+--- !u!114 &3927974998083071030
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2758993711013040185}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 814cb05b5b1e4ac198e2cf04663b4342, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  transform: {fileID: 8225980126250873118}
+  gameObject: {fileID: 2758993711013040185}
+  _effectPoint: {fileID: 0}
+  _effect: {fileID: 19863200, guid: fac9ad46c0307484fba6960de846139d, type: 3}
+--- !u!114 &7967983471246579409
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2758993711013040185}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e6c10de3d9346829f8ba345c917e62f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  transform: {fileID: 8225980126250873118}
+  gameObject: {fileID: 2758993711013040185}
+  _effectPoint: {fileID: 0}
+  _effect: {fileID: 19823286, guid: 77d6e8e3fa15a0b419d018e3e16931f6, type: 3}
 --- !u!1 &2816079472975920394
 GameObject:
   m_ObjectHideFlags: 0
@@ -1126,6 +1160,7 @@ Transform:
   - {fileID: 6281038392234784507}
   - {fileID: 1153246475016138681}
   - {fileID: 1507346420647439529}
+  - {fileID: 4153131561804925775}
   - {fileID: 1264806566768285804}
   - {fileID: 2271618003268275960}
   - {fileID: 1974918297861558314}
@@ -1455,6 +1490,7 @@ MonoBehaviour:
   - {fileID: 2793577541585109115}
   checkingTransitionDelay: 0.1
   _entity: {fileID: 5507489092510473831}
+  _moveSetType: 0
 --- !u!114 &4386843526138685366
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1476,10 +1512,11 @@ MonoBehaviour:
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
     SerializationNodes: []
-  inputKeyPressedAndAttackEndTransition:
+  dodgeTransition:
     <NextState>k__BackingField: {fileID: 432095749872772088}
     <Priority>k__BackingField: 0
     _keyCode: 32
+    _dodgeEventListener: {fileID: 128846719392384990}
     _attackEventListener: {fileID: 4645832866263962757}
   attackAnimationEndTransition:
     <NextState>k__BackingField: {fileID: 2837088698749756220}
@@ -1504,7 +1541,7 @@ MonoBehaviour:
     <NextState>k__BackingField: {fileID: 574140150551551526}
     <Priority>k__BackingField: 1110
     _healthComponent: {fileID: 1475188606615726485}
-    _damageToTransit: 0
+    _damageToTransit: 11111
 --- !u!1 &5090893153856846801
 GameObject:
   m_ObjectHideFlags: 0
@@ -1555,8 +1592,8 @@ MonoBehaviour:
   _subStates: []
   checkingTransitionDelay: 0.1
   _entity: {fileID: 5507489092510473831}
-  _impactWeight: 1
-  _protectionImpactWeight: 0
+  _impactWeight: 0
+  _impactWeightExit: 0
 --- !u!1 &5579572434164419216
 GameObject:
   m_ObjectHideFlags: 0
@@ -1701,7 +1738,7 @@ MonoBehaviour:
       Data: 0
     - Name: _delay
       Entry: 4
-      Data: 0.1
+      Data: 0.3
     - Name: 
       Entry: 8
       Data: 
@@ -1719,7 +1756,7 @@ MonoBehaviour:
       Data: 2
     - Name: _damageToTransit
       Entry: 4
-      Data: 0
+      Data: 111111
     - Name: 
       Entry: 8
       Data: 
@@ -1826,6 +1863,58 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   root: {fileID: 0}
+--- !u!1 &7570257948614970692
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7796695193323667898}
+  - component: {fileID: 2501228702616707263}
+  m_Layer: 6
+  m_Name: AttackDistanceSettingState
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7796695193323667898
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7570257948614970692}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4153131561804925775}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2501228702616707263
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7570257948614970692}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 71d5efd87d92737408d87798730932c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  transform: {fileID: 7796695193323667898}
+  gameObject: {fileID: 7570257948614970692}
+  _transitions: {fileID: 0}
+  _subStates: []
+  checkingTransitionDelay: 0.1
+  _entity: {fileID: 0}
+  _applyRootMotionHandler: {fileID: 1148459775096035269}
+  _newMultiplier: 1
 --- !u!1 &7919318919171538322
 GameObject:
   m_ObjectHideFlags: 0
@@ -1924,6 +2013,178 @@ MonoBehaviour:
     <Priority>k__BackingField: 1111
     _healthComponent: {fileID: 1475188606615726485}
     _value: 0
+--- !u!1 &8857353001263965172
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4153131561804925775}
+  - component: {fileID: 1227732926087156417}
+  - component: {fileID: 1120281446384099983}
+  m_Layer: 6
+  m_Name: AfterDodgeAttackState
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4153131561804925775
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8857353001263965172}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 7796695193323667898}
+  m_Father: {fileID: 3187473335334914547}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1227732926087156417
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8857353001263965172}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44a68c05480425347a674161d93b124e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  transform: {fileID: 4153131561804925775}
+  gameObject: {fileID: 8857353001263965172}
+  _transitions: {fileID: 1120281446384099983}
+  _subStates:
+  - {fileID: 8984341204752973583}
+  - {fileID: 1513107817945688879}
+  - {fileID: 7827698019308850040}
+  - {fileID: 2793577541585109115}
+  checkingTransitionDelay: 0
+  _entity: {fileID: 5507489092510473831}
+  _moveSetType: 1
+--- !u!114 &1120281446384099983
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8857353001263965172}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0e5e5ebd51c4034b896283d12cad9a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects:
+    - {fileID: 3167805506874806653}
+    - {fileID: 4645832866263962757}
+    - {fileID: 2837088698749756220}
+    - {fileID: 1227732926087156417}
+    - {fileID: 432095749872772088}
+    - {fileID: 128846719392384990}
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: _transitions
+      Entry: 7
+      Data: 0|System.Collections.Generic.List`1[[Transition, Assembly-CSharp]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 3
+    - Name: 
+      Entry: 7
+      Data: 1|Transitions.MoveToNextMoveSetTransition, Assembly-CSharp
+    - Name: <NextState>k__BackingField
+      Entry: 10
+      Data: 0
+    - Name: <Priority>k__BackingField
+      Entry: 4
+      Data: 0
+    - Name: _attackEventListener
+      Entry: 10
+      Data: 1
+    - Name: _conditionsToMoveNext
+      Entry: 7
+      Data: 2|System.Collections.Generic.List`1[[Source.Modules.BehaviorTreeModule.IGameCondition,
+        Assembly-CSharp]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 7
+      Data: 3|Source.Modules.CombatModule.Scripts.InputMouseDownCondition, Assembly-CSharp
+    - Name: _mouseIndex
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 4|Transitions.AttackAnimationEndTransition, Assembly-CSharp
+    - Name: <NextState>k__BackingField
+      Entry: 10
+      Data: 2
+    - Name: <Priority>k__BackingField
+      Entry: 4
+      Data: 0
+    - Name: _attackEventListener
+      Entry: 10
+      Data: 1
+    - Name: _attackState
+      Entry: 10
+      Data: 3
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 5|Transitions.DodgeTransition, Assembly-CSharp
+    - Name: <NextState>k__BackingField
+      Entry: 10
+      Data: 4
+    - Name: <Priority>k__BackingField
+      Entry: 4
+      Data: 0
+    - Name: _keyCode
+      Entry: 3
+      Data: 32
+    - Name: _dodgeEventListener
+      Entry: 10
+      Data: 5
+    - Name: _attackEventListener
+      Entry: 10
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
 --- !u!1 &8892604041905534490
 GameObject:
   m_ObjectHideFlags: 0
@@ -1975,7 +2236,7 @@ MonoBehaviour:
   checkingTransitionDelay: 0.1
   _entity: {fileID: 5507489092510473831}
   _impactWeight: 0
-  _protectionImpactWeight: 0
+  _impactWeightExit: 0
 --- !u!1 &9032835412003083309
 GameObject:
   m_ObjectHideFlags: 0
@@ -2108,6 +2369,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   transform: {fileID: 2925090743498617808}
   gameObject: {fileID: 9032835412003083309}
+  _animationHandler: {fileID: 6015329759389431880}
 --- !u!114 &5372707669057730216
 MonoBehaviour:
   m_ObjectHideFlags: 0

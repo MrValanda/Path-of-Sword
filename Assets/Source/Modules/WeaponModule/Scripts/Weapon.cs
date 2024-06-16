@@ -10,10 +10,17 @@ using UnityEngine;
 
 namespace Source.Modules.WeaponModule.Scripts
 {
+    [Serializable]
+    public struct MoveSeTypeData
+    {
+        public MoveSetType MoveSetType;
+        public CombatMoveSetSetup CombatMoveSetSetup;
+    }
+
     public partial class Weapon : MonoBehaviour
     {
         [SerializeField] private Collider _weaponHitBoxes;
-        [field: SerializeField] public CombatMoveSetSetup CombatMoveSetSetup { get; private set; }
+        [SerializeField] private List<MoveSeTypeData> _combatMoveSetSetup;
 
         private readonly Dictionary<HitBox, EntityAttackData> _entityAttackDatas = new(111);
 
@@ -33,6 +40,9 @@ namespace Source.Modules.WeaponModule.Scripts
         {
             Disable();
         }
+
+        public CombatMoveSetSetup this[MoveSetType moveSetType] =>
+            _combatMoveSetSetup.Find(x => x.MoveSetType == moveSetType).CombatMoveSetSetup;
 
         public void Enable(HitInfo currentHitDataInfo)
         {
@@ -54,6 +64,7 @@ namespace Source.Modules.WeaponModule.Scripts
         {
             if (triggerCollider.TryGetComponent(out HitBox hitBox) == false ||
                 ReferenceEquals(hitBox, _senderHitBox)) return;
+            
             if (_entityAttackDatas.ContainsKey(hitBox))
             {
                 if (Time.time - _entityAttackDatas[hitBox].LastAttackTime >=

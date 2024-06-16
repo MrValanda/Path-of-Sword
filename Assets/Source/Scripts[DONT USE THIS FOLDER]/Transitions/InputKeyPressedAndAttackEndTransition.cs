@@ -17,14 +17,14 @@ namespace Transitions
         public override void OnEnable()
         {
             _attackEnded = false;
-            _attackEventListener.AttackEnded += OnAttackEnded;
+            _attackEventListener.StopListenCombo += OnAttackEnded;
             _disposable = Observable.EveryUpdate().Where(x => _attackEnded && Input.GetKey(_keyCode)).Take(1)
                 .Subscribe(_ => { OnNeedTransit(this); });
         }
 
         public override void OnDisable()
         {
-            _attackEventListener.AttackEnded -= OnAttackEnded;
+            _attackEventListener.StopListenCombo -= OnAttackEnded;
             _disposable?.Dispose();
         }
 

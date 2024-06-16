@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using System.Linq;
 using BehaviorDesigner.Runtime.Tasks;
 using DG.Tweening;
 using Sirenix.Utilities;
@@ -15,7 +14,11 @@ namespace Source.Modules.CombatModule.Scripts
 {
     public class AttackState : State
     {
-        public bool IsAttacking { get; private set; }
+        private readonly List<string> _attacksAnimators = new() {"Attack", "Attack2"};
+        private static readonly int IsAttack = Animator.StringToHash("IsAttacking");
+
+        [SerializeField] private MoveSetType _moveSetType;
+        
         private WeaponTrailContainer _weaponTrailContainer;
         private Weapon _weapon;
         private AnimationHandler _animationHandler;
@@ -23,18 +26,18 @@ namespace Source.Modules.CombatModule.Scripts
 
         private int _currentAttackIndex;
         private int _currentAttackAnimationIndex;
-        private readonly List<string> _attacksAnimators = new() {"Attack", "Attack2"};
         private AttackEventListener _attackEventListener;
-        private static readonly int IsAttack = Animator.StringToHash("IsAttacking");
+        private CombatMoveSetSetup _combatMoveSetSetup;
+        public bool IsAttacking { get; private set; }
 
         protected override void OnEnter()
         {
-            _attackStateComponentData = _entity.Get<AttackStateComponentData>();
+            _attackStateComponentData = _entity.Get<AttackStateDataContainer>()[_moveSetType];
             _animationHandler ??= _entity.Get<AnimationHandler>();
             _weapon ??= _entity.Get<Weapon>();
             _weaponTrailContainer ??= _entity.Get<WeaponTrailContainer>();
             _attackEventListener ??= _entity.Get<AttackEventListener>();
-
+            _combatMoveSetSetup = _weapon[_moveSetType];
             _animationHandler.Animator.SetBool(IsAttack, true);
 
             _weaponTrailContainer.XWeaponTrails.ForEach(x => x.Activate());
@@ -64,7 +67,7 @@ namespace Source.Modules.CombatModule.Scripts
         {
             bool conditionExecuted = _attackStateComponentData.ConditionsContainer.ContainerData.TrueForAll(x =>
                 x.GetConditionStatus() == TaskStatus.Success);
-           
+
             if (IsAttacking == false && conditionExecuted)
             {
                 Attack();
@@ -87,8 +90,8 @@ namespace Source.Modules.CombatModule.Scripts
                     ? Quaternion.LookRotation(moveDirection)
                     : Quaternion.LookRotation(orientationForward), _attackStateComponentData.RotationDuration);
 
-            AttackDataInfo attackDataInfo = _weapon.CombatMoveSetSetup[_currentAttackIndex];
-            
+            AttackDataInfo attackDataInfo = _combatMoveSetSetup[_currentAttackIndex];
+
             _entity.AddOrGet<CurrentAttackData>().CurrentHitInfo = attackDataInfo.HitInfo;
             _entity.Get<ApplyRootMotionHandler>()
                 .SetAnimationRootMotionMultiplier(attackDataInfo
@@ -104,13 +107,13 @@ namespace Source.Modules.CombatModule.Scripts
 
         private void OnAttackStarted()
         {
-            _weapon.Enable(_weapon.CombatMoveSetSetup[_currentAttackIndex].HitInfo);
+            _weapon.Enable(_combatMoveSetSetup[_currentAttackIndex].HitInfo);
         }
 
         private void OnAttackEnded()
         {
             _entity.Get<ApplyRootMotionHandler>()
-                .SetAnimationRootMotionMultiplier(_weapon.CombatMoveSetSetup[_currentAttackIndex]
+                .SetAnimationRootMotionMultiplier(_combatMoveSetSetup[_currentAttackIndex]
                     .RootMultiplierAfterEndAttack);
 
             _weapon.Disable();
@@ -120,7 +123,7 @@ namespace Source.Modules.CombatModule.Scripts
         {
             IsAttacking = false;
             _currentAttackIndex++;
-            _currentAttackIndex %= _weapon.CombatMoveSetSetup.Count;
+            _currentAttackIndex %= _combatMoveSetSetup.Count;
         }
 
         private void OnStopListenCombo()

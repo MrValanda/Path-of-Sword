@@ -8,10 +8,10 @@ using Source.Modules.CombatModule.Scripts.Parry;
 using Source.Modules.HealthModule.Scripts;
 using Source.Modules.LockOnTargetModule.Scripts;
 using Source.Modules.MovementModule.Scripts;
+using Source.Modules.StaminaModule.Scripts;
 using Source.Modules.WeaponModule.Scripts;
 using Source.Scripts.EntityLogic;
 using Source.Scripts.Setups.Characters;
-using Source.Scripts.VisitableComponents;
 using UnityEngine;
 
 namespace Source.Modules.CompositeRootModule
@@ -31,6 +31,7 @@ namespace Source.Modules.CompositeRootModule
         [SerializeField] private CinemachineFreeLook _freeLookCamera;
         [SerializeField] private DamageableContainerSetup _damageableContainerSetup;
         [SerializeField] private HealthView _playerHealthView;
+        [SerializeField] private StaminaView _playerStaminaView;
         [SerializeField] private bool _spawnPlayer;
 
         public void Compose()
@@ -38,17 +39,11 @@ namespace Source.Modules.CompositeRootModule
             Entity entity = _spawnPlayer
                 ? LeanPool.Spawn(_playerEntity, transform.position, Quaternion.identity)
                 : _playerEntity;
+
+            InitMoveSet(entity);
             
-            Container<IGameCondition> conditionsContainer =
-                new Container<IGameCondition>(new List<IGameCondition>()
-                {
-                    _inputMouseDownCondition
-                });
-
-            AttackStateComponentData attackStateComponentData =
-                new(entity.transform, 0.1f, _orientation, conditionsContainer);
-            entity.Add(attackStateComponentData);
-
+            InitStamina(entity);
+            
             _equipment.Initialize(entity, _damageableContainerSetup);
             entity.Add(_equipment);
 
@@ -70,6 +65,41 @@ namespace Source.Modules.CompositeRootModule
 
             HealthController healthController = new(_playerHealthView, entity.Get<HealthComponent>());
             entity.Add(healthController);
+        }
+
+        private void InitStamina(Entity entity)
+        {
+            entity.Add(new StaminaModel(100));
+            entity.Add(new StaminaController(entity,_playerStaminaView));
+        }
+        
+        private void InitMoveSet(Entity entity)
+        {
+            Dictionary<MoveSetType, AttackStateComponentData> stateComponentDatas =
+                new Dictionary<MoveSetType, AttackStateComponentData>();
+
+            stateComponentDatas[MoveSetType.IdleType] = GetAttackDataByMoveSetType(MoveSetType.IdleType,
+                new List<IGameCondition>() {_inputMouseDownCondition},
+                entity.transform);
+
+            stateComponentDatas[MoveSetType.AfterRoll] = GetAttackDataByMoveSetType(MoveSetType.AfterRoll,
+                new List<IGameCondition>() {new InfinityFailureCondition()},
+                entity.transform);
+
+            AttackStateDataContainer attackStateDataContainer = new(stateComponentDatas);
+            entity.Add(attackStateDataContainer);
+        }
+
+        private AttackStateComponentData GetAttackDataByMoveSetType(MoveSetType moveSetType,
+            List<IGameCondition> gameConditions, Transform whoWasRotate)
+        {
+            Container<IGameCondition> conditionsContainer =
+                new Container<IGameCondition>(gameConditions);
+
+            AttackStateComponentData attackStateComponentData =
+                new(whoWasRotate, 0.1f, _orientation, conditionsContainer);
+
+            return attackStateComponentData;
         }
     }
 }

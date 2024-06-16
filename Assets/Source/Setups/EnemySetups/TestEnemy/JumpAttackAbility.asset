@@ -28,6 +28,6 @@ MonoBehaviour:
   <AbilityPreparationEndActions>k__BackingField: {fileID: 0}
   <AbilityStartedActions>k__BackingField: {fileID: 11400000, guid: 9c16492e2f9458b40903aec3b2188726, type: 2}
   <AbilityEndedActions>k__BackingField: {fileID: 11400000, guid: 8b3fb7d1cde0fb84280853b030596766, type: 2}
-  <CooldownAbility>k__BackingField: 6
+  <CooldownAbility>k__BackingField: 120
   <ChanceToUse>k__BackingField: 0
   <CooldownToUseAbility>k__BackingField: 0

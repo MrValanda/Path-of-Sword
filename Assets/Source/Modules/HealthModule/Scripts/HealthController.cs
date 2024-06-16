@@ -13,7 +13,7 @@ namespace Source.Modules.HealthModule.Scripts
             _healthView = healthView;
             _healthComponent = healthComponent;
             _healthComponent.ReceivedDamage += OnReceivedDamage;
-            _healthView.UpdateHealth(1);
+            _healthView.UpdateValue(1);
         }
         
         public void Dispose()
@@ -23,7 +23,7 @@ namespace Source.Modules.HealthModule.Scripts
 
         private void OnReceivedDamage(double damage)
         {
-            _healthView.UpdateHealth((float) (_healthComponent.CurrentHealth / _healthComponent.MaxHealth));
+            _healthView.UpdateValue((float) (_healthComponent.CurrentHealth / _healthComponent.MaxHealth));
         }
     }
 }

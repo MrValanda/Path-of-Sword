@@ -65,7 +65,7 @@ MonoBehaviour:
         Assembly-CSharp
     - Name: _speed
       Entry: 4
-      Data: 2
+      Data: 10
     - Name: 
       Entry: 8
       Data: 

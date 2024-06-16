@@ -636,7 +636,7 @@ ModelImporter:
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
-      - time: 0.012690356
+      - time: 0.01610916
         functionName: StartParry
         data: 
         objectReferenceParameter: {instanceID: 0}
