@@ -1,6 +1,8 @@
 ﻿using System.Collections.Generic;
+using Sirenix.Serialization;
 using Source.Modules.HealthModule.Scripts;
 using Source.Scripts.Transitions;
+using Source.Scripts_DONT_USE_THIS_FOLDER_.Transitions;
 using States;
 using Transitions;
 using UnityEngine;
@@ -14,6 +16,9 @@ namespace Source.Scripts.TransitionsContainer
         [SerializeField] private InputKeyDownTransition _inputKeyDownTransition;
         [SerializeField] private InputMouseDownAndNotParryComponent _inputMouseDownAndNotParryComponent;
         [SerializeField] private CurrentHealthLessTransition _lessTransition;
+        [SerializeField] private EntityContainsParryBrokenComponent _entityContainsParryBrokenComponent;
+        [OdinSerialize] private CanInteractWithInteraction _canInteractWithInteraction;
+
 
         public override List<Transition> GetTransitions()
         {
@@ -23,7 +28,9 @@ namespace Source.Scripts.TransitionsContainer
                 _mouseDownTransition, 
                 _inputKeyDownTransition,
                 _inputMouseDownAndNotParryComponent,
-                _lessTransition
+                _lessTransition,
+                _entityContainsParryBrokenComponent,
+                _canInteractWithInteraction
             };
             return Transitions;
         }

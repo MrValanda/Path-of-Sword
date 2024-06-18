@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Sirenix.Serialization;
 using Source.Modules.HealthModule.Scripts;
 using Source.Scripts.Transitions;
 using States;
@@ -13,6 +14,7 @@ namespace Source.Scripts.TransitionsContainer
         [SerializeField] private MouseDownTransition _mouseDownTransition;
         [SerializeField] private MouseDownTransition _desiredToProtection;
         [SerializeField] private CurrentHealthLessTransition _lessTransition;
+        [OdinSerialize] private CanInteractWithInteraction _canInteractWithInteraction;
 
         public override List<Transition> GetTransitions()
         {
@@ -21,7 +23,8 @@ namespace Source.Scripts.TransitionsContainer
                 _inputKeyDownTransition,
                 _mouseDownTransition,
                 _desiredToProtection,
-                _lessTransition
+                _lessTransition,
+                _canInteractWithInteraction
             };
             return Transitions;
         }

@@ -14,5 +14,7 @@ namespace Source.Modules.EnemyModule.Scripts
         public static string AfkGameActions = "AfkGameActions";
         public static string IsDie = "IsDIe";
         public static string DieActions = "DieActions";
+        public static string StaminaBrokeActions = "StaminaBrokeActions";
+        public static string IsStaminaBroken = "IsStaminaBroken";
     }
 }

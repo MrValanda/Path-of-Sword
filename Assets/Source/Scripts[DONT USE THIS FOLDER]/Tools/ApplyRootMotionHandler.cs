@@ -1,4 +1,5 @@
 using Source.Modules.MovementModule.Scripts;
+using Source.Modules.Tools;
 using Source.Scripts.EntityLogic;
 using UnityEngine;
 
@@ -24,7 +25,7 @@ namespace Source.Scripts.Tools
 
         private void OnAnimatorMove()
         {
-            if (_entity.Contains<MoveToTargetComponent>()) return;
+            if (_entity.Contains<MoveToTargetComponent>() || _entity.Contains<DisableAnimatorMoveOneFrameComponent>()) return;
 
             Vector3 animatorMove = _animator.deltaPosition * _animationRootMotionMultiplayer;
             Vector3 moveWithGravity = animatorMove + Vector3.up * _verticalSpeed;

@@ -1,15 +1,12 @@
-﻿using System.Collections.Generic;
-using Sirenix.OdinInspector;
-using Source.Modules.BehaviorTreeModule;
-using Source.Modules.CombatModule.Scripts;
+﻿using Sirenix.OdinInspector;
 using Source.Modules.DamageableFindersModule;
 using Source.Modules.EnemyModule.Scripts;
 using Source.Modules.HealthModule.Scripts;
 using Source.Modules.StaggerModule.Scripts;
+using Source.Modules.StaminaModule.Scripts;
 using Source.Modules.WeaponModule.Scripts;
 using Source.Scripts.EntityLogic;
 using Source.Scripts.Setups.Characters;
-using Source.Scripts.VisitableComponents;
 using Source.Scripts_DONT_USE_THIS_FOLDER_.Abilities;
 using UnityEngine;
 
@@ -23,10 +20,10 @@ namespace Source.Modules.CompositeRootModule
         [SerializeField, TabGroup("Equipment")]
         private Equipment _equipment;
 
-        [SerializeField] private Transform _orientation;
         [SerializeField] private DamageableContainerSetup _damageableContainerSetup;
         [SerializeField] private EnemyCharacterSetup _enemyCharacterSetup;
         [SerializeField] private HealthView _enemyHealthView;
+        [SerializeField] private StaminaView _enemyStaminaView;
 
         public void Compose()
         {
@@ -58,6 +55,9 @@ namespace Source.Modules.CompositeRootModule
 
             HealthController healthController = new(_enemyHealthView, _enemyEntity.Get<HealthComponent>());
             _enemyEntity.Add(healthController);
+
+            _enemyEntity.Add(new StaminaModel(100));
+            _enemyEntity.Add(new StaminaController(_enemyEntity, _enemyStaminaView));
             
             _behaviorTreeCompositeRoot.Compose();
         }

@@ -48,7 +48,7 @@ namespace Source.Modules.WeaponModule.Scripts
         {
             _entityAttackDatas.Clear();
             _weaponHitBoxes.enabled = true;
-
+            _colliderTriggerDisposable?.Dispose();
             _colliderTriggerDisposable = _weaponHitBoxes.OnTriggerStayAsObservable().Subscribe(
                 x => { ExecuteAttack(currentHitDataInfo, x); });
         }

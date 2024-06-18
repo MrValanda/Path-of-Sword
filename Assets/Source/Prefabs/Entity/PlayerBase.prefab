@@ -391,6 +391,7 @@ MonoBehaviour:
   - {fileID: 948023905641590333}
   - {fileID: 3927974998083071030}
   - {fileID: 7967983471246579409}
+  - {fileID: 4894207151628115432}
 --- !u!114 &5507489092510473831
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -570,7 +571,8 @@ MonoBehaviour:
   transform: {fileID: 7725140141779330543}
   gameObject: {fileID: 962418070315285219}
   _transitions: {fileID: 7209148277595596015}
-  _subStates: []
+  _subStates:
+  - {fileID: 3358079301153956666}
   checkingTransitionDelay: 0.1
   _entity: {fileID: 5507489092510473831}
 --- !u!114 &7209148277595596015
@@ -597,7 +599,7 @@ MonoBehaviour:
   _delayTransition:
     <NextState>k__BackingField: {fileID: 2837088698749756220}
     <Priority>k__BackingField: 0
-    _delay: 0.2
+    _delay: 1.8
   _lessTransition:
     <NextState>k__BackingField: {fileID: 187284488894654574}
     <Priority>k__BackingField: 11111
@@ -942,6 +944,73 @@ MonoBehaviour:
   _subStates: []
   checkingTransitionDelay: 0.1
   _entity: {fileID: 5507489092510473831}
+--- !u!1 &2297588158476986145
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5603701919136691338}
+  - component: {fileID: 9165201837129219490}
+  - component: {fileID: 4894207151628115432}
+  m_Layer: 6
+  m_Name: InteractionFinderCollider
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5603701919136691338
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2297588158476986145}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8225980126250873118}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!135 &9165201837129219490
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2297588158476986145}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 4.29
+  m_Center: {x: 0, y: 1.8739707, z: 0}
+--- !u!114 &4894207151628115432
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2297588158476986145}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 55bb4e1cb6834690b24bcaa58d94bfa2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <Collider>k__BackingField: {fileID: 9165201837129219490}
 --- !u!1 &2758993711013040185
 GameObject:
   m_ObjectHideFlags: 0
@@ -974,6 +1043,8 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6120695670013050782}
+  - {fileID: 825095948620761382}
+  - {fileID: 5603701919136691338}
   m_Father: {fileID: 4627685699021436319}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1161,6 +1232,7 @@ Transform:
   - {fileID: 1153246475016138681}
   - {fileID: 1507346420647439529}
   - {fileID: 4153131561804925775}
+  - {fileID: 4776282257339198704}
   - {fileID: 1264806566768285804}
   - {fileID: 2271618003268275960}
   - {fileID: 1974918297861558314}
@@ -1409,12 +1481,54 @@ MonoBehaviour:
   serializationData:
     SerializedFormat: 2
     SerializedBytes: 
-    ReferencedUnityObjects: []
+    ReferencedUnityObjects:
+    - {fileID: 1911205887406135559}
+    - {fileID: 5507489092510473831}
     SerializedBytesString: 
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
-    SerializationNodes: []
+    SerializationNodes:
+    - Name: _canInteractWithInteraction
+      Entry: 7
+      Data: 0|Source.Modules.HealthModule.Scripts.CanInteractWithInteraction, Assembly-CSharp
+    - Name: <NextState>k__BackingField
+      Entry: 10
+      Data: 0
+    - Name: <Priority>k__BackingField
+      Entry: 4
+      Data: 1
+    - Name: _entity
+      Entry: 10
+      Data: 1
+    - Name: _conditions
+      Entry: 7
+      Data: 1|System.Collections.Generic.List`1[[Source.Modules.BehaviorTreeModule.IGameCondition,
+        Assembly-CSharp]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 7
+      Data: 2|Source.Modules.CombatModule.Scripts.InputMouseDownCondition, Assembly-CSharp
+    - Name: _mouseIndex
+      Entry: 3
+      Data: 0
+    - Name: _isPressed
+      Entry: 5
+      Data: true
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
   _inputKeyDownTransition:
     <NextState>k__BackingField: {fileID: 432095749872772088}
     <Priority>k__BackingField: 0
@@ -1542,6 +1656,55 @@ MonoBehaviour:
     <Priority>k__BackingField: 1110
     _healthComponent: {fileID: 1475188606615726485}
     _damageToTransit: 11111
+--- !u!1 &4936964189639957598
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 825095948620761382}
+  - component: {fileID: 2239375692266928069}
+  m_Layer: 6
+  m_Name: CameraPath
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &825095948620761382
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4936964189639957598}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8225980126250873118}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2239375692266928069
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4936964189639957598}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99a9c787e5d1bbf48a389834c4a9641c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Path: {fileID: 0}
+  m_UpdateMethod: 0
+  m_PositionUnits: 1
+  m_Speed: 0
+  m_Position: 0
 --- !u!1 &5090893153856846801
 GameObject:
   m_ObjectHideFlags: 0
@@ -1646,6 +1809,107 @@ MonoBehaviour:
   _entity: {fileID: 0}
   _applyRootMotionHandler: {fileID: 1148459775096035269}
   _newMultiplier: 1
+--- !u!1 &6012280075361662514
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4776282257339198704}
+  - component: {fileID: 1911205887406135559}
+  - component: {fileID: 7511948438208167702}
+  m_Layer: 6
+  m_Name: InteractionState
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4776282257339198704
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6012280075361662514}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3187473335334914547}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1911205887406135559
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6012280075361662514}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a74736d0bbebb9f47b82a0b1d338cfcc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  transform: {fileID: 4776282257339198704}
+  gameObject: {fileID: 6012280075361662514}
+  _transitions: {fileID: 7511948438208167702}
+  _subStates:
+  - {fileID: 9136460918211971823}
+  checkingTransitionDelay: 0.1
+  _entity: {fileID: 5507489092510473831}
+--- !u!114 &7511948438208167702
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6012280075361662514}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0e5e5ebd51c4034b896283d12cad9a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects:
+    - {fileID: 2837088698749756220}
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: _transitions
+      Entry: 7
+      Data: 0|System.Collections.Generic.List`1[[Transition, Assembly-CSharp]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 7
+      Data: 1|Transitions.DelayTransition, Assembly-CSharp
+    - Name: <NextState>k__BackingField
+      Entry: 10
+      Data: 0
+    - Name: <Priority>k__BackingField
+      Entry: 4
+      Data: 0
+    - Name: _delay
+      Entry: 4
+      Data: 4
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
 --- !u!1 &6757194490736363578
 GameObject:
   m_ObjectHideFlags: 0
@@ -1984,12 +2248,54 @@ MonoBehaviour:
   serializationData:
     SerializedFormat: 2
     SerializedBytes: 
-    ReferencedUnityObjects: []
+    ReferencedUnityObjects:
+    - {fileID: 1911205887406135559}
+    - {fileID: 5507489092510473831}
     SerializedBytesString: 
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
-    SerializationNodes: []
+    SerializationNodes:
+    - Name: _canInteractWithInteraction
+      Entry: 7
+      Data: 0|Source.Modules.HealthModule.Scripts.CanInteractWithInteraction, Assembly-CSharp
+    - Name: <NextState>k__BackingField
+      Entry: 10
+      Data: 0
+    - Name: <Priority>k__BackingField
+      Entry: 4
+      Data: 5
+    - Name: _entity
+      Entry: 10
+      Data: 1
+    - Name: _conditions
+      Entry: 7
+      Data: 1|System.Collections.Generic.List`1[[Source.Modules.BehaviorTreeModule.IGameCondition,
+        Assembly-CSharp]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 7
+      Data: 2|Source.Modules.CombatModule.Scripts.InputMouseDownCondition, Assembly-CSharp
+    - Name: _mouseIndex
+      Entry: 3
+      Data: 0
+    - Name: _isPressed
+      Entry: 5
+      Data: true
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
   _inputMouseUpTransition:
     <NextState>k__BackingField: {fileID: 2793577541585109115}
     <Priority>k__BackingField: 0
@@ -2013,6 +2319,10 @@ MonoBehaviour:
     <Priority>k__BackingField: 1111
     _healthComponent: {fileID: 1475188606615726485}
     _value: 0
+  _entityContainsParryBrokenComponent:
+    <NextState>k__BackingField: {fileID: 662119888602333906}
+    <Priority>k__BackingField: 3
+    _entity: {fileID: 5507489092510473831}
 --- !u!1 &8857353001263965172
 GameObject:
   m_ObjectHideFlags: 0
@@ -2128,6 +2438,9 @@ MonoBehaviour:
     - Name: _mouseIndex
       Entry: 3
       Data: 0
+    - Name: _isPressed
+      Entry: 5
+      Data: false
     - Name: 
       Entry: 8
       Data: 
@@ -2236,7 +2549,7 @@ MonoBehaviour:
   checkingTransitionDelay: 0.1
   _entity: {fileID: 5507489092510473831}
   _impactWeight: 0
-  _impactWeightExit: 0
+  _impactWeightExit: 1
 --- !u!1 &9032835412003083309
 GameObject:
   m_ObjectHideFlags: 0

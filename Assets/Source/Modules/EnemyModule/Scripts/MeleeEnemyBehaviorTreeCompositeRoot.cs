@@ -7,6 +7,7 @@ using Source.Modules.DamageableFindersModule;
 using Source.Modules.EnemyModule.Scripts.IGameActions;
 using Source.Modules.EnemyModule.Scripts.IGameConditions;
 using Source.Modules.HealthModule.Scripts;
+using Source.Modules.StaminaModule.Scripts;
 using Source.Scripts.AttackPointCalculators;
 using Source.Scripts.BehaviorTreeEventSenders;
 using Source.Scripts.EntityLogic;
@@ -87,7 +88,21 @@ namespace Source.Modules.EnemyModule.Scripts
                 new()
                 {
                     new SetAnimationBool(_entity.Get<Animation>().Animator, true, "IsDeath"), 
-                    new WaitAction(),
+                    new WaitAction(-1),
+                });
+            
+            
+            InitSequence(SmartEnemyVariables.IsStaminaBroken,SmartEnemyVariables.StaminaBrokeActions,
+                new ()
+                {
+                    new StaminaBroken(_entity.Get<StaminaModel>())
+                }
+                ,new()
+                {
+                    staggerImpactValue, 
+                    disableParryComponent,
+                    new StaminaBrokenAction(_entity),
+                    new WaitAction(22f),
                 });
           
             BehaviorTree.EnableBehavior();

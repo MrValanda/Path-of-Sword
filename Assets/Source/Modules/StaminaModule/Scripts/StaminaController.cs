@@ -1,4 +1,5 @@
 ﻿using System;
+using Source.Modules.CombatModule.Scripts.Parry;
 using Source.Modules.StaggerModule.Scripts;
 using Source.Scripts.EntityLogic;
 
@@ -17,22 +18,32 @@ namespace Source.Modules.StaminaModule.Scripts
             _ownerEntity.ComponentAdded += OnComponentAdded;
         }
 
+        public void Dispose()
+        {
+            _ownerEntity.Get<StaminaModel>().StaminaUpdated -= OnStaminaUpdate;
+            _ownerEntity.ComponentAdded -= OnComponentAdded;
+        }
+
+        public void ResetStamina()
+        {
+            _ownerEntity.Get<StaminaModel>().UpdateStamina(_ownerEntity.Get<StaminaModel>().MaxStamina);
+        }
+
         private void OnComponentAdded(Type obj)
         {
-            if (_ownerEntity.Contains<ProtectionImpactOneFrame>())
+            if (obj == typeof(ProtectionImpactOneFrame))
             {
                 _ownerEntity.Get<StaminaModel>().UpdateStamina(-10);
             }
         }
 
-        public void Dispose()
-        {
-            _ownerEntity.Get<StaminaModel>().StaminaUpdated -= OnStaminaUpdate;
-        }
-
         private void OnStaminaUpdate(float obj)
         {
             StaminaModel staminaModel = _ownerEntity.Get<StaminaModel>();
+            if (staminaModel.CurrentStamina <= 0)
+            {
+                _ownerEntity.Add(new ParryBrokenComponent());
+            }
             _staminaView.UpdateValue(staminaModel.CurrentStamina / staminaModel.MaxStamina);
         }
     }

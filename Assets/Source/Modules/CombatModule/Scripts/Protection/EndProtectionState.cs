@@ -6,9 +6,9 @@ namespace Source.Scripts_DONT_USE_THIS_FOLDER_.States
 {
     public class EndProtectionState : State
     {
-        private void OnDisable()
+        protected override void OnExit()
         {
-              _entity.AddOrGet<EntityCurrentStatsData>().DamageReducePercent = 0;
+            _entity.AddOrGet<EntityCurrentStatsData>().DamageReducePercent = 0;
         }
     }
 }

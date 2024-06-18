@@ -3,6 +3,7 @@ using Source.CodeLibrary.ServiceBootstrap;
 using Source.Modules.CameraModule.Scripts;
 using Source.Modules.MovementModule.Scripts;
 using Source.Modules.MoveSetModule.Scripts;
+using Source.Modules.StaminaModule.Scripts;
 using Source.Scripts.EntityLogic;
 using Source.Scripts.Tools;
 using UniRx;
@@ -43,6 +44,11 @@ namespace Source.Modules.CombatModule.Scripts.Parry
             
             ServiceLocator.For(WhomParryEntity).Get<CameraShakeService>().Shake(1, 0.5f);
             Animator animator = WhoParryEntity.Get<AnimationHandler>().Animator;
+            
+            if (WhomParryEntity.TryGet(out StaminaModel staminaModel))
+            {
+                staminaModel.UpdateStamina(-currentAttackDataInfo.LossStaminaAfterParry);
+            }
             
             animator.SetTrigger(Parry);
             animator.SetFloat(ParryIndex, (float) WhomParryEntity.Get<CurrentAttackData>().CurrentParryAnimationIndex);

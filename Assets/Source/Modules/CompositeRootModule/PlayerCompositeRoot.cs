@@ -6,6 +6,7 @@ using Source.Modules.BehaviorTreeModule;
 using Source.Modules.CombatModule.Scripts;
 using Source.Modules.CombatModule.Scripts.Parry;
 using Source.Modules.HealthModule.Scripts;
+using Source.Modules.InteractionModule.Scripts;
 using Source.Modules.LockOnTargetModule.Scripts;
 using Source.Modules.MovementModule.Scripts;
 using Source.Modules.StaminaModule.Scripts;
@@ -65,6 +66,10 @@ namespace Source.Modules.CompositeRootModule
 
             HealthController healthController = new(_playerHealthView, entity.Get<HealthComponent>());
             entity.Add(healthController);
+
+            InteractionFinder interactionFinder = new(entity.Get<InteractionFinderCollider>().Collider);
+            entity.Add(interactionFinder);
+            entity.Add(new InteractionSelector(entity.transform, interactionFinder));
         }
 
         private void InitStamina(Entity entity)

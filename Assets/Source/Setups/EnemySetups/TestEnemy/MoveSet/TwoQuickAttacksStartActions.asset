@@ -46,6 +46,9 @@ MonoBehaviour:
     - Name: <ParryBackForce>k__BackingField
       Entry: 4
       Data: 5
+    - Name: <LossStaminaAfterParry>k__BackingField
+      Entry: 4
+      Data: 5
     - Name: 
       Entry: 8
       Data: 
