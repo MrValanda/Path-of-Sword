@@ -9,5 +9,10 @@ namespace Source.Modules.InteractionModule.Scripts
         {
             _entity.Get<InteractionSelector>()?.SelectedInteraction.Interact(_entity);
         }
+
+        protected override void OnExit()
+        {
+            _entity.Get<InteractionSelector>()?.SelectedInteraction.StopInteract(_entity);
+        }
     }
 }

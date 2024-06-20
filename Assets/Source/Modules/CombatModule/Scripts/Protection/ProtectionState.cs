@@ -1,4 +1,5 @@
-﻿using Source.Modules.CombatModule.Scripts;
+﻿using System.Collections.Generic;
+using Source.Modules.CombatModule.Scripts;
 using Source.Modules.CombatModule.Scripts.Parry;
 using Source.Modules.HealthModule.Scripts;
 using Source.Scripts;
@@ -14,12 +15,15 @@ namespace Source.Scripts_DONT_USE_THIS_FOLDER_.States
         private static readonly int Protect = Animator.StringToHash("Protect");
 
         [SerializeField, Range(0, 1)] private float _damageReduce;
+        [SerializeField] private List<State> _subStatesAfterParry = new List<State>();
 
         private Animator _animator;
         private ProtectionEventListener _protectionEventListener;
+        private bool _needEnterToSubStates;
 
         private void OnEnable()
         {
+            _needEnterToSubStates = true;
             _animator ??= _entity.Get<AnimationHandler>().Animator;
             _protectionEventListener ??= _entity.Get<ProtectionEventListener>();
             if (_entity.TryGet(out ParryHandler parryHandler))
@@ -42,6 +46,14 @@ namespace Source.Scripts_DONT_USE_THIS_FOLDER_.States
         private void OnDisable()
         {
             _animator.SetBool(IsProtection, false);
+            _needEnterToSubStates = false;
+            foreach (State state in _subStatesAfterParry)
+            {
+                if (state.enabled)
+                {
+                    state.Exit();
+                }
+            }
         }
 
         private void StartParry()
@@ -56,6 +68,17 @@ namespace Source.Scripts_DONT_USE_THIS_FOLDER_.States
 
         private void StopParry()
         {
+            if(_needEnterToSubStates)
+            {
+                foreach (State state in _subStatesAfterParry)
+                {
+                    if (state.enabled == false)
+                    {
+                        state.Enter();
+                    }
+                }
+            }
+
             _entity.Remove<ParryComponent>();
         }
     }

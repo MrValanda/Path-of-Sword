@@ -1,4 +1,6 @@
-﻿using Sirenix.OdinInspector;
+﻿using DG.Tweening;
+using Lean.Pool;
+using Sirenix.OdinInspector;
 using Source.Modules.StaminaModule.Scripts;
 using Source.Modules.Tools;
 using Source.Scripts.EntityLogic;
@@ -14,7 +16,11 @@ namespace Source.Modules.InteractionModule.Scripts
         private static readonly int FinalBlowTrigger = Animator.StringToHash("FinalBlowTrigger");
         private static readonly int IsStunned = Animator.StringToHash("IsStunned");
 
-        [SerializeField] private Transform _interactionPoint;
+
+        public override void StopInteract(Entity interactSender)
+        {
+            LeanPool.Despawn(InteractionEntity);
+        }
 
         public override bool CanInteract(Entity entity)
         {
@@ -24,13 +30,15 @@ namespace Source.Modules.InteractionModule.Scripts
         [Button]
         public override void Interact(Entity interactSender)
         {
+            interactSender.transform.DOKill(true);
             interactSender.Add(new DisableAnimatorMoveOneFrameComponent(interactSender));
             interactSender.Get<AnimationHandler>().Animator.SetTrigger(FinalBlowTrigger);
-            InteractionEntity.transform.forward = -_interactionPoint.forward;
+            InteractionEntity.transform.forward =
+                (interactSender.transform.position - InteractionEntity.transform.position).normalized;
             InteractionEntity.Get<AnimationHandler>().Animator.SetTrigger(FatalDamageTrigger);
             InteractionEntity.Get<AnimationHandler>().Animator.SetBool(IsStunned, false);
-            interactSender.transform.position = _interactionPoint.position;
-            interactSender.transform.rotation = _interactionPoint.rotation;
+            interactSender.transform.position = InteractionPoint.position;
+            interactSender.transform.forward = InteractionPoint.forward;
         }
     }
 }

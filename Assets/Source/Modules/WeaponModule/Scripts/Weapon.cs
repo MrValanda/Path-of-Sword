@@ -94,7 +94,6 @@ namespace Source.Modules.WeaponModule.Scripts
             ImpactDirectionVisitor impactDirectionVisitor =
                 new ImpactDirectionVisitor(new Vector2(direction.x, direction.z));
             hitBox.Accept(impactDirectionVisitor);
-            Debug.LogError("ExecuteAttack " + hitBox.name);
         }
     }
 }

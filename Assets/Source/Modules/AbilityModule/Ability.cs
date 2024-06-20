@@ -168,6 +168,7 @@ namespace Source.Scripts.Abilities
         public void StopCast()
         {
             Dispose();
+            ExecuteActions(_abilityEndedActions);
             _animationPartPlayer.Reset();
             _indicatorTimer?.Dispose();
         }

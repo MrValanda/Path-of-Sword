@@ -46,7 +46,6 @@ namespace Source.Modules.StaggerModule.Scripts
 
         private void OnReceivedDamage(double obj)
         {
-            Debug.LogError(_entity.Get<EntityCurrentStatsData>().DamageReducePercent);
             if (_entity.Get<EntityCurrentStatsData>().DamageReducePercent > 0)
             {
                 _entity.Add(new ProtectionImpactOneFrame(_entity));

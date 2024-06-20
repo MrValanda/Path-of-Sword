@@ -53,8 +53,7 @@ namespace Source.Modules.HealthModule.Scripts
             damage -= damage * _entity.AddOrGet<EntityCurrentStatsData>().DamageReducePercent;
             CurrentHealth =
                 Math.Clamp(CurrentHealth - damage, 0, MaxHealth);
-
-            Debug.LogError("TAKE DAMAGE" + damage);
+            
             ReceivedDamage?.Invoke(damage);
             OnApplyDamage(damage);
             if (CurrentHealth == 0)

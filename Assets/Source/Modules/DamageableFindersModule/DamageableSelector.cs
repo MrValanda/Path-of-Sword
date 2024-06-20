@@ -36,7 +36,7 @@ namespace Source.Modules.DamageableFindersModule
         
         private void SelectTarget()
         {
-            if (_damageableFinder.FindedDamageables.Count == 0)
+            if (_damageableFinder.FindedDamageables.Count == 0 || _startingTransform == null)
             {
                 SelectedDamageable = null;
                 return;
