@@ -1,6 +1,4 @@
-﻿using Lean.Pool;
-using Source.Scripts.ProjectilesLogic;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace Source.Scripts.Enemy
 {

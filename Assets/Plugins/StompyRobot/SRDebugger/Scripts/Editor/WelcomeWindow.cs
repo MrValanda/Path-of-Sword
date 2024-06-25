@@ -1,5 +1,4 @@
-﻿using System;
-using SRDebugger.Internal;
+﻿using SRDebugger.Internal;
 using SRDebugger.Internal.Editor;
 using SRF;
 using UnityEditor;

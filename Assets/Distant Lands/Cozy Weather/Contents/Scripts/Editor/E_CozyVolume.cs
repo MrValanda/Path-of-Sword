@@ -1,7 +1,6 @@
 ﻿// Distant Lands 2022.
 
 
-using UnityEngine;
 using UnityEditor;
 
 namespace DistantLands.Cozy.EditorScripts

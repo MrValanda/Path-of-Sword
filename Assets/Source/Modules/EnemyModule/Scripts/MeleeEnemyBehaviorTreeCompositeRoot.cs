@@ -15,9 +15,9 @@ using Source.Scripts.GameActions;
 using Source.Scripts.GameConditionals;
 using Source.Scripts.Interfaces;
 using Source.Scripts.NPC.Collector;
-using Source.Scripts.VisitableComponents;
 using Source.Scripts_DONT_USE_THIS_FOLDER_.Abilities;
 using Source.Scripts_DONT_USE_THIS_FOLDER_.BehaviorsNodes.SharedVariables;
+using Source.Scripts_DONT_USE_THIS_FOLDER_.Transitions;
 using UnityEngine;
 using Animation = Source.Scripts.Enemy.Animation;
 
@@ -32,6 +32,9 @@ namespace Source.Modules.EnemyModule.Scripts
         {
             IAttackPointCalculator meleeAttackPointCalculator =
                 new MeleeAttackPointCalculator(GetTarget, _entity.transform);
+
+            IAttackPointCalculator rangeAttackPointCalculator =
+                new RangeAttackPointCalculator(GetTarget, _entity.transform);
 
             NeedStayAfkBehaviorTreeEventSender needStayAfkBehaviorTreeEventSender =
                 new NeedStayAfkBehaviorTreeEventSender(BehaviorTree);
@@ -55,7 +58,8 @@ namespace Source.Modules.EnemyModule.Scripts
             InitSequence(SmartEnemyVariables.CanAttackTarget, SmartEnemyVariables.AttackTargetActionsSequence,
                 new()
                 {
-                    new DamageableSelectorIsNotNull(_entity), new EntityCanAttackCondition(_entity, _obstacleLayer)
+                    new DamageableSelectorIsNotNull(_entity), 
+                    new EntityCanAttackCondition(_entity, _obstacleLayer),
                 },
                 new()
                 {
@@ -78,6 +82,8 @@ namespace Source.Modules.EnemyModule.Scripts
             BehaviorTree.InitVariable<SharedGameActionsContainer, List<IGameAction>>(SmartEnemyVariables.AfkGameActions,
                 new()
                 {
+                    new SetAnimationBool(_entity.Get<Animation>().Animator, true, "MoveLeft"), 
+                    new RotateToTarget(_entity, 5),
                 });
 
             InitSequence(SmartEnemyVariables.IsDie, SmartEnemyVariables.DieActions,

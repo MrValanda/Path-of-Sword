@@ -3,7 +3,6 @@ using Source.Modules.DamageableFindersModule;
 using Source.Scripts.EntityLogic;
 using Source.Scripts.Interfaces;
 using Source.Scripts.Setups;
-using Source.Scripts.Utils;
 using UnityEngine;
 
 namespace Source.Scripts.AbilityConditions

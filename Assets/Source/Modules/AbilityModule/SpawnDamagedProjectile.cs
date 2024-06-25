@@ -1,10 +1,8 @@
 ﻿using System;
 using System.Linq;
 using Lean.Pool;
-using Sirenix.OdinInspector;
 using Source.Modules.EnemyModule.Scripts;
 using Source.Modules.WeaponModule.Scripts;
-using Source.Scripts.Enemy;
 using Source.Scripts.EntityLogic;
 using Source.Scripts.Interfaces;
 using Source.Scripts.ProjectilesLogic;

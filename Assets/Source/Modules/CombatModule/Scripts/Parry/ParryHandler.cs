@@ -1,4 +1,3 @@
-using System;
 using Source.Scripts.EntityLogic;
 using Source.Scripts.Tools;
 using UnityEngine;
@@ -36,15 +35,5 @@ namespace Source.Modules.CombatModule.Scripts.Parry
             
             _lastParryQuery = Time.time;
         }
-        /* из parry handler я кидаю запрос на парирование 
-           handler.Parry();
-           он у себя под капотом добавляет компонент parry с разными интервалами 
-           как высчитывается интервал
-           если я успешно отпарировал окно большое 
-           если же я есть компонет парирования и я делаю запрос еще
-           то я уменьшаю окно 
-           если я не вызываю запрос на парирование n времени
-           окно становится нормальным 
-           */
     }
 }

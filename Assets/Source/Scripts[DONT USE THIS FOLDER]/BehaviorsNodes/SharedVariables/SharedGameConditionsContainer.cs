@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using BehaviorDesigner.Runtime;
 using Source.Modules.BehaviorTreeModule;
-using Source.Scripts.Interfaces;
 
 namespace Source.Scripts_DONT_USE_THIS_FOLDER_.BehaviorsNodes.SharedVariables
 {

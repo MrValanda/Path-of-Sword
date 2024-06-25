@@ -5,7 +5,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
-using DistantLands.Cozy.Data;
 
 namespace DistantLands.Cozy.EditorScripts
 {

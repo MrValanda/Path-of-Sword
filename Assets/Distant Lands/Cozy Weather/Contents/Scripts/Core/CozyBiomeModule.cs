@@ -1,7 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using DistantLands.Cozy.Data;
 #if UNITY_EDITOR
 using UnityEditor;
 #endif

@@ -1,9 +1,7 @@
 ﻿using System.Collections.Generic;
-using BehaviorDesigner.Runtime.Tasks;
 using Source.Modules.BehaviorTreeModule;
 using Source.Scripts.GameActions;
 using Source.Scripts.GameConditionals;
-using Source.Scripts.Interfaces;
 using UnityEngine;
 
 namespace Source.Scripts.Enemy

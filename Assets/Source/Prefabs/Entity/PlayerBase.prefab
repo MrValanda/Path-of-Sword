@@ -365,6 +365,7 @@ MonoBehaviour:
     - Name: <Value>k__BackingField
       Entry: 10
       Data: 0
+  <Owner>k__BackingField: {fileID: 5507489092510473831}
 --- !u!114 &1475188606615726485
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -671,7 +672,7 @@ MonoBehaviour:
   _subStates: []
   checkingTransitionDelay: 0.1
   _entity: {fileID: 5507489092510473831}
-  _impactWeight: 1
+  _impactWeight: 0.2
   _impactWeightExit: 0
 --- !u!1 &1118713513797433636
 GameObject:
@@ -1771,7 +1772,7 @@ MonoBehaviour:
   _subStates: []
   checkingTransitionDelay: 0.1
   _entity: {fileID: 5507489092510473831}
-  _impactWeight: 0
+  _impactWeight: 0.2
   _impactWeightExit: 0
 --- !u!1 &5579572434164419216
 GameObject:
@@ -2672,7 +2673,7 @@ MonoBehaviour:
   checkingTransitionDelay: 0.1
   _entity: {fileID: 5507489092510473831}
   _impactWeight: 0
-  _impactWeightExit: 1
+  _impactWeightExit: 0.2
 --- !u!1 &9032835412003083309
 GameObject:
   m_ObjectHideFlags: 0
@@ -2689,6 +2690,7 @@ GameObject:
   - component: {fileID: 1148459775096035269}
   - component: {fileID: 8566301479444004576}
   - component: {fileID: 5372707669057730216}
+  - component: {fileID: 7785638692392940279}
   m_Layer: 6
   m_Name: Model_Unity_Ver1
   m_TagString: Untagged
@@ -2819,3 +2821,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _entity: {fileID: 5507489092510473831}
+--- !u!114 &7785638692392940279
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9032835412003083309}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 23c697af8622b2947b245d28ded38d7f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _sender: {fileID: 5507489092510473831}

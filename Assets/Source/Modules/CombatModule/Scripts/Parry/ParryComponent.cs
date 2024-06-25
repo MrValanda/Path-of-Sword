@@ -1,12 +1,12 @@
 ﻿using System;
 using Source.CodeLibrary.ServiceBootstrap;
+using Source.Modules.AudioModule;
 using Source.Modules.CameraModule.Scripts;
 using Source.Modules.MovementModule.Scripts;
 using Source.Modules.MoveSetModule.Scripts;
 using Source.Modules.StaminaModule.Scripts;
 using Source.Scripts.EntityLogic;
 using Source.Scripts.Tools;
-using UniRx;
 using UnityEngine;
 
 namespace Source.Modules.CombatModule.Scripts.Parry
@@ -49,7 +49,7 @@ namespace Source.Modules.CombatModule.Scripts.Parry
             {
                 staminaModel.UpdateStamina(-currentAttackDataInfo.LossStaminaAfterParry);
             }
-            
+
             animator.SetTrigger(Parry);
             animator.SetFloat(ParryIndex, (float) WhomParryEntity.Get<CurrentAttackData>().CurrentParryAnimationIndex);
 

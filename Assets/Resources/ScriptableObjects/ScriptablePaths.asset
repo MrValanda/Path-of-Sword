@@ -27,13 +27,34 @@ MonoBehaviour:
         Assembly-CSharp]], mscorlib
     - Name: 
       Entry: 12
-      Data: 1
+      Data: 2
     - Name: 
       Entry: 7
       Data: 1|Source.Scripts.Utils.SO.CustomPath, Assembly-CSharp
     - Name: ClassType
       Entry: 7
       Data: 2|System.RuntimeType, mscorlib
+    - Name: 
+      Entry: 1
+      Data: Source.Modules.AudioModule.Scripts.SoundContainer, Assembly-CSharp
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: Path
+      Entry: 1
+      Data: ScriptableObjects
+    - Name: ConfigType
+      Entry: 1
+      Data: SoundContainer
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 3|Source.Scripts.Utils.SO.CustomPath, Assembly-CSharp
+    - Name: ClassType
+      Entry: 7
+      Data: 4|System.RuntimeType, mscorlib
     - Name: 
       Entry: 1
       Data: Source.Scripts.Setups.IndicatorHandlerFactorySetup, Assembly-CSharp

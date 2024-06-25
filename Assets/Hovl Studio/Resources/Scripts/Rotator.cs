@@ -1,21 +1,23 @@
-﻿using System.Collections;
-using UnityEngine;
+﻿using UnityEngine;
 
-public class Rotator : MonoBehaviour
+namespace Hovl_Studio.Resources.Scripts
 {
-	public float x = 0f;
-	public float y = 0f;
-	public float z = 0f;
-	void OnEnable()
-    {
-		InvokeRepeating("Rotate", 0f, 0.0167f);
-	}
-	void OnDisable()
-    {
-		CancelInvoke();
-	}
-	void Rotate()
-    {
-		this.transform.localEulerAngles += new Vector3(x,y,z);
+	public class Rotator : MonoBehaviour
+	{
+		public float x = 0f;
+		public float y = 0f;
+		public float z = 0f;
+		void OnEnable()
+		{
+			InvokeRepeating("Rotate", 0f, 0.0167f);
+		}
+		void OnDisable()
+		{
+			CancelInvoke();
+		}
+		void Rotate()
+		{
+			this.transform.localEulerAngles += new Vector3(x,y,z);
+		}
 	}
 }

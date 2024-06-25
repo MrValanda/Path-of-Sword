@@ -1,4 +1,5 @@
 ﻿using System;
+using Source.Modules.AudioModule;
 using UnityEngine;
 
 namespace Source.Modules.MoveSetModule.Scripts
@@ -11,5 +12,6 @@ namespace Source.Modules.MoveSetModule.Scripts
         [field: SerializeField, Min(0)] public float Damage { get; private set; }
         [field: SerializeField] public float ParryBackForce { get; private set; }
         [field: SerializeField] public float LossStaminaAfterParry { get; private set; }
+        [field: SerializeField] public SoundType WhooshSoundsType { get; private set; }
     }
 }

@@ -2,12 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using BehaviorDesigner.Runtime;
-using DG.Tweening;
-using Lean.Pool;
-using Sirenix.OdinInspector;
-using Source.CodeLibrary.ServiceBootstrap;
-using Source.Scripts.Abilities;
-using Source.Scripts.AttackPointCalculators;
 using Source.Scripts.BehaviorsNodes.SharedVariables;
 using Source.Scripts.CodeGenerator;
 using Source.Scripts.InterfaceLinker;
@@ -16,7 +10,6 @@ using Source.Scripts.Setups;
 using Source.Scripts.Setups.Characters;
 using Source.Scripts.Utils;
 using Source.Scripts_DONT_USE_THIS_FOLDER_.Abilities;
-using Source.Scripts_DONT_USE_THIS_FOLDER_.BehaviorsNodes.SharedVariables;
 using Source.Scripts_DONT_USE_THIS_FOLDER_.Utils;
 using UnityEngine;
 

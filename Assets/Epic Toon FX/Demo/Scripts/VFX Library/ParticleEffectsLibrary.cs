@@ -1,8 +1,7 @@
-﻿using UnityEngine;
-using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using UnityEngine;
 
-namespace ETFXPEL
+namespace Epic_Toon_FX.Demo.Scripts.VFX_Library
 {
 
 public class ParticleEffectsLibrary : MonoBehaviour {

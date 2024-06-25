@@ -19,7 +19,6 @@ using UnityEngine.Rendering;
 using UnityEngine.Rendering.Universal;
 #endif
 
-using Configuration = MK.Toon.Editor.InstallWizard.Configuration;
 namespace MK.Toon.Editor.InstallWizard
 {
     //[CreateAssetMenu(fileName = "Configuration", menuName = "MK/Install Wizard/Create Configuration Asset")]

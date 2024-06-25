@@ -1,5 +1,7 @@
 using System;
 using System.Collections.Generic;
+using Source.CodeLibrary.ServiceBootstrap;
+using Source.Modules.AudioModule;
 using Source.Modules.CombatModule.Scripts;
 using Source.Modules.MoveSetModule.Scripts;
 using Source.Scripts.Visitors;
@@ -34,6 +36,7 @@ namespace Source.Modules.WeaponModule.Scripts
             _swordAttackVisitor = swordAttackVisitor;
             _orientation = orientation;
             _senderHitBox = senderHitBox;
+
         }
 
         private void OnDisable()

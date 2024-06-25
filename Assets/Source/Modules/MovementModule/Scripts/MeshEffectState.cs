@@ -1,5 +1,4 @@
-﻿using System;
-using Source.Modules.MeshTrailModule.Scripts;
+﻿using Source.Modules.MeshTrailModule.Scripts;
 using Source.Scripts;
 using UnityEngine;
 

@@ -1,12 +1,13 @@
 using System;
 using System.Linq;
 using Interfaces;
+using Source.CodeLibrary.ServiceBootstrap;
+using Source.Modules.AudioModule;
 using Source.Modules.CombatModule.Scripts.Parry;
 using Source.Modules.HealthModule.Scripts;
 using Source.Modules.MovementModule.Scripts;
 using Source.Scripts.EntityLogic;
 using Source.Scripts.Setups.Characters;
-using Source.Scripts.VisitableComponents;
 using UnityEngine;
 using Animation = Source.Scripts.Enemy.Animation;
 
@@ -39,6 +40,7 @@ namespace Source.Modules.CombatModule.Scripts
             {
                 parryComponent.WhomParryEntity = _entity;
                 parryComponent.Execute();
+                ServiceLocator.For(_entity).Get<SoundPlayer>().PlaySoundByType(SoundType.Parry_0);
                 return;
             }
 

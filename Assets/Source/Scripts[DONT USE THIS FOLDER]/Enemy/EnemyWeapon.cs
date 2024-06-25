@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using Source.Scripts.Interfaces;
 using UnityEngine;
 
 namespace Source.Scripts.Enemy

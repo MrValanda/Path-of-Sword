@@ -1,7 +1,5 @@
 ﻿using Source.Modules.LockOnTargetModule.Scripts;
 using Source.Scripts;
-using Source.Scripts_DONT_USE_THIS_FOLDER_.Tools;
-using Tools;
 using UnityEngine;
 
 namespace States

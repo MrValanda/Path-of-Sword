@@ -1,7 +1,6 @@
 ﻿using BehaviorDesigner.Runtime.Tasks;
 using Source.Modules.BehaviorTreeModule;
 using Source.Modules.HealthModule.Scripts;
-using Source.Scripts.VisitableComponents;
 
 namespace Source.Modules.EnemyModule.Scripts.IGameActions
 {

@@ -6,8 +6,6 @@
 // Copyright © 2023 All rights reserved.            //
 //////////////////////////////////////////////////////
 
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace MK.Toon.Examples

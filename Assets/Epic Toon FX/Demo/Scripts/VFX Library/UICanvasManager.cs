@@ -1,8 +1,7 @@
 ﻿using UnityEngine;
-using System.Collections;
 using UnityEngine.UI;
 
-namespace ETFXPEL
+namespace Epic_Toon_FX.Demo.Scripts.VFX_Library
 {
 
 public class UICanvasManager : MonoBehaviour {

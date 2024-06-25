@@ -1,5 +1,4 @@
 ﻿using System;
-using DG.Tweening;
 using Source.Modules.DamageableFindersModule;
 using Source.Scripts.EntityLogic;
 using Source.Scripts.Interfaces;

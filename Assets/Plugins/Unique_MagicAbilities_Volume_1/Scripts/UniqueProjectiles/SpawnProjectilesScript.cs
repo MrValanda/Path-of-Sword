@@ -4,7 +4,6 @@
 //This is just a basic example.
 //
 
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;

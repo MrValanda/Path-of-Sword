@@ -1,4 +1,6 @@
 ﻿using System;
+using Source.CodeLibrary.ServiceBootstrap;
+using Source.Modules.AudioModule;
 using Source.Scripts;
 using Source.Scripts.EntityLogic;
 using Source.Scripts.Tools;
@@ -25,6 +27,7 @@ public class DodgeTag {}
         protected override void OnEnter()
         {
             _dodgeStateData = _entity.Get<DodgeStateData>();
+            ServiceLocator.For(this).Get<SoundPlayer>().PlaySoundByType(SoundType.Dodge);
             Vector3 orientationForward = _dodgeStateData.Orientation.forward;
             Vector3 orientationRight = _dodgeStateData.Orientation.right;
             orientationForward.y = 0;

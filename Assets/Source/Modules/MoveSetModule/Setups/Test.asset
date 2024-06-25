@@ -30,3 +30,5 @@ MonoBehaviour:
       <DelayBetweenHits>k__BackingField: 0
       <Damage>k__BackingField: 10
       <ParryBackForce>k__BackingField: 15
+      <LossStaminaAfterParry>k__BackingField: 0
+      <WhooshSoundsType>k__BackingField: 2

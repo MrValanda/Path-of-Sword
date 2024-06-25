@@ -1,8 +1,8 @@
-using UnityEngine;
 using System.Collections;
+using UnityEngine;
 using UnityEngine.UI;
 
-namespace EpicToonFX
+namespace Epic_Toon_FX.Demo.Scripts
 {
     public class ETFXEffectController : MonoBehaviour
     {

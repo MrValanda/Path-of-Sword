@@ -1,6 +1,5 @@
 ﻿using BehaviorDesigner.Runtime;
 using BehaviorDesigner.Runtime.Tasks;
-using DG.Tweening;
 using Source.Scripts.BehaviorsNodes.SharedVariables;
 using Source.Scripts.Enemy;
 using Source.Scripts.GameActions;

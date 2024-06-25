@@ -1,9 +1,8 @@
 ﻿using UnityEngine;
-using System.Collections;
-using UnityEngine.UI;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
-namespace ETFXPEL
+namespace Epic_Toon_FX.Demo.Scripts.VFX_Library
 {
 
 public enum ButtonTypes {

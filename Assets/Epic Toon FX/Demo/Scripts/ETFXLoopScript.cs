@@ -1,7 +1,7 @@
-﻿using UnityEngine;
-using System.Collections;
+﻿using System.Collections;
+using UnityEngine;
 
-namespace EpicToonFX
+namespace Epic_Toon_FX.Demo.Scripts
 {
 	public class ETFXLoopScript : MonoBehaviour
 	{

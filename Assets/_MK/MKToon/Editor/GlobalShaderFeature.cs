@@ -8,7 +8,6 @@
 
 #if UNITY_EDITOR
 using UnityEditor;
-using System;
 using System.Collections.Generic;
 
 namespace MK.Toon.Editor

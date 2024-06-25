@@ -1,10 +1,7 @@
 // Distant Lands 2022.
 
 
-
-using System.Collections.Generic;
 using UnityEngine;
-using System.Collections;
 #if UNITY_EDITOR
 using UnityEditor;
 #endif

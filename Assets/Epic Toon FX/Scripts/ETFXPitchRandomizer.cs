@@ -1,7 +1,6 @@
 using UnityEngine;
-using System.Collections;
 
-namespace EpicToonFX
+namespace Epic_Toon_FX.Scripts
 {
 
 	public class ETFXPitchRandomizer : MonoBehaviour

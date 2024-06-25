@@ -1,5 +1,4 @@
 ﻿using System;
-using Source.Scripts.VisitableComponents;
 
 namespace Source.Modules.HealthModule.Scripts
 {

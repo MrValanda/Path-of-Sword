@@ -46,6 +46,12 @@ MonoBehaviour:
     - Name: <ParryBackForce>k__BackingField
       Entry: 4
       Data: 20
+    - Name: <LossStaminaAfterParry>k__BackingField
+      Entry: 4
+      Data: 0
+    - Name: <WhooshSoundsType>k__BackingField
+      Entry: 3
+      Data: 0
     - Name: 
       Entry: 8
       Data: 

@@ -7,7 +7,7 @@ namespace Source.Scripts.Enemy
     {
         public override IAttackPointCalculator GetAttackPointCalculator()
         {
-            return new RangeAttackPointCalculator(Target.transform, transform);
+            return null;
         }
     }
 }

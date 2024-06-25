@@ -1,4 +1,6 @@
 using System;
+using Source.CodeLibrary.ServiceBootstrap;
+using Source.Modules.AudioModule;
 using Source.Modules.CombatModule.Scripts;
 using Source.Modules.HealthModule.Scripts;
 using Source.Modules.MovementModule.Scripts;
@@ -50,10 +52,11 @@ namespace Source.Modules.StaggerModule.Scripts
             {
                 _entity.Add(new ProtectionImpactOneFrame(_entity));
                 _entity.Get<ProtectionSpawner>().SpawnEffect();
-                if (_entity.Contains<DodgeTag>() == false)
-                {
-                    _animator.SetTrigger(ProtectionImpact);
-                }
+
+                if (_entity.Contains<DodgeTag>()) return;
+
+                _animator.SetTrigger(ProtectionImpact);
+                ServiceLocator.For(_entity).Get<SoundPlayer>().PlaySoundByType(SoundType.Sword_Protection_Hit_0);
             }
             else
             {
@@ -69,6 +72,7 @@ namespace Source.Modules.StaggerModule.Scripts
                 if (_entity.Contains<DodgeTag>() == false)
                 {
                     _animator.SetTrigger(Impact);
+                    ServiceLocator.For(_entity).Get<SoundPlayer>().PlaySoundByType(SoundType.Sword_Hit_0);
 
                     if (_entity.Contains<ReceiveDamageSpawner>())
                     {

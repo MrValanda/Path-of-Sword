@@ -1,10 +1,10 @@
 ﻿using System;
 using BehaviorDesigner.Runtime.Tasks;
 using Source.Modules.BehaviorTreeModule;
+using Source.Modules.CombatModule.Scripts;
 using Source.Modules.DamageableFindersModule;
 using Source.Scripts.Enemy;
 using Source.Scripts.EntityLogic;
-using Source.Scripts.Interfaces;
 using Source.Scripts.Setups.Characters;
 using UnityEngine;
 
@@ -24,6 +24,7 @@ namespace Source.Scripts.GameConditionals
 
         public TaskStatus GetConditionStatus()
         {
+            if (_entity.Contains<ParryCompleteComponent>()) return TaskStatus.Failure;
             Vector3 attackerPosition = _entity.transform.position;
             Vector3 targetPosition = _entity.Get<DamageableSelector>().SelectedDamageable.transform.position;
             Vector3 directionToTarget = targetPosition - attackerPosition;

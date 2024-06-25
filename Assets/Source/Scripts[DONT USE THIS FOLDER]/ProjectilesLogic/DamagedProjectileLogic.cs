@@ -1,8 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using Lean.Pool;
 using Source.Scripts.Interfaces;
-using UniRx;
 using UnityEngine;
 
 namespace Source.Scripts.ProjectilesLogic

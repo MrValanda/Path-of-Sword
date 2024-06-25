@@ -1,4 +1,6 @@
 ﻿using System.Collections.Generic;
+using Source.CodeLibrary.ServiceBootstrap;
+using Source.Modules.AudioModule;
 using Source.Modules.CombatModule.Scripts;
 using Source.Modules.CombatModule.Scripts.Parry;
 using Source.Modules.HealthModule.Scripts;
@@ -64,6 +66,7 @@ namespace Source.Scripts_DONT_USE_THIS_FOLDER_.States
         private void ProtectionStart()
         {
             _entity.AddOrGet<EntityCurrentStatsData>().DamageReducePercent = _damageReduce;
+            ServiceLocator.For(this).Get<SoundPlayer>().PlaySoundByType(SoundType.Sword_Protection_Start_0);
         }
 
         private void StopParry()

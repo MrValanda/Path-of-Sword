@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: SPAttack4
   m_EditorClassIdentifier: 
   serializationData:
-    SerializedFormat: 2
+    SerializedFormat: 0
     SerializedBytes: 
     ReferencedUnityObjects: []
     SerializedBytesString: 
@@ -28,6 +28,6 @@ MonoBehaviour:
   <AbilityPreparationEndActions>k__BackingField: {fileID: 0}
   <AbilityStartedActions>k__BackingField: {fileID: 11400000, guid: 16aae2d6d1a31b640afe050b92200976, type: 2}
   <AbilityEndedActions>k__BackingField: {fileID: 11400000, guid: 9b7a4c160b265ce45bcecf3276358abd, type: 2}
-  <CooldownAbility>k__BackingField: 60
+  <CooldownAbility>k__BackingField: 35
   <ChanceToUse>k__BackingField: 0
   <CooldownToUseAbility>k__BackingField: 5

@@ -1,10 +1,7 @@
 ﻿using UnityEngine;
-using UnityEngine.SceneManagement;
 using UnityEngine.UI;
-using System.Collections;
-using System.Collections.Generic;
 
-namespace EpicToonFX
+namespace Epic_Toon_FX.Demo.Scripts
 {
 
 public class ETFXButtonScript : MonoBehaviour

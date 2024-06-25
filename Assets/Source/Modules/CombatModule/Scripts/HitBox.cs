@@ -1,8 +1,6 @@
 using Interfaces;
 using Source.Modules.HealthModule.Scripts;
-using Source.Scripts.VisitableComponents;
 using UnityEngine;
-using VisitableComponents;
 using Animation = Source.Scripts.Enemy.Animation;
 
 namespace Tools

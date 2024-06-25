@@ -5,7 +5,6 @@ using DG.Tweening.Core;
 using DG.Tweening.Plugins.Options;
 using Sirenix.OdinInspector;
 using UnityEngine;
-using UnityEngine.Profiling;
 
 namespace Source.Scripts.Utils
 {

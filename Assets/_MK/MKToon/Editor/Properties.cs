@@ -7,8 +7,6 @@
 //////////////////////////////////////////////////////
 
 #if UNITY_EDITOR
-using MK.Toon;
-
 namespace MK.Toon.Editor
 {
     internal static class EditorProperties

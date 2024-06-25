@@ -9,7 +9,6 @@
 #pragma warning disable 0414 // private field assigned but not used.
 
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class CameraShakeSimpleScript : MonoBehaviour {

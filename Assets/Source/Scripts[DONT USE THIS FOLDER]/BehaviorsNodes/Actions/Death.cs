@@ -1,7 +1,5 @@
 ﻿using BehaviorDesigner.Runtime.Tasks;
 using Source.Modules.BehaviorTreeModule;
-using Source.Scripts.BehaviorsNodes.SharedVariables;
-using Source.Scripts.Interfaces;
 using Source.Scripts_DONT_USE_THIS_FOLDER_.BehaviorsNodes.SharedVariables;
 
 namespace Source.Scripts.BehaviorsNodes.Actions

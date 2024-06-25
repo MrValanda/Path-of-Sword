@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace EpicToonFX
+namespace Epic_Toon_FX.Demo.Scripts
 {
     public class ETFXEffectControllerPooled : MonoBehaviour
     {

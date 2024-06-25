@@ -3,7 +3,6 @@ using BehaviorDesigner.Runtime.Tasks;
 using Cysharp.Threading.Tasks;
 using Source.Modules.BehaviorTreeModule;
 using Source.Scripts.Enemy;
-using Source.Scripts.Interfaces;
 using UnityEngine;
 using Random = UnityEngine.Random;
 

@@ -1,8 +1,6 @@
 ﻿// Distant Lands 2022.
 
 
-
-using DistantLands.Cozy.Data;
 using System.Collections.Generic;
 using UnityEngine;
 

@@ -1,6 +1,4 @@
-﻿
-using System.IO;
-using System.Text;
+﻿using System.Text;
 using UnityEngine.Networking;
 
 #if NETFX_CORE

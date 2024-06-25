@@ -1,9 +1,4 @@
-using System.Collections.Generic;
-using System.Linq;
-using Cinemachine;
-using Source.Modules.CameraModule.Scripts;
 using Source.Scripts.Factories;
-using UnityEngine;
 
 namespace Source.CodeLibrary.ServiceBootstrap.SceneContainers
 {

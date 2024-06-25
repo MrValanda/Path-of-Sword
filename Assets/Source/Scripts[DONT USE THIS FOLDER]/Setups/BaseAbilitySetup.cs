@@ -1,7 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using Sirenix.OdinInspector;
-using Sirenix.Serialization;
 using Source.Scripts.AnimationEventNames;
 using Source.Scripts.EditorTools;
 using UnityEngine;
@@ -71,6 +70,13 @@ namespace Source.Scripts.Setups
             [FolderPath] string path = @"Assets/Source/Setups/Attacks")
         {
             AssetCreator<AbilityActionSetup> assetCreator = new AssetCreator<AbilityActionSetup>();
+            assetCreator.CreateAsset(path, abilityActionName);
+        }
+        [Button,TabGroup("Conditions")]
+        public void CreateAbilityCondition(string abilityActionName,
+            [FolderPath] string path = @"Assets/Source/Setups/Attacks")
+        {
+            AssetCreator<AbilityConditionSetup> assetCreator = new AssetCreator<AbilityConditionSetup>();
             assetCreator.CreateAsset(path, abilityActionName);
         }
 #endif

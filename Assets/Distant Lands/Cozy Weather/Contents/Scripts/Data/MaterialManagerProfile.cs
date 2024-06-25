@@ -1,10 +1,8 @@
-﻿using System.Security;
-// Distant Lands 2022.
+﻿// Distant Lands 2022.
 
 
 
 using UnityEngine;
-using System.Collections.Generic;
 #if UNITY_EDITOR
 using UnityEditor;
 #endif

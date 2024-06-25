@@ -1,6 +1,5 @@
 ﻿using System;
 using BehaviorDesigner.Runtime.Tasks;
-using Cinemachine.Utility;
 using Source.Modules.BehaviorTreeModule;
 using Source.Modules.DamageableFindersModule;
 using Source.Scripts.EntityLogic;

@@ -1,9 +1,8 @@
-﻿using UnityEngine;
-using UnityEngine.EventSystems;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEngine;
 
-namespace EpicToonFX
+namespace Epic_Toon_FX.Demo.Scripts
 {
 	public class ETFXEffectCycler : MonoBehaviour
 	{

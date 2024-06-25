@@ -1,6 +1,4 @@
-﻿using System;
-using Source.Scripts.Interfaces;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace Source.Scripts.Enemy
 {
