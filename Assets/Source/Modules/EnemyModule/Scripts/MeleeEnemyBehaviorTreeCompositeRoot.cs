@@ -8,6 +8,8 @@ using Source.Modules.EnemyModule.Scripts.IGameActions;
 using Source.Modules.EnemyModule.Scripts.IGameConditions;
 using Source.Modules.HealthModule.Scripts;
 using Source.Modules.StaminaModule.Scripts;
+using Source.Scripts_DONT_USE_THIS_FOLDER_.Abilities;
+using Source.Scripts_DONT_USE_THIS_FOLDER_.BehaviorsNodes.SharedVariables;
 using Source.Scripts.AttackPointCalculators;
 using Source.Scripts.BehaviorTreeEventSenders;
 using Source.Scripts.EntityLogic;
@@ -15,9 +17,6 @@ using Source.Scripts.GameActions;
 using Source.Scripts.GameConditionals;
 using Source.Scripts.Interfaces;
 using Source.Scripts.NPC.Collector;
-using Source.Scripts_DONT_USE_THIS_FOLDER_.Abilities;
-using Source.Scripts_DONT_USE_THIS_FOLDER_.BehaviorsNodes.SharedVariables;
-using Source.Scripts_DONT_USE_THIS_FOLDER_.Transitions;
 using UnityEngine;
 using Animation = Source.Scripts.Enemy.Animation;
 
@@ -32,85 +31,107 @@ namespace Source.Modules.EnemyModule.Scripts
         {
             IAttackPointCalculator meleeAttackPointCalculator =
                 new MeleeAttackPointCalculator(GetTarget, _entity.transform);
-
-            IAttackPointCalculator rangeAttackPointCalculator =
-                new RangeAttackPointCalculator(GetTarget, _entity.transform);
-
-            NeedStayAfkBehaviorTreeEventSender needStayAfkBehaviorTreeEventSender =
-                new NeedStayAfkBehaviorTreeEventSender(BehaviorTree);
+            
+            Animator animator = _entity.Get<Animation>().Animator;
+            
+            NeedStayAfkBehaviorTreeEventSender needStayAfkBehaviorTreeEventSender = new(BehaviorTree);
             _entity.Add(needStayAfkBehaviorTreeEventSender);
 
             DisableEntityComponent<ParryComponent> disableParryComponent =
                 new DisableEntityComponent<ParryComponent>(_entity);
 
-            ChangeStaggerImpactValue staggerImpactValue = new ChangeStaggerImpactValue(_entity, 0.3f);
+            ChangeStaggerImpactValue staggerImpactValue = new(_entity, 0.3f);
 
             InitSequence(SmartEnemyVariables.CanMoveToTargetConditions, SmartEnemyVariables.MoveToTargetActionsSequence,
-                new()
+                new List<IGameCondition>
                 {
                     new DamageableSelectorIsNotNull(_entity)
                 },
-                new()
+                new List<IGameAction>
                 {
-                    new MoveToAttackPointAction(meleeAttackPointCalculator, _entity),
+                    new MoveToAttackPointAction(meleeAttackPointCalculator, _entity)
                 });
 
             InitSequence(SmartEnemyVariables.CanAttackTarget, SmartEnemyVariables.AttackTargetActionsSequence,
-                new()
+                new List<IGameCondition>
                 {
-                    new DamageableSelectorIsNotNull(_entity), 
-                    new EntityCanAttackCondition(_entity, _obstacleLayer),
+                    new DamageableSelectorIsNotNull(_entity),
+                    new EntityCanAttackCondition(_entity, _obstacleLayer)
                 },
-                new()
+                new List<IGameAction>
                 {
                     staggerImpactValue, disableParryComponent,
                     new RotateToTarget(_entity, 5),
-                    new EnemyAttackGameAction(_entity, needStayAfkBehaviorTreeEventSender),
+                    new EnemyAttackGameAction(_entity, needStayAfkBehaviorTreeEventSender)
                 });
 
             InitSequence(SmartEnemyVariables.CanUseAbility, SmartEnemyVariables.UseAbilityActionsSequence,
-                new()
+                new List<IGameCondition>
                 {
                     new CanUseAbility(_entity.Get<AbilityCaster>(), _entity)
                 },
-                new()
+                new List<IGameAction>
                 {
                     staggerImpactValue, disableParryComponent,
                     new UseRandomAbilityAction(_entity.Get<AbilityCaster>(), _entity)
                 });
 
-            BehaviorTree.InitVariable<SharedGameActionsContainer, List<IGameAction>>(SmartEnemyVariables.AfkGameActions,
-                new()
+            
+            BehaviorTree.InitVariable<SharedGameActionsContainer, List<IGameAction>>(
+                SmartEnemyVariables.StartAfkGameActions,
+                new List<IGameAction>
                 {
-                    new SetAnimationBool(_entity.Get<Animation>().Animator, true, "MoveLeft"), 
-                    new RotateToTarget(_entity, 5),
+                    new SendAnimationTrigger(animator,"Protect"),
+                    new SetAnimationBool(animator, true, "IsProtection", false),
+                    new SetAnimationBool(animator, true, "IsMovement", false)
                 });
 
-            InitSequence(SmartEnemyVariables.IsDie, SmartEnemyVariables.DieActions,
-                new()
+            BehaviorTree.InitVariable<SharedGameActionsContainer, List<IGameAction>>(SmartEnemyVariables.AfkGameActions,
+                new List<IGameAction>
+                {
+                    new RotateToTarget(_entity, 5f),
+                    new DelayedExecutorAction(2f,new List<IGameAction>()
+                    {
+                        new SetRandomAnimationFloatValue(animator, "InputX", -1, 1),
+                        new SetRandomAnimationFloatValue(animator, "InputY", -1, 1)
+                    })
+                });
+
+
+            BehaviorTree.InitVariable<SharedGameActionsContainer, List<IGameAction>>(
+                SmartEnemyVariables.EndAfkGameActions,
+                new List<IGameAction>
+                {
+                    new SetAnimationBool(animator, false, "IsProtection", false),
+                    new SetAnimationBool(animator, false, "IsMovement", false)
+                });
+
+
+            InitSequence(SmartEnemyVariables.IsDIe, SmartEnemyVariables.DieActions,
+                new List<IGameCondition>
                 {
                     new IsDieCondition(_entity.Get<HealthComponent>())
                 },
-                new()
+                new List<IGameAction>
                 {
-                    new SetAnimationBool(_entity.Get<Animation>().Animator, true, "IsDeath"), 
-                    new WaitAction(-1),
+                    new SetAnimationBool(animator, true, "IsDeath"),
+                    new WaitAction(-1)
                 });
-            
-            
-            InitSequence(SmartEnemyVariables.IsStaminaBroken,SmartEnemyVariables.StaminaBrokeActions,
-                new ()
+
+
+            InitSequence(SmartEnemyVariables.IsStaminaBroken, SmartEnemyVariables.StaminaBrokeActions,
+                new List<IGameCondition>
                 {
                     new StaminaBroken(_entity.Get<StaminaModel>())
                 }
-                ,new()
+                , new List<IGameAction>
                 {
-                    staggerImpactValue, 
+                    staggerImpactValue,
                     disableParryComponent,
                     new StaminaBrokenAction(_entity),
-                    new WaitAction(22f),
+                    new WaitAction(22f)
                 });
-          
+
             BehaviorTree.EnableBehavior();
         }
 

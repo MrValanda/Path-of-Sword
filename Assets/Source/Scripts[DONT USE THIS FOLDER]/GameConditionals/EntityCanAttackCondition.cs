@@ -24,7 +24,6 @@ namespace Source.Scripts.GameConditionals
 
         public TaskStatus GetConditionStatus()
         {
-            if (_entity.Contains<ParryCompleteComponent>()) return TaskStatus.Failure;
             Vector3 attackerPosition = _entity.transform.position;
             Vector3 targetPosition = _entity.Get<DamageableSelector>().SelectedDamageable.transform.position;
             Vector3 directionToTarget = targetPosition - attackerPosition;

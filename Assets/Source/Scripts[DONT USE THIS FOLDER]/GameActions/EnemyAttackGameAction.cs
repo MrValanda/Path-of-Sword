@@ -17,6 +17,8 @@ namespace Source.Scripts.GameActions
     [Serializable]
     public class EnemyAttackGameAction : IGameAction
     {
+        private static readonly int IsAttacking = Animator.StringToHash("IsAttacking");
+
         private static readonly List<string> AttackStateNames = new()
         {
             "Attack",
@@ -33,7 +35,6 @@ namespace Source.Scripts.GameActions
         private Ability _currentUsedAttackAbility;
         private Transform _castPoint;
         private bool _needCastNewSpell;
-        private static readonly int IsAttacking = Animator.StringToHash("IsAttacking");
 
         public EnemyAttackGameAction(Entity entity,
             NeedStayAfkBehaviorTreeEventSender needStayAfkBehaviorTreeEventSender)

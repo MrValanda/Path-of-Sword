@@ -1,19 +1,22 @@
 using BehaviorDesigner.Runtime.Tasks;
 using Source.Modules.BehaviorTreeModule;
+using Source.Modules.DamageableFindersModule;
+using Source.Scripts_DONT_USE_THIS_FOLDER_.Abilities;
 using Source.Scripts.Abilities;
 using Source.Scripts.BehaviorTreeEventSenders;
-using Source.Scripts.Enemy;
 using Source.Scripts.EntityLogic;
-using Source.Scripts_DONT_USE_THIS_FOLDER_.Abilities;
+using UnityEngine;
+using Animation = Source.Scripts.Enemy.Animation;
 
 namespace Source.Modules.EnemyModule.Scripts.IGameActions
 {
+  
     public class UseRandomAbilityAction : IGameAction
     {
         private readonly AbilityCaster _abilityCaster;
         private readonly Entity _entity;
         private bool _needCastAbility;
-        private static readonly int IsAbilityCast = UnityEngine.Animator.StringToHash("IsAbilityCast");
+        private static readonly int IsAbilityCast = Animator.StringToHash("IsAbilityCast");
 
         public UseRandomAbilityAction(AbilityCaster abilityCaster, Entity entity)
         {
@@ -38,11 +41,8 @@ namespace Source.Modules.EnemyModule.Scripts.IGameActions
 
         private void OnAbilityEnded(Ability obj)
         {
-            float afkTimeAfterAbility = obj.AbilitySetup.AbilityDataSetup.AfkTimeAfterAbility;
-            if (afkTimeAfterAbility == 0)
-            {
-                return;
-            }
+            var afkTimeAfterAbility = obj.AbilitySetup.AbilityDataSetup.AfkTimeAfterAbility;
+            if (afkTimeAfterAbility == 0) return;
 
             _entity.Get<NeedStayAfkBehaviorTreeEventSender>()
                 .SendEvent(afkTimeAfterAbility);
@@ -55,6 +55,7 @@ namespace Source.Modules.EnemyModule.Scripts.IGameActions
                 _needCastAbility = false;
                 _abilityCaster.UseSpell();
             }
+
             return _abilityCaster.IsAbilityProcessed ? TaskStatus.Running : TaskStatus.Success;
         }
     }

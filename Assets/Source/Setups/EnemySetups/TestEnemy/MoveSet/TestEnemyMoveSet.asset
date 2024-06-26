@@ -15,7 +15,7 @@ MonoBehaviour:
   <AbilityChains>k__BackingField:
   - <AbilitySetups>k__BackingField:
     - {fileID: 11400000, guid: cd3c21d79ac3aeb42b0539fec2a1bb2b, type: 2}
-    <AfkTimeAfterChain>k__BackingField: 2
+    <AfkTimeAfterChain>k__BackingField: 10
   - <AbilitySetups>k__BackingField:
     - {fileID: 11400000, guid: 564d973d2f0fb694f9bff9fde15ae64e, type: 2}
-    <AfkTimeAfterChain>k__BackingField: 1
+    <AfkTimeAfterChain>k__BackingField: 10

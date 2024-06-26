@@ -42,8 +42,10 @@ namespace Source.Modules.MovementModule.Scripts
                     Time.deltaTime * _movementStateData.Acceleration));
 
             Vector3 inputDirection = _movementStateData.WhoMoved.InverseTransformDirection(_moveDirection);
+            
             _animator.SetFloat(InputX, inputDirection.x,0.1f,Time.deltaTime);
             _animator.SetFloat(InputY, inputDirection.z,0.1f,Time.deltaTime);
+            
             if (_moveDirection != Vector3.zero && _entity.Contains<DisableAnimatorMoveOneFrameComponent>() == false)
             {
                 _movementStateData.WhoMoved.DOKill();

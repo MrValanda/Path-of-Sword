@@ -1,4 +1,5 @@
-﻿using Source.Scripts.EntityLogic;
+﻿using Source.Modules.Tools;
+using Source.Scripts.EntityLogic;
 
 namespace Source.Modules.CombatModule.Scripts
 {

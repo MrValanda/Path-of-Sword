@@ -56,7 +56,7 @@ namespace Source.Modules.CompositeRootModule
             HealthController healthController = new(_enemyHealthView, _enemyEntity.Get<HealthComponent>());
             _enemyEntity.Add(healthController);
 
-            _enemyEntity.Add(new StaminaModel(1000));
+            _enemyEntity.Add(new StaminaModel(200));
             _enemyEntity.Add(new StaminaController(_enemyEntity, _enemyStaminaView));
             
             _behaviorTreeCompositeRoot.Compose();

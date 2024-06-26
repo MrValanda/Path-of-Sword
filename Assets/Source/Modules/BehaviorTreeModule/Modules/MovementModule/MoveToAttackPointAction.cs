@@ -39,7 +39,6 @@ namespace Source.Modules.BehaviorTreeModule.Modules.MovementModule
             Vector3 direction = _attackPointCalculator.GetDirection();
             _senderEntity.transform.forward = direction;
             _senderEntity.Get<IMovement>().Move(direction);
-            Debug.LogError(direction);
             return direction == Vector3.zero ? TaskStatus.Success : TaskStatus.Running;
         }
     }

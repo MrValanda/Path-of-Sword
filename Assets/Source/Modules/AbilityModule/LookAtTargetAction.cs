@@ -10,8 +10,6 @@ namespace Source.Scripts.AbilityActions
     [Serializable]
     public class LookAtTargetAction : IAbilityAction
     {
-        [SerializeField] private float _rotationDuration = 0.1f;
-
         public void ExecuteAction(Transform castPoint, Entity abilityCaster, AbilityDataSetup baseAbilitySetup)
         {
             if (abilityCaster.Get<DamageableSelector>().SelectedDamageable == null)

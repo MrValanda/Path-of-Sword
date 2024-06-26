@@ -39,9 +39,12 @@ namespace Source.Modules.CombatModule.Scripts.Parry
             _disposable?.Dispose();
             
             WhoParryEntity.Get<ParryEffectSpawner>().SpawnEffect();
-            WhoParryEntity.AddOrGet<ParryCompleteComponent>().WhomParryEntity = WhomParryEntity;
-            WhoParryEntity.AddOrGet<ParryCompleteComponent>().WhoParryEntity = WhoParryEntity;
-            
+            ParryCompleteComponent parryCompleteComponent = new()
+            {
+                WhomParryEntity = WhomParryEntity,
+                WhoParryEntity = WhoParryEntity
+            };
+            WhoParryEntity.Add(parryCompleteComponent);
             ServiceLocator.For(WhomParryEntity).Get<CameraShakeService>().Shake(1, 0.5f);
             Animator animator = WhoParryEntity.Get<AnimationHandler>().Animator;
             
