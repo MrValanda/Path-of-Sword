@@ -1,7 +1,7 @@
 using BehaviorDesigner.Runtime.Tasks;
+using Source.Modules.AbilityModule.Scripts;
 using Source.Modules.BehaviorTreeModule;
 using Source.Modules.DamageableFindersModule;
-using Source.Scripts_DONT_USE_THIS_FOLDER_.Abilities;
 using Source.Scripts.Abilities;
 using Source.Scripts.BehaviorTreeEventSenders;
 using Source.Scripts.EntityLogic;

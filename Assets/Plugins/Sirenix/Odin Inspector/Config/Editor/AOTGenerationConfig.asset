@@ -16,46 +16,18 @@ MonoBehaviour:
   deleteDllAfterBuilds: 1
   AutomateForAllAOTPlatforms: 1
   automateForPlatforms: 0900000014000000
-  lastScan: 638537307764711503
+  lastScan: 638551691983028850
   supportSerializedTypes:
-  - TypeName: Source.Modules.HealthModule.Scripts.CurrentHealthLessTransition, Assembly-CSharp
-    IsCustom: 0
-    Emit: 1
-  - TypeName: Source.Modules.HealthModule.Scripts.CurrentHealthMoreTransition, Assembly-CSharp
-    IsCustom: 0
-    Emit: 1
-  - TypeName: Transitions.DelayTransition, Assembly-CSharp
-    IsCustom: 0
-    Emit: 1
-  - TypeName: Source.Modules.HealthModule.Scripts.HealthComponent, Assembly-CSharp
-    IsCustom: 0
-    Emit: 1
-  - TypeName: Source.Modules.EnemyModule.Scripts.IGameActions.MoveToTargetAction,
-      Assembly-CSharp
-    IsCustom: 0
-    Emit: 1
-  - TypeName: Source.Modules.HealthModule.Scripts.ReceiveDamageTransition, Assembly-CSharp
-    IsCustom: 0
-    Emit: 1
-  - TypeName: Source.Scripts.Setups.RectangleIndicatorDataSetup, Assembly-CSharp
-    IsCustom: 0
-    Emit: 1
-  - TypeName: Source.Modules.EnemyModule.Scripts.IGameActions.RotateToTargetAction,
-      Assembly-CSharp
-    IsCustom: 0
-    Emit: 1
-  - TypeName: Source.Modules.EnemyModule.Scripts.IGameActions.StopMoveToTargetAction,
-      Assembly-CSharp
-    IsCustom: 0
-    Emit: 1
-  - TypeName: Source.Modules.EnemyModule.Scripts.IGameActions.StopRotateToTargetAction,
-      Assembly-CSharp
-    IsCustom: 0
-    Emit: 1
   - TypeName: Source.Scripts.AbilityActions.AbilityVFXAction, Assembly-CSharp
     IsCustom: 0
     Emit: 1
+  - TypeName: Source.Modules.CombatModule.Scripts.AttackEventListener, Assembly-CSharp
+    IsCustom: 0
+    Emit: 1
   - TypeName: System.Boolean, mscorlib
+    IsCustom: 0
+    Emit: 1
+  - TypeName: Source.Modules.HealthModule.Scripts.CanInteractWithInteraction, Assembly-CSharp
     IsCustom: 0
     Emit: 1
   - TypeName: UnityEngine.Color, UnityEngine.CoreModule
@@ -65,6 +37,15 @@ MonoBehaviour:
     IsCustom: 0
     Emit: 1
   - TypeName: Source.Scripts.Utils.SO.CustomPath, Assembly-CSharp
+    IsCustom: 0
+    Emit: 1
+  - TypeName: Source.Scripts.Setups.Characters.DamageableContainerSetup, Assembly-CSharp
+    IsCustom: 0
+    Emit: 1
+  - TypeName: Source.Scripts.AbilityConditions.DamageableTargetIsAttacking, Assembly-CSharp
+    IsCustom: 0
+    Emit: 1
+  - TypeName: Source.Scripts.AbilityActions.DamageByFov, Assembly-CSharp
     IsCustom: 0
     Emit: 1
   - TypeName: System.Collections.Generic.Dictionary`2[[SkinLogic.SkinPartType, Assembly-CSharp],[SkinLogic.WearSkinPart,
@@ -84,7 +65,7 @@ MonoBehaviour:
   - TypeName: Source.Scripts.AbilityActions.EnableWeapon, Assembly-CSharp
     IsCustom: 0
     Emit: 1
-  - TypeName: Transitions.EndProtectionEventTransition, Assembly-CSharp
+  - TypeName: Source.Scripts.EntityLogic.Entity, Assembly-CSharp
     IsCustom: 0
     Emit: 1
   - TypeName: System.Collections.Generic.EnumEqualityComparer`1[[SkinLogic.SkinPartType,
@@ -114,19 +95,22 @@ MonoBehaviour:
       mscorlib
     IsCustom: 0
     Emit: 1
+  - TypeName: Source.Modules.BehaviorTreeModule.IGameCondition, Assembly-CSharp
+    IsCustom: 0
+    Emit: 1
   - TypeName: Source.Scripts.Setups.IndicatorDataSetup, Assembly-CSharp
     IsCustom: 0
     Emit: 1
   - TypeName: Source.Scripts.IndicatorHandler.IndicatorHandler, Assembly-CSharp
     IsCustom: 0
     Emit: 1
-  - TypeName: Source.Scripts.Transitions.InputKeyDownTransition, Assembly-CSharp
+  - TypeName: Source.Modules.CombatModule.Scripts.InputMouseDownCondition, Assembly-CSharp
     IsCustom: 0
     Emit: 1
   - TypeName: System.Int32, mscorlib
     IsCustom: 0
     Emit: 1
-  - TypeName: UnityEngine.KeyCode, UnityEngine.CoreModule
+  - TypeName: UnityEngine.LayerMask, UnityEngine.CoreModule
     IsCustom: 0
     Emit: 1
   - TypeName: System.Collections.Generic.List`1[[Source.Scripts.Utils.SO.CustomPath,
@@ -141,13 +125,18 @@ MonoBehaviour:
       Assembly-CSharp]], mscorlib
     IsCustom: 0
     Emit: 1
-  - TypeName: System.Collections.Generic.List`1[[Transition, Assembly-CSharp]], mscorlib
+  - TypeName: System.Collections.Generic.List`1[[Source.Modules.BehaviorTreeModule.IGameCondition,
+      Assembly-CSharp]], mscorlib
     IsCustom: 0
     Emit: 1
   - TypeName: Source.Scripts.AbilityActions.LookAtTargetAction, Assembly-CSharp
     IsCustom: 0
     Emit: 1
-  - TypeName: Transitions.MouseDownTransition, Assembly-CSharp
+  - TypeName: Transitions.MoveToNextMoveSetTransition, Assembly-CSharp
+    IsCustom: 0
+    Emit: 1
+  - TypeName: Source.Modules.EnemyModule.Scripts.IGameActions.MoveToTargetAction,
+      Assembly-CSharp
     IsCustom: 0
     Emit: 1
   - TypeName: System.Collections.Generic.ObjectEqualityComparer`1[[System.Type, mscorlib]],
@@ -157,22 +146,37 @@ MonoBehaviour:
   - TypeName: UnityEngine.ParticleSystem, UnityEngine.ParticleSystemModule
     IsCustom: 0
     Emit: 1
-  - TypeName: Source.Modules.CombatModule.Scripts.ProtectionEventListener, Assembly-CSharp
+  - TypeName: Source.Modules.AbilityModule.PlaySound, Assembly-CSharp
+    IsCustom: 0
+    Emit: 1
+  - TypeName: Source.Scripts.Setups.RectangleIndicatorDataSetup, Assembly-CSharp
+    IsCustom: 0
+    Emit: 1
+  - TypeName: Source.Modules.EnemyModule.Scripts.IGameActions.RotateToTargetAction,
+      Assembly-CSharp
     IsCustom: 0
     Emit: 1
   - TypeName: SkinLogic.SkinPartType, Assembly-CSharp
     IsCustom: 0
     Emit: 1
+  - TypeName: Source.Modules.AudioModule.SoundType, Assembly-CSharp
+    IsCustom: 0
+    Emit: 1
   - TypeName: Source.Scripts.State, Assembly-CSharp
+    IsCustom: 0
+    Emit: 1
+  - TypeName: Source.Modules.EnemyModule.Scripts.IGameActions.StopMoveToTargetAction,
+      Assembly-CSharp
+    IsCustom: 0
+    Emit: 1
+  - TypeName: Source.Modules.EnemyModule.Scripts.IGameActions.StopRotateToTargetAction,
+      Assembly-CSharp
     IsCustom: 0
     Emit: 1
   - TypeName: System.String, mscorlib
     IsCustom: 0
     Emit: 1
   - TypeName: UnityEngine.Texture, UnityEngine.CoreModule
-    IsCustom: 0
-    Emit: 1
-  - TypeName: Transition, Assembly-CSharp
     IsCustom: 0
     Emit: 1
   - TypeName: System.Type, mscorlib

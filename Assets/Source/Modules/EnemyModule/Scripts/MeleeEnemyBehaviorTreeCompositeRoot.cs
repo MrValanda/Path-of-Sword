@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Source.Modules.AbilityModule.Scripts;
 using Source.Modules.BehaviorTreeModule;
 using Source.Modules.BehaviorTreeModule.Modules.MovementModule;
 using Source.Modules.CombatModule.Scripts.Parry;
@@ -8,7 +9,6 @@ using Source.Modules.EnemyModule.Scripts.IGameActions;
 using Source.Modules.EnemyModule.Scripts.IGameConditions;
 using Source.Modules.HealthModule.Scripts;
 using Source.Modules.StaminaModule.Scripts;
-using Source.Scripts_DONT_USE_THIS_FOLDER_.Abilities;
 using Source.Scripts_DONT_USE_THIS_FOLDER_.BehaviorsNodes.SharedVariables;
 using Source.Scripts.AttackPointCalculators;
 using Source.Scripts.BehaviorTreeEventSenders;

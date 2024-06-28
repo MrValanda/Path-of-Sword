@@ -1,4 +1,5 @@
 ﻿using Sirenix.OdinInspector;
+using Source.Modules.AbilityModule.Scripts;
 using Source.Modules.DamageableFindersModule;
 using Source.Modules.EnemyModule.Scripts;
 using Source.Modules.HealthModule.Scripts;
@@ -7,7 +8,6 @@ using Source.Modules.StaminaModule.Scripts;
 using Source.Modules.WeaponModule.Scripts;
 using Source.Scripts.EntityLogic;
 using Source.Scripts.Setups.Characters;
-using Source.Scripts_DONT_USE_THIS_FOLDER_.Abilities;
 using UnityEngine;
 
 namespace Source.Modules.CompositeRootModule
@@ -44,7 +44,6 @@ namespace Source.Modules.CompositeRootModule
             _enemyEntity.Add(damageableSelector);
             _enemyEntity.Add(_enemyCharacterSetup);
             _enemyEntity.Add(new DamageCalculator(_enemyCharacterSetup.DamageMultiplier, 1));
-
             AbilityCaster abilityCaster = new();
             abilityCaster.Init(_enemyCharacterSetup.AbilityContainerSetup, _enemyEntity);
 
