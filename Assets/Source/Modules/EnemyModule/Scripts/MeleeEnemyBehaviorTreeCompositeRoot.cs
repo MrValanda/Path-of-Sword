@@ -102,8 +102,8 @@ namespace Source.Modules.EnemyModule.Scripts
                 SmartEnemyVariables.EndAfkGameActions,
                 new List<IGameAction>
                 {
+                    new SetAnimationBool(animator, false, "IsMovement", false),
                     new SetAnimationBool(animator, false, "IsProtection", false),
-                    new SetAnimationBool(animator, false, "IsMovement", false)
                 });
 
 

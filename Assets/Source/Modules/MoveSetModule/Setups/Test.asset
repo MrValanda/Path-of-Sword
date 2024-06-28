@@ -31,4 +31,5 @@ MonoBehaviour:
       <Damage>k__BackingField: 10
       <ParryBackForce>k__BackingField: 15
       <LossStaminaAfterParry>k__BackingField: 0
+      <LossStaminaWhenEntityParry>k__BackingField: 5
       <WhooshSoundsType>k__BackingField: 2

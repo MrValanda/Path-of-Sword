@@ -51,6 +51,7 @@ namespace Source.Modules.CompositeRootModule
             _enemyEntity.Add(abilityCaster);
             StaggerHandler staggerHandler = new();
             staggerHandler.Initialize(_enemyEntity);
+            staggerHandler.SetImpactWeight(0.3f);
             _enemyEntity.Add(staggerHandler);
 
             HealthController healthController = new(_enemyHealthView, _enemyEntity.Get<HealthComponent>());

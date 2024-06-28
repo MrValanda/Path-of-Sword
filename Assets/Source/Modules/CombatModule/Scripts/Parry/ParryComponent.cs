@@ -53,6 +53,11 @@ namespace Source.Modules.CombatModule.Scripts.Parry
                 staminaModel.UpdateStamina(-currentAttackDataInfo.LossStaminaAfterParry);
             }
 
+            if (WhoParryEntity.TryGet(out staminaModel))
+            {
+                staminaModel.UpdateStamina(-currentAttackDataInfo.LossStaminaWhenEntityParry);
+            }
+
             animator.SetTrigger(Parry);
             animator.SetFloat(ParryIndex, (float) WhomParryEntity.Get<CurrentAttackData>().CurrentParryAnimationIndex);
 

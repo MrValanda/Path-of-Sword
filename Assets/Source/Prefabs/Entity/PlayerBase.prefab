@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9047391113591707720}
   - component: {fileID: 2793577541585109115}
-  - component: {fileID: 8163621287392984161}
+  - component: {fileID: 8914088559850996412}
   m_Layer: 6
   m_Name: EndProtectionState
   m_TagString: Untagged
@@ -47,12 +47,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   transform: {fileID: 9047391113591707720}
   gameObject: {fileID: 92009465454068308}
-  _transitions: {fileID: 8163621287392984161}
+  _transitions: {fileID: 8914088559850996412}
   _subStates:
   - {fileID: 7827698019308850040}
   checkingTransitionDelay: 0
   _entity: {fileID: 5507489092510473831}
---- !u!114 &8163621287392984161
+--- !u!114 &8914088559850996412
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -61,137 +61,45 @@ MonoBehaviour:
   m_GameObject: {fileID: 92009465454068308}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0e5e5ebd51c4034b896283d12cad9a5, type: 3}
+  m_Script: {fileID: 11500000, guid: 3fa09b5466b54e1e9a58b11a9b389012, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   serializationData:
     SerializedFormat: 2
     SerializedBytes: 
-    ReferencedUnityObjects:
-    - {fileID: 4134340837050316020}
-    - {fileID: 2837088698749756220}
-    - {fileID: 8566301479444004576}
-    - {fileID: 432095749872772088}
-    - {fileID: 3167805506874806653}
-    - {fileID: 187284488894654574}
-    - {fileID: 1475188606615726485}
+    ReferencedUnityObjects: []
     SerializedBytesString: 
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
-    SerializationNodes:
-    - Name: _transitions
-      Entry: 7
-      Data: 0|System.Collections.Generic.List`1[[Transition, Assembly-CSharp]], mscorlib
-    - Name: 
-      Entry: 12
-      Data: 6
-    - Name: 
-      Entry: 7
-      Data: 1|Transitions.MouseDownTransition, Assembly-CSharp
-    - Name: <NextState>k__BackingField
-      Entry: 10
-      Data: 0
-    - Name: <Priority>k__BackingField
-      Entry: 4
-      Data: 1
-    - Name: _mouseKey
-      Entry: 3
-      Data: 1
-    - Name: _needListenedPressed
-      Entry: 5
-      Data: false
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 2|Transitions.EndProtectionEventTransition, Assembly-CSharp
-    - Name: <NextState>k__BackingField
-      Entry: 10
-      Data: 1
-    - Name: <Priority>k__BackingField
-      Entry: 4
-      Data: 0
-    - Name: _protectionEventListener
-      Entry: 10
-      Data: 2
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 3|Source.Scripts.Transitions.InputKeyDownTransition, Assembly-CSharp
-    - Name: <NextState>k__BackingField
-      Entry: 10
-      Data: 3
-    - Name: <Priority>k__BackingField
-      Entry: 4
-      Data: 2
-    - Name: _keyCode
-      Entry: 3
-      Data: 32
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 4|Transitions.MouseDownTransition, Assembly-CSharp
-    - Name: <NextState>k__BackingField
-      Entry: 10
-      Data: 4
-    - Name: <Priority>k__BackingField
-      Entry: 4
-      Data: 0
-    - Name: _mouseKey
-      Entry: 3
-      Data: 0
-    - Name: _needListenedPressed
-      Entry: 5
-      Data: true
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 5|Source.Modules.HealthModule.Scripts.CurrentHealthLessTransition, Assembly-CSharp
-    - Name: <NextState>k__BackingField
-      Entry: 10
-      Data: 5
-    - Name: <Priority>k__BackingField
-      Entry: 4
-      Data: 1111
-    - Name: _healthComponent
-      Entry: 10
-      Data: 6
-    - Name: _value
-      Entry: 4
-      Data: 0
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 6|Source.Scripts_DONT_USE_THIS_FOLDER_.Transitions.InputMagnitudeGreaterThanValue,
-        Assembly-CSharp
-    - Name: <NextState>k__BackingField
-      Entry: 10
-      Data: 1
-    - Name: <Priority>k__BackingField
-      Entry: 4
-      Data: 0
-    - Name: _value
-      Entry: 4
-      Data: 0.1
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 13
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
+    SerializationNodes: []
+  _mouseDownTransitionToProtection:
+    <NextState>k__BackingField: {fileID: 4134340837050316020}
+    <Priority>k__BackingField: 1
+    _mouseKey: 1
+    _needListenedPressed: 0
+  _endProtectionEventTransition:
+    <NextState>k__BackingField: {fileID: 2837088698749756220}
+    <Priority>k__BackingField: 0
+    _protectionEventListener: {fileID: 8566301479444004576}
+  _inputKeyDownTransition:
+    <NextState>k__BackingField: {fileID: 432095749872772088}
+    <Priority>k__BackingField: 2
+    _keyCode: 32
+  _mouseDownTransition:
+    <NextState>k__BackingField: {fileID: 3167805506874806653}
+    <Priority>k__BackingField: 0
+    _mouseKey: 0
+    _needListenedPressed: 1
+  _currentHealthLessTransition:
+    <NextState>k__BackingField: {fileID: 187284488894654574}
+    <Priority>k__BackingField: 1111
+    _healthComponent: {fileID: 1475188606615726485}
+    _value: 0
+  _inputMagnitudeGreaterThanValue:
+    <NextState>k__BackingField: {fileID: 2837088698749756220}
+    <Priority>k__BackingField: 0
+    _value: 0.1
 --- !u!1 &104818196371400171
 GameObject:
   m_ObjectHideFlags: 0
@@ -1123,7 +1031,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2271618003268275960}
   - component: {fileID: 187284488894654574}
-  - component: {fileID: 6064361014904339312}
+  - component: {fileID: 4867470854310466226}
   m_Layer: 6
   m_Name: DeathState
   m_TagString: Untagged
@@ -1160,11 +1068,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   transform: {fileID: 2271618003268275960}
   gameObject: {fileID: 2816079472975920394}
-  _transitions: {fileID: 6064361014904339312}
+  _transitions: {fileID: 4867470854310466226}
   _subStates: []
   checkingTransitionDelay: 0
   _entity: {fileID: 5507489092510473831}
---- !u!114 &6064361014904339312
+--- !u!114 &4867470854310466226
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1173,50 +1081,23 @@ MonoBehaviour:
   m_GameObject: {fileID: 2816079472975920394}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0e5e5ebd51c4034b896283d12cad9a5, type: 3}
+  m_Script: {fileID: 11500000, guid: f2a095fbe6824fea9923c5b91943a5ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   serializationData:
     SerializedFormat: 2
     SerializedBytes: 
-    ReferencedUnityObjects:
-    - {fileID: 2837088698749756220}
-    - {fileID: 1475188606615726485}
+    ReferencedUnityObjects: []
     SerializedBytesString: 
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
-    SerializationNodes:
-    - Name: _transitions
-      Entry: 7
-      Data: 0|System.Collections.Generic.List`1[[Transition, Assembly-CSharp]], mscorlib
-    - Name: 
-      Entry: 12
-      Data: 1
-    - Name: 
-      Entry: 7
-      Data: 1|Source.Modules.HealthModule.Scripts.CurrentHealthMoreTransition, Assembly-CSharp
-    - Name: <NextState>k__BackingField
-      Entry: 10
-      Data: 0
-    - Name: <Priority>k__BackingField
-      Entry: 4
-      Data: 0
-    - Name: _healthComponent
-      Entry: 10
-      Data: 1
-    - Name: _value
-      Entry: 4
-      Data: 1
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 13
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
+    SerializationNodes: []
+  _currentHealthMoreTransition:
+    <NextState>k__BackingField: {fileID: 2837088698749756220}
+    <Priority>k__BackingField: 0
+    _healthComponent: {fileID: 1475188606615726485}
+    _value: 1
 --- !u!1 &2859286714759392881
 GameObject:
   m_ObjectHideFlags: 0
@@ -1836,7 +1717,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4776282257339198704}
   - component: {fileID: 1911205887406135559}
-  - component: {fileID: 7511948438208167702}
+  - component: {fileID: 7384883044773344020}
   m_Layer: 6
   m_Name: InteractionState
   m_TagString: Untagged
@@ -1873,12 +1754,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   transform: {fileID: 4776282257339198704}
   gameObject: {fileID: 6012280075361662514}
-  _transitions: {fileID: 7511948438208167702}
+  _transitions: {fileID: 7384883044773344020}
   _subStates:
   - {fileID: 9136460918211971823}
   checkingTransitionDelay: 0.1
   _entity: {fileID: 5507489092510473831}
---- !u!114 &7511948438208167702
+--- !u!114 &7384883044773344020
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1887,46 +1768,22 @@ MonoBehaviour:
   m_GameObject: {fileID: 6012280075361662514}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0e5e5ebd51c4034b896283d12cad9a5, type: 3}
+  m_Script: {fileID: 11500000, guid: 9541e19699154e38b63ba253b9a6d8c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   serializationData:
     SerializedFormat: 2
     SerializedBytes: 
-    ReferencedUnityObjects:
-    - {fileID: 2837088698749756220}
+    ReferencedUnityObjects: []
     SerializedBytesString: 
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
-    SerializationNodes:
-    - Name: _transitions
-      Entry: 7
-      Data: 0|System.Collections.Generic.List`1[[Transition, Assembly-CSharp]], mscorlib
-    - Name: 
-      Entry: 12
-      Data: 1
-    - Name: 
-      Entry: 7
-      Data: 1|Transitions.DelayTransition, Assembly-CSharp
-    - Name: <NextState>k__BackingField
-      Entry: 10
-      Data: 0
-    - Name: <Priority>k__BackingField
-      Entry: 4
-      Data: 0
-    - Name: _delay
-      Entry: 4
-      Data: 4
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 13
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
+    SerializationNodes: []
+  _delayTransition:
+    <NextState>k__BackingField: {fileID: 2837088698749756220}
+    <Priority>k__BackingField: 0
+    _delay: 4
 --- !u!1 &6757194490736363578
 GameObject:
   m_ObjectHideFlags: 0
@@ -1937,7 +1794,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1264806566768285804}
   - component: {fileID: 574140150551551526}
-  - component: {fileID: 7688221623792018288}
+  - component: {fileID: 3916460973036829140}
   m_Layer: 6
   m_Name: IdleState
   m_TagString: Untagged
@@ -1974,11 +1831,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   transform: {fileID: 1264806566768285804}
   gameObject: {fileID: 6757194490736363578}
-  _transitions: {fileID: 7688221623792018288}
+  _transitions: {fileID: 3916460973036829140}
   _subStates: []
   checkingTransitionDelay: 0
   _entity: {fileID: 5507489092510473831}
---- !u!114 &7688221623792018288
+--- !u!114 &3916460973036829140
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1987,66 +1844,27 @@ MonoBehaviour:
   m_GameObject: {fileID: 6757194490736363578}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0e5e5ebd51c4034b896283d12cad9a5, type: 3}
+  m_Script: {fileID: 11500000, guid: 415b83b991c04906993a5cd436958e58, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   serializationData:
     SerializedFormat: 2
     SerializedBytes: 
-    ReferencedUnityObjects:
-    - {fileID: 2837088698749756220}
-    - {fileID: 574140150551551526}
-    - {fileID: 1475188606615726485}
+    ReferencedUnityObjects: []
     SerializedBytesString: 
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
-    SerializationNodes:
-    - Name: _transitions
-      Entry: 7
-      Data: 0|System.Collections.Generic.List`1[[Transition, Assembly-CSharp]], mscorlib
-    - Name: 
-      Entry: 12
-      Data: 2
-    - Name: 
-      Entry: 7
-      Data: 1|Transitions.DelayTransition, Assembly-CSharp
-    - Name: <NextState>k__BackingField
-      Entry: 10
-      Data: 0
-    - Name: <Priority>k__BackingField
-      Entry: 4
-      Data: 0
-    - Name: _delay
-      Entry: 4
-      Data: 0.3
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 2|Source.Modules.HealthModule.Scripts.ReceiveDamageTransition, Assembly-CSharp
-    - Name: <NextState>k__BackingField
-      Entry: 10
-      Data: 1
-    - Name: <Priority>k__BackingField
-      Entry: 4
-      Data: 1
-    - Name: _healthComponent
-      Entry: 10
-      Data: 2
-    - Name: _damageToTransit
-      Entry: 4
-      Data: 111111
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 13
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
+    SerializationNodes: []
+  _delayTransition:
+    <NextState>k__BackingField: {fileID: 2837088698749756220}
+    <Priority>k__BackingField: 0
+    _delay: 0.3
+  _receiveDamageTransition:
+    <NextState>k__BackingField: {fileID: 574140150551551526}
+    <Priority>k__BackingField: 1
+    _healthComponent: {fileID: 1475188606615726485}
+    _damageToTransit: 111111
 --- !u!1 &6869421410390577416
 GameObject:
   m_ObjectHideFlags: 0
@@ -2457,7 +2275,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4153131561804925775}
   - component: {fileID: 1227732926087156417}
-  - component: {fileID: 1120281446384099983}
+  - component: {fileID: 3215995948150128022}
   m_Layer: 6
   m_Name: AfterDodgeAttackState
   m_TagString: Untagged
@@ -2495,7 +2313,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   transform: {fileID: 4153131561804925775}
   gameObject: {fileID: 8857353001263965172}
-  _transitions: {fileID: 1120281446384099983}
+  _transitions: {fileID: 3215995948150128022}
   _subStates:
   - {fileID: 8984341204752973583}
   - {fileID: 1513107817945688879}
@@ -2504,7 +2322,7 @@ MonoBehaviour:
   checkingTransitionDelay: 0
   _entity: {fileID: 5507489092510473831}
   _moveSetType: 1
---- !u!114 &1120281446384099983
+--- !u!114 &3215995948150128022
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2513,7 +2331,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 8857353001263965172}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0e5e5ebd51c4034b896283d12cad9a5, type: 3}
+  m_Script: {fileID: 11500000, guid: a3ef9ab41bb24a3f82ef24c474dc1abc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   serializationData:
@@ -2522,24 +2340,14 @@ MonoBehaviour:
     ReferencedUnityObjects:
     - {fileID: 3167805506874806653}
     - {fileID: 4645832866263962757}
-    - {fileID: 2837088698749756220}
-    - {fileID: 1227732926087156417}
-    - {fileID: 432095749872772088}
-    - {fileID: 128846719392384990}
     SerializedBytesString: 
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
     SerializationNodes:
-    - Name: _transitions
+    - Name: _moveToNextMoveSetTransition
       Entry: 7
-      Data: 0|System.Collections.Generic.List`1[[Transition, Assembly-CSharp]], mscorlib
-    - Name: 
-      Entry: 12
-      Data: 3
-    - Name: 
-      Entry: 7
-      Data: 1|Transitions.MoveToNextMoveSetTransition, Assembly-CSharp
+      Data: 0|Transitions.MoveToNextMoveSetTransition, Assembly-CSharp
     - Name: <NextState>k__BackingField
       Entry: 10
       Data: 0
@@ -2551,14 +2359,14 @@ MonoBehaviour:
       Data: 1
     - Name: _conditionsToMoveNext
       Entry: 7
-      Data: 2|System.Collections.Generic.List`1[[Source.Modules.BehaviorTreeModule.IGameCondition,
+      Data: 1|System.Collections.Generic.List`1[[Source.Modules.BehaviorTreeModule.IGameCondition,
         Assembly-CSharp]], mscorlib
     - Name: 
       Entry: 12
       Data: 1
     - Name: 
       Entry: 7
-      Data: 3|Source.Modules.CombatModule.Scripts.InputMouseDownCondition, Assembly-CSharp
+      Data: 2|Source.Modules.CombatModule.Scripts.InputMouseDownCondition, Assembly-CSharp
     - Name: _mouseIndex
       Entry: 3
       Data: 0
@@ -2577,51 +2385,17 @@ MonoBehaviour:
     - Name: 
       Entry: 8
       Data: 
-    - Name: 
-      Entry: 7
-      Data: 4|Transitions.AttackAnimationEndTransition, Assembly-CSharp
-    - Name: <NextState>k__BackingField
-      Entry: 10
-      Data: 2
-    - Name: <Priority>k__BackingField
-      Entry: 4
-      Data: 0
-    - Name: _attackEventListener
-      Entry: 10
-      Data: 1
-    - Name: _attackState
-      Entry: 10
-      Data: 3
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 5|Transitions.DodgeTransition, Assembly-CSharp
-    - Name: <NextState>k__BackingField
-      Entry: 10
-      Data: 4
-    - Name: <Priority>k__BackingField
-      Entry: 4
-      Data: 0
-    - Name: _keyCode
-      Entry: 3
-      Data: 32
-    - Name: _dodgeEventListener
-      Entry: 10
-      Data: 5
-    - Name: _attackEventListener
-      Entry: 10
-      Data: 1
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 13
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
+  _attackAnimationEndTransition:
+    <NextState>k__BackingField: {fileID: 2837088698749756220}
+    <Priority>k__BackingField: 0
+    _attackEventListener: {fileID: 4645832866263962757}
+    _attackState: {fileID: 1227732926087156417}
+  _dodgeTransition:
+    <NextState>k__BackingField: {fileID: 432095749872772088}
+    <Priority>k__BackingField: 0
+    _keyCode: 32
+    _dodgeEventListener: {fileID: 128846719392384990}
+    _attackEventListener: {fileID: 4645832866263962757}
 --- !u!1 &8892604041905534490
 GameObject:
   m_ObjectHideFlags: 0

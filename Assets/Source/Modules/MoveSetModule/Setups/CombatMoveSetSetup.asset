@@ -31,6 +31,7 @@ MonoBehaviour:
       <Damage>k__BackingField: 10
       <ParryBackForce>k__BackingField: 5
       <LossStaminaAfterParry>k__BackingField: 0
+      <LossStaminaWhenEntityParry>k__BackingField: 5
       <WhooshSoundsType>k__BackingField: 2
   - <AnimationClip>k__BackingField: {fileID: 7400000, guid: 77fc626278dbd774a9e6b1fee68562c4, type: 3}
     <RootMultiplierBeforeEndAttack>k__BackingField: 1
@@ -41,6 +42,7 @@ MonoBehaviour:
       <Damage>k__BackingField: 10
       <ParryBackForce>k__BackingField: 15
       <LossStaminaAfterParry>k__BackingField: 0
+      <LossStaminaWhenEntityParry>k__BackingField: 5
       <WhooshSoundsType>k__BackingField: 2
   - <AnimationClip>k__BackingField: {fileID: 7400000, guid: 5029b485ac85ca0478e8877b25e6dec6, type: 3}
     <RootMultiplierBeforeEndAttack>k__BackingField: 1
@@ -51,6 +53,7 @@ MonoBehaviour:
       <Damage>k__BackingField: 10
       <ParryBackForce>k__BackingField: 5
       <LossStaminaAfterParry>k__BackingField: 0
+      <LossStaminaWhenEntityParry>k__BackingField: 5
       <WhooshSoundsType>k__BackingField: 2
   - <AnimationClip>k__BackingField: {fileID: 7400000, guid: d2a5135c3d3b5dc4ab7691b390c5b332, type: 3}
     <RootMultiplierBeforeEndAttack>k__BackingField: 1
@@ -61,6 +64,7 @@ MonoBehaviour:
       <Damage>k__BackingField: 10
       <ParryBackForce>k__BackingField: 6
       <LossStaminaAfterParry>k__BackingField: 0
+      <LossStaminaWhenEntityParry>k__BackingField: 5
       <WhooshSoundsType>k__BackingField: 2
   - <AnimationClip>k__BackingField: {fileID: 7400000, guid: 18acd5aa23ba1ec45b97b336327cbf2d, type: 3}
     <RootMultiplierBeforeEndAttack>k__BackingField: 1
@@ -71,4 +75,5 @@ MonoBehaviour:
       <Damage>k__BackingField: 10
       <ParryBackForce>k__BackingField: 10
       <LossStaminaAfterParry>k__BackingField: 0
+      <LossStaminaWhenEntityParry>k__BackingField: 5
       <WhooshSoundsType>k__BackingField: 2
