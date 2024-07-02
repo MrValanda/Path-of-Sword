@@ -4,6 +4,7 @@ using Cinemachine;
 using Source.Modules.AudioModule;
 using Source.Modules.CameraModule.Scripts;
 using Source.Modules.CompositeRootModule;
+using Source.Modules.TimeControlModule;
 using UnityEngine;
 
 namespace Source.CodeLibrary.ServiceBootstrap.SceneContainers
@@ -25,6 +26,7 @@ namespace Source.CodeLibrary.ServiceBootstrap.SceneContainers
             _soundPlayer.Initialize();
             Container.Register<CameraShakeService>(new CameraShakeService(channelPerlins));
             Container.Register<SoundPlayer>(_soundPlayer);
+            Container.Register<SlowMotionService>(new SlowMotionService());
             _playerCompositeRoot.Compose();
             _enemyCompositeRoot.Compose();
         }

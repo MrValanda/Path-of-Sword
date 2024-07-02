@@ -49,6 +49,8 @@ namespace Source.Modules.EnemyModule.Scripts
                 },
                 new List<IGameAction>
                 {
+                    new SetRandomAnimationFloatValue(animator, "InputX", 0, 0),
+                    new SetRandomAnimationFloatValue(animator, "InputY", 1, 1),
                     new MoveToAttackPointAction(meleeAttackPointCalculator, _entity)
                 });
 

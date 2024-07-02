@@ -1,4 +1,3 @@
-using System;
 using Source.CodeLibrary.ServiceBootstrap;
 using Source.Modules.CombatModule.Scripts;
 using Source.Scripts.EntityLogic;
@@ -16,7 +15,11 @@ namespace Source.Modules.AudioModule.Scripts
         [Preserve]
         private void Whoosh()
         {
-            PlaySound(_sender.Get<CurrentAttackData>().CurrentHitInfo.WhooshSoundsType);
+            if (_sender.TryGet(out CurrentAttackData currentAttackData) == false)
+            {
+                return;
+            }
+            PlaySound(currentAttackData.CurrentHitInfo.WhooshSoundsType);
         }
 
         private void PlaySound(SoundType soundType)

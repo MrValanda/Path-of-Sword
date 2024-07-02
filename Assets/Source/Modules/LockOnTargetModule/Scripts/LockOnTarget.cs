@@ -30,6 +30,7 @@ namespace Source.Modules.LockOnTargetModule.Scripts
 
         private void OnDisable()
         {
+            UnSelectTarget();
             Deactivated?.Invoke();
         }
     }

@@ -9,10 +9,12 @@ using Source.Modules.HealthModule.Scripts;
 using Source.Modules.InteractionModule.Scripts;
 using Source.Modules.LockOnTargetModule.Scripts;
 using Source.Modules.MovementModule.Scripts;
+using Source.Modules.StaggerModule.Scripts;
 using Source.Modules.StaminaModule.Scripts;
 using Source.Modules.WeaponModule.Scripts;
 using Source.Scripts.EntityLogic;
 using Source.Scripts.Setups.Characters;
+using Source.Scripts.VisitableComponents;
 using UnityEngine;
 
 namespace Source.Modules.CompositeRootModule
@@ -70,6 +72,9 @@ namespace Source.Modules.CompositeRootModule
             InteractionFinder interactionFinder = new(entity.Get<InteractionFinderCollider>().Collider);
             entity.Add(interactionFinder);
             entity.Add(new InteractionSelector(entity.transform, interactionFinder));
+            PlayerHealthImpactHandler playerHealthImpactHandler = new ();
+            playerHealthImpactHandler.Initialize(entity);
+            entity.Add(playerHealthImpactHandler);
         }
 
         private void InitStamina(Entity entity)

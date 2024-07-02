@@ -31,7 +31,7 @@ namespace Source.Scripts.AbilityActions
 
             float maxDistance = ((RectangleIndicatorDataSetup) baseAbilitySetup.IndicatorDataSetup).MaxDistance;
 
-            spawn.Init(abilityCaster.Get<DamageCalculator>().CalculateDamage(baseAbilitySetup.Damage),
+            spawn.Init(abilityCaster.Get<DamageCalculator>().CalculateValue(baseAbilitySetup.Damage),
                 _damageableContainerSetup.DamageableTypes.Select(x => x.Type).ToList(),
                 maxDistance, null,
                 _projectileSpeed, _layersToDestoryProjectile);

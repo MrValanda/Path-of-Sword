@@ -15,7 +15,9 @@ MonoBehaviour:
   serializationData:
     SerializedFormat: 2
     SerializedBytes: 
-    ReferencedUnityObjects: []
+    ReferencedUnityObjects:
+    - {fileID: 1128989790172992069, guid: 5151bf941a977b2489df3da038547f48, type: 3}
+    - {fileID: 2100000, guid: e4ed1d0f2e507544a931159c2c4eba4a, type: 2}
     SerializedBytesString: 
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
@@ -27,7 +29,7 @@ MonoBehaviour:
         Assembly-CSharp]], mscorlib
     - Name: 
       Entry: 12
-      Data: 2
+      Data: 3
     - Name: 
       Entry: 7
       Data: 1|Source.Modules.AbilityModule.PlaySound, Assembly-CSharp
@@ -40,9 +42,24 @@ MonoBehaviour:
     - Name: 
       Entry: 7
       Data: 2|Source.Scripts.AbilityActions.LookAtTargetAction, Assembly-CSharp
-    - Name: _rotationDuration
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 3|Source.Modules.AbilityModule.Scripts.StartSpawnMeshTrail, Assembly-CSharp
+    - Name: _meshTrailView
+      Entry: 10
+      Data: 0
+    - Name: _timeToDestroyTrailView
+      Entry: 4
+      Data: 0.2
+    - Name: _intervalToSpawnTrailView
       Entry: 4
       Data: 0.1
+    - Name: _trailMaterial
+      Entry: 10
+      Data: 1
     - Name: 
       Entry: 8
       Data: 

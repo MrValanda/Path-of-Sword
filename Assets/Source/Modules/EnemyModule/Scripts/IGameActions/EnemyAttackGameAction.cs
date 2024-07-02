@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using BehaviorDesigner.Runtime.Tasks;
 using Source.Modules.BehaviorTreeModule;
+using Source.Modules.EnemyModule.Scripts.Setups;
 using Source.Scripts.Abilities;
 using Source.Scripts.AnimationEventListeners;
 using Source.Scripts.BehaviorTreeEventSenders;

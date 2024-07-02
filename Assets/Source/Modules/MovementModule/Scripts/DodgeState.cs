@@ -1,4 +1,5 @@
 ﻿using System;
+using Cinemachine.Utility;
 using Source.CodeLibrary.ServiceBootstrap;
 using Source.Modules.AudioModule;
 using Source.Scripts;
@@ -28,23 +29,27 @@ public class DodgeTag {}
         {
             _dodgeStateData = _entity.Get<DodgeStateData>();
             ServiceLocator.For(this).Get<SoundPlayer>().PlaySoundByType(SoundType.Dodge);
-            Vector3 orientationForward = _dodgeStateData.Orientation.forward;
+             Vector3 orientationForward = _dodgeStateData.Orientation.forward;
             Vector3 orientationRight = _dodgeStateData.Orientation.right;
-            orientationForward.y = 0;
-            orientationRight.y = 0;
-            Vector3 moveDirection = orientationForward * Input.GetAxisRaw("Vertical") +
+             orientationForward.y = 0;
+             orientationRight.y = 0;
+             Vector3 moveDirection = orientationForward * Input.GetAxisRaw("Vertical") +
                                     orientationRight * Input.GetAxisRaw("Horizontal");
-
-            _direction = moveDirection;
-            if (_direction != Vector3.zero)
-            {
-                _dodgeStateData.WhoWasRotate.forward = moveDirection;
-            }
+             if (moveDirection == Vector3.zero)
+             {
+                 moveDirection = -_dodgeStateData.WhoWasRotate.forward;
+             }
+            //
+            // _direction = moveDirection;
+            // if (_direction != Vector3.zero)
+            // {
+            //     _dodgeStateData.WhoWasRotate.forward = moveDirection;
+            // }
 
             _animationHandler ??= _entity.Get<AnimationHandler>();
             AddForceDirectionComponent addForceDirectionComponent = _entity.AddOrGet<AddForceDirectionComponent>();
             addForceDirectionComponent.WhoWillMoveEntity = _entity;
-            addForceDirectionComponent.Execute(_dodgeStateData.WhoWasRotate.forward.normalized * _dodgeForce,
+            addForceDirectionComponent.Execute(moveDirection.normalized * _dodgeForce,
                 _dodgeStopForce);
             _animationHandler.Animator.SetTrigger(Dodge);
             _animationHandler.Animator.SetBool(IsDodge, true);

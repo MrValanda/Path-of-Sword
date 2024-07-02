@@ -22,7 +22,7 @@ namespace Source.Scripts.AbilityActions
             AbilityAnimation abilityAnimation = LeanPool.Spawn(_abilityAnimation, castPoint.position, castPoint.rotation);
 
             abilityAnimation.Init(_damageableContainerSetup,
-                abilityCaster.Get<DamageCalculator>().CalculateDamage(baseAbilitySetup.Damage));
+                abilityCaster.Get<DamageCalculator>().CalculateValue(baseAbilitySetup.Damage));
             abilityAnimation.ShowAnimation(_animationSpeed);
         }
     }

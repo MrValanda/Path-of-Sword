@@ -2,6 +2,7 @@
 using BehaviorDesigner.Runtime.Tasks;
 using Source.Modules.BehaviorTreeModule;
 using Source.Modules.DamageableFindersModule;
+using Source.Modules.EnemyModule.Scripts.Setups;
 using Source.Scripts.Enemy;
 using Source.Scripts.EntityLogic;
 using Source.Scripts.Setups.Characters;

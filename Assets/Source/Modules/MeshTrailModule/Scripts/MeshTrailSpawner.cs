@@ -6,7 +6,7 @@ using UnityEngine;
 
 namespace Source.Modules.MeshTrailModule.Scripts
 {
-    public class MeshTrailSpawner
+    public class MeshTrailSpawner : IDisposable
     {
         private readonly float _timeToDestroyTrailView;
         private readonly float _intervalToSpawnTrailView;
@@ -49,6 +49,10 @@ namespace Source.Modules.MeshTrailModule.Scripts
         {
             _spawnDisposable?.Dispose();
         }
-        
+
+        public void Dispose()
+        {
+            _spawnDisposable?.Dispose();
+        }
     }
 }

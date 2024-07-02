@@ -8,24 +8,19 @@ namespace Source.Scripts.Enemy
     [RequireComponent(typeof(CharacterController))]
     public class EnemyMovement : MonoBehaviour, IMovement
     {
+        private static readonly int Speed = Animator.StringToHash("Speed");
+       
         [SerializeField] private Animator _animator;
+
         private CharacterController _characterController;
         private float _speed;
-        private float _acceleration;
-        public bool CanMove { get; private set; } = true;
         private CancellationTokenSource _cancellationTokenSource;
-        private static readonly int Speed = Animator.StringToHash("Speed");
-
-        private void Start()
-        {
-            Init(5, 1);
-        }
-
-        public void Init(float speed, float acceleration)
+        public bool CanMove { get; private set; } = true;
+        
+        public void Init(float speed)
         {
             _characterController = GetComponent<CharacterController>();
             _speed = speed;
-            _acceleration = acceleration;
             CanMove = true;
         }
 

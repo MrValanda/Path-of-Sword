@@ -5,6 +5,7 @@ using Lean.Pool;
 using Sirenix.OdinInspector;
 using Source.Modules.DamageableFindersModule;
 using Source.Modules.EnemyModule.Scripts;
+using Source.Modules.EnemyModule.Scripts.Setups;
 using Source.Modules.WeaponModule.Scripts;
 using Source.Scripts.EntityLogic;
 using Source.Scripts.Interfaces;
@@ -41,9 +42,9 @@ namespace Source.Scripts.AbilityActions
                 spawnedProjectile.LaunchProjectile(transformPosition, _jumpPower, _duration, _ease, _flyingDelay);
 
                 spawnedProjectile.InitDamage(
-                    abilityCaster.Get<DamageCalculator>().CalculateDamage(baseAbilitySetup.Damage),
+                    abilityCaster.Get<DamageCalculator>().CalculateValue(baseAbilitySetup.Damage),
                     baseAbilitySetup.IndicatorDataSetup,
-                    baseAbilitySetup.ObstacleLayers, abilityCaster.Get<EnemyCharacterSetup>().AttakedUnits);
+                    baseAbilitySetup.ObstacleLayers, abilityCaster.Get<EnemyCharacterSetup>().AttackedUnits);
             });
         }
 

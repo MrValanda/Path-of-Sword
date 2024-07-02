@@ -49,6 +49,7 @@ namespace Source.Scripts_DONT_USE_THIS_FOLDER_.States
         {
             _animator.SetBool(IsProtection, false);
             _needEnterToSubStates = false;
+            _protectionEventListener.ProtectionStarted -= ProtectionStart;
             foreach (State state in _subStatesAfterParry)
             {
                 if (state.enabled)

@@ -16,8 +16,23 @@ MonoBehaviour:
   deleteDllAfterBuilds: 1
   AutomateForAllAOTPlatforms: 1
   automateForPlatforms: 0900000014000000
-  lastScan: 638551691983028850
+  lastScan: 638554301050610555
   supportSerializedTypes:
+  - TypeName: UnityEngine.Material, UnityEngine.CoreModule
+    IsCustom: 0
+    Emit: 1
+  - TypeName: Source.Modules.MeshTrailModule.Scripts.MeshTrailView, Assembly-CSharp
+    IsCustom: 0
+    Emit: 1
+  - TypeName: System.Object, mscorlib
+    IsCustom: 0
+    Emit: 1
+  - TypeName: Source.Modules.AbilityModule.Scripts.StartSpawnMeshTrail, Assembly-CSharp
+    IsCustom: 0
+    Emit: 1
+  - TypeName: Source.Modules.AbilityModule.Scripts.StopSpawnMeshTrail, Assembly-CSharp
+    IsCustom: 0
+    Emit: 1
   - TypeName: Source.Scripts.AbilityActions.AbilityVFXAction, Assembly-CSharp
     IsCustom: 0
     Emit: 1

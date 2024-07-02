@@ -15,6 +15,10 @@ namespace Source.Scripts_DONT_USE_THIS_FOLDER_.Utils
         public IComponentContainer AddComponent<T>(T component) where T : class
         {
             Type type = typeof(T);
+            if (_components.ContainsKey(type))
+            {
+                _components.Remove(type);
+            }
             _components[type] = component;
             ComponentAdded?.Invoke(type);
             return this;

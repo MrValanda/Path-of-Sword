@@ -2,11 +2,13 @@
 using Source.Modules.AbilityModule.Scripts;
 using Source.Modules.DamageableFindersModule;
 using Source.Modules.EnemyModule.Scripts;
+using Source.Modules.EnemyModule.Scripts.Setups;
 using Source.Modules.HealthModule.Scripts;
 using Source.Modules.StaggerModule.Scripts;
 using Source.Modules.StaminaModule.Scripts;
 using Source.Modules.WeaponModule.Scripts;
 using Source.Scripts.EntityLogic;
+using Source.Scripts.Interfaces;
 using Source.Scripts.Setups.Characters;
 using UnityEngine;
 
@@ -44,6 +46,7 @@ namespace Source.Modules.CompositeRootModule
             _enemyEntity.Add(damageableSelector);
             _enemyEntity.Add(_enemyCharacterSetup);
             _enemyEntity.Add(new DamageCalculator(_enemyCharacterSetup.DamageMultiplier, 1));
+            
             AbilityCaster abilityCaster = new();
             abilityCaster.Init(_enemyCharacterSetup.AbilityContainerSetup, _enemyEntity);
 
@@ -53,12 +56,15 @@ namespace Source.Modules.CompositeRootModule
             staggerHandler.SetImpactWeight(0.3f);
             _enemyEntity.Add(staggerHandler);
 
-            HealthController healthController = new(_enemyHealthView, _enemyEntity.Get<HealthComponent>());
-            _enemyEntity.Add(healthController);
-
-            _enemyEntity.Add(new StaminaModel(200));
-            _enemyEntity.Add(new StaminaController(_enemyEntity, _enemyStaminaView));
+            HealthComponent healthComponent = _enemyEntity.Get<HealthComponent>();
+            healthComponent.SetMaxHealth(new HealthCalculator().CalculateValue(_enemyCharacterSetup.DefaultHealth));
             
+            HealthController healthController = new(_enemyHealthView, healthComponent);
+            _enemyEntity.Add(healthController);
+            
+            _enemyEntity.Add(new StaminaModel(_enemyCharacterSetup.DefaultStamina));
+            _enemyEntity.Add(new StaminaController(_enemyEntity, _enemyStaminaView));
+            _enemyEntity.Get<IMovement>().Init(_enemyCharacterSetup.DefaultMoveSpeed);
             _behaviorTreeCompositeRoot.Compose();
         }
     }

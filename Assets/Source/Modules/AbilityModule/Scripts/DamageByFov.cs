@@ -39,7 +39,7 @@ namespace Source.Scripts.AbilityActions
 
 
             DamageExecute(castPoint, coneIndicatorDataSetup.Radius, coneIndicatorDataSetup.Angle,
-                abilityCaster.Get<DamageCalculator>().CalculateDamage(baseAbilityDataSetup.Damage),
+                abilityCaster.Get<DamageCalculator>().CalculateValue(baseAbilityDataSetup.Damage),
                 abilityCaster.Get<IDamageable>());
         }
 

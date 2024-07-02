@@ -65,16 +65,15 @@ MonoBehaviour:
     SoundInfo:
       AudioClips:
       - {fileID: 8300000, guid: 56bb552f1bbd54a48872a6b32b2aa0f6, type: 3}
-      - {fileID: 8300000, guid: 9e16cba7bd58c2c49ad146249ea3c2e5, type: 3}
       VolumeData:
         ValType: 1
         ConstantVolume: 0.368
-        MinVolume: 0.216
+        MinVolume: 0.302
         MaxVolume: 0.325
       PitchData:
         ValType: 1
         ConstantPitch: 0
-        MinPitch: 1.012
+        MinPitch: 0.79
         MaxPitch: 1.198
       StereoData:
         SpatialBlend: 0

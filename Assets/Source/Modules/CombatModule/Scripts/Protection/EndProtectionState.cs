@@ -1,10 +1,9 @@
-﻿using Source.CodeLibrary.ServiceBootstrap;
-using Source.Modules.AudioModule;
+﻿using System;
 using Source.Modules.HealthModule.Scripts;
 using Source.Scripts;
 using Source.Scripts.EntityLogic;
 
-namespace Source.Scripts_DONT_USE_THIS_FOLDER_.States
+namespace Source.Modules.CombatModule.Scripts.Protection
 {
     public class EndProtectionState : State
     {

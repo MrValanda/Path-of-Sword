@@ -37,7 +37,7 @@ namespace Source.Scripts.AbilityActions
             }
 
             DamageExecute(castPoint, rectangleIndicatorDataSetup.Width, rectangleIndicatorDataSetup.MaxDistance,
-                abilityCaster.Get<DamageCalculator>().CalculateDamage(baseAbilityDataSetup.Damage),
+                abilityCaster.Get<DamageCalculator>().CalculateValue(baseAbilityDataSetup.Damage),
                 abilityCaster.Get<IDamageable>());
         }
 
