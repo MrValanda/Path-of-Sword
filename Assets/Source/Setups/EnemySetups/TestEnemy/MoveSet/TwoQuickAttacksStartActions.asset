@@ -45,10 +45,13 @@ MonoBehaviour:
       Data: 10
     - Name: <ParryBackForce>k__BackingField
       Entry: 4
-      Data: 5
+      Data: 10
     - Name: <LossStaminaAfterParry>k__BackingField
       Entry: 4
       Data: 5
+    - Name: <LossStaminaWhenEntityParry>k__BackingField
+      Entry: 4
+      Data: 0
     - Name: <WhooshSoundsType>k__BackingField
       Entry: 3
       Data: 2
@@ -61,9 +64,6 @@ MonoBehaviour:
     - Name: 
       Entry: 7
       Data: 2|Source.Scripts.AbilityActions.LookAtTargetAction, Assembly-CSharp
-    - Name: _rotationDuration
-      Entry: 4
-      Data: 0.1
     - Name: 
       Entry: 8
       Data: 

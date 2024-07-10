@@ -1,7 +1,7 @@
 ﻿using System;
 using Source.Modules.CombatModule.Scripts.Parry;
 
-namespace Source.Scripts_DONT_USE_THIS_FOLDER_.Transitions
+namespace Source.Modules.CombatModule.Scripts.Transitions
 {
     [Serializable]
     public class EntityContainsParryBrokenComponent : EntityContainsType<ParryBrokenComponent>

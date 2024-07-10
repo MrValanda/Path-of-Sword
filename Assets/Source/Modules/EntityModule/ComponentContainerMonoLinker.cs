@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using Source.Scripts_DONT_USE_THIS_FOLDER_.Utils;
+using System.Linq;
+using Source.Modules.EntityModule;
 #if UNITY_EDITOR
 #endif
 using UnityEngine;
@@ -9,8 +10,7 @@ namespace Source.Scripts.Utils
 {
     public class ComponentContainerMonoLinker : MonoBehaviour
     {
-        [SerializeField]
-        private List<Component> _monoBehaviours = new List<Component>();
+        [SerializeField] private List<Component> _monoBehaviours = new List<Component>();
 
         public ComponentContainer ComponentsContainer { get; private set; }
 
@@ -33,5 +33,9 @@ namespace Source.Scripts.Utils
 
             _monoBehaviours.ForEach(x => ComponentsContainer.AddComponent(x, x.GetType()));
         }
+
+#if UNITY_EDITOR
+        public List<Component> GetCloneMono() => _monoBehaviours.ToList();
+#endif
     }
 }

@@ -1,5 +1,5 @@
+using Source.Modules.Tools;
 using Source.Scripts;
-using Source.Scripts_DONT_USE_THIS_FOLDER_.Tools;
 using UnityEngine;
 
 namespace Source.Modules.StateMachineModule.Scripts

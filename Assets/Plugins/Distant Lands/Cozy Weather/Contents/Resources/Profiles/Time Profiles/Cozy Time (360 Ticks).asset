@@ -47,7 +47,7 @@ MonoBehaviour:
   useLeapYear: 0
   resetTicksOnStart: 0
   startTicks: 120
-  ticksPerDay: 10000
+  ticksPerDay: 1000000
   tickSpeed: 0.5
   tickSpeedMultiplier:
     serializedVersion: 2
@@ -245,13 +245,13 @@ MonoBehaviour:
   daysPerYear: 48
   dawnBlock:
     start: 0.1388889
-    end: 0.20833333
+    end: 0.20833331
   morningBlock:
     start: 0.22222227
     end: 0.25
   dayBlock:
     start: 0.2777778
-    end: 0.41666666
+    end: 0.41666663
   afternoonBlock:
     start: 0.5416667
     end: 0.5833333
@@ -259,8 +259,8 @@ MonoBehaviour:
     start: 0.66666675
     end: 0.75
   twilightBlock:
-    start: 0.8333333
+    start: 0.83333325
     end: 0.875
   nightBlock:
     start: 0.875
-    end: 0.9166667
+    end: 0.91666675

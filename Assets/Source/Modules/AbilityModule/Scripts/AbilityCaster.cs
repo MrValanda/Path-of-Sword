@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using Sirenix.OdinInspector;
+using Source.Modules.EnemyModule.Scripts.Setups;
 using Source.Scripts.Abilities;
 using Source.Scripts.AnimationEventListeners;
 using Source.Scripts.EntityLogic;

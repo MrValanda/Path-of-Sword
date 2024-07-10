@@ -1,13 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using Sirenix.OdinInspector;
-
+using Source.Modules.EnemyModule.Scripts.Setups;
+using UnityEngine;
 #if UNITY_EDITOR
 using Sirenix.Utilities.Editor;
+using Source.Modules.EnemyModule.Scripts.Setups.Tools;
 #endif
-
-using Source.Scripts.EditorTools;
-using UnityEngine;
 
 namespace Source.Scripts.Setups
 {
@@ -31,26 +30,24 @@ namespace Source.Scripts.Setups
         {
             SirenixEditorGUI.EndBox();
         }
+
+        [Button]
+        public void CreateAbilityDataSetup(string nameAbility,AnimationClip animationClip,
+            [FolderPath] string path = @"Assets/Source/Setups/Attacks")
+        {
+            AbilityCreator abilityCreator = new();
+            abilityCreator.CreateNewAbility<AttackAbilitySetup>(path + $"/{nameAbility}", nameAbility,animationClip);
+        }
 #endif
     }
 
     [Serializable]
     public class AbilityChain
     {
-        [field: SerializeField, InlineEditor(InlineEditorObjectFieldModes.Foldout)]
-        public List<AttackAbilitySetup> AbilitySetups { get; private set; }
+        [field: SerializeField]
+        [field: InlineEditor(InlineEditorObjectFieldModes.Foldout)]
+        public List<BaseAbilitySetup> AbilitySetups { get; private set; }
 
-        [field: SerializeField] public float AfkTimeAfterChain { get; private set; } = 0;
-
-#if UNITY_EDITOR
-        [Button]
-        private void CreateAbilityDataSetup(string name, [FolderPath] string path = @"Assets/Source/Setups/Attacks")
-        {
-            AssetCreator<AttackAbilitySetup> assetCreator = new AssetCreator<AttackAbilitySetup>();
-            AttackAbilitySetup attackAbilitySetup = assetCreator.CreateAsset(path, name);
-            attackAbilitySetup.CreateAbilityData(name + "DataSetup", path);
-            AbilitySetups.Add(attackAbilitySetup);
-        }
-#endif
+        [field: SerializeField] public float AfkTimeAfterChain { get; private set; }
     }
 }

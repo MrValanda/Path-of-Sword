@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Sirenix.OdinInspector;
 using Source.CodeLibrary.ServiceBootstrap;
+using Source.Modules.EnemyModule.Scripts.Setups;
 using Source.Scripts.AnimationEventListeners;
 using Source.Scripts.AnimationEventNames;
 using Source.Scripts.Enemy;
@@ -61,6 +62,8 @@ namespace Source.Scripts.Abilities
             _abilityEventListener.PreparationStarted += OnPreparationStarted;
             _abilityEventListener.PreparationEnded += OnPreparationEnded;
 
+            if (_abilitySetup == null || _abilitySetup.AbilityDataSetup.IndicatorDataSetup == null) return;
+            
             ServiceLocator.Global.Get(out IndicatorHandlerFactory indicatorHandlerFactory);
             _indicatorHandlerPrefab =
                 indicatorHandlerFactory.GetFactoryItem(_abilitySetup.AbilityDataSetup.IndicatorDataSetup.GetType());

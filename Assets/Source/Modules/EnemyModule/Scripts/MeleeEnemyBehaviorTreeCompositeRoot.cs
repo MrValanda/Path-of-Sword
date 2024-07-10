@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using Source.Modules.AbilityModule.Scripts;
 using Source.Modules.BehaviorTreeModule;
 using Source.Modules.BehaviorTreeModule.Modules.MovementModule;
+using Source.Modules.BehaviorTreeModule.SharedVariables;
 using Source.Modules.CombatModule.Scripts.Parry;
 using Source.Modules.CompositeRootModule;
 using Source.Modules.DamageableFindersModule;
@@ -9,7 +10,6 @@ using Source.Modules.EnemyModule.Scripts.IGameActions;
 using Source.Modules.EnemyModule.Scripts.IGameConditions;
 using Source.Modules.HealthModule.Scripts;
 using Source.Modules.StaminaModule.Scripts;
-using Source.Scripts_DONT_USE_THIS_FOLDER_.BehaviorsNodes.SharedVariables;
 using Source.Scripts.AttackPointCalculators;
 using Source.Scripts.BehaviorTreeEventSenders;
 using Source.Scripts.EntityLogic;
@@ -95,7 +95,7 @@ namespace Source.Modules.EnemyModule.Scripts
                     new DelayedExecutorAction(2f,new List<IGameAction>()
                     {
                         new SetRandomAnimationFloatValue(animator, "InputX", -1, 1),
-                        new SetRandomAnimationFloatValue(animator, "InputY", -1, 1)
+                        new SetRandomAnimationFloatValue(animator, "InputY", -1, 0)
                     })
                 });
 

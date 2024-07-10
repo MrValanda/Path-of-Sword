@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Source.Scripts.Interfaces;
 
-namespace Source.Scripts_DONT_USE_THIS_FOLDER_.Utils
+namespace Source.Modules.EntityModule
 {
     public class ComponentContainer : IComponentContainer,IDisposable
     {

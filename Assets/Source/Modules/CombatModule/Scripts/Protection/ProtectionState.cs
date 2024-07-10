@@ -1,7 +1,6 @@
 ﻿using System.Collections.Generic;
 using Source.CodeLibrary.ServiceBootstrap;
 using Source.Modules.AudioModule;
-using Source.Modules.CombatModule.Scripts;
 using Source.Modules.CombatModule.Scripts.Parry;
 using Source.Modules.HealthModule.Scripts;
 using Source.Scripts;
@@ -9,7 +8,7 @@ using Source.Scripts.EntityLogic;
 using Source.Scripts.Tools;
 using UnityEngine;
 
-namespace Source.Scripts_DONT_USE_THIS_FOLDER_.States
+namespace Source.Modules.CombatModule.Scripts.Protection
 {
     public class ProtectionState : State
     {

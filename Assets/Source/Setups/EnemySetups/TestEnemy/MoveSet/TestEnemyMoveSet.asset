@@ -17,5 +17,23 @@ MonoBehaviour:
     - {fileID: 11400000, guid: cd3c21d79ac3aeb42b0539fec2a1bb2b, type: 2}
     <AfkTimeAfterChain>k__BackingField: 2
   - <AbilitySetups>k__BackingField:
+    - {fileID: 11400000, guid: 1a0b0ded365a4f14395212369e8b60e9, type: 2}
+    - {fileID: 11400000, guid: 1a0b0ded365a4f14395212369e8b60e9, type: 2}
+    <AfkTimeAfterChain>k__BackingField: 2
+  - <AbilitySetups>k__BackingField:
+    - {fileID: 11400000, guid: 1a0b0ded365a4f14395212369e8b60e9, type: 2}
+    - {fileID: 11400000, guid: 2be2a72727307c74198f1d0f86ad6009, type: 2}
+    - {fileID: 11400000, guid: 1a0b0ded365a4f14395212369e8b60e9, type: 2}
+    - {fileID: 11400000, guid: 2be2a72727307c74198f1d0f86ad6009, type: 2}
+    <AfkTimeAfterChain>k__BackingField: 2
+  - <AbilitySetups>k__BackingField:
+    - {fileID: 11400000, guid: fddce708572203e44b778296c1c4332f, type: 2}
+    - {fileID: 11400000, guid: a8a1cd24aeb87154b97990528eb9cb61, type: 2}
     - {fileID: 11400000, guid: 564d973d2f0fb694f9bff9fde15ae64e, type: 2}
     <AfkTimeAfterChain>k__BackingField: 2
+  - <AbilitySetups>k__BackingField:
+    - {fileID: 11400000, guid: 564d973d2f0fb694f9bff9fde15ae64e, type: 2}
+    - {fileID: 11400000, guid: fddce708572203e44b778296c1c4332f, type: 2}
+    - {fileID: 11400000, guid: 05ddb7ea7902ae34698a6f7351cc4a0d, type: 2}
+    - {fileID: 11400000, guid: cd3c21d79ac3aeb42b0539fec2a1bb2b, type: 2}
+    <AfkTimeAfterChain>k__BackingField: 3

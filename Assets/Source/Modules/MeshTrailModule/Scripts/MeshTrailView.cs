@@ -7,12 +7,13 @@ namespace Source.Modules.MeshTrailModule.Scripts
         [SerializeField] private MeshFilter _meshFilter;
         [SerializeField] private MeshRenderer _meshRenderer;
 
+        //TODO FIX MATERIALS 
         public void Initialize(Mesh mesh, Material trailMaterial)
         {
             _meshFilter.mesh = mesh;
             _meshRenderer.materials = new[]
             {
-                trailMaterial, trailMaterial, trailMaterial
+                trailMaterial, trailMaterial, trailMaterial,trailMaterial,trailMaterial,trailMaterial // ........
             };
         }
     }

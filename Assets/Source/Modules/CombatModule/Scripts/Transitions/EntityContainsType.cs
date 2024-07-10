@@ -2,7 +2,7 @@
 using Source.Scripts.EntityLogic;
 using UnityEngine;
 
-namespace Source.Scripts_DONT_USE_THIS_FOLDER_.Transitions
+namespace Source.Modules.CombatModule.Scripts.Transitions
 {
     [Serializable]
     public class EntityContainsType<T> : Transition where T: class 

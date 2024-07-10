@@ -15,6 +15,7 @@ namespace Source.Modules.MovementModule.Scripts
         public void Execute(Vector3 force, float deceleration)
         {
             Dispose();
+            if (WhoWillMoveEntity.Contains<AnimationMovementTag>()) return;
             _cancellationTokenSource = new CancellationTokenSource();
             _previousForce += force;
             AddForce(_previousForce, deceleration, _cancellationTokenSource.Token).Forget();

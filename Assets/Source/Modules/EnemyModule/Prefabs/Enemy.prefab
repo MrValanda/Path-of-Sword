@@ -119,6 +119,7 @@ GameObject:
   - component: {fileID: 1584186306628238904}
   - component: {fileID: 9099899782325424764}
   - component: {fileID: 4489153769580278640}
+  - component: {fileID: 110463929104884459}
   m_Layer: 8
   m_Name: Enemy
   m_TagString: Untagged
@@ -397,6 +398,19 @@ MonoBehaviour:
   gameObject: {fileID: 296541782369252894}
   <InteractionEntity>k__BackingField: {fileID: 5216729014313285969}
   <InteractionPoint>k__BackingField: {fileID: 9106017059028069501}
+--- !u!114 &110463929104884459
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 296541782369252894}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 96dab49cf43ffdb44842e2cad0bb7521, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _componentContainerMonoLinker: {fileID: 8436399528460463784}
 --- !u!1 &359375217966191044
 GameObject:
   m_ObjectHideFlags: 0

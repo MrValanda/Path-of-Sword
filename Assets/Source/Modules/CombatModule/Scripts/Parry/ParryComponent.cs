@@ -45,7 +45,7 @@ namespace Source.Modules.CombatModule.Scripts.Parry
                 WhoParryEntity = WhoParryEntity
             };
             WhoParryEntity.Add(parryCompleteComponent);
-            ServiceLocator.For(WhomParryEntity).Get<CameraShakeService>().Shake(1, 0.5f);
+            ServiceLocator.For(WhomParryEntity).Get<CameraShakeService>().Shake(1.5f, 0.5f);
             Animator animator = WhoParryEntity.Get<AnimationHandler>().Animator;
             
             if (WhomParryEntity.TryGet(out StaminaModel staminaModel))

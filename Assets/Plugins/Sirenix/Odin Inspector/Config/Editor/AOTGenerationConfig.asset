@@ -16,24 +16,13 @@ MonoBehaviour:
   deleteDllAfterBuilds: 1
   AutomateForAllAOTPlatforms: 1
   automateForPlatforms: 0900000014000000
-  lastScan: 638554301050610555
+  lastScan: 638561239349064505
   supportSerializedTypes:
-  - TypeName: UnityEngine.Material, UnityEngine.CoreModule
-    IsCustom: 0
-    Emit: 1
-  - TypeName: Source.Modules.MeshTrailModule.Scripts.MeshTrailView, Assembly-CSharp
-    IsCustom: 0
-    Emit: 1
-  - TypeName: System.Object, mscorlib
-    IsCustom: 0
-    Emit: 1
-  - TypeName: Source.Modules.AbilityModule.Scripts.StartSpawnMeshTrail, Assembly-CSharp
-    IsCustom: 0
-    Emit: 1
-  - TypeName: Source.Modules.AbilityModule.Scripts.StopSpawnMeshTrail, Assembly-CSharp
-    IsCustom: 0
-    Emit: 1
   - TypeName: Source.Scripts.AbilityActions.AbilityVFXAction, Assembly-CSharp
+    IsCustom: 0
+    Emit: 1
+  - TypeName: Source.Modules.AbilityModule.Scripts.AddAnimationMovementTagComponent,
+      Assembly-CSharp
     IsCustom: 0
     Emit: 1
   - TypeName: Source.Modules.CombatModule.Scripts.AttackEventListener, Assembly-CSharp
@@ -147,6 +136,12 @@ MonoBehaviour:
   - TypeName: Source.Scripts.AbilityActions.LookAtTargetAction, Assembly-CSharp
     IsCustom: 0
     Emit: 1
+  - TypeName: UnityEngine.Material, UnityEngine.CoreModule
+    IsCustom: 0
+    Emit: 1
+  - TypeName: Source.Modules.MeshTrailModule.Scripts.MeshTrailView, Assembly-CSharp
+    IsCustom: 0
+    Emit: 1
   - TypeName: Transitions.MoveToNextMoveSetTransition, Assembly-CSharp
     IsCustom: 0
     Emit: 1
@@ -167,6 +162,13 @@ MonoBehaviour:
   - TypeName: Source.Scripts.Setups.RectangleIndicatorDataSetup, Assembly-CSharp
     IsCustom: 0
     Emit: 1
+  - TypeName: Source.Modules.EnemyModule.Scripts.IGameActions.RemoveAddForceDirectionComponent,
+      Assembly-CSharp
+    IsCustom: 0
+    Emit: 1
+  - TypeName: Source.Modules.AbilityModule.Scripts.RemoveAnimationMovementTag, Assembly-CSharp
+    IsCustom: 0
+    Emit: 1
   - TypeName: Source.Modules.EnemyModule.Scripts.IGameActions.RotateToTargetAction,
       Assembly-CSharp
     IsCustom: 0
@@ -175,6 +177,9 @@ MonoBehaviour:
     IsCustom: 0
     Emit: 1
   - TypeName: Source.Modules.AudioModule.SoundType, Assembly-CSharp
+    IsCustom: 0
+    Emit: 1
+  - TypeName: Source.Modules.AbilityModule.Scripts.StartSpawnMeshTrail, Assembly-CSharp
     IsCustom: 0
     Emit: 1
   - TypeName: Source.Scripts.State, Assembly-CSharp
@@ -186,6 +191,9 @@ MonoBehaviour:
     Emit: 1
   - TypeName: Source.Modules.EnemyModule.Scripts.IGameActions.StopRotateToTargetAction,
       Assembly-CSharp
+    IsCustom: 0
+    Emit: 1
+  - TypeName: Source.Modules.AbilityModule.Scripts.StopSpawnMeshTrail, Assembly-CSharp
     IsCustom: 0
     Emit: 1
   - TypeName: System.String, mscorlib

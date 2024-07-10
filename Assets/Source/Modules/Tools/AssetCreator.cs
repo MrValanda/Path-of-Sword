@@ -1,4 +1,5 @@
 ﻿#if UNITY_EDITOR
+using System.IO;
 using UnityEditor;
 #endif
 
@@ -13,6 +14,10 @@ namespace Source.Scripts.EditorTools
             T createdAsset = ScriptableObject.CreateInstance<T>();
             createdAsset.name = name;
 #if UNITY_EDITOR
+            if (!Directory.Exists(path))
+            {
+                Directory.CreateDirectory(path);
+            }
             AssetDatabase.CreateAsset(createdAsset, path + "/" + name + ".asset");
             AssetDatabase.SaveAssets();
             AssetDatabase.Refresh();

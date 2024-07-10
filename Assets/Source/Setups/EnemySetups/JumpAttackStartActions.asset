@@ -30,7 +30,24 @@ MonoBehaviour:
       Data: 3
     - Name: 
       Entry: 7
-      Data: 1|Source.Scripts.AbilityActions.EnableWeapon, Assembly-CSharp
+      Data: 1|Source.Modules.EnemyModule.Scripts.IGameActions.StopRotateToTargetAction,
+        Assembly-CSharp
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 2|Source.Modules.EnemyModule.Scripts.IGameActions.MoveToTargetAction,
+        Assembly-CSharp
+    - Name: _speed
+      Entry: 4
+      Data: 10
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 3|Source.Scripts.AbilityActions.EnableWeapon, Assembly-CSharp
     - Name: _hitInfo
       Entry: 7
       Data: Source.Modules.MoveSetModule.Scripts.HitInfo, Assembly-CSharp
@@ -42,36 +59,22 @@ MonoBehaviour:
       Data: 0
     - Name: <Damage>k__BackingField
       Entry: 4
-      Data: 0
+      Data: 20
     - Name: <ParryBackForce>k__BackingField
       Entry: 4
       Data: 20
     - Name: <LossStaminaAfterParry>k__BackingField
       Entry: 4
       Data: 0
+    - Name: <LossStaminaWhenEntityParry>k__BackingField
+      Entry: 4
+      Data: 0
     - Name: <WhooshSoundsType>k__BackingField
       Entry: 3
-      Data: 0
+      Data: 2
     - Name: 
       Entry: 8
       Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 2|Source.Modules.EnemyModule.Scripts.IGameActions.StopRotateToTargetAction,
-        Assembly-CSharp
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 3|Source.Modules.EnemyModule.Scripts.IGameActions.MoveToTargetAction,
-        Assembly-CSharp
-    - Name: _speed
-      Entry: 4
-      Data: 10
     - Name: 
       Entry: 8
       Data: 

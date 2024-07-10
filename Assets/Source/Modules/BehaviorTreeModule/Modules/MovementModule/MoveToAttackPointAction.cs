@@ -23,13 +23,11 @@ namespace Source.Modules.BehaviorTreeModule.Modules.MovementModule
 
         public void OnStart()
         {
-            _senderEntity.Add(new MoveToTargetComponent());
             _senderEntity.Get<Animation>().Animator.SetBool(IsMovement, true);
         }
 
         public void OnExit()
         {
-            _senderEntity.Remove<MoveToTargetComponent>();
             _senderEntity.Get<Animation>().Animator.SetBool(IsMovement, false);
             _senderEntity.Get<IMovement>().Move(Vector3.zero);
         }

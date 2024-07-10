@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
+using Source.Modules.CombatModule.Scripts.Transitions;
 using Source.Modules.HealthModule.Scripts;
-using Source.Scripts_DONT_USE_THIS_FOLDER_.Transitions;
 using Source.Scripts.Transitions;
 using States;
 using Transitions;

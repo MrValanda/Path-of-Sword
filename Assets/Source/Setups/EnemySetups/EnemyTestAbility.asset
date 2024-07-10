@@ -22,6 +22,4 @@ MonoBehaviour:
     PrefabModifications: []
     SerializationNodes: []
   <AbilitySetups>k__BackingField:
-  - {fileID: 11400000, guid: a8a1cd24aeb87154b97990528eb9cb61, type: 2}
-  - {fileID: 11400000, guid: 05ddb7ea7902ae34698a6f7351cc4a0d, type: 2}
   - {fileID: 11400000, guid: fddce708572203e44b778296c1c4332f, type: 2}

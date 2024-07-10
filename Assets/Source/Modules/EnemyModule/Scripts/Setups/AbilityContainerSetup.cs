@@ -1,22 +1,33 @@
 ﻿using System.Collections.Generic;
 using Sirenix.OdinInspector;
-using Source.Scripts.EditorTools;
+using Source.Scripts.Setups;
+using UnityEditor;
 using UnityEngine;
 
-namespace Source.Scripts.Setups
+#if UNITY_EDITOR
+using Source.Modules.EnemyModule.Scripts.Setups.Tools;
+#endif
+
+namespace Source.Modules.EnemyModule.Scripts.Setups
 {
     [CreateAssetMenu(fileName = "AbilityContainerSetup", menuName = "Setups/AbilityContainerSetup")]
     public class AbilityContainerSetup : SerializedScriptableObject
     {
-        [field: SerializeField, InlineEditor]
-        public List<AbilitySetup> AbilitySetups { get; private set; } = new List<AbilitySetup>();
+        [field: SerializeField]
+        [field: InlineEditor]
+        public List<AbilitySetup> AbilitySetups { get; private set; } = new();
 
 #if UNITY_EDITOR
+        
         [Button]
-        private void CreateAsset([FolderPath]string path,string name)
+        private void CreateAsset(string nameAbility, AnimationClip animationClip,
+            [FolderPath] string path = "Assets/Source/Setups/EnemySetups")
         {
-            AssetCreator<AbilitySetup> assetCreator = new AssetCreator<AbilitySetup>();
-            AbilitySetups.Add(assetCreator.CreateAsset(path, name));
+            AbilityCreator abilityCreator = new();
+            AbilitySetups.Add(
+                abilityCreator.CreateNewAbility<AbilitySetup>(path + $"/{nameAbility}", nameAbility, animationClip));
+            EditorUtility.SetDirty(this);
+            AssetDatabase.SaveAssets();
         }
 #endif
     }

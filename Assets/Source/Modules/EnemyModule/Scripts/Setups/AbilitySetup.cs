@@ -1,3 +1,4 @@
+using Source.Modules.EnemyModule.Scripts.Setups;
 using UnityEngine;
 
 namespace Source.Scripts.Setups

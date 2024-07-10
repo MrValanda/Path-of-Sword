@@ -1,34 +1,49 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using Sirenix.OdinInspector;
 using Source.Scripts.AnimationEventNames;
 using Source.Scripts.EditorTools;
+using Source.Scripts.Setups;
+using UnityEditor;
 using UnityEngine;
 
-namespace Source.Scripts.Setups
+namespace Source.Modules.EnemyModule.Scripts.Setups
 {
     public class BaseAbilitySetup : SerializedScriptableObject
     {
-        [field: SerializeField,InlineEditor(InlineEditorModes.LargePreview)] public AnimationClip AbilityAnimation { get; private set; }
+        [field: SerializeField]
+        [field: InlineEditor(InlineEditorModes.LargePreview)]
+        public AnimationClip AbilityAnimation { get; private set; }
 
-        [field: SerializeField, InlineEditor(InlineEditorObjectFieldModes.Foldout), TabGroup("AbilityDataSetup")]
+        [field: SerializeField]
+        [field: InlineEditor(InlineEditorObjectFieldModes.Foldout)]
+        [field: TabGroup("AbilityDataSetup")]
         public AbilityDataSetup AbilityDataSetup { get; private set; }
 
-        [field: SerializeField, InlineEditor(InlineEditorObjectFieldModes.Foldout), TabGroup("Conditions")]
+        [field: SerializeField]
+        [field: InlineEditor(InlineEditorObjectFieldModes.Foldout)]
+        [field: TabGroup("Conditions")]
         public AbilityConditionSetup AbilityToUseConditions { get; private set; }
 
-        [field: SerializeField, InlineEditor(InlineEditorObjectFieldModes.Foldout),
-                TabGroup("AbilityPreparationStartActions")]
+        [field: SerializeField]
+        [field: InlineEditor(InlineEditorObjectFieldModes.Foldout)]
+        [field: TabGroup("AbilityPreparationStartActions")]
         public AbilityActionSetup AbilityPreparationStartActions { get; private set; }
 
-        [field: SerializeField, InlineEditor(InlineEditorObjectFieldModes.Foldout),
-                TabGroup("AbilityPreparationEndActions")]
+        [field: SerializeField]
+        [field: InlineEditor(InlineEditorObjectFieldModes.Foldout)]
+        [field: TabGroup("AbilityPreparationEndActions")]
         public AbilityActionSetup AbilityPreparationEndActions { get; private set; }
 
-        [field: SerializeField, InlineEditor(InlineEditorObjectFieldModes.Foldout), TabGroup("StartAbilityActions")]
+        [field: SerializeField]
+        [field: InlineEditor(InlineEditorObjectFieldModes.Foldout)]
+        [field: TabGroup("StartAbilityActions")]
         public AbilityActionSetup AbilityStartedActions { get; private set; }
 
-        [field: SerializeField, InlineEditor(InlineEditorObjectFieldModes.Foldout), TabGroup("EndAbilityActions")]
+        [field: SerializeField]
+        [field: InlineEditor(InlineEditorObjectFieldModes.Foldout)]
+        [field: TabGroup("EndAbilityActions")]
         public AbilityActionSetup AbilityEndedActions { get; private set; }
 
 
@@ -36,48 +51,83 @@ namespace Source.Scripts.Setups
         {
             if (AbilityAnimation == null) return;
 
-            List<string> functionsName = AbilityAnimation.events.Select(x => x.functionName).ToList();
-            List<string> desiredEventNames = new List<string>()
+            var functionsName = AbilityAnimation.events.Select(x => x.functionName).ToList();
+            var desiredEventNames = new List<string>
             {
                 AbilityEventNames.AbilityEndEventName,
                 AbilityEventNames.AbilityStartEventName,
                 AbilityEventNames.PreparationEndEventName,
-                AbilityEventNames.PreparationStartEventName,
+                AbilityEventNames.PreparationStartEventName
             };
 
-            foreach (string desiredEventName in desiredEventNames)
-            {
+            foreach (var desiredEventName in desiredEventNames)
                 if (functionsName.Contains(desiredEventName) == false)
                 {
                     AbilityAnimation = null;
                     Debug.LogError("It is not Ability animation");
                 }
-            }
         }
 
 #if UNITY_EDITOR
         [Button]
-        public void CreateAbilityData(string abilityDataName,
+        public void CreateAbilityData(string abilityDataName, AnimationClip animationClip,
             [FolderPath] string path = @"Assets/Source/Setups/Attacks")
         {
-            AssetCreator<AbilityDataSetup> assetCreator = new AssetCreator<AbilityDataSetup>();
+            var assetCreator = new AssetCreator<AbilityDataSetup>();
 
             AbilityDataSetup = assetCreator.CreateAsset(path, abilityDataName);
+            AbilityDataSetup.AutomaticCalculatePreparation(animationClip);
+            AbilityAnimation = animationClip;
+            EditorUtility.SetDirty(this);
+            AssetDatabase.SaveAssets();
         }
 
         [Button]
         public void CreateAbilityAction(string abilityActionName,
-            [FolderPath] string path = @"Assets/Source/Setups/Attacks")
+            [FolderPath] string path = @"Assets/Source/Setups/Attacks",
+            ActionType actionType = ActionType.StartPreparation)
         {
-            AssetCreator<AbilityActionSetup> assetCreator = new AssetCreator<AbilityActionSetup>();
-            assetCreator.CreateAsset(path, abilityActionName);
+            var assetCreator = new AssetCreator<AbilityActionSetup>();
+            AbilityActionSetup abilityActionSetup = assetCreator.CreateAsset(path, abilityActionName + actionType);
+            SetDataByType(actionType, abilityActionSetup);
         }
-        [Button,TabGroup("Conditions")]
+
+        [Button]
+        [TabGroup("Conditions")]
         public void CreateAbilityCondition(string abilityActionName,
             [FolderPath] string path = @"Assets/Source/Setups/Attacks")
         {
-            AssetCreator<AbilityConditionSetup> assetCreator = new AssetCreator<AbilityConditionSetup>();
-            assetCreator.CreateAsset(path, abilityActionName);
+            var assetCreator = new AssetCreator<AbilityConditionSetup>();
+            AbilityConditionSetup abilityConditionSetup = assetCreator.CreateAsset(path, abilityActionName);
+        }
+
+        private void SetDataByType(ActionType actionType, AbilityActionSetup attackAbilitySetup)
+        {
+            switch (actionType)
+            {
+                case ActionType.StartPreparation:
+                    AbilityPreparationStartActions = attackAbilitySetup;
+                    break;
+                case ActionType.EndPreparation:
+                    AbilityPreparationEndActions = attackAbilitySetup;
+                    break;
+                case ActionType.StartAbility:
+                    AbilityStartedActions = attackAbilitySetup;
+                    break;
+                case ActionType.EndAbility:
+                    AbilityEndedActions = attackAbilitySetup;
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException(nameof(actionType), actionType, null);
+            }
+        }
+
+        public enum ActionType
+        {
+            StartPreparation = 0,
+            EndPreparation = 1,
+            StartAbility = 2,
+            EndAbility = 3
         }
 #endif
     }

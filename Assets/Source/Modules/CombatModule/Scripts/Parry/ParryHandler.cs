@@ -6,7 +6,7 @@ namespace Source.Modules.CombatModule.Scripts.Parry
 {
     public class ParryHandler 
     {
-        private static string parryAnimationName = "StrongParryAnimation";
+        private const string ParryAnimationName = "StrongParryAnimation";
         private Entity _entity;
         private ParryHandlerData _parryHandlerData;
         private float _lastParryQuery;
@@ -31,7 +31,7 @@ namespace Source.Modules.CombatModule.Scripts.Parry
 
             
             _entity.Get<AnimationHandler>()
-                .OverrideAnimation(parryAnimationName,currentParryAnimation);
+                .OverrideAnimation(ParryAnimationName,currentParryAnimation);
             
             _lastParryQuery = Time.time;
         }

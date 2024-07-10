@@ -28,7 +28,6 @@ namespace Source.Modules.HealthModule.Scripts
                     if (selectedInteraction != null && selectedInteraction.CanInteract(_entity) &&
                         _conditions.TrueForAll(a => a.GetConditionStatus() == TaskStatus.Success))
                     {
-                        Debug.LogError("Transittt");
                         OnNeedTransit(this);
                         _disposable?.Dispose();
                     }

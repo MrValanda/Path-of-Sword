@@ -16,6 +16,7 @@ namespace Source.Scripts.AbilityActions
     public class DamageByFov : IAbilityAction
     {
         [SerializeField] private LayerMask _layerObstacles;
+        [SerializeField] private LayerMask _layerDetect;
         [SerializeField] private DamageableContainerSetup _damageableContainerSetup;
         private FieldOfViewChecker _fieldOfViewChecker;
 
@@ -47,7 +48,7 @@ namespace Source.Scripts.AbilityActions
             IDamageable sender = null)
         {
             _fieldOfViewChecker ??= new FieldOfViewChecker();
-            Collider[] overlapSphere = Physics.OverlapSphere(castPoint.position, radius);
+            Collider[] overlapSphere = Physics.OverlapSphere(castPoint.position, radius,_layerDetect);
             List<IDamageable> unitsToAttack = overlapSphere
                 .Where(x => CheckUnitInFieldOfView(castPoint, radius, angle, x))
                 .Where(x => x.CanAttackUnit(_damageableContainerSetup))

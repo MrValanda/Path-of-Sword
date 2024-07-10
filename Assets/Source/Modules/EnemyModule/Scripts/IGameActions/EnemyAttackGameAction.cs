@@ -85,7 +85,7 @@ namespace Source.Scripts.GameActions
             }
 
             _abilityEventListener.AbilityEnded -= OnAbilityEnded;
-            List<AttackAbilitySetup> attackSetups = abilityChains[_previousChainIndex].AbilitySetups;
+            List<BaseAbilitySetup> attackSetups = abilityChains[_previousChainIndex].AbilitySetups;
 
             if (_currentUsedAttackAbility != null && _previousIndex >= attackSetups.Count)
             {
@@ -98,7 +98,7 @@ namespace Source.Scripts.GameActions
                 return TaskStatus.Success;
             }
 
-            AttackAbilitySetup currentAttackSetup = attackSetups[_previousIndex];
+            BaseAbilitySetup currentAttackSetup = attackSetups[_previousIndex];
 
             _previousIndex++;
 

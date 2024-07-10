@@ -1,5 +1,5 @@
 ﻿using Lean.Pool;
-using Source.Scripts_DONT_USE_THIS_FOLDER_.Tools;
+using Source.Modules.Tools;
 using UnityEngine;
 
 namespace Source.Modules.CombatModule.Scripts.Parry

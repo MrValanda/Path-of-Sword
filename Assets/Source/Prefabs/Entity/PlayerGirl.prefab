@@ -8901,6 +8901,10 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7967983471246579409, guid: c5e9135b749f7cd4a960fd1c4a14940a, type: 3}
+      propertyPath: _effect
+      value: 
+      objectReference: {fileID: 1310401834927732297, guid: 77d6e8e3fa15a0b419d018e3e16931f6, type: 3}
+    - target: {fileID: 7967983471246579409, guid: c5e9135b749f7cd4a960fd1c4a14940a, type: 3}
       propertyPath: _effectPoint
       value: 
       objectReference: {fileID: 5285812931052072423}

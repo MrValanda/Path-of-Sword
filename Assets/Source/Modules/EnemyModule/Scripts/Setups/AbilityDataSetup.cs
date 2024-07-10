@@ -2,6 +2,7 @@
 using Sirenix.OdinInspector;
 using Sirenix.Serialization;
 using Source.Scripts.AnimationEventNames;
+using UnityEditor;
 using UnityEngine;
 
 namespace Source.Scripts.Setups
@@ -36,6 +37,8 @@ namespace Source.Scripts.Setups
 
             StartAttackTime = startPreparationEvent.time;
             PreparationAttackTime = endPreparationEvent.time - startPreparationEvent.time;
+            EditorUtility.SetDirty(this);
+            AssetDatabase.SaveAssets();
         }
 #endif
     }

@@ -23,7 +23,7 @@ MonoBehaviour:
     SerializationNodes: []
   <AbilityAnimation>k__BackingField: {fileID: 7400002, guid: 899ccc5bb593a7f43aa8c65d4178d9fc, type: 3}
   <AbilityDataSetup>k__BackingField: {fileID: 11400000, guid: f3faac1188f97b443b2c823ba78d1dfa, type: 2}
-  <AbilityToUseConditions>k__BackingField: {fileID: 11400000, guid: 0aa27a1332152b844baa80ab097ad1e6, type: 2}
+  <AbilityToUseConditions>k__BackingField: {fileID: 0}
   <AbilityPreparationStartActions>k__BackingField: {fileID: 0}
   <AbilityPreparationEndActions>k__BackingField: {fileID: 0}
   <AbilityStartedActions>k__BackingField: {fileID: 11400000, guid: 2bf662a8606545543832f9e08450fd9c, type: 2}

@@ -32,13 +32,7 @@ MonoBehaviour:
       Data: 4
     - Name: 
       Entry: 7
-      Data: 1|Source.Scripts.AbilityActions.DisableWeapon, Assembly-CSharp
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 2|Source.Scripts.AbilityActions.AbilityVFXAction, Assembly-CSharp
+      Data: 1|Source.Scripts.AbilityActions.AbilityVFXAction, Assembly-CSharp
     - Name: _abilityParticle
       Entry: 10
       Data: 0
@@ -47,13 +41,22 @@ MonoBehaviour:
       Data: 
     - Name: 
       Entry: 7
-      Data: 3|Source.Scripts.AbilityActions.DamageByFov, Assembly-CSharp
+      Data: 2|Source.Scripts.AbilityActions.DamageByFov, Assembly-CSharp
     - Name: _layerObstacles
       Entry: 7
       Data: UnityEngine.LayerMask, UnityEngine.CoreModule
     - Name: 
       Entry: 3
       Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: _layerDetect
+      Entry: 7
+      Data: UnityEngine.LayerMask, UnityEngine.CoreModule
+    - Name: 
+      Entry: 3
+      Data: 64
     - Name: 
       Entry: 8
       Data: 
@@ -65,8 +68,14 @@ MonoBehaviour:
       Data: 
     - Name: 
       Entry: 7
-      Data: 4|Source.Modules.EnemyModule.Scripts.IGameActions.StopMoveToTargetAction,
+      Data: 3|Source.Modules.EnemyModule.Scripts.IGameActions.StopMoveToTargetAction,
         Assembly-CSharp
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 4|Source.Scripts.AbilityActions.DisableWeapon, Assembly-CSharp
     - Name: 
       Entry: 8
       Data: 

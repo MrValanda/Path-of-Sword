@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d4d743e4b7e4abf963ff1598df79d8b, type: 3}
+  m_Name: LongAttackPart_2
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes: []
+  <AbilityAnimation>k__BackingField: {fileID: 4245958842618575765, guid: 899ccc5bb593a7f43aa8c65d4178d9fc, type: 3}
+  <AbilityDataSetup>k__BackingField: {fileID: 11400000, guid: 74e4352adfb999c43a3bb05296552baa, type: 2}
+  <AbilityToUseConditions>k__BackingField: {fileID: 0}
+  <AbilityPreparationStartActions>k__BackingField: {fileID: 11400000, guid: 8e0a4ac3cd1cb124cad58194289d2c6e, type: 2}
+  <AbilityPreparationEndActions>k__BackingField: {fileID: 11400000, guid: 7b024c5ac24486c49baf05faac8f9a96, type: 2}
+  <AbilityStartedActions>k__BackingField: {fileID: 11400000, guid: 29d67a59404256c4b87b19a80d214b68, type: 2}
+  <AbilityEndedActions>k__BackingField: {fileID: 11400000, guid: 64cbc28a97c08dd4d8b0ef31320bc1ce, type: 2}

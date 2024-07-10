@@ -39,7 +39,7 @@ MonoBehaviour:
       Data: 2|Source.Scripts.AbilityConditions.DistanceAbilityCondition, Assembly-CSharp
     - Name: _maxDistance
       Entry: 4
-      Data: 5
+      Data: 2
     - Name: _minDistance
       Entry: 4
       Data: 0

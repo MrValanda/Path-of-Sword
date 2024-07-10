@@ -1,4 +1,4 @@
-using Source.Scripts_DONT_USE_THIS_FOLDER_.Tools;
+using Source.Modules.Tools;
 using UnityEngine;
 
 namespace Source.Modules.LockOnTargetModule.Scripts
@@ -20,6 +20,7 @@ namespace Source.Modules.LockOnTargetModule.Scripts
 
         private void Update()
         {
+            if(_target == null) return;
             transform.LookAt(_camera.transform);
             transform.position = _target.position;
         }

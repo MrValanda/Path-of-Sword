@@ -1,6 +1,6 @@
 using Cinemachine;
 using Source.Modules.JobsMethodsModule;
-using Source.Scripts_DONT_USE_THIS_FOLDER_.Tools;
+using Source.Modules.Tools;
 using UnityEngine;
 
 namespace Source.Modules.LockOnTargetModule.Scripts
@@ -99,12 +99,7 @@ namespace Source.Modules.LockOnTargetModule.Scripts
             _cameraLockOn.Priority = 0;
             CurrentLockOnTarget = null;
         }
-
-        private void OnDrawGizmosSelected()
-        {
-            Gizmos.DrawWireSphere(transform.position, _radiusLockAt);
-        }
-
+        
         private void RemoveSpawnedView()
         {
             if (CurrentLockOnTarget == null) return;

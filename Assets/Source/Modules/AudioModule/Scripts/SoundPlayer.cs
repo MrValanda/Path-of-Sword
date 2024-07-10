@@ -37,8 +37,8 @@ namespace Source.Modules.AudioModule
         private void OnDestroy()
         {
             _fadeTween?.Kill(true);
+            _soundContainer.Release();
         }
-        
 
         public void Stop3DSound(SoundType soundType)
         {
